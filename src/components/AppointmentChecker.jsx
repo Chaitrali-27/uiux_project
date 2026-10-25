@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { SearchIcon, CheckIcon, CalendarIcon, XIcon, ArrowRightIcon } from './Icons';
+import { getTranslation } from '../utils/translations';
 
-export const AppointmentChecker = ({ onBookSlot }) => {
+export const AppointmentChecker = ({ language = 'en', onBookSlot }) => {
+  const t = getTranslation(language);
   const [selectedOffice, setSelectedOffice] = useState('Mumbai');
   const [quotaFilter, setQuotaFilter] = useState('all');
   const [dateHorizon, setDateHorizon] = useState('all');
@@ -146,10 +148,10 @@ export const AppointmentChecker = ({ onBookSlot }) => {
     <section className="section" id="appointment" style={{ backgroundColor: '#F9FAFB' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">Appointment Real-Time Availability</span>
-          <h2 className="section-title">Passport Seva Kendra (PSK) Slot Status</h2>
+          <span className="section-tag">{t.appointmentTag}</span>
+          <h2 className="section-title">{t.appointmentTitle}</h2>
           <p className="section-desc">
-            Check live appointment openings across regional jurisdictions with unambiguous appointment date labeling, calendar heatmap, and multi-criteria filters.
+            {t.appointmentDesc}
           </p>
         </div>
 
@@ -406,7 +408,7 @@ export const AppointmentChecker = ({ onBookSlot }) => {
                       className="btn btn-navy btn-sm"
                       onClick={() => setSlotDetail(slot)}
                     >
-                      Inspect & Reserve Slot
+                      {t.inspectSlotBtn}
                     </button>
                   </div>
                 </div>
@@ -495,7 +497,7 @@ export const AppointmentChecker = ({ onBookSlot }) => {
                   onBookSlot(s);
                 }}
               >
-                <span>Proceed to Online Application Form</span>
+                <span>{t.proceedSlotAppBtn}</span>
                 <ArrowRightIcon className="w-4 h-4" />
               </button>
               <button

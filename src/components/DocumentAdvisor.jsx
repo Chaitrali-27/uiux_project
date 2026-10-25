@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { CheckIcon, ArrowRightIcon, InfoIcon } from './Icons';
+import { getTranslation } from '../utils/translations';
 
-export const DocumentAdvisor = ({ onStartApplication }) => {
+export const DocumentAdvisor = ({ language = 'en', onStartApplication }) => {
+  const t = getTranslation(language);
   const [applicantType, setApplicantType] = useState('adult'); // adult, minor, senior
   const [serviceReason, setServiceReason] = useState('fresh'); // fresh, reissue, lost, name_change
   const [educationLevel, setEducationLevel] = useState('graduate'); // graduate, 10th_pass, below_10th
@@ -87,10 +89,10 @@ export const DocumentAdvisor = ({ onStartApplication }) => {
     <section className="section" id="document-advisor" style={{ backgroundColor: '#FFFFFF', borderTop: '1px solid #E2E8F0' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">Interactive Document Advisor</span>
-          <h2 className="section-title">Personalized Document Requirements Checklist</h2>
+          <span className="section-tag">{t.docAdvisorTag}</span>
+          <h2 className="section-title">{t.docAdvisorTitle}</h2>
           <p className="section-desc">
-            Never face rejection at the PSK. Answer 3 simple questions to generate your exact statutory document checklist tailored to your specific application profile.
+            {t.docAdvisorDesc}
           </p>
         </div>
 
@@ -245,10 +247,10 @@ export const DocumentAdvisor = ({ onStartApplication }) => {
                 className="btn btn-outline btn-sm"
                 onClick={() => alert('Official Document Checklist downloaded for your selected category (Adult Fresh / Re-issue).')}
               >
-                📄 Download Checklist (PDF)
+                {t.downloadPdfBtn}
               </button>
               <button className="btn btn-saffron btn-sm" onClick={onStartApplication}>
-                <span>Proceed to Online Application</span>
+                <span>{t.proceedAppBtn}</span>
                 <ArrowRightIcon className="w-4 h-4" />
               </button>
             </div>

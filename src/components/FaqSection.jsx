@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { SearchIcon, ChevronDownIcon, CheckIcon } from './Icons';
+import { getTranslation } from '../utils/translations';
 
-export const FaqSection = ({ onContactHelp }) => {
+export const FaqSection = ({ language = 'en', onContactHelp }) => {
+  const t = getTranslation(language);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [expandedId, setExpandedId] = useState(1);
+
 
   const categories = [
     'All', 
@@ -168,10 +171,10 @@ Original documents along with one self-attested photocopy must be presented on y
     <section className="section" id="faq" style={{ backgroundColor: '#FFFFFF', borderTop: '2px solid var(--border-medium)', fontFamily: 'var(--font-serif)' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">Centralized Knowledge Base</span>
-          <h2 className="section-title">Frequently Asked Questions & Citizen Guidelines</h2>
+          <span className="section-tag">{t.faqTag}</span>
+          <h2 className="section-title">{t.faqTitle}</h2>
           <p className="section-desc">
-            Search our comprehensive repository of statutory passport rules, document checklists, and citizen self-help articles.
+            {t.faqDesc}
           </p>
         </div>
 
@@ -190,7 +193,7 @@ Original documents along with one self-attested photocopy must be presented on y
             <SearchIcon className="w-5 h-5" style={{ color: 'var(--gov-navy)', marginRight: '12px', flexShrink: 0 }} />
             <input 
               type="text"
-              placeholder="Type any keyword (e.g. tatkaal, documents, police, fees, minor, lost, photo)..."
+              placeholder={t.faqSearchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{
@@ -219,7 +222,7 @@ Original documents along with one self-attested photocopy must be presented on y
                   marginLeft: '8px'
                 }}
               >
-                Clear
+                {t.clearBtn}
               </button>
             )}
           </div>
@@ -407,13 +410,13 @@ Original documents along with one self-attested photocopy must be presented on y
                   onClick={() => setSearchQuery('')}
                   className="btn btn-outline btn-sm"
                 >
-                  Clear Search
+                  {t.clearBtn}
                 </button>
                 <button 
                   onClick={onContactHelp}
                   className="btn btn-navy btn-sm"
                 >
-                  Ask Seva Mitra AI Chatbot →
+                  {t.askChatbotBtn}
                 </button>
               </div>
             </div>

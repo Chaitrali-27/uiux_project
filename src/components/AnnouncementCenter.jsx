@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
 import { ShieldIcon, AlertCircleIcon, CheckIcon } from './Icons';
+import { getTranslation } from '../utils/translations';
 
-export const AnnouncementCenter = () => {
+export const AnnouncementCenter = ({ language = 'en' }) => {
+  const t = getTranslation(language);
   const [activeTab, setActiveTab] = useState('active');
 
   const activeNotices = [
     {
       id: 1,
-      title: 'Special Saturday Passport Processing Camps',
+      title: language === 'gu' ? 'વિશેષ શનિવાર પાસપોર્ટ પ્રોસેસિંગ કેમ્પ' : language === 'hi' ? 'विशेष शनिवार पासपोर्ट प्रोसेसिंग शिविर' : 'Special Saturday Passport Processing Camps',
       rpo: 'Mumbai, Pune & Bengaluru RPOs',
       published: '20 October 2026',
-      validTill: 'Active until 30 November 2026',
-      desc: 'To facilitate working professionals and students, select Passport Seva Kendras will operate on alternate Saturdays. Online appointment booking mandatory.',
+      validTill: language === 'gu' ? '30 નવેમ્બર 2026 સુધી સક્રિય' : 'Active until 30 November 2026',
+      desc: language === 'gu' ? 'કામકાજી વ્યાવસાયિકો અને વિદ્યાર્થીઓ માટે પસંદગીના કેન્દ્રો વૈકલ્પિક શનિવારે ચાલુ રહેશે.' : 'To facilitate working professionals and students, select Passport Seva Kendras will operate on alternate Saturdays. Online appointment booking mandatory.',
       status: 'active'
     },
     {
       id: 2,
-      title: 'Advisory on Non-Official / Lookalike Websites',
+      title: language === 'gu' ? 'બિન-સત્તાવાર વેબસાઇટ્સ અંગે સાવચેતી સલાહ' : language === 'hi' ? 'अनधिकृत / फर्जी वेबसाइटों से सावधान रहने की सलाह' : 'Advisory on Non-Official / Lookalike Websites',
       rpo: 'All India PSKs',
       published: '15 October 2026',
-      validTill: 'Permanent Citizen Advisory',
-      desc: 'Applicants are cautioned against unauthorized third-party agencies charging arbitrary fees. All appointment scheduling is conducted strictly via passportindia.gov.in.',
+      validTill: language === 'gu' ? 'કાયમી નાગરિક સલાહ' : 'Permanent Citizen Advisory',
+      desc: language === 'gu' ? 'અનધિકૃત એજન્સીઓથી સાવચેત રહો. તમામ સેવાઓ માત્ર passportindia.gov.in દ્વારા જ સંચાલિત થાય છે.' : 'Applicants are cautioned against unauthorized third-party agencies charging arbitrary fees. All appointment scheduling is conducted strictly via passportindia.gov.in.',
       status: 'active'
     }
   ];
@@ -28,7 +30,7 @@ export const AnnouncementCenter = () => {
   const archivedNotices = [
     {
       id: 3,
-      title: 'Mobile Passport Van Camp at PSK Vijay Cross Road',
+      title: language === 'gu' ? 'મોબાઇલ પાસપોર્ટ વાન કેમ્પ - વિજય ક્રોસ રોડ' : 'Mobile Passport Van Camp at PSK Vijay Cross Road',
       rpo: 'Ahmedabad Jurisdiction',
       published: '21 July 2026',
       validTill: 'Concluded on 24 July 2026',
@@ -37,7 +39,7 @@ export const AnnouncementCenter = () => {
     },
     {
       id: 4,
-      title: 'Revised Passport Fee Notification (Historical Gazette)',
+      title: language === 'gu' ? 'સુધારેલ પાસપોર્ટ ફી ગેઝેટ સૂચના' : 'Revised Passport Fee Notification (Historical Gazette)',
       rpo: 'National CPV Division',
       published: '1 July 2025',
       validTill: 'Superseded by Schedule IV',
@@ -49,13 +51,13 @@ export const AnnouncementCenter = () => {
   const currentList = activeTab === 'active' ? activeNotices : archivedNotices;
 
   return (
-    <section className="section" id="announcements" style={{ backgroundColor: '#F9FAFB', borderTop: '1px solid #E2E8F0' }}>
+    <section className="section" id="announcements" style={{ backgroundColor: '#F9FAFB', borderTop: '1px solid #E2E8F0', fontFamily: 'var(--font-serif)' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">Public Information & Circulars</span>
-          <h2 className="section-title">Official Announcements & Public Advisories</h2>
+          <span className="section-tag">{t.announcementTag}</span>
+          <h2 className="section-title">{t.announcementTitle}</h2>
           <p className="section-desc">
-            Verified government notices with distinct active status filtering and automatic archival of past events to prevent citizen confusion.
+            {t.announcementDesc}
           </p>
         </div>
 
@@ -81,7 +83,7 @@ export const AnnouncementCenter = () => {
                 transition: 'all 0.2s ease'
               }}
             >
-              Current Active Advisories (2)
+              {t.tabActive} (2)
             </button>
 
             <button
@@ -98,7 +100,7 @@ export const AnnouncementCenter = () => {
                 transition: 'all 0.2s ease'
               }}
             >
-              Archived / Past Notices (2)
+              {t.tabArchived} (2)
             </button>
           </div>
         </div>

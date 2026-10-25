@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { InfoIcon, ArrowRightIcon } from './Icons';
+import { getTranslation } from '../utils/translations';
 
-export const FeeCalculator = ({ onApplyNow }) => {
+export const FeeCalculator = ({ language = 'en', onApplyNow }) => {
+  const t = getTranslation(language);
   const [serviceType, setServiceType] = useState('fresh');
   const [applicantAge, setApplicantAge] = useState('adult');
   const [pages, setPages] = useState('36');
@@ -32,10 +34,10 @@ export const FeeCalculator = ({ onApplyNow }) => {
     <section className="section" id="fee-calculator" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">Fee Structure & Calculator</span>
-          <h2 className="section-title">Official Passport Service Fee Calculator</h2>
+          <span className="section-tag">{t.feeCalcTag}</span>
+          <h2 className="section-title">{t.feeCalcTitle}</h2>
           <p className="section-desc">
-            Calculate exact statutory fees under Schedule IV of the Passports Rules, 1980, including age concessions and expedited delivery surcharges.
+            {t.feeCalcDesc}
           </p>
         </div>
 

@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import { ArrowRightIcon, ShieldIcon, CheckIcon, SearchIcon, AlertCircleIcon } from './Icons';
+import { getTranslation } from '../utils/translations';
 
-export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick, onDocAdvisorClick }) => {
+export const Hero = ({ 
+  language = 'en', 
+  onApplyClick, 
+  onTrackClick, 
+  onCheckSlotsClick, 
+  onDocAdvisorClick 
+}) => {
+  const t = getTranslation(language);
   const [activeTab, setActiveTab] = useState('file'); // 'file' or 'consignment'
   const [fileNumber, setFileNumber] = useState('');
   const [dob, setDob] = useState('');
@@ -42,7 +50,7 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
       position: 'relative',
       background: 'linear-gradient(135deg, #051428 0%, #0A2244 50%, #0D2D58 100%)',
       color: '#FFFFFF',
-      padding: '48px 0 56px 0',
+      padding: '48px 0 52px 0',
       borderBottom: '3px solid var(--gov-gold)',
       overflow: 'hidden',
       fontFamily: 'var(--font-serif)'
@@ -63,7 +71,7 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
         gap: '40px',
         alignItems: 'center'
       }}>
-        {/* Left Column: Authoritative National Value Proposition */}
+        {/* Left Column: Authoritative, Uncluttered National Value Proposition */}
         <div>
           {/* Official National Portal Tag */}
           <div style={{
@@ -75,94 +83,46 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
             padding: '6px 14px',
             borderRadius: '9999px',
             marginBottom: '18px',
-            fontSize: '12.5px',
+            fontSize: '12px',
             color: '#FDE047',
             fontWeight: 700,
             letterSpacing: '0.04em'
           }}>
             <span>🇮🇳</span>
-            <span>Official Digital Portal • Ministry of External Affairs, Government of India</span>
+            <span>{t.heroTag}</span>
           </div>
 
-          {/* Grand Heading with Dynamic Visual Contrast */}
+          {/* Grand Heading with Dynamic Visual Emphasis */}
           <h1 style={{
-            fontSize: '38px',
+            fontSize: '36px',
             fontWeight: 800,
-            lineHeight: 1.2,
+            lineHeight: 1.25,
             letterSpacing: '0.02em',
             marginBottom: '16px',
             color: '#FFFFFF'
           }}>
-            Delivering Passport Services with{' '}
-            <span style={{ color: '#FDE047', textShadow: '0 2px 10px rgba(253, 224, 71, 0.3)' }}>
-              Speed
-            </span>
-            ,{' '}
-            <span style={{ color: '#86EFAC', textShadow: '0 2px 10px rgba(134, 239, 172, 0.3)' }}>
-              Transparency
-            </span>{' '}
-            &{' '}
-            <span style={{ color: '#FCD34D' }}>
-              Sovereign Trust
-            </span>
+            {t.heroTitle}
           </h1>
 
           <p style={{
-            fontSize: '16px',
+            fontSize: '15.5px',
             lineHeight: 1.6,
             color: '#E2E8F0',
-            marginBottom: '24px',
-            maxWidth: '560px'
-          }}>
-            Apply online for Fresh Passports, Re-issue, Police Clearance Certificates (PCC), or monitor your application progress with real-time India Post Speed Post tracking.
-          </p>
-
-          {/* Quick Highlights Ribbon */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '12px',
             marginBottom: '28px',
             maxWidth: '560px'
           }}>
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.06)',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
-              padding: '10px 12px',
-              borderRadius: '8px'
-            }}>
-              <div style={{ fontSize: '12px', color: '#FDE047', fontWeight: 700 }}>⚡ Tatkaal Dispatch</div>
-              <div style={{ fontSize: '13.5px', fontWeight: 800, color: '#FFFFFF' }}>1 to 3 Days</div>
-            </div>
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.06)',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
-              padding: '10px 12px',
-              borderRadius: '8px'
-            }}>
-              <div style={{ fontSize: '12px', color: '#86EFAC', fontWeight: 700 }}>📍 Nationwide Reach</div>
-              <div style={{ fontSize: '13.5px', fontWeight: 800, color: '#FFFFFF' }}>550+ Kendras</div>
-            </div>
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.06)',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
-              padding: '10px 12px',
-              borderRadius: '8px'
-            }}>
-              <div style={{ fontSize: '12px', color: '#93C5FD', fontWeight: 700 }}>🔒 National ID Check</div>
-              <div style={{ fontSize: '13.5px', fontWeight: 800, color: '#FFFFFF' }}>DigiLocker & UIDAI</div>
-            </div>
-          </div>
+            {t.heroSubtitle}
+          </p>
 
-          {/* Primary Action Buttons */}
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+          {/* Primary Action Buttons — Clean & Uncluttered */}
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '24px' }}>
             <button 
               className="btn btn-saffron btn-lg"
               onClick={onApplyClick}
               style={{ padding: '12px 24px', fontSize: '15px', fontWeight: 700 }}
               title="Start a new passport application"
             >
-              <span>Apply for Passport</span>
+              <span>{t.applyPassportBtn}</span>
               <ArrowRightIcon className="w-5 h-5" />
             </button>
 
@@ -171,7 +131,7 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
               onClick={onDocAdvisorClick}
               style={{ background: '#FFFFFF', color: '#081E3A', padding: '12px 20px', fontSize: '15px', fontWeight: 700 }}
             >
-              <span>Document Advisor 📄</span>
+              <span>{t.docAdvisorBtn} 📄</span>
             </button>
 
             <button 
@@ -179,12 +139,25 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
               style={{ color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.08)', padding: '12px 18px', fontSize: '14.5px' }}
               onClick={onCheckSlotsClick}
             >
-              <span>Appointment Slots 📅</span>
+              <span>{t.checkSlotsBtn} 📅</span>
             </button>
+          </div>
+
+          {/* Clean Single-Line Trust Marks */}
+          <div style={{ display: 'flex', gap: '18px', flexWrap: 'wrap', fontSize: '12.5px', color: '#CBD5E1' }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <ShieldIcon className="w-4 h-4" style={{ color: '#FDE047' }} /> {t.trustPill1}
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <CheckIcon className="w-4 h-4" style={{ color: '#86EFAC' }} /> {t.trustPill2}
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <ShieldIcon className="w-4 h-4" style={{ color: '#93C5FD' }} /> {t.trustPill3}
+            </span>
           </div>
         </div>
 
-        {/* Right Column: Sleek, Compact Live Application Tracker (Refined Proportions) */}
+        {/* Right Column: Sleek, Compact Live Application Tracker (Fully Translated) */}
         <div style={{
           background: '#FFFFFF',
           borderRadius: '16px',
@@ -212,16 +185,16 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
                 🔍
               </div>
               <div>
-                <h3 style={{ fontSize: '16.5px', fontWeight: 700, margin: 0, color: 'var(--gov-navy)' }}>
-                  Live Application Tracker
+                <h3 style={{ fontSize: '16px', fontWeight: 700, margin: 0, color: 'var(--gov-navy)' }}>
+                  {t.trackBoxTitle}
                 </h3>
                 <span style={{ fontSize: '11px', color: '#0F766E', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <span>●</span> India Post API Connected
+                  <span>●</span> {t.trackBoxBadge}
                 </span>
               </div>
             </div>
 
-            {/* Autofill Pill */}
+            {/* Autofill Sample Button */}
             <button
               type="button"
               onClick={handleAutofillSample}
@@ -237,7 +210,7 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
               }}
               title="Click to fill sample file BOM069123456726"
             >
-              Sample Fill ⚡
+              {t.sampleFillBtn}
             </button>
           </div>
 
@@ -253,13 +226,13 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
                 background: activeTab === 'file' ? '#FFFFFF' : 'none',
                 color: activeTab === 'file' ? 'var(--gov-navy)' : '#64748B',
                 fontWeight: 700,
-                fontSize: '12.5px',
+                fontSize: '12px',
                 borderRadius: '6px',
                 cursor: 'pointer',
                 boxShadow: activeTab === 'file' ? 'var(--shadow-subtle)' : 'none'
               }}
             >
-              15-Digit File No.
+              {t.tabFileNo}
             </button>
             <button
               type="button"
@@ -271,13 +244,13 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
                 background: activeTab === 'consignment' ? '#FFFFFF' : 'none',
                 color: activeTab === 'consignment' ? 'var(--gov-navy)' : '#64748B',
                 fontWeight: 700,
-                fontSize: '12.5px',
+                fontSize: '12px',
                 borderRadius: '6px',
                 cursor: 'pointer',
                 boxShadow: activeTab === 'consignment' ? 'var(--shadow-subtle)' : 'none'
               }}
             >
-              Speed Post Barcode
+              {t.tabSpeedPost}
             </button>
           </div>
 
@@ -285,8 +258,8 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
             {activeTab === 'file' ? (
               <>
                 <div style={{ marginBottom: '12px' }}>
-                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '4px' }}>
-                    File Number / Application Reference <span style={{ color: 'var(--gov-red)' }}>*</span>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '4px' }}>
+                    {t.fileNoLabel} <span style={{ color: 'var(--gov-red)' }}>*</span>
                   </label>
                   <input 
                     type="text" 
@@ -304,14 +277,14 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
                   />
                   {trackError && !fileNumber && (
                     <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>
-                      Please enter your 15-character File Number
+                      Please enter your File Number
                     </div>
                   )}
                 </div>
 
                 <div style={{ marginBottom: '16px' }}>
-                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '4px' }}>
-                    Date of Birth (DOB) <span style={{ color: 'var(--gov-red)' }}>*</span>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '4px' }}>
+                    {t.dobLabel} <span style={{ color: 'var(--gov-red)' }}>*</span>
                   </label>
                   <input 
                     type="date" 
@@ -335,8 +308,8 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
               </>
             ) : (
               <div style={{ marginBottom: '16px' }}>
-                <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '4px' }}>
-                  Speed Post Consignment Barcode <span style={{ color: 'var(--gov-red)' }}>*</span>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '4px' }}>
+                  {t.barcodeLabel} <span style={{ color: 'var(--gov-red)' }}>*</span>
                 </label>
                 <input 
                   type="text" 
@@ -354,7 +327,7 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
                 />
                 {trackError && !consignmentNo && (
                   <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>
-                    Please enter your 13-character Speed Post Barcode
+                    Please enter your Speed Post Barcode
                   </div>
                 )}
               </div>
@@ -366,15 +339,15 @@ export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick
               style={{ width: '100%', padding: '10px', fontSize: '13.5px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
             >
               <SearchIcon className="w-4 h-4" />
-              <span>Track Live Dispatch Status</span>
+              <span>{t.trackStatusBtn}</span>
             </button>
 
             {/* Micro Stepper Preview */}
-            <div style={{ marginTop: '14px', paddingTop: '10px', borderTop: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', fontSize: '10.5px', color: '#64748B' }}>
-              <span>✓ Accepted</span>
-              <span>✓ Biometrics</span>
-              <span style={{ color: '#0F766E', fontWeight: 700 }}>✓ Verified</span>
-              <span>📦 Dispatched</span>
+            <div style={{ marginTop: '14px', paddingTop: '10px', borderTop: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: '#64748B' }}>
+              <span>✓ {t.stepperAccepted}</span>
+              <span>✓ {t.stepperBiometrics}</span>
+              <span style={{ color: '#0F766E', fontWeight: 700 }}>✓ {t.stepperVerified}</span>
+              <span>📦 {t.stepperDispatched}</span>
             </div>
           </form>
         </div>

@@ -108,6 +108,7 @@ export default function App() {
           {/* Hero Section */}
           <div id="hero">
             <Hero
+              language={language}
               onApplyClick={() => setWizardOpen(true)}
               onTrackClick={handleTrackFile}
               onCheckSlotsClick={() => handleNavigation('appointment')}
@@ -117,43 +118,43 @@ export default function App() {
           </div>
 
           {/* Announcement & Circular Center (Active vs Archived) */}
-          <AnnouncementCenter />
+          <AnnouncementCenter language={language} />
 
           {/* Interactive Document Advisor Engine */}
           <div id="document-advisor">
-            <DocumentAdvisor onStartApplication={() => setWizardOpen(true)} />
+            <DocumentAdvisor language={language} onStartApplication={() => setWizardOpen(true)} />
           </div>
 
           {/* Citizen Services */}
           <div id="services">
-            <ServicesSection onSelectService={() => setWizardOpen(true)} />
+            <ServicesSection language={language} onSelectService={() => setWizardOpen(true)} />
           </div>
 
           {/* Statistics Section */}
           <div id="stats">
-            <StatsSection />
+            <StatsSection language={language} />
           </div>
 
           {/* Appointment Availability Finder (Table & Heatmap View) */}
           <div id="appointment">
-            <AppointmentChecker onBookSlot={() => setWizardOpen(true)} />
+            <AppointmentChecker language={language} onBookSlot={() => setWizardOpen(true)} />
           </div>
 
           {/* Interactive Fee Calculator */}
           <div id="fee-calculator">
-            <FeeCalculator onApplyNow={() => setWizardOpen(true)} />
+            <FeeCalculator language={language} onApplyNow={() => setWizardOpen(true)} />
           </div>
 
           {/* Centralized FAQ Knowledge Base */}
           <div id="faq">
-            <FaqSection onContactHelp={() => setChatbotOpen(true)} />
+            <FaqSection language={language} onContactHelp={() => setChatbotOpen(true)} />
           </div>
         </>
       )}
 
       {/* Official Harmonized Footer */}
       <div id="footer">
-        <Footer />
+        <Footer language={language} />
       </div>
 
       {/* Registration & Login Modal with Guidance */}

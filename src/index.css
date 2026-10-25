@@ -111,12 +111,18 @@ h1, h2, h3, h4, h5, h6, .serif-heading {
   background: #FFFFFF;
 }
 
-.top-utility-bar {
-  background-color: var(--gov-navy-dark);
-  color: #94A3B8;
+.utility-bar, .top-utility-bar {
+  background-color: #041021 !important;
+  background: #041021 !important;
+  color: #FFFFFF !important;
   font-size: 12.5px;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(194, 147, 41, 0.25);
+  border-bottom: 1px solid rgba(194, 147, 41, 0.4);
+  width: 100%;
+}
+
+.utility-bar span, .utility-bar button, .utility-bar div, .utility-bar strong {
+  color: inherit;
 }
 
 .utility-content {
@@ -137,8 +143,9 @@ h1, h2, h3, h4, h5, h6, .serif-heading {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #CBD5E1;
+  color: #FFFFFF !important;
   text-decoration: none;
+  font-weight: 500;
   transition: var(--transition);
 }
 

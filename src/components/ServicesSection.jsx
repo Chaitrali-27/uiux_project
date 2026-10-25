@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ArrowRightIcon, XIcon, CheckIcon, ShieldIcon } from './Icons';
+import { getTranslation } from '../utils/translations';
 
-export const ServicesSection = ({ onSelectService, onExploreDocs }) => {
+export const ServicesSection = ({ language = 'en', onSelectService, onExploreDocs }) => {
+  const t = getTranslation(language);
   const [selectedServiceDetail, setSelectedServiceDetail] = useState(null);
 
   const services = [
@@ -112,10 +114,10 @@ export const ServicesSection = ({ onSelectService, onExploreDocs }) => {
     <section className="section" id="services" style={{ backgroundColor: '#F8FAFC', fontFamily: 'var(--font-serif)' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">Citizen Services</span>
-          <h2 className="section-title">Comprehensive Passport & Travel Documentation</h2>
+          <span className="section-tag">{t.servicesTag}</span>
+          <h2 className="section-title">{t.servicesTitle}</h2>
           <p className="section-desc">
-            Explore official procedures, required documents, statutory tariffs, and processing timelines. Click any card to inspect full requirements before initiating an application.
+            {t.servicesDesc}
           </p>
         </div>
 
@@ -173,7 +175,7 @@ export const ServicesSection = ({ onSelectService, onExploreDocs }) => {
                   fontWeight: 700,
                   fontSize: '13.5px'
                 }}>
-                  <span>View Details & Rules</span>
+                  <span>{t.viewDetailsBtn}</span>
                   <ArrowRightIcon className="w-4 h-4" />
                 </div>
               </div>
@@ -272,7 +274,7 @@ export const ServicesSection = ({ onSelectService, onExploreDocs }) => {
                   onSelectService(selectedServiceDetail.id);
                 }}
               >
-                <span>Initiate Online Application</span>
+                <span>{t.startAppBtn}</span>
                 <ArrowRightIcon className="w-4 h-4" />
               </button>
               <button

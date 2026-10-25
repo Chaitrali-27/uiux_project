@@ -1,9 +1,12 @@
 import React from 'react';
 import { PhoneIcon, ShieldIcon } from './Icons';
+import { getTranslation } from '../utils/translations';
 
-export const Footer = () => {
+export const Footer = ({ language = 'en' }) => {
+  const t = getTranslation(language);
+
   return (
-    <footer className="footer-wrapper">
+    <footer className="footer-wrapper" style={{ fontFamily: 'var(--font-serif)' }}>
       <div className="container">
         <div className="footer-grid">
           {/* Brand & Mission */}
@@ -25,12 +28,12 @@ export const Footer = () => {
                 </svg>
               </div>
               <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--gov-gold)', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                Government of India
+                {t.brandTitle} • भारत
               </span>
             </div>
-            <h2>Passport Seva Portal</h2>
+            <h2>{t.footerAboutTitle}</h2>
             <p>
-              Official digital passport service platform of the Consular, Passport and Visa (CPV) Division, Ministry of External Affairs, Government of India.
+              {t.footerAboutText}
             </p>
             <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', color: '#CBD5E1' }}>
               <ShieldIcon className="w-4 h-4" style={{ color: 'var(--gov-gold)' }} />
@@ -40,19 +43,19 @@ export const Footer = () => {
 
           {/* Column 1: Citizen Services */}
           <div className="footer-column">
-            <h3>Citizen Services</h3>
+            <h3>{t.footerServicesTitle}</h3>
             <ul className="footer-links">
-              <li><a href="#services" className="footer-link">Apply for Fresh Passport</a></li>
-              <li><a href="#services" className="footer-link">Tatkaal Expedited Scheme</a></li>
-              <li><a href="#services" className="footer-link">Police Clearance Certificate</a></li>
-              <li><a href="#appointment" className="footer-link">PSK Appointment Availability</a></li>
-              <li><a href="#fee-calculator" className="footer-link">Fee Calculator & Concessions</a></li>
+              <li><a href="#services" className="footer-link">{t.applyPassportBtn}</a></li>
+              <li><a href="#services" className="footer-link">{t.docAdvisorBtn}</a></li>
+              <li><a href="#appointment" className="footer-link">{t.checkSlotsBtn}</a></li>
+              <li><a href="#fee-calculator" className="footer-link">{t.feeCalcTitle}</a></li>
+              <li><a href="#faq" className="footer-link">{t.faqTitle}</a></li>
             </ul>
           </div>
 
           {/* Column 2: Legal & Statutory */}
           <div className="footer-column">
-            <h3>Legal & Compliance</h3>
+            <h3>{t.footerLegalTitle}</h3>
             <ul className="footer-links">
               <li><a href="#terms" className="footer-link">The Passports Act, 1967</a></li>
               <li><a href="#terms" className="footer-link">Passport Rules & Amendments</a></li>
@@ -64,11 +67,11 @@ export const Footer = () => {
 
           {/* Column 3: Contact & Help */}
           <div className="footer-column">
-            <h3>Emergency & Contact</h3>
+            <h3>{language === 'gu' ? 'કટોકટી અને સંપર્ક' : language === 'hi' ? 'आपातकाल एवं संपर्क' : 'Emergency & Contact'}</h3>
             <ul className="footer-links">
               <li style={{ color: '#E2E8F0', fontSize: '13.5px' }}>
-                <strong style={{ color: 'var(--gov-gold)' }}>Toll Free Call Centre:</strong><br />
-                1800-258-1800 (8:00 AM – 10:00 PM IST)
+                <strong style={{ color: 'var(--gov-gold)' }}>{t.helpline.split(':')[0]}:</strong><br />
+                1800-258-1800 ({t.hours.replace('Operating Hours: ', '')})
               </li>
               <li style={{ color: '#E2E8F0', fontSize: '13.5px', marginTop: '6px' }}>
                 <strong style={{ color: 'var(--gov-gold)' }}>CPV Division:</strong><br />
@@ -82,7 +85,7 @@ export const Footer = () => {
         {/* Bottom Bar: Copyright & Accessibility */}
         <div className="footer-bottom">
           <div>
-            © 2026 Ministry of External Affairs, Government of India. Designed and maintained by National Informatics Centre (NIC).
+            {t.footerCopyright}
           </div>
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             <span>Last Updated: 25 October 2026</span>
