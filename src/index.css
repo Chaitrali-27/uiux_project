@@ -37,9 +37,10 @@
   --border-medium: #CBD5E1;
   --border-focus: #C29329;
   
-  /* Typography Families */
-  --font-serif: 'Times New Roman', 'Merriweather', Georgia, 'Cinzel', serif;
-  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography Families (Times New Roman across every text element) */
+  --font-main: 'Times New Roman', Times, 'Merriweather', Georgia, serif;
+  --font-serif: 'Times New Roman', Times, 'Merriweather', Georgia, serif;
+  --font-sans: 'Times New Roman', Times, 'Merriweather', Georgia, serif;
   
   /* Strict 8px Spatial Grid (UI-14 Fix) */
   --space-1: 4px;
@@ -69,15 +70,16 @@
   --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Base Resets */
-*, *::before, *::after {
+/* Base Resets with Global Times New Roman */
+*, *::before, *::after, input, button, select, textarea, optgroup, option {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Times New Roman', Times, 'Merriweather', Georgia, serif;
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: 'Times New Roman', Times, 'Merriweather', Georgia, serif;
   background-color: var(--bg-page);
   color: var(--text-body);
   line-height: 1.6;
@@ -86,8 +88,8 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, .serif-heading {
-  font-family: var(--font-serif);
+h1, h2, h3, h4, h5, h6, .serif-heading {
+  font-family: 'Times New Roman', Times, 'Merriweather', Georgia, serif;
   color: var(--text-heading);
   letter-spacing: -0.01em;
 }
