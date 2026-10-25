@@ -7,6 +7,7 @@ export const AppointmentChecker = ({ onBookSlot }) => {
   const [dateHorizon, setDateHorizon] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('date');
+  const [viewMode, setViewMode] = useState('table'); // 'table' or 'calendar'
 
   const passportOffices = ['Mumbai', 'Delhi', 'Bengaluru', 'Pune', 'Hyderabad', 'Ahmedabad', 'Kolkata', 'Chennai'];
 
@@ -109,7 +110,17 @@ export const AppointmentChecker = ({ onBookSlot }) => {
     }
   ];
 
-  // UX-06 Multi-Filter logic
+  // Calendar Heatmap Days Data
+  const calendarDays = [
+    { day: 'Mon', date: '26 Oct', slots: 59, status: 'Fast Filling', color: '#EA580C', bg: '#FFF7ED' },
+    { day: 'Tue', date: '27 Oct', slots: 210, status: 'Available', color: '#0F766E', bg: '#F0FDF4' },
+    { day: 'Wed', date: '28 Oct', slots: 142, status: 'Available', color: '#0F766E', bg: '#F0FDF4' },
+    { day: 'Thu', date: '29 Oct', slots: 208, status: 'Available', color: '#0F766E', bg: '#F0FDF4' },
+    { day: 'Fri', date: '30 Oct', slots: 175, status: 'Available', color: '#0F766E', bg: '#F0FDF4' },
+    { day: 'Sat', date: '31 Oct', slots: 95, status: 'Special Camp', color: '#0369A1', bg: '#EFF6FF' },
+    { day: 'Sun', date: '01 Nov', slots: 0, status: 'Closed', color: '#64748B', bg: '#F1F5F9' }
+  ];
+
   let filteredSlots = slotsData.filter((slot) => {
     const matchesCity = slot.city === selectedOffice;
     const matchesQuota = quotaFilter === 'all' || slot.quota.toLowerCase() === quotaFilter.toLowerCase();
@@ -124,7 +135,6 @@ export const AppointmentChecker = ({ onBookSlot }) => {
     return matchesCity && matchesQuota && matchesHorizon && matchesSearch;
   });
 
-  // Sorting
   if (sortBy === 'slots') {
     filteredSlots.sort((a, b) => b.totalAvailable - a.totalAvailable);
   } else {
@@ -138,11 +148,11 @@ export const AppointmentChecker = ({ onBookSlot }) => {
           <span className="section-tag">Appointment Real-Time Availability</span>
           <h2 className="section-title">Passport Seva Kendra (PSK) Slot Status</h2>
           <p className="section-desc">
-            Check live appointment openings across regional jurisdictions with unambiguous appointment date labeling and multi-criteria filters.
+            Check live appointment openings across regional jurisdictions with unambiguous appointment date labeling, calendar heatmap, and multi-criteria filters.
           </p>
         </div>
 
-        {/* UX-06 Fix: Multi-Filter Controls Bar */}
+        {/* Multi-Criteria Filters Bar */}
         <div style={{
           background: '#FFFFFF',
           borderRadius: '16px',
@@ -187,7 +197,6 @@ export const AppointmentChecker = ({ onBookSlot }) => {
             </select>
           </div>
 
-          {/* Date Range Horizon Filter (UX-06 Fix) */}
           <div className="form-group" style={{ marginBottom: 0 }}>
             <label className="form-label" htmlFor="select-horizon">
               Slot Time Horizon
@@ -219,26 +228,113 @@ export const AppointmentChecker = ({ onBookSlot }) => {
           </div>
         </div>
 
-        {/* Results Metadata & Sorting Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '10px' }}>
-          <div style={{ fontSize: '13.5px', color: '#64748B' }}>
-            Showing <strong>{filteredSlots.length} verified centers</strong> in {selectedOffice} Jurisdiction
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
-            <span style={{ color: '#64748B' }}>Sort results by:</span>
-            <select 
-              className="form-select" 
-              style={{ width: 'auto', padding: '6px 12px', fontSize: '12.5px' }}
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
+        {/* View Toggle Bar (Table View vs. Calendar Heatmap View) */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <button
+              onClick={() => setViewMode('table')}
+              style={{
+                padding: '6px 14px',
+                borderRadius: '8px',
+                border: viewMode === 'table' ? '2px solid var(--gov-navy)' : '1px solid #CBD5E1',
+                background: viewMode === 'table' ? 'var(--gov-navy)' : '#FFFFFF',
+                color: viewMode === 'table' ? '#FFFFFF' : 'var(--text-body)',
+                fontWeight: 700,
+                fontSize: '13px',
+                cursor: 'pointer'
+              }}
             >
-              <option value="date">Earliest Appointment Date</option>
-              <option value="slots">Maximum Available Slots</option>
-            </select>
+              📋 List Table View
+            </button>
+
+            <button
+              onClick={() => setViewMode('calendar')}
+              style={{
+                padding: '6px 14px',
+                borderRadius: '8px',
+                border: viewMode === 'calendar' ? '2px solid var(--gov-navy)' : '1px solid #CBD5E1',
+                background: viewMode === 'calendar' ? 'var(--gov-navy)' : '#FFFFFF',
+                color: viewMode === 'calendar' ? '#FFFFFF' : 'var(--text-body)',
+                fontWeight: 700,
+                fontSize: '13px',
+                cursor: 'pointer'
+              }}
+            >
+              📅 7-Day Slot Heatmap
+            </button>
           </div>
+
+          {viewMode === 'table' && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px' }}>
+              <span style={{ color: '#64748B' }}>Sort results by:</span>
+              <select 
+                className="form-select" 
+                style={{ width: 'auto', padding: '6px 12px', fontSize: '12.5px' }}
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+              >
+                <option value="date">Earliest Appointment Date</option>
+                <option value="slots">Maximum Available Slots</option>
+              </select>
+            </div>
+          )}
         </div>
 
-        {/* UX-04 Fix: Table Header with Explicit "Next Available Appointment Slot Date" */}
+        {/* View 1: Calendar Heatmap Mode */}
+        {viewMode === 'calendar' && (
+          <div style={{
+            background: '#FFFFFF',
+            borderRadius: '16px',
+            padding: '24px',
+            border: '1px solid var(--border-light)',
+            boxShadow: 'var(--shadow-card)',
+            marginBottom: '24px'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <h3 style={{ fontSize: '17px', fontWeight: 700, color: 'var(--gov-navy)', fontFamily: 'var(--font-serif)' }}>
+                Weekly Capacity Heatmap — {selectedOffice} Jurisdiction
+              </h3>
+              <div style={{ display: 'flex', gap: '12px', fontSize: '12px' }}>
+                <span style={{ color: '#0F766E', fontWeight: 700 }}>● High Capacity (&gt;100)</span>
+                <span style={{ color: '#EA580C', fontWeight: 700 }}>● Fast Filling (&lt;100)</span>
+                <span style={{ color: '#64748B', fontWeight: 700 }}>● Weekend / Closed</span>
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '12px' }}>
+              {calendarDays.map((cDay, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    background: cDay.bg,
+                    borderRadius: '12px',
+                    padding: '16px 12px',
+                    textAlign: 'center',
+                    border: `1px solid ${cDay.color}40`,
+                    transition: 'all 0.2s ease',
+                    cursor: cDay.slots > 0 ? 'pointer' : 'default'
+                  }}
+                  onClick={() => cDay.slots > 0 && onBookSlot({ center: `PSK ${selectedOffice}`, nextDate: `${cDay.date} 2026` })}
+                >
+                  <div style={{ fontSize: '12px', color: '#64748B', fontWeight: 700, textTransform: 'uppercase' }}>
+                    {cDay.day}
+                  </div>
+                  <div style={{ fontSize: '17px', fontWeight: 800, color: 'var(--gov-navy)', margin: '4px 0', fontFamily: 'var(--font-serif)' }}>
+                    {cDay.date}
+                  </div>
+                  <div style={{ fontSize: '18px', fontWeight: 800, color: cDay.color }}>
+                    {cDay.slots > 0 ? `${cDay.slots} Slots` : 'Closed'}
+                  </div>
+                  <div style={{ fontSize: '11px', fontWeight: 600, color: cDay.color, marginTop: '4px' }}>
+                    {cDay.status}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* View 2: Modern Table View with Explicit Labeling */}
         <div className="modern-table-container">
           <div className="modern-table-header">
             <div>Passport Kendra & Physical Location</div>
@@ -294,7 +390,6 @@ export const AppointmentChecker = ({ onBookSlot }) => {
                 </div>
 
                 <div style={{ textAlign: 'right' }}>
-                  {/* UX-04 Fix: Unambiguous date badge with calendar icon */}
                   <div className="badge-slot">
                     <CalendarIcon className="w-3.5 h-3.5" />
                     <span>{slot.nextDate}</span>

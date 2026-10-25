@@ -14,13 +14,35 @@ export const Header = ({
   onOpenSecurityTrust
 }) => {
   const t = translations[language];
+  const [isSpeaking, setIsSpeaking] = useState(false);
+
+  const toggleSpeechReader = () => {
+    if (!('speechSynthesis' in window)) {
+      alert('Speech synthesis is not supported in this browser.');
+      return;
+    }
+    if (isSpeaking) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+    } else {
+      const textToRead = language === 'hi' 
+        ? "पासपोर्ट सेवा पोर्टल में आपका स्वागत है। भारत सरकार विदेश मंत्रालय। ऑनलाइन पासपोर्ट सेवाओं के लिए आवेदन करें।" 
+        : "Welcome to Passport Seva Portal, Government of India, Ministry of External Affairs. Apply online for fresh passports, check appointment availability, or track your dispatch status.";
+      const utterance = new SpeechSynthesisUtterance(textToRead);
+      utterance.lang = language === 'hi' ? 'hi-IN' : 'en-IN';
+      utterance.onend = () => setIsSpeaking(false);
+      utterance.onerror = () => setIsSpeaking(false);
+      window.speechSynthesis.speak(utterance);
+      setIsSpeaking(true);
+    }
+  };
 
   const navItems = [
     { id: 'home', label: t.navHome },
-    { id: 'services', label: t.navServices },
+    { id: 'document-advisor', label: language === 'hi' ? 'दस्तावेज़ सलाहकार' : 'Document Advisor' },
     { id: 'appointment', label: t.navAppointments },
     { id: 'fee-calculator', label: t.navFeeCalc },
-    { id: 'track', label: t.navTrack },
+    { id: 'services', label: t.navServices },
     { id: 'faq', label: t.navFaq }
   ];
 
@@ -41,7 +63,18 @@ export const Header = ({
           </div>
 
           <div className="utility-right">
-            {/* UX-02: Verified Security SSL Trust Badge */}
+            {/* Native Voice / Speech Accessibility Button */}
+            <button 
+              onClick={toggleSpeechReader}
+              className="utility-item"
+              style={{ background: isSpeaking ? 'var(--gov-saffron)' : 'none', border: 'none', cursor: 'pointer', fontSize: '12px', color: '#FFFFFF', padding: '2px 8px', borderRadius: '4px' }}
+              title="Listen to page aloud (Screen Reader Assistant)"
+            >
+              <span>{isSpeaking ? '⏹️ Stop Audio' : '🔊 Listen to Page'}</span>
+            </button>
+            <span className="utility-divider"></span>
+
+            {/* Verified Security SSL Trust Badge */}
             <button 
               onClick={onOpenSecurityTrust}
               className="utility-item"
@@ -51,13 +84,6 @@ export const Header = ({
               <ShieldIcon className="w-3.5 h-3.5" />
               <span>Official GOI 256-bit SSL Verified</span>
             </button>
-            <span className="utility-divider"></span>
-
-            {/* Screen Reader Access */}
-            <a href="#main-content" className="utility-item" title="Skip to main content">
-              <EyeIcon className="w-3.5 h-3.5" />
-              <span>{t.screenReader}</span>
-            </a>
             <span className="utility-divider"></span>
 
             {/* Font Resizing Controls */}
@@ -87,7 +113,7 @@ export const Header = ({
 
             <span className="utility-divider"></span>
 
-            {/* UX-07: Bilingual Switcher English / Hindi */}
+            {/* Bilingual Switcher English / Hindi */}
             <button 
               className="lang-switch" 
               onClick={() => setLanguage(language === 'en' ? 'hi' : 'en')}
@@ -103,7 +129,7 @@ export const Header = ({
       {/* Primary Navigation Bar */}
       <nav className="primary-navbar">
         <div className="container navbar-content">
-          {/* Brand Identity with Ashoka Lion Emblem Representation */}
+          {/* Brand Identity */}
           <div className="brand-section" onClick={() => setCurrentTab('home')}>
             <div className="brand-emblem">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
@@ -116,7 +142,7 @@ export const Header = ({
             </div>
           </div>
 
-          {/* UX-10: Persistent Search Trigger in Header */}
+          {/* Persistent Search Trigger in Header */}
           <div 
             onClick={onOpenSearch}
             style={{

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import { DocumentAdvisor } from './components/DocumentAdvisor';
 import { ServicesSection } from './components/ServicesSection';
 import { FeeCalculator } from './components/FeeCalculator';
 import { AppointmentChecker } from './components/AppointmentChecker';
@@ -13,6 +14,7 @@ import { ApplicantDashboard } from './components/ApplicantDashboard';
 import { GlobalSearchModal } from './components/GlobalSearchModal';
 import { CitizenChatbot } from './components/CitizenChatbot';
 import { SecurityTrustModal } from './components/SecurityTrustModal';
+import { LiveTrackerModal } from './components/LiveTrackerModal';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -27,6 +29,8 @@ export default function App() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [chatbotOpen, setChatbotOpen] = useState(false);
   const [securityModalOpen, setSecurityModalOpen] = useState(false);
+  const [trackerModalOpen, setTrackerModalOpen] = useState(false);
+  const [trackedFileNo, setTrackedFileNo] = useState('BOM069123456726');
   const [userSession, setUserSession] = useState(null);
 
   const handleNavigation = (targetId) => {
@@ -41,7 +45,6 @@ export default function App() {
       return;
     }
     if (targetId === 'apply-wizard') {
-      // UX-15 Fix: Seamlessly opens the application wizard directly without loop
       setWizardOpen(true);
       return;
     }
@@ -62,9 +65,14 @@ export default function App() {
     }
   };
 
+  const handleTrackFile = (fileNumber) => {
+    setTrackedFileNo(fileNumber);
+    setTrackerModalOpen(true);
+  };
+
   return (
     <div className={`app-root font-size-${fontSize}`}>
-      {/* Header with Bilingual Toggle, SSL Trust Badge, and Global Search (UX-02, UX-07, UX-10) */}
+      {/* Header with Bilingual Toggle, SSL Trust Badge, and Global Search */}
       <Header
         currentTab={currentTab}
         setCurrentTab={handleNavigation}
@@ -79,7 +87,6 @@ export default function App() {
 
       {/* Main View: Public Portal vs Logged-In Dashboard */}
       {currentTab === 'dashboard' && userSession ? (
-        /* UX-08 & UX-09: Streamlined Dashboard with Persistent FAQ Help */
         <ApplicantDashboard
           user={userSession}
           onLogout={() => {
@@ -92,18 +99,24 @@ export default function App() {
         />
       ) : (
         <>
-          {/* Hero Section with Focal CTAs */}
+          {/* Hero Section */}
           <div id="hero">
             <Hero
               onApplyClick={() => setWizardOpen(true)}
-              onTrackClick={() => handleNavigation('hero')}
+              onTrackClick={handleTrackFile}
               onCheckSlotsClick={() => handleNavigation('appointment')}
+              onDocAdvisorClick={() => handleNavigation('document-advisor')}
               onFeeClick={() => handleNavigation('fee-calculator')}
             />
           </div>
 
-          {/* UX-03: Announcement Center with Active vs Archived Notices */}
+          {/* Announcement & Circular Center (Active vs Archived) */}
           <AnnouncementCenter />
+
+          {/* Interactive Document Advisor Engine */}
+          <div id="document-advisor">
+            <DocumentAdvisor onStartApplication={() => setWizardOpen(true)} />
+          </div>
 
           {/* Citizen Services */}
           <div id="services">
@@ -115,7 +128,7 @@ export default function App() {
             <StatsSection />
           </div>
 
-          {/* UX-04 & UX-06: Appointment Slot Availability Finder */}
+          {/* Appointment Availability Finder (Table & Heatmap View) */}
           <div id="appointment">
             <AppointmentChecker onBookSlot={() => setWizardOpen(true)} />
           </div>
@@ -125,19 +138,19 @@ export default function App() {
             <FeeCalculator onApplyNow={() => setWizardOpen(true)} />
           </div>
 
-          {/* UX-05 & UX-09: Centralized FAQ Knowledge Base */}
+          {/* Centralized FAQ Knowledge Base */}
           <div id="faq">
             <FaqSection onContactHelp={() => setChatbotOpen(true)} />
           </div>
         </>
       )}
 
-      {/* Harmonized Footer */}
+      {/* Official Harmonized Footer */}
       <div id="footer">
         <Footer />
       </div>
 
-      {/* UX-14: Registration & Login Modal with Inline Guidance */}
+      {/* Registration & Login Modal with Guidance */}
       <RegistrationModal
         isOpen={authModalOpen}
         onClose={() => setAuthModalOpen(false)}
@@ -148,7 +161,7 @@ export default function App() {
         }}
       />
 
-      {/* UX-11, UX-12, UX-13, UX-15: Multi-Step Application Wizard */}
+      {/* Multi-Step Application Wizard with Draft Auto-Save */}
       <ApplicationWizard
         isOpen={wizardOpen}
         onClose={() => setWizardOpen(false)}
@@ -160,24 +173,31 @@ export default function App() {
         }}
       />
 
-      {/* UX-10: Global Site-Wide Search Modal */}
+      {/* Global Site-Wide Search Modal */}
       <GlobalSearchModal
         isOpen={searchOpen}
         onClose={() => setSearchOpen(false)}
         onSelectResult={handleNavigation}
       />
 
-      {/* UX-01: Intelligent Citizen Assistant Chatbot */}
+      {/* Intelligent Citizen Assistant Chatbot */}
       <CitizenChatbot
         isOpen={chatbotOpen}
         onClose={() => setChatbotOpen(false)}
         onNavigate={handleNavigation}
       />
 
-      {/* UX-02: Official Security & SSL Trust Modal */}
+      {/* Official Security & SSL Trust Modal */}
       <SecurityTrustModal
         isOpen={securityModalOpen}
         onClose={() => setSecurityModalOpen(false)}
+      />
+
+      {/* Live 5-Stage Dispatch Tracker Modal */}
+      <LiveTrackerModal
+        isOpen={trackerModalOpen}
+        fileNo={trackedFileNo}
+        onClose={() => setTrackerModalOpen(false)}
       />
 
       {/* Floating AI Citizen Assistant (Seva Mitra) Launcher */}
