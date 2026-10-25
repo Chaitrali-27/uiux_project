@@ -180,11 +180,12 @@ export default function App() {
         onSelectResult={handleNavigation}
       />
 
-      {/* Intelligent Citizen Assistant Chatbot */}
+      {/* Intelligent Citizen Assistant Chatbot with Account-Bound Memory */}
       <CitizenChatbot
         isOpen={chatbotOpen}
         onClose={() => setChatbotOpen(false)}
         onNavigate={handleNavigation}
+        userSession={userSession}
       />
 
       {/* Official Security & SSL Trust Modal */}
