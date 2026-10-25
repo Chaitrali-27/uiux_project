@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { XIcon, AlertCircleIcon, CheckIcon } from './Icons';
+import { XIcon, AlertCircleIcon, CheckIcon, InfoIcon } from './Icons';
 
 export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', onSuccess }) => {
   const [mode, setMode] = useState(initialMode);
@@ -82,9 +82,9 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'rgba(4, 16, 33, 0.7)',
+      background: 'rgba(4, 16, 33, 0.75)',
       backdropFilter: 'blur(5px)',
-      zIndex: 1000,
+      zIndex: 1300,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -122,7 +122,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
         </div>
 
         {/* Tab Selector */}
-        <div style={{ display: 'flex', background: '#F1F5F9', borderRadius: '10px', padding: '4px', marginBottom: '24px' }}>
+        <div style={{ display: 'flex', background: '#F1F5F9', borderRadius: '10px', padding: '4px', marginBottom: '20px' }}>
           <button 
             type="button"
             className="hero-tab-btn"
@@ -188,10 +188,27 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
           </div>
         ) : mode === 'register' ? (
           <form onSubmit={handleRegisterSubmit}>
+            {/* UX-14 Fix: Explanatory Helper Card on CPV Delhi vs Regional Passport Office */}
+            <div style={{
+              background: '#F0F9FF',
+              borderRadius: '10px',
+              padding: '12px 14px',
+              border: '1px solid #BAE6FD',
+              marginBottom: '16px',
+              display: 'flex',
+              gap: '10px',
+              alignItems: 'flex-start'
+            }}>
+              <InfoIcon className="w-4 h-4" style={{ color: '#0284C7', flexShrink: 0, marginTop: '2px' }} />
+              <div style={{ fontSize: '12.5px', color: '#0369A1', lineHeight: 1.5 }}>
+                <strong>Helpful Guidance for Applicants:</strong> Select <em>"Passport Office"</em> if you are an ordinary citizen applying for personal, tourist, or study travel. <em>"CPV Delhi"</em> is strictly for authorized diplomats and government officials.
+              </div>
+            </div>
+
             <div className="form-group">
               <label className="form-label">
                 Register to apply at
-                <span className="form-label-helper">Select office jurisdiction</span>
+                <span className="form-label-helper">Choose your service channel</span>
               </label>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                 <label style={{
@@ -233,7 +250,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                     checked={registerAt === 'cpv'} 
                     onChange={() => setRegisterAt('cpv')}
                   />
-                  <span>CPV Delhi (Diplomatic Division)</span>
+                  <span>CPV Delhi (Diplomatic Only)</span>
                 </label>
               </div>
             </div>
@@ -309,7 +326,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                   checked={sameAsEmail} 
                   onChange={(e) => setSameAsEmail(e.target.checked)} 
                 />
-                <span>Set my email address as my permanent Login ID (Recommended)</span>
+                <span>Set my email address as my permanent Login ID (Recommended for easy account recovery)</span>
               </label>
             </div>
 
