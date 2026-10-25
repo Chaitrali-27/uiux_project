@@ -239,10 +239,19 @@ export const DocumentAdvisor = ({ onStartApplication }) => {
             <div style={{ fontSize: '13.5px', color: '#166534' }}>
               ✓ All original documents must be carried for physical inspection along with one set of self-attested photocopies.
             </div>
-            <button className="btn btn-saffron btn-sm" onClick={onStartApplication}>
-              <span>Proceed to Application with These Documents</span>
-              <ArrowRightIcon className="w-4 h-4" />
-            </button>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <button 
+                type="button"
+                className="btn btn-outline btn-sm"
+                onClick={() => alert('Official Document Checklist downloaded for your selected category (Adult Fresh / Re-issue).')}
+              >
+                📄 Download Checklist (PDF)
+              </button>
+              <button className="btn btn-saffron btn-sm" onClick={onStartApplication}>
+                <span>Proceed to Online Application</span>
+                <ArrowRightIcon className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SearchIcon, CheckIcon, CalendarIcon } from './Icons';
+import { SearchIcon, CheckIcon, CalendarIcon, XIcon, ArrowRightIcon } from './Icons';
 
 export const AppointmentChecker = ({ onBookSlot }) => {
   const [selectedOffice, setSelectedOffice] = useState('Mumbai');
@@ -8,6 +8,7 @@ export const AppointmentChecker = ({ onBookSlot }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('date');
   const [viewMode, setViewMode] = useState('table'); // 'table' or 'calendar'
+  const [slotDetail, setSlotDetail] = useState(null);
 
   const passportOffices = ['Mumbai', 'Delhi', 'Bengaluru', 'Pune', 'Hyderabad', 'Ahmedabad', 'Kolkata', 'Chennai'];
 
@@ -314,7 +315,13 @@ export const AppointmentChecker = ({ onBookSlot }) => {
                     transition: 'all 0.2s ease',
                     cursor: cDay.slots > 0 ? 'pointer' : 'default'
                   }}
-                  onClick={() => cDay.slots > 0 && onBookSlot({ center: `PSK ${selectedOffice}`, nextDate: `${cDay.date} 2026` })}
+                  onClick={() => cDay.slots > 0 && setSlotDetail({ 
+                    center: `PSK ${selectedOffice}`, 
+                    address: `Regional Passport Seva Kendra, ${selectedOffice} Main Complex`, 
+                    nextDate: `${cDay.date} 2026`,
+                    quota: 'Normal',
+                    totalAvailable: cDay.slots
+                  })}
                 >
                   <div style={{ fontSize: '12px', color: '#64748B', fontWeight: 700, textTransform: 'uppercase' }}>
                     {cDay.day}
@@ -397,9 +404,9 @@ export const AppointmentChecker = ({ onBookSlot }) => {
                   <div style={{ marginTop: '8px' }}>
                     <button 
                       className="btn btn-navy btn-sm"
-                      onClick={() => onBookSlot(slot)}
+                      onClick={() => setSlotDetail(slot)}
                     >
-                      Book This Slot
+                      Inspect & Reserve Slot
                     </button>
                   </div>
                 </div>
@@ -412,6 +419,96 @@ export const AppointmentChecker = ({ onBookSlot }) => {
           )}
         </div>
       </div>
+
+      {/* Slot Inspection Modal */}
+      {slotDetail && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(4, 16, 33, 0.75)',
+          backdropFilter: 'blur(4px)',
+          zIndex: 1350,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '16px',
+          fontFamily: 'var(--font-serif)'
+        }}>
+          <div style={{
+            background: '#FFFFFF',
+            borderRadius: '16px',
+            width: '100%',
+            maxWidth: '540px',
+            padding: '28px',
+            boxShadow: 'var(--shadow-modal)',
+            border: '2px solid var(--gov-gold)'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+              <div>
+                <span className="badge badge-emerald" style={{ fontSize: '11px', marginBottom: '4px' }}>
+                  Official PSK Appointment Opening
+                </span>
+                <h3 style={{ fontSize: '20px', fontWeight: 800, color: 'var(--gov-navy)', margin: '4px 0 0 0' }}>
+                  {slotDetail.center}
+                </h3>
+              </div>
+              <button
+                onClick={() => setSlotDetail(null)}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#64748B', padding: '4px' }}
+              >
+                <XIcon className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div style={{ background: '#F8FAFC', padding: '16px', borderRadius: '10px', border: '1px solid var(--border-light)', marginBottom: '16px' }}>
+              <div style={{ fontSize: '13px', color: '#475569', marginBottom: '6px' }}>
+                Physical Location: <strong>{slotDetail.address}</strong>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13.5px', marginTop: '8px', paddingTop: '8px', borderTop: '1px solid #E2E8F0' }}>
+                <span>Scheduled Visit Date:</span>
+                <strong style={{ color: 'var(--gov-navy)' }}>{slotDetail.nextDate}</strong>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13.5px', marginTop: '4px' }}>
+                <span>Available Quota:</span>
+                <strong style={{ color: '#0F766E' }}>{slotDetail.totalAvailable} Seats ({slotDetail.quota || 'Normal'} Scheme)</strong>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: '#64748B', marginTop: '4px' }}>
+                <span>Reporting Hours:</span>
+                <span>09:00 AM – 04:30 PM IST</span>
+              </div>
+            </div>
+
+            <div style={{ fontSize: '12.5px', color: '#475569', lineHeight: 1.5, marginBottom: '20px' }}>
+              ℹ️ Applicants must carry their original documents (Aadhaar, DOB, 10th cert) and one set of self-attested photocopies. Live biometric capture and photography is conducted inside Counter A.
+            </div>
+
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <button
+                className="btn btn-navy"
+                style={{ flex: 1, padding: '12px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                onClick={() => {
+                  const s = slotDetail;
+                  setSlotDetail(null);
+                  onBookSlot(s);
+                }}
+              >
+                <span>Proceed to Online Application Form</span>
+                <ArrowRightIcon className="w-4 h-4" />
+              </button>
+              <button
+                className="btn btn-outline"
+                style={{ padding: '12px 18px' }}
+                onClick={() => setSlotDetail(null)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
