@@ -1,6 +1,28 @@
 import React, { useState } from 'react';
 import { XIcon, AlertCircleIcon, CheckIcon, InfoIcon, ShieldIcon } from './Icons';
 
+const FormErrorMsg = ({ msg }) => {
+  if (!msg) return null;
+  return (
+    <div style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '6px',
+      background: '#FEF2F2',
+      border: '1px solid #FCA5A5',
+      borderRadius: '6px',
+      padding: '4px 8px',
+      fontSize: '11.5px',
+      color: '#B91C1C',
+      fontWeight: 600,
+      marginTop: '4px'
+    }}>
+      <AlertCircleIcon className="w-3.5 h-3.5" style={{ color: '#DC2626', flexShrink: 0 }} />
+      <span>{msg}</span>
+    </div>
+  );
+};
+
 export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', onSuccess }) => {
   const [mode, setMode] = useState(initialMode);
 
@@ -391,7 +413,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                   onChange={(e) => setGivenName(e.target.value)}
                   style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: errors.givenName ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)', fontSize: '13.5px' }}
                 />
-                {errors.givenName && <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>{errors.givenName}</div>}
+                <FormErrorMsg msg={errors.givenName} />
               </div>
 
               <div>
@@ -405,7 +427,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                   onChange={(e) => setSurname(e.target.value)}
                   style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: errors.surname ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)', fontSize: '13.5px' }}
                 />
-                {errors.surname && <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>{errors.surname}</div>}
+                <FormErrorMsg msg={errors.surname} />
               </div>
             </div>
 
@@ -420,7 +442,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                   onChange={(e) => setDob(e.target.value)}
                   style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: errors.dob ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)', fontSize: '13.5px' }}
                 />
-                {errors.dob && <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>{errors.dob}</div>}
+                <FormErrorMsg msg={errors.dob} />
               </div>
 
               <div>
@@ -435,7 +457,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                   onChange={(e) => setMobileNumber(e.target.value)}
                   style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: errors.mobileNumber ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)', fontSize: '13.5px' }}
                 />
-                {errors.mobileNumber && <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>{errors.mobileNumber}</div>}
+                <FormErrorMsg msg={errors.mobileNumber} />
               </div>
             </div>
 
@@ -468,7 +490,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                     onChange={(e) => handleProofNumberChange(e.target.value)}
                     style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: errors.proofNumber ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)', fontSize: '13px' }}
                   />
-                  {errors.proofNumber && <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>{errors.proofNumber}</div>}
+                  <FormErrorMsg msg={errors.proofNumber} />
                   {proofVerified && (
                     <div style={{ fontSize: '11px', color: '#0F766E', fontWeight: 700, marginTop: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
                       <CheckIcon className="w-3.5 h-3.5" /> Validated against National Citizen Registry format
@@ -493,7 +515,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
               <div style={{ fontSize: '11px', color: '#64748B', marginTop: '3px' }}>
                 Important: Service updates and verification OTPs will be dispatched to this @gmail.com address.
               </div>
-              {errors.email && <div style={{ fontSize: '11.5px', color: 'var(--gov-red)', fontWeight: 600, marginTop: '3px' }}>⚠️ {errors.email}</div>}
+              <FormErrorMsg msg={errors.email} />
             </div>
 
             {/* 5. Password with 8-character, 1 number, 1 special character meter */}
@@ -550,8 +572,8 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                 {passwordsMatch ? '✓' : '○'} Passwords match
               </span>
             </div>
-            {errors.password && <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginBottom: '8px' }}>{errors.password}</div>}
-            {errors.confirmPassword && <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginBottom: '8px' }}>{errors.confirmPassword}</div>}
+            <FormErrorMsg msg={errors.password} />
+            <FormErrorMsg msg={errors.confirmPassword} />
 
             {/* 6. Security Recovery Hint Question */}
             <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1.8fr', gap: '10px', marginBottom: '20px' }}>
@@ -582,7 +604,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                   onChange={(e) => setHintAnswer(e.target.value)}
                   style={{ width: '100%', padding: '9px 12px', borderRadius: '8px', border: errors.hintAnswer ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)', fontSize: '13px' }}
                 />
-                {errors.hintAnswer && <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>{errors.hintAnswer}</div>}
+                <FormErrorMsg msg={errors.hintAnswer} />
               </div>
             </div>
 
@@ -619,7 +641,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                 onChange={(e) => setLoginUser(e.target.value)}
                 style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: errors.loginUser ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)', fontSize: '14px' }}
               />
-              {errors.loginUser && <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '4px' }}>{errors.loginUser}</div>}
+              <FormErrorMsg msg={errors.loginUser} />
             </div>
 
             <div style={{ marginBottom: '20px' }}>
@@ -638,7 +660,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                 onChange={(e) => setLoginPass(e.target.value)}
                 style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: errors.loginPass ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)', fontSize: '14px' }}
               />
-              {errors.loginPass && <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '4px' }}>{errors.loginPass}</div>}
+              <FormErrorMsg msg={errors.loginPass} />
             </div>
 
             {/* Quick Demo Sign In Shortcut */}

@@ -67,7 +67,7 @@ export const Footer = ({ language = 'en' }) => {
 
           {/* Column 3: Contact & Help */}
           <div className="footer-column">
-            <h3>{language === 'gu' ? 'કટોકટી અને સંપર્ક' : language === 'hi' ? 'आपातकाल एवं संपर्क' : 'Emergency & Contact'}</h3>
+            <h3>{language === 'kn' ? 'ತುರ್ತು ಮತ್ತು ಸಂಪರ್ಕ' : language === 'gu' ? 'કટોકટી અને સંપર્ક' : language === 'hi' ? 'आपातकाल एवं संपर्क' : 'Emergency & Contact'}</h3>
             <ul className="footer-links">
               <li style={{ color: '#E2E8F0', fontSize: '13.5px' }}>
                 <strong style={{ color: 'var(--gov-gold)' }}>{t.helpline.split(':')[0]}:</strong><br />

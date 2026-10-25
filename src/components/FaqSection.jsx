@@ -1,170 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SearchIcon, ChevronDownIcon, CheckIcon } from './Icons';
 import { getTranslation } from '../utils/translations';
+import { getLocalizedFaqs } from '../utils/localizedContent';
 
 export const FaqSection = ({ language = 'en', onContactHelp }) => {
   const t = getTranslation(language);
+  const { categories, faqs } = getLocalizedFaqs(language);
+
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState(categories[0] || 'All');
   const [expandedId, setExpandedId] = useState(1);
 
+  // Sync selectedCategory when language changes
+  useEffect(() => {
+    setSelectedCategory(categories[0] || 'All');
+  }, [language]);
 
-  const categories = [
-    'All', 
-    'Application & Form', 
-    'Tatkaal Scheme', 
-    'Police Verification', 
-    'Fees & Payment', 
-    'Appointments & Slots', 
-    'Documents & Rules'
-  ];
-
-  const faqs = [
-    {
-      id: 1,
-      category: 'Documents & Rules',
-      question: 'What documents are required to apply for a Fresh Passport for an Adult?',
-      answer: `Applicants need only three core documents:
-1. Proof of Present Residential Address: Aadhaar Card, Active Bank Passbook with photograph, Electricity / Water bill (last 2 months), or Registered Rent Agreement.
-2. Proof of Date of Birth (DOB): Birth Certificate issued by municipal authority, Aadhaar Card, 10th Standard School Leaving Certificate, or PAN Card.
-3. Proof for Non-ECR Category: 10th standard matriculation pass certificate or degree from a recognized institution.
-Original documents along with one self-attested photocopy must be presented on your appointment day at the PSK.`,
-      keywords: 'documents address proof dob birth certificate aadhaar pan non-ecr 10th fresh adult'
-    },
-    {
-      id: 2,
-      category: 'Tatkaal Scheme',
-      question: 'What is the processing time, surcharge, and document rule for Tatkaal Scheme?',
-      answer: `Key regulations under the Tatkaal Scheme:
-• Fast-Track Turnaround: Processed on high priority and dispatched within 1 to 3 working days from the appointment date without waiting for prior police verification.
-• Statutory Tariff: Additional surcharge of ₹2,000 applies over the normal application fee (Total ₹3,500 for a standard 36-page booklet).
-• Mandatory Identity Proofs: Applicants must produce at least two verified documents from the government schedule (e.g. Aadhaar Card + Voter ID or PAN Card).
-• Restrictions: Major name changes, adoption cases, and complex court clearances are not eligible under Tatkaal.`,
-      keywords: 'tatkaal tatkal urgent emergency fast fee charge 2000 3500 surcharge days processing'
-    },
-    {
-      id: 3,
-      category: 'Police Verification',
-      question: 'How is Police Verification conducted, and do I need to visit the police station?',
-      answer: `Police Verification Process:
-• After your appointment at the PSK, your file is dispatched electronically to the District Superintendent of Police (SP Office).
-• A field police officer will contact you via your registered mobile number for physical address verification.
-• In cities enabled with the mPassport Police App, verification is done paperlessly and completed in under 5 days.
-• Note: No cash fee is required to be paid to the visiting police officer. You do not need to visit the police station unless explicitly summoned.`,
-      keywords: 'police verification pvp thana chowki inspector enquiry mpassport bribe cash fee'
-    },
-    {
-      id: 4,
-      category: 'Appointments & Slots',
-      question: 'How many times can I reschedule my confirmed passport appointment?',
-      answer: `Rescheduling Rules:
-• Applicants are entitled to reschedule or cancel a confirmed appointment up to 3 times within 12 months from the original fee payment date without paying any extra charges.
-• Rescheduling must be completed online at least 24 hours prior to the original booked slot time.
-• You can check live seat availability across all PSKs and Post Office PSKs in our Appointment Availability tab.`,
-      keywords: 'reschedule cancel appointment slot postpone date change 3 times 12 months'
-    },
-    {
-      id: 5,
-      category: 'Fees & Payment',
-      question: 'Is the passport fee refundable if my appointment is delayed or cancelled?',
-      answer: `Fee Validity & Refund Policy:
-• Application fees paid to the Ministry of External Affairs remain valid for 365 days (one full calendar year) from the payment receipt date.
-• You can reuse the payment receipt to book appointments within this 1-year window.
-• Once paid, statutory government fees are non-refundable as per Rule 12 of the Passports Rules, 1980, unless a duplicate transaction occurred due to technical banking failure.`,
-      keywords: 'fee refund money back cancel payment sbi epay validity 1 year 365 days'
-    },
-    {
-      id: 6,
-      category: 'Application & Form',
-      question: 'What is the difference between Ordinary, Official, and Diplomatic Passports?',
-      answer: `Classification of Indian Passports:
-• Ordinary Passport (Type P, Deep Navy Blue Cover): Issued to general citizens for personal travel, business, vacation, or education.
-• Official Passport (Type S, White Cover): Issued to designated government officials and delegates travelling on official sovereign state duty.
-• Diplomatic Passport (Type D, Maroon Cover): Issued to diplomats, ambassadors, and members of the Union Council of Ministers travelling abroad on diplomatic mission through CPV Division, New Delhi.`,
-      keywords: 'types blue white maroon official diplomatic ordinary passport p s d cpv delhi'
-    },
-    {
-      id: 7,
-      category: 'Documents & Rules',
-      question: 'What are the rules and consent requirements for Minor Passports (Under 18)?',
-      answer: `Minors Passport Guidelines:
-• Validity: Valid for 5 years or until the child turns 18 years of age, whichever is earlier.
-• Concession: 10% statutory concession applies to base fees (₹900 for a 36-page booklet).
-• Parental Consent: Both parents must sign Annexure 'D'. If one parent is abroad, Annexure 'C' with consular attestation is required.
-• Accompaniment: Either parent must accompany the minor with their original passport to the PSK.`,
-      keywords: 'minor child baby kid son daughter under 18 annexure d consent 5 years'
-    },
-    {
-      id: 8,
-      category: 'Application & Form',
-      question: 'What should I do if my passport is lost, stolen, or damaged?',
-      answer: `Lost / Damaged Passport Procedure:
-1. Immediately lodge a police report (FIR or Lost Article Report) at the local police station or state police portal.
-2. Apply online for 'Re-issue of Passport' under category 'Lost / Damaged Passport'.
-3. Submit an affidavit detailing how the loss occurred along with Annexure 'F'.
-4. Fee for replacement of lost 36-page booklet is ₹3,000 (Normal) or ₹5,000 (Tatkaal).`,
-      keywords: 'lost stolen damaged torn water theft misplaced fir affidavit replacement fee 3000'
-    },
-    {
-      id: 9,
-      category: 'Documents & Rules',
-      question: 'What are the photo specifications? Do I need to carry physical photos to the PSK?',
-      answer: `Photograph Guidelines:
-• For Adults & Children above 4 years: Digital photograph and biometric fingerprints are captured live at Counter A inside the Passport Seva Kendra on high-resolution cameras. You DO NOT need to bring physical photos.
-• For Infants & Young Children (Under 4 years): Parents must bring one recent passport-size color photograph (35mm x 45mm, plain white background, 80% facial zoom, neutral expression).`,
-      keywords: 'photo photograph picture size image 35x45 white background infant child camera'
-    },
-    {
-      id: 10,
-      category: 'Fees & Payment',
-      question: 'What concessions are available for Senior Citizens and Minors?',
-      answer: `Statutory Concessions:
-• Minors (Below 18 years) and Senior Citizens (60 years and above) are entitled to a 10% statutory discount on the base passport fee.
-• Fresh 36-page booklet fee for Senior Citizens and Minors is ₹900 (instead of ₹1,000 base fee).
-• Senior Citizens are also offered priority token queuing at all Passport Seva Kendras.`,
-      keywords: 'senior citizen concession discount minor 60 years age elderly 10 percent'
-    },
-    {
-      id: 11,
-      category: 'Documents & Rules',
-      question: 'What is Non-ECR status and who is eligible for it?',
-      answer: `Non-ECR (Emigration Check Not Required) Criteria:
-• Persons who have passed 10th standard (Matriculation) or hold higher educational qualifications.
-• All persons above 50 years of age.
-• Income tax payers and their dependent spouses/children.
-• Non-ECR status allows citizens to travel to all 17 notified ECR countries (Gulf, Southeast Asia) for employment without needing Protector of Emigrants (POE) clearance.`,
-      keywords: 'ecr non-ecr emigration matriculation 10th qualification poe gulf employment'
-    },
-    {
-      id: 12,
-      category: 'Appointments & Slots',
-      question: 'How do I track my Speed Post dispatch after booklet printing?',
-      answer: `Speed Post Tracking:
-• Once your passport is laminated and printed at India Security Press Nashik, it is assigned an India Post consignment tracking number (e.g. SP-MH-94821038IN).
-• You will receive an automated SMS with the barcode.
-• You can track the real-time delivery stepper on our homepage Live Application Tracker or on indiapost.gov.in. Delivery to your doorstep takes 24 to 72 hours.`,
-      keywords: 'track dispatch speed post delivery status barcode consignment indiapost courier'
-    }
-  ];
-
-  // Intelligently search across question, answer, and keywords
+  // Intelligently search across question, answer, keywords, and category
   const cleanQuery = searchQuery.trim().toLowerCase();
 
   const filteredFaqs = faqs.filter((faq) => {
     const textPool = `${faq.question} ${faq.answer} ${faq.keywords || ''} ${faq.category}`.toLowerCase();
     const matchesSearch = cleanQuery === '' || cleanQuery.split(' ').every(word => textPool.includes(word));
-    // If user is actively searching by keyword, search across all categories automatically so results are never hidden!
-    const matchesCategory = cleanQuery !== '' ? true : (selectedCategory === 'All' || faq.category === selectedCategory);
+    // If user is actively searching by keyword, search across all categories automatically
+    const isAll = selectedCategory === categories[0] || selectedCategory === 'All';
+    const matchesCategory = cleanQuery !== '' ? true : (isAll || faq.category === selectedCategory);
     return matchesCategory && matchesSearch;
   });
 
-  const popularSearches = [
+  const popularSearches = language === 'kn' ? [
+    'ಆಧಾರ್ / ವಿಳಾಸ ಪುರಾವೆ',
+    'ತತ್ಕಾಲ್ ಶುಲ್ಕ',
+    'ಪೊಲೀಸ್ ಪರಿಶೀಲನೆ',
+    'ಅಪ್ರಾಪ್ತರ ಪಾಸ್‌ಪೋರ್ಟ್',
+    'ಕಳೆದುಹೋದ ಪಾಸ್‌ಪೋರ್ಟ್'
+  ] : language === 'gu' ? [
+    'આધાર / સરનામા પુરાવો',
+    'તત્કાલ સરચાર્જ',
+    'પોલીસ વેરિફિકેશન',
+    'સગીર પાસપોર્ટ',
+    'ખોવાયેલ પાસપોર્ટ'
+  ] : [
     'Aadhaar / Address Proof',
     'Tatkaal Surcharge',
     'Police Verification',
     'Minor Passport',
-    'Lost Passport',
-    'Photo Specs'
+    'Lost Passport'
   ];
 
   return (
@@ -219,7 +100,8 @@ Original documents along with one self-attested photocopy must be presented on y
                   fontWeight: 700,
                   padding: '4px 8px',
                   borderRadius: '4px',
-                  marginLeft: '8px'
+                  marginLeft: '8px',
+                  fontFamily: 'var(--font-serif)'
                 }}
               >
                 {t.clearBtn}
@@ -229,7 +111,9 @@ Original documents along with one self-attested photocopy must be presented on y
 
           {/* Popular Search Suggestions */}
           <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginTop: '10px', alignItems: 'center' }}>
-            <span style={{ fontSize: '11.5px', color: '#64748B', fontWeight: 600 }}>Popular:</span>
+            <span style={{ fontSize: '11.5px', color: '#64748B', fontWeight: 600 }}>
+              {language === 'kn' ? 'ಜನಪ್ರಿಯ ಹುಡುಕಾಟಗಳು:' : language === 'gu' ? 'લોકપ્રિય શોધો:' : 'Popular:'}
+            </span>
             {popularSearches.map((term, i) => (
               <button
                 key={i}
@@ -242,7 +126,8 @@ Original documents along with one self-attested photocopy must be presented on y
                   fontSize: '11px',
                   color: 'var(--gov-navy)',
                   fontWeight: 600,
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-serif)'
                 }}
               >
                 {term}
@@ -267,13 +152,13 @@ Original documents along with one self-attested photocopy must be presented on y
             color: '#0F766E'
           }}>
             <span>
-              Found <strong>{filteredFaqs.length}</strong> matching FAQ{filteredFaqs.length === 1 ? '' : 's'} for "<strong>{searchQuery}</strong>" (searching across all categories)
+              Found <strong>{filteredFaqs.length}</strong> matching FAQ{filteredFaqs.length === 1 ? '' : 's'} for "<strong>{searchQuery}</strong>"
             </span>
             <button
               onClick={() => setSearchQuery('')}
               style={{ background: 'none', border: 'none', color: '#0F766E', textDecoration: 'underline', cursor: 'pointer', fontSize: '12px', fontWeight: 700 }}
             >
-              Reset to All
+              {t.clearBtn}
             </button>
           </div>
         )}
@@ -300,7 +185,8 @@ Original documents along with one self-attested photocopy must be presented on y
                   fontSize: '13px',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease'
+                  transition: 'all 0.2s ease',
+                  fontFamily: 'var(--font-serif)'
                 }}
               >
                 {cat}
@@ -339,7 +225,8 @@ Original documents along with one self-attested photocopy must be presented on y
                       border: 'none',
                       textAlign: 'left',
                       cursor: 'pointer',
-                      gap: '16px'
+                      gap: '16px',
+                      fontFamily: 'var(--font-serif)'
                     }}
                   >
                     <div>
@@ -348,18 +235,18 @@ Original documents along with one self-attested photocopy must be presented on y
                         fontSize: '11px',
                         fontWeight: 700,
                         color: '#64748B',
-                        textTransform: 'uppercase',
                         marginBottom: '4px',
                         letterSpacing: '0.04em'
                       }}>
                         {faq.category}
                       </span>
                       <h4 style={{
-                        fontSize: '16px',
+                        fontSize: '16.5px',
                         fontWeight: 700,
                         color: 'var(--gov-navy)',
                         margin: 0,
-                        lineHeight: 1.4
+                        lineHeight: 1.4,
+                        fontFamily: 'var(--font-serif)'
                       }}>
                         {faq.question}
                       </h4>
@@ -377,12 +264,13 @@ Original documents along with one self-attested photocopy must be presented on y
                   {isExpanded && (
                     <div style={{
                       padding: '18px 22px',
-                      fontSize: '14px',
+                      fontSize: '14.5px',
                       color: '#334155',
-                      lineHeight: 1.7,
+                      lineHeight: 1.75,
                       borderTop: '1px solid #E2E8F0',
                       whiteSpace: 'pre-line',
-                      background: '#FFFFFF'
+                      background: '#FFFFFF',
+                      fontFamily: 'var(--font-serif)'
                     }}>
                       {faq.answer}
                     </div>
@@ -396,7 +284,8 @@ Original documents along with one self-attested photocopy must be presented on y
               padding: '48px 20px',
               background: '#F8FAFC',
               borderRadius: '16px',
-              border: '2px dashed var(--border-medium)'
+              border: '2px dashed var(--border-medium)',
+              fontFamily: 'var(--font-serif)'
             }}>
               <div style={{ fontSize: '32px', marginBottom: '12px' }}>🔍</div>
               <h4 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '8px' }}>
@@ -409,12 +298,14 @@ Original documents along with one self-attested photocopy must be presented on y
                 <button 
                   onClick={() => setSearchQuery('')}
                   className="btn btn-outline btn-sm"
+                  style={{ fontFamily: 'var(--font-serif)' }}
                 >
                   {t.clearBtn}
                 </button>
                 <button 
                   onClick={onContactHelp}
                   className="btn btn-navy btn-sm"
+                  style={{ fontFamily: 'var(--font-serif)' }}
                 >
                   {t.askChatbotBtn}
                 </button>

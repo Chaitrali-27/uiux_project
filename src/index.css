@@ -848,9 +848,18 @@ h1, h2, h3, h4, h5, h6, .serif-heading {
 }
 
 /* ==========================================================================
-   UI-07: RESPONSIVE BREAKPOINTS
+   UI-07: RESPONSIVE BREAKPOINTS & MOBILE LAYOUT
    ========================================================================== */
 @media (max-width: 1024px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .desktop-auth {
+    display: none !important;
+  }
+  .mobile-hamburger-btn {
+    display: flex !important;
+  }
   .hero-grid {
     grid-template-columns: 1fr;
   }
@@ -863,21 +872,32 @@ h1, h2, h3, h4, h5, h6, .serif-heading {
 }
 
 @media (max-width: 768px) {
-  .nav-links, .nav-actions .btn-outline {
-    display: none !important;
-  }
   .hero-title {
-    font-size: 32px;
+    font-size: 28px !important;
+  }
+  .hero-card {
+    padding: 24px 18px !important;
+  }
+  .section {
+    padding: 36px 0 !important;
+  }
+  .section-title {
+    font-size: 26px !important;
   }
   .modern-table-header {
     display: none;
   }
   .modern-table-row {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
     padding: 16px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .utility-bar .container {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { ArrowRightIcon, XIcon, CheckIcon, ShieldIcon } from './Icons';
 import { getTranslation } from '../utils/translations';
+import { getLocalizedServices } from '../utils/localizedContent';
 
 export const ServicesSection = ({ language = 'en', onSelectService, onExploreDocs }) => {
   const t = getTranslation(language);
   const [selectedServiceDetail, setSelectedServiceDetail] = useState(null);
+  const localizedServices = getLocalizedServices(language);
+
 
   const services = [
     {
@@ -122,65 +125,69 @@ export const ServicesSection = ({ language = 'en', onSelectService, onExploreDoc
         </div>
 
         <div className="services-grid">
-          {services.map((svc) => (
-            <div 
-              key={svc.id} 
-              className="service-card"
-              style={{
-                background: '#FFFFFF',
-                borderRadius: '12px',
-                border: '1px solid var(--border-medium)',
-                padding: '24px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                transition: 'all 0.25s ease',
-                cursor: 'pointer'
-              }}
-              onClick={() => setSelectedServiceDetail(svc)}
-            >
-              <div>
-                <div className="service-icon-wrap" style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '10px',
-                  background: 'var(--gov-navy)',
-                  color: '#FFFFFF',
+          {services.map((rawSvc) => {
+            const localized = localizedServices.find(l => l.id === rawSvc.id) || rawSvc;
+            const svc = { ...rawSvc, ...localized };
+            return (
+              <div 
+                key={svc.id} 
+                className="service-card"
+                style={{
+                  background: '#FFFFFF',
+                  borderRadius: '12px',
+                  border: '1px solid var(--border-medium)',
+                  padding: '24px',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '16px'
-                }}>
-                  {svc.icon}
-                </div>
-                <h3 className="service-title" style={{ fontSize: '18px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '8px' }}>
-                  {svc.title}
-                </h3>
-                <p className="service-desc" style={{ fontSize: '13.5px', color: '#475569', lineHeight: 1.5, marginBottom: '14px' }}>
-                  {svc.shortDesc}
-                </p>
-              </div>
-
-              <div>
-                <div style={{ fontSize: '12px', color: '#0F766E', fontWeight: 700, marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span>●</span> {svc.eta}
-                </div>
-                <div style={{
-                  display: 'flex',
+                  flexDirection: 'column',
                   justifyContent: 'space-between',
-                  alignItems: 'center',
-                  paddingTop: '12px',
-                  borderTop: '1px solid #E2E8F0',
-                  color: 'var(--gov-navy)',
-                  fontWeight: 700,
-                  fontSize: '13.5px'
-                }}>
-                  <span>{t.viewDetailsBtn}</span>
-                  <ArrowRightIcon className="w-4 h-4" />
+                  transition: 'all 0.25s ease',
+                  cursor: 'pointer'
+                }}
+                onClick={() => setSelectedServiceDetail(svc)}
+              >
+                <div>
+                  <div className="service-icon-wrap" style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '10px',
+                    background: 'var(--gov-navy)',
+                    color: '#FFFFFF',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '16px'
+                  }}>
+                    {svc.icon}
+                  </div>
+                  <h3 className="service-title" style={{ fontSize: '18px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '8px' }}>
+                    {svc.title}
+                  </h3>
+                  <p className="service-desc" style={{ fontSize: '13.5px', color: '#475569', lineHeight: 1.5, marginBottom: '14px' }}>
+                    {svc.shortDesc}
+                  </p>
+                </div>
+
+                <div>
+                  <div style={{ fontSize: '12px', color: '#0F766E', fontWeight: 700, marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span>●</span> {svc.eta}
+                  </div>
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    paddingTop: '12px',
+                    borderTop: '1px solid #E2E8F0',
+                    color: 'var(--gov-navy)',
+                    fontWeight: 700,
+                    fontSize: '13.5px'
+                  }}>
+                    <span>{t.viewDetailsBtn}</span>
+                    <ArrowRightIcon className="w-4 h-4" />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
