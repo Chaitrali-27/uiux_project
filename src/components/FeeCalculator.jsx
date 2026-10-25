@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckIcon, InfoIcon, ArrowRightIcon } from './Icons';
+import { InfoIcon, ArrowRightIcon } from './Icons';
 
 export const FeeCalculator = ({ onApplyNow }) => {
   const [serviceType, setServiceType] = useState('fresh');
@@ -7,14 +7,12 @@ export const FeeCalculator = ({ onApplyNow }) => {
   const [pages, setPages] = useState('36');
   const [scheme, setScheme] = useState('normal');
 
-  // Realistic Passport Seva Fee Structure
   const calculateFee = () => {
     let base = 1500;
     if (pages === '60') base = 2000;
     if (serviceType === 'pcc') return { base: 500, tatkaal: 0, discount: 0, total: 500 };
 
     let discount = 0;
-    // 10% discount for minor or senior citizens under official rules
     if (applicantAge === 'minor' || applicantAge === 'senior') {
       discount = base * 0.1;
     }
@@ -34,25 +32,20 @@ export const FeeCalculator = ({ onApplyNow }) => {
     <section className="section" id="fee-calculator" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">
-            Financial Transparency
-            <span className="flaw-tag solved">UI-06 Weak Form Solved</span>
-          </span>
-          <h2 className="section-title">Interactive Passport Fee Calculator</h2>
+          <span className="section-tag">Fee Structure & Calculator</span>
+          <h2 className="section-title">Official Passport Service Fee Calculator</h2>
           <p className="section-desc">
-            Complete, balanced form layout with instant fee breakdown, age concessions, and transparent pricing under Passport Rules 1980.
+            Calculate exact statutory fees under Schedule IV of the Passports Rules, 1980, including age concessions and expedited delivery surcharges.
           </p>
         </div>
 
-        {/* UI-06 Fix: Balanced, rich form layout replacing empty single-dropdown */}
         <div className="fee-calculator-card">
           {/* Left Column: Form Controls */}
           <div>
-            {/* UI-09 Fix: Top-Aligned Label with helpful sentence case */}
             <div className="form-group">
               <label className="form-label" htmlFor="fee-service">
-                Application Service Type
-                <span className="form-label-helper">Choose the category of application</span>
+                Application Service Category
+                <span className="form-label-helper">Select service type</span>
               </label>
               <select 
                 id="fee-service"
@@ -60,8 +53,8 @@ export const FeeCalculator = ({ onApplyNow }) => {
                 value={serviceType}
                 onChange={(e) => setServiceType(e.target.value)}
               >
-                <option value="fresh">Fresh Passport (New Applicant)</option>
-                <option value="reissue">Re-issue / Renewal of Passport</option>
+                <option value="fresh">Fresh Passport (First-time Applicant)</option>
+                <option value="reissue">Re-issue / Renewal of Existing Passport</option>
                 <option value="pcc">Police Clearance Certificate (PCC)</option>
                 <option value="surrender">Surrender Certificate</option>
               </select>
@@ -79,8 +72,8 @@ export const FeeCalculator = ({ onApplyNow }) => {
                   onChange={(e) => setApplicantAge(e.target.value)}
                 >
                   <option value="adult">Adult (18 to 59 years)</option>
-                  <option value="minor">Minor (Below 18 years) - 10% Off</option>
-                  <option value="senior">Senior Citizen (60+ years) - 10% Off</option>
+                  <option value="minor">Minor (Below 18 years) — 10% Concession</option>
+                  <option value="senior">Senior Citizen (60+ years) — 10% Concession</option>
                 </select>
               </div>
 
@@ -101,7 +94,6 @@ export const FeeCalculator = ({ onApplyNow }) => {
               </div>
             </div>
 
-            {/* Scheme Type Selector */}
             <div className="form-group">
               <label className="form-label">
                 Required Processing Scheme
@@ -112,14 +104,14 @@ export const FeeCalculator = ({ onApplyNow }) => {
                   style={{
                     padding: '14px',
                     borderRadius: '10px',
-                    border: scheme === 'normal' ? '2px solid var(--gov-accent)' : '1px solid var(--border-medium)',
-                    background: scheme === 'normal' ? '#F0F7FF' : '#FFFFFF',
+                    border: scheme === 'normal' ? '2px solid var(--gov-navy)' : '1px solid var(--border-medium)',
+                    background: scheme === 'normal' ? 'var(--bg-subtle-accent)' : '#FFFFFF',
                     cursor: 'pointer',
                     transition: 'all 0.2s ease'
                   }}
                 >
-                  <div style={{ fontWeight: 700, fontSize: '14.5px', color: '#0A2540' }}>Normal Scheme</div>
-                  <div style={{ fontSize: '12px', color: '#64748B' }}>Standard processing (15-20 days)</div>
+                  <div style={{ fontWeight: 700, fontSize: '14.5px', color: 'var(--gov-navy)' }}>Normal Scheme</div>
+                  <div style={{ fontSize: '12px', color: '#64748B' }}>Standard processing (15–20 days)</div>
                 </div>
 
                 <div 
@@ -127,36 +119,35 @@ export const FeeCalculator = ({ onApplyNow }) => {
                   style={{
                     padding: '14px',
                     borderRadius: '10px',
-                    border: scheme === 'tatkaal' ? '2px solid var(--gov-accent)' : '1px solid var(--border-medium)',
-                    background: scheme === 'tatkaal' ? '#F0F7FF' : '#FFFFFF',
+                    border: scheme === 'tatkaal' ? '2px solid var(--gov-navy)' : '1px solid var(--border-medium)',
+                    background: scheme === 'tatkaal' ? 'var(--bg-subtle-accent)' : '#FFFFFF',
                     cursor: 'pointer',
                     transition: 'all 0.2s ease'
                   }}
                 >
-                  <div style={{ fontWeight: 700, fontSize: '14.5px', color: '#0A2540' }}>Tatkaal Scheme (+₹2,000)</div>
-                  <div style={{ fontSize: '12px', color: '#64748B' }}>Urgent processing (1-3 days)</div>
+                  <div style={{ fontWeight: 700, fontSize: '14.5px', color: 'var(--gov-navy)' }}>Tatkaal Scheme (+₹2,000)</div>
+                  <div style={{ fontSize: '12px', color: '#64748B' }}>Urgent processing (1–3 days)</div>
                 </div>
               </div>
             </div>
 
-            {/* Legal Advisory / Helper Note */}
-            <div style={{ display: 'flex', gap: '10px', background: '#F8FAFC', padding: '12px 16px', borderRadius: '8px', border: '1px solid #E2E8F0', marginTop: '16px' }}>
-              <InfoIcon className="w-5 h-5" style={{ color: '#0066CC', flexShrink: 0 }} />
+            <div style={{ display: 'flex', gap: '10px', background: '#F8FAFC', padding: '14px 16px', borderRadius: '8px', border: '1px solid #E2E8F0', marginTop: '16px' }}>
+              <InfoIcon className="w-5 h-5" style={{ color: 'var(--gov-blue-accent)', flexShrink: 0 }} />
               <div style={{ fontSize: '12.5px', color: '#475569', lineHeight: 1.5 }}>
-                Payment can be made online via State Bank of India (SBI) Net Banking, Credit/Debit Cards, UPI, or via SBI Bank Challan at any branch.
+                Statutory payment can be completed online via SBI Internet Banking, Credit/Debit cards, UPI, or through SBI Bank Challan at any branch nationwide.
               </div>
             </div>
           </div>
 
-          {/* Right Column: Dynamic Fee Breakdown Card */}
+          {/* Right Column: Breakdown Panel */}
           <div className="fee-breakdown-panel">
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#94A3B8' }}>
+                <span style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--gov-gold)' }}>
                   Estimated Fee Summary
                 </span>
-                <span className="badge-slot" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38BDF8', borderColor: 'rgba(56, 189, 248, 0.3)' }}>
-                  Live Calculation
+                <span className="badge-slot" style={{ background: 'rgba(255, 255, 255, 0.1)', color: '#F8FAFC', borderColor: 'rgba(255, 255, 255, 0.2)' }}>
+                  Schedule IV Tariff
                 </span>
               </div>
 
@@ -164,7 +155,7 @@ export const FeeCalculator = ({ onApplyNow }) => {
                 ₹{total.toLocaleString('en-IN')}
               </div>
               <div style={{ fontSize: '12.5px', color: '#CBD5E1', marginBottom: '20px' }}>
-                Inclusive of Government taxes & postal dispatch charges.
+                Inclusive of Government administrative processing & postal delivery charges.
               </div>
 
               <div className="fee-row">
@@ -181,7 +172,7 @@ export const FeeCalculator = ({ onApplyNow }) => {
 
               {tatkaal > 0 && (
                 <div className="fee-row" style={{ color: '#FDBA74' }}>
-                  <span>Tatkaal Expedited Surcharge:</span>
+                  <span>Tatkaal Surcharge:</span>
                   <span>+ ₹{tatkaal.toLocaleString('en-IN')}</span>
                 </div>
               )}

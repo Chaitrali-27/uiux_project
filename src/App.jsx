@@ -7,14 +7,11 @@ import { AppointmentChecker } from './components/AppointmentChecker';
 import { StatsSection } from './components/StatsSection';
 import { RegistrationModal } from './components/RegistrationModal';
 import { Footer } from './components/Footer';
-import { FlawInspector } from './components/FlawInspector';
-import { CheckIcon } from './components/Icons';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState('home');
   const [language, setLanguage] = useState('en');
   const [fontSize, setFontSize] = useState('normal');
-  const [showInspector, setShowInspector] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState('register');
   const [userSession, setUserSession] = useState(null);
@@ -37,18 +34,9 @@ export default function App() {
     }
   };
 
-  const handleSelectFlaw = (targetId) => {
-    if (targetId === 'registration') {
-      setAuthMode('register');
-      setAuthModalOpen(true);
-    } else {
-      scrollToSection(targetId);
-    }
-  };
-
   return (
     <div className={`app-root font-size-${fontSize}`}>
-      {/* UI-01 & UI-05: Clean Two-Tier Header & Streamlined Navigation */}
+      {/* Dignified Two-Tier Header */}
       <Header
         currentTab={currentTab}
         setCurrentTab={scrollToSection}
@@ -56,43 +44,42 @@ export default function App() {
         setLanguage={setLanguage}
         fontSize={fontSize}
         setFontSize={setFontSize}
-        showInspector={showInspector}
-        setShowInspector={setShowInspector}
       />
 
-      {/* Live Advisory Strip (Clean, unobtrusive ticker) */}
+      {/* Official Government Advisory Banner */}
       <div style={{
         background: '#EFF6FF',
         borderBottom: '1px solid #BFDBFE',
-        padding: '8px 0',
+        padding: '9px 0',
         fontSize: '13px',
-        color: '#1E40AF'
+        color: '#1E3A8A'
       }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{
-              background: '#2563EB',
+              background: '#1D4ED8',
               color: 'white',
               fontSize: '11px',
               fontWeight: 800,
-              padding: '2px 6px',
+              padding: '2px 8px',
               borderRadius: '4px',
-              textTransform: 'uppercase'
+              textTransform: 'uppercase',
+              letterSpacing: '0.04em'
             }}>
-              Active Advisory
+              Citizen Advisory
             </span>
             <span>
-              Applicants are advised to book appointments through official portal only. Special Saturday appointment camps open at select PSKs.
+              Beware of fraudulent websites. Official passport services are delivered exclusively through <strong>passportindia.gov.in</strong>. No middleman is authorized for appointment booking.
             </span>
           </div>
-          <a href="#services" style={{ color: '#2563EB', fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }}>
-            View Details →
+          <a href="#appointment" onClick={() => scrollToSection('appointment')} style={{ color: '#1D4ED8', fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            Check Slots →
           </a>
         </div>
       </div>
 
       <main id="main-content">
-        {/* UI-02 & UI-04: Hero Section with Visual Hierarchy & Action Focal Point */}
+        {/* Hero Section */}
         <div id="hero">
           <Hero
             onApplyClick={() => scrollToSection('register')}
@@ -102,61 +89,42 @@ export default function App() {
           />
         </div>
 
-        {/* UI-03 & UI-10: Comprehensive Services with Uniform Iconography */}
+        {/* Citizen Services */}
         <div id="services">
           <ServicesSection onSelectService={() => scrollToSection('register')} />
         </div>
 
-        {/* UI-03 & UI-14: Transparent Metrics Ribbon */}
+        {/* Statistics Section */}
         <div id="stats">
           <StatsSection />
         </div>
 
-        {/* UI-07 & UI-11: Responsive Modern Table for PSK Slot Availability */}
+        {/* Appointment Availability Finder */}
         <div id="appointment">
           <AppointmentChecker onBookSlot={() => scrollToSection('register')} />
         </div>
 
-        {/* UI-06: Interactive Fee Calculator with Balanced Form Layout */}
+        {/* Interactive Fee Calculator */}
         <div id="fee-calculator">
           <FeeCalculator onApplyNow={() => scrollToSection('register')} />
         </div>
       </main>
 
-      {/* UI-15: Harmonized GovTech Footer */}
+      {/* Official Footer */}
       <div id="footer">
         <Footer />
       </div>
 
-      {/* UI-08, UI-09, UI-12, UI-13: Registration & Login Modal */}
+      {/* Registration & Login Modal */}
       <RegistrationModal
         isOpen={authModalOpen}
         onClose={() => setAuthModalOpen(false)}
         initialMode={authMode}
         onSuccess={(user) => {
           setUserSession(user);
-          alert(`Welcome, ${user.name}! You are logged in.`);
+          alert(`Welcome, ${user.name}! You are authenticated.`);
         }}
       />
-
-      {/* Assignment 1 Evaluator Flaw Inspector Side Drawer */}
-      <FlawInspector
-        isOpen={showInspector}
-        onClose={() => setShowInspector(false)}
-        onSelectFlaw={handleSelectFlaw}
-      />
-
-      {/* Floating Evaluator Mode Launcher Pill */}
-      {!showInspector && (
-        <button
-          className="flaw-inspector-pill"
-          onClick={() => setShowInspector(true)}
-          title="Open Assignment 1 UI Problem vs Solution Inspector"
-        >
-          <span>🔍 Inspect UI Flaws Solved</span>
-          <span className="flaw-count-badge">15/15 Solved</span>
-        </button>
-      )}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SearchIcon, CheckIcon, CalendarIcon, AlertCircleIcon } from './Icons';
+import { SearchIcon, CheckIcon } from './Icons';
 
 export const AppointmentChecker = ({ onBookSlot }) => {
   const [selectedOffice, setSelectedOffice] = useState('Mumbai');
@@ -91,7 +91,6 @@ export const AppointmentChecker = ({ onBookSlot }) => {
     }
   ];
 
-  // Filtering logic
   const filteredSlots = slotsData.filter((slot) => {
     const matchesCity = slot.city === selectedOffice;
     const matchesQuota = quotaFilter === 'all' || slot.quota.toLowerCase() === quotaFilter.toLowerCase();
@@ -101,25 +100,22 @@ export const AppointmentChecker = ({ onBookSlot }) => {
   });
 
   return (
-    <section className="section" id="appointment" style={{ backgroundColor: '#F8FAFC' }}>
+    <section className="section" id="appointment" style={{ backgroundColor: '#F9FAFB' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">
-            Appointment Real-Time Slots
-            <span className="flaw-tag solved">UI-11 CSS Grid Solved</span>
-          </span>
-          <h2 className="section-title">Check Passport Seva Kendra (PSK) Availability</h2>
+          <span className="section-tag">Appointment Availability</span>
+          <h2 className="section-title">Passport Seva Kendra (PSK) Slot Status</h2>
           <p className="section-desc">
-            Replaced legacy nested HTML tables with a modern, responsive CSS grid that maintains pixel-perfect alignment across mobile, tablet, and desktop zoom levels.
+            Check real-time slot availability across all regional jurisdictions with automatic quota allocation and appointment booking.
           </p>
         </div>
 
-        {/* Filter Controls (UI-11 & UI-14 Spacing) */}
+        {/* Filter Controls */}
         <div style={{
           background: '#FFFFFF',
           borderRadius: '16px',
           padding: '24px',
-          boxShadow: 'var(--shadow-sm)',
+          boxShadow: 'var(--shadow-card)',
           border: '1px solid var(--border-light)',
           marginBottom: '24px',
           display: 'grid',
@@ -155,7 +151,7 @@ export const AppointmentChecker = ({ onBookSlot }) => {
             >
               <option value="all">All Quotas (Normal & Tatkaal)</option>
               <option value="normal">Normal Scheme Only</option>
-              <option value="tatkaal">Tatkaal Urgent Only</option>
+              <option value="tatkaal">Tatkaal Expedited Only</option>
             </select>
           </div>
 
@@ -174,7 +170,7 @@ export const AppointmentChecker = ({ onBookSlot }) => {
           </div>
         </div>
 
-        {/* UI-11 Fix: Modern Table Layout with CSS Grid (Responsive & Accessible) */}
+        {/* Modern CSS Grid Table */}
         <div className="modern-table-container">
           <div className="modern-table-header">
             <div>Passport Kendra & Location</div>
@@ -187,7 +183,7 @@ export const AppointmentChecker = ({ onBookSlot }) => {
             filteredSlots.map((slot) => (
               <div key={slot.id} className="modern-table-row">
                 <div>
-                  <div style={{ fontWeight: 700, color: '#0A2540', fontSize: '15px' }}>
+                  <div style={{ fontWeight: 700, color: 'var(--gov-navy)', fontSize: '15.5px', fontFamily: 'var(--font-serif)' }}>
                     {slot.center}
                   </div>
                   <div style={{ fontSize: '12.5px', color: '#64748B', marginTop: '2px' }}>
@@ -198,13 +194,13 @@ export const AppointmentChecker = ({ onBookSlot }) => {
                 <div>
                   <span style={{
                     display: 'inline-block',
-                    padding: '3px 10px',
+                    padding: '4px 10px',
                     borderRadius: '6px',
                     fontSize: '12px',
                     fontWeight: 700,
                     background: slot.quota === 'Tatkaal' ? '#FFF7ED' : '#EFF6FF',
-                    color: slot.quota === 'Tatkaal' ? '#C2410C' : '#1D4ED8',
-                    border: `1px solid ${slot.quota === 'Tatkaal' ? '#FED7AA' : '#BFDBFE'}`
+                    color: slot.quota === 'Tatkaal' ? '#C2410C' : '#0369A1',
+                    border: `1px solid ${slot.quota === 'Tatkaal' ? '#FED7AA' : '#BAE6FD'}`
                   }}>
                     {slot.quota} Scheme
                   </span>
@@ -217,7 +213,7 @@ export const AppointmentChecker = ({ onBookSlot }) => {
                   <span style={{ 
                     marginLeft: '8px', 
                     fontSize: '11.5px', 
-                    color: slot.status === 'Fast Filling' ? '#DC2626' : '#059669',
+                    color: slot.status === 'Fast Filling' ? '#B91C1C' : '#0F766E',
                     fontWeight: 600
                   }}>
                     ● {slot.status}
@@ -229,7 +225,7 @@ export const AppointmentChecker = ({ onBookSlot }) => {
                     <CheckIcon className="w-3.5 h-3.5" />
                     <span>{slot.nextDate}</span>
                   </div>
-                  <div style={{ marginTop: '6px' }}>
+                  <div style={{ marginTop: '8px' }}>
                     <button 
                       className="btn btn-outline btn-sm"
                       onClick={() => onBookSlot(slot)}

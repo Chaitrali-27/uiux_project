@@ -1,14 +1,13 @@
 import React from 'react';
-import { ArrowRightIcon, ShieldIcon, CheckIcon } from './Icons';
+import { ArrowRightIcon } from './Icons';
 
 export const ServicesSection = ({ onSelectService }) => {
   const services = [
     {
       id: 'fresh-reissue',
       title: 'Fresh / Re-issue Passport',
-      desc: 'Apply for a new 10-year Ordinary Passport or renew your expired booklet with 36 or 60 pages.',
-      tatkaalAvailable: true,
-      eta: 'Normal: 15-20 days | Tatkaal: 1-3 days',
+      desc: 'Apply for a new 10-year Ordinary Passport or renew an expiring booklet with 36 or 60 pages.',
+      eta: 'Normal: 15–20 days | Tatkaal: 1–3 days',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="3" y="4" width="18" height="16" rx="2" />
@@ -21,9 +20,8 @@ export const ServicesSection = ({ onSelectService }) => {
     {
       id: 'tatkaal',
       title: 'Tatkaal Passport Scheme',
-      desc: 'Expedited processing for emergency travel. Verification process streamlined within 72 hours.',
-      tatkaalAvailable: true,
-      eta: 'Dispatched within 1-3 working days',
+      desc: 'Expedited processing for emergency travel. Verification process completed within 72 hours.',
+      eta: 'Dispatched within 1–3 working days',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
@@ -33,9 +31,8 @@ export const ServicesSection = ({ onSelectService }) => {
     {
       id: 'pcc',
       title: 'Police Clearance Certificate (PCC)',
-      desc: 'Required for individuals seeking employment, long-term stay, or immigration to foreign nations.',
-      tatkaalAvailable: false,
-      eta: 'Normal: 7-14 days',
+      desc: 'Official certificate for Indian citizens seeking employment, long-term stay, or immigration abroad.',
+      eta: 'Normal: 7–14 days',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -46,8 +43,7 @@ export const ServicesSection = ({ onSelectService }) => {
     {
       id: 'diplomatic',
       title: 'Diplomatic & Official Passport',
-      desc: 'Issued to government officials, diplomats, and authorized state delegates travelling on official duty.',
-      tatkaalAvailable: false,
+      desc: 'Issued to government dignitaries, diplomats, and authorized official delegates travelling on state duty.',
       eta: 'Processed via CPV Delhi division',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -58,9 +54,8 @@ export const ServicesSection = ({ onSelectService }) => {
     },
     {
       id: 'surrender',
-      title: 'Passport Surrender Certificate',
-      desc: 'Mandatory certificate upon acquisition of foreign citizenship under the Indian Citizenship Act.',
-      tatkaalAvailable: false,
+      title: 'Surrender Certificate',
+      desc: 'Mandatory certificate upon acquisition of foreign citizenship under the Indian Citizenship Act, 1955.',
       eta: 'Issued within 5 working days',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -73,8 +68,7 @@ export const ServicesSection = ({ onSelectService }) => {
     {
       id: 'loc-permit',
       title: 'Line of Control (LoC) Permit',
-      desc: 'Special travel documentation for permanent residents visiting across designated crossing points.',
-      tatkaalAvailable: false,
+      desc: 'Special travel documentation for permanent residents visiting across designated crossing sectors.',
       eta: 'Verification through designated cell',
       icon: (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -89,20 +83,16 @@ export const ServicesSection = ({ onSelectService }) => {
   ];
 
   return (
-    <section className="section" id="services" style={{ backgroundColor: '#F8FAFC' }}>
+    <section className="section" id="services" style={{ backgroundColor: '#F9FAFB' }}>
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">
-            Citizen Services
-            <span className="flaw-tag solved">UI-03 & UI-10 Solved</span>
-          </span>
-          <h2 className="section-title">Comprehensive Passport & Travel Services</h2>
+          <span className="section-tag">Citizen Services</span>
+          <h2 className="section-title">Comprehensive Passport & Travel Documentation</h2>
           <p className="section-desc">
-            Standardized, accessible application procedures designed with uniform iconography and transparent turnaround times.
+            Standardized, accessible application procedures designed with uniform iconography, clear timelines, and transparent guidelines.
           </p>
         </div>
 
-        {/* UI-03: Varied, modern card layout replacing repetitive legacy boxes */}
         <div className="services-grid">
           {services.map((svc) => (
             <div 
@@ -111,7 +101,6 @@ export const ServicesSection = ({ onSelectService }) => {
               onClick={() => onSelectService(svc.id)}
             >
               <div>
-                {/* UI-10 Fix: Uniform icon container with consistent sizing and weight */}
                 <div className="service-icon-wrap">
                   {svc.icon}
                 </div>
@@ -120,8 +109,8 @@ export const ServicesSection = ({ onSelectService }) => {
               </div>
 
               <div>
-                <div style={{ fontSize: '12px', color: '#64748B', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                  <span style={{ color: '#059669' }}>●</span> {svc.eta}
+                <div style={{ fontSize: '12.5px', color: '#64748B', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <span style={{ color: '#0F766E' }}>●</span> {svc.eta}
                 </div>
                 <div className="service-footer">
                   <span>Start Application</span>

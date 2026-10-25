@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { XIcon, AlertCircleIcon, CheckIcon, UserIcon, ShieldIcon } from './Icons';
+import { XIcon, AlertCircleIcon, CheckIcon } from './Icons';
 
 export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', onSuccess }) => {
-  const [mode, setMode] = useState(initialMode); // 'login' or 'register'
+  const [mode, setMode] = useState(initialMode);
 
-  // Registration Form State
-  const [registerAt, setRegisterAt] = useState('rpo'); // 'rpo' or 'cpv'
+  // Form State
+  const [registerAt, setRegisterAt] = useState('rpo');
   const [passportOffice, setPassportOffice] = useState('Mumbai');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -14,11 +14,9 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  // Login Form State
   const [loginUser, setLoginUser] = useState('');
   const [loginPass, setLoginPass] = useState('');
 
-  // Validation Errors State (UI-13 Demonstration)
   const [errors, setErrors] = useState({});
   const [submittedSuccess, setSubmittedSuccess] = useState(false);
 
@@ -27,13 +25,13 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
   const validateRegistration = () => {
     const errs = {};
     if (!fullName.trim()) {
-      errs.fullName = 'Full Name is required (as per Aadhaar / Birth Certificate)';
+      errs.fullName = 'Please enter your full legal name as per official identity proof';
     }
     if (!email.trim() || !email.includes('@')) {
       errs.email = 'Please provide a valid email address';
     }
     if (!sameAsEmail && !loginId.trim()) {
-      errs.loginId = 'Please choose a valid unique Login ID';
+      errs.loginId = 'Please enter a unique Login ID';
     }
     if (!password || password.length < 8) {
       errs.password = 'Password must be at least 8 characters long';
@@ -62,7 +60,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     const errs = {};
-    if (!loginUser.trim()) errs.loginUser = 'Login ID / Registered Email is required';
+    if (!loginUser.trim()) errs.loginUser = 'Login ID or Registered Email is required';
     if (!loginPass) errs.loginPass = 'Password is required to authenticate';
 
     if (Object.keys(errs).length > 0) {
@@ -84,8 +82,8 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
       left: 0,
       right: 0,
       bottom: 0,
-      background: 'rgba(10, 37, 64, 0.65)',
-      backdropFilter: 'blur(4px)',
+      background: 'rgba(4, 16, 33, 0.7)',
+      backdropFilter: 'blur(5px)',
       zIndex: 1000,
       display: 'flex',
       alignItems: 'center',
@@ -99,24 +97,20 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
         maxWidth: '560px',
         maxHeight: '90vh',
         overflowY: 'auto',
-        boxShadow: 'var(--shadow-xl)',
+        boxShadow: 'var(--shadow-modal)',
         border: '1px solid rgba(255, 255, 255, 0.8)',
         padding: '32px'
       }}>
         {/* Modal Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span className="flaw-tag solved">UI-08 & UI-09 & UI-13 Solved</span>
-            </div>
-            {/* UI-08 Fix: Friendly sentence-case heading instead of all-caps screaming */}
-            <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#0A2540', marginTop: '6px' }}>
-              {mode === 'register' ? 'Create Your Citizen Account' : 'Sign in to Passport Seva'}
+            <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--gov-navy)', fontFamily: 'var(--font-serif)' }}>
+              {mode === 'register' ? 'Register for Citizen Services' : 'Sign in to Passport Seva'}
             </h2>
-            <p style={{ fontSize: '13.5px', color: '#64748B', marginTop: '2px' }}>
+            <p style={{ fontSize: '13.5px', color: '#64748B', marginTop: '4px' }}>
               {mode === 'register' 
-                ? 'Register once to apply, track status, and schedule appointments online.' 
-                : 'Enter your credentials to access your submitted applications.'}
+                ? 'Create your citizen credentials to initiate applications, book slots, and pay statutory fees.' 
+                : 'Access your submitted applications and track appointment schedules.'}
             </p>
           </div>
           <button 
@@ -127,68 +121,89 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
           </button>
         </div>
 
-        {/* Tab Toggle between Login and Register (UI-12 Button consistency) */}
-        <div className="hero-tabs" style={{ marginBottom: '24px' }}>
+        {/* Tab Selector */}
+        <div style={{ display: 'flex', background: '#F1F5F9', borderRadius: '10px', padding: '4px', marginBottom: '24px' }}>
           <button 
             type="button"
-            className={`hero-tab-btn ${mode === 'register' ? 'active' : ''}`}
+            className="hero-tab-btn"
+            style={{
+              flex: 1,
+              padding: '9px 12px',
+              border: 'none',
+              background: mode === 'register' ? '#FFFFFF' : 'none',
+              color: mode === 'register' ? 'var(--gov-navy)' : '#64748B',
+              fontWeight: 700,
+              fontSize: '13.5px',
+              borderRadius: '8px',
+              boxShadow: mode === 'register' ? 'var(--shadow-subtle)' : 'none',
+              cursor: 'pointer'
+            }}
             onClick={() => { setMode('register'); setErrors({}); }}
           >
-            New User Registration
+            New Applicant Registration
           </button>
           <button 
             type="button"
-            className={`hero-tab-btn ${mode === 'login' ? 'active' : ''}`}
+            className="hero-tab-btn"
+            style={{
+              flex: 1,
+              padding: '9px 12px',
+              border: 'none',
+              background: mode === 'login' ? '#FFFFFF' : 'none',
+              color: mode === 'login' ? 'var(--gov-navy)' : '#64748B',
+              fontWeight: 700,
+              fontSize: '13.5px',
+              borderRadius: '8px',
+              boxShadow: mode === 'login' ? 'var(--shadow-subtle)' : 'none',
+              cursor: 'pointer'
+            }}
             onClick={() => { setMode('login'); setErrors({}); }}
           >
-            Existing User Login
+            Existing Citizen Login
           </button>
         </div>
 
         {submittedSuccess ? (
           <div style={{ textAlign: 'center', padding: '40px 20px' }}>
             <div style={{
-              width: '60px',
-              height: '60px',
+              width: '64px',
+              height: '64px',
               borderRadius: '50%',
-              background: '#ECFDF5',
-              color: '#059669',
+              background: '#F0FDF4',
+              color: '#0F766E',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              margin: '0 auto 16px auto'
+              margin: '0 auto 16px auto',
+              border: '1px solid #BBF7D0'
             }}>
               <CheckIcon className="w-8 h-8" />
             </div>
-            <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#0A2540' }}>
-              {mode === 'register' ? 'Registration Successful!' : 'Welcome Back!'}
+            <h3 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--gov-navy)', fontFamily: 'var(--font-serif)' }}>
+              {mode === 'register' ? 'Registration Successful' : 'Authentication Verified'}
             </h3>
             <p style={{ color: '#64748B', fontSize: '14px', marginTop: '6px' }}>
               Redirecting you to your applicant dashboard...
             </p>
           </div>
         ) : mode === 'register' ? (
-          /* ========================================================
-             REGISTRATION FORM (UI-08, UI-09, UI-13 Resolved)
-             ======================================================== */
           <form onSubmit={handleRegisterSubmit}>
-            {/* UI-09 Fix: Top-aligned radio selector with clear explanation */}
             <div className="form-group">
               <label className="form-label">
                 Register to apply at
-                <span className="form-label-helper">Choose jurisdiction</span>
+                <span className="form-label-helper">Select office jurisdiction</span>
               </label>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                 <label style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '10px 14px',
+                  padding: '11px 14px',
                   borderRadius: '8px',
-                  border: registerAt === 'rpo' ? '2px solid #0066CC' : '1px solid #CBD5E1',
-                  background: registerAt === 'rpo' ? '#F0F7FF' : '#FFFFFF',
+                  border: registerAt === 'rpo' ? '2px solid var(--gov-navy)' : '1px solid #CBD5E1',
+                  background: registerAt === 'rpo' ? 'var(--bg-subtle-accent)' : '#FFFFFF',
                   cursor: 'pointer',
-                  fontSize: '13.5px',
+                  fontSize: '13px',
                   fontWeight: 600
                 }}>
                   <input 
@@ -197,19 +212,19 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                     checked={registerAt === 'rpo'} 
                     onChange={() => setRegisterAt('rpo')}
                   />
-                  <span>Passport Office (General Citizen)</span>
+                  <span>Passport Office (Standard Citizen)</span>
                 </label>
 
                 <label style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '10px 14px',
+                  padding: '11px 14px',
                   borderRadius: '8px',
-                  border: registerAt === 'cpv' ? '2px solid #0066CC' : '1px solid #CBD5E1',
-                  background: registerAt === 'cpv' ? '#F0F7FF' : '#FFFFFF',
+                  border: registerAt === 'cpv' ? '2px solid var(--gov-navy)' : '1px solid #CBD5E1',
+                  background: registerAt === 'cpv' ? 'var(--bg-subtle-accent)' : '#FFFFFF',
                   cursor: 'pointer',
-                  fontSize: '13.5px',
+                  fontSize: '13px',
                   fontWeight: 600
                 }}>
                   <input 
@@ -218,7 +233,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                     checked={registerAt === 'cpv'} 
                     onChange={() => setRegisterAt('cpv')}
                   />
-                  <span>CPV Delhi (Diplomatic Only)</span>
+                  <span>CPV Delhi (Diplomatic Division)</span>
                 </label>
               </div>
             </div>
@@ -226,7 +241,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
             {registerAt === 'rpo' && (
               <div className="form-group">
                 <label className="form-label" htmlFor="reg-rpo">
-                  Regional Passport Office
+                  Regional Passport Jurisdiction
                   <span className="required-star">*</span>
                 </label>
                 <select 
@@ -245,10 +260,9 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
               </div>
             )}
 
-            {/* UI-09 Fix: Top-Aligned Label for Full Name */}
             <div className="form-group">
               <label className="form-label" htmlFor="reg-name">
-                Full Name (Given Name + Surname)
+                Full Legal Name (Given Name + Surname)
                 <span className="required-star">*</span>
               </label>
               <input 
@@ -259,7 +273,6 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />
-              {/* UI-13 Fix: Inline error message with Alert icon */}
               {errors.fullName && (
                 <div className="form-error-msg">
                   <AlertCircleIcon className="w-3.5 h-3.5" />
@@ -268,10 +281,9 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
               )}
             </div>
 
-            {/* UI-09 Fix: Top-Aligned Label for Email */}
             <div className="form-group">
               <label className="form-label" htmlFor="reg-email">
-                Email Address
+                Official Email Address
                 <span className="required-star">*</span>
               </label>
               <input 
@@ -290,7 +302,6 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
               )}
             </div>
 
-            {/* Login ID Checkbox */}
             <div className="form-group">
               <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer', fontSize: '13.5px', color: '#1E293B' }}>
                 <input 
@@ -298,7 +309,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                   checked={sameAsEmail} 
                   onChange={(e) => setSameAsEmail(e.target.checked)} 
                 />
-                <span>Use email address as my Login ID (Recommended)</span>
+                <span>Set my email address as my permanent Login ID (Recommended)</span>
               </label>
             </div>
 
@@ -325,7 +336,6 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
               </div>
             )}
 
-            {/* Password Fields */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               <div className="form-group">
                 <label className="form-label" htmlFor="reg-pass">
@@ -335,7 +345,7 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
                 <input 
                   id="reg-pass"
                   type="password"
-                  placeholder="Min 8 characters"
+                  placeholder="Minimum 8 characters"
                   className={`form-input ${errors.password ? 'is-error' : ''}`}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -370,9 +380,8 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
               </div>
             </div>
 
-            {/* UI-12 Fix: Primary and Secondary Action Buttons */}
             <div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
-              <button type="submit" className="btn btn-primary" style={{ flex: 1 }}>
+              <button type="submit" className="btn btn-navy" style={{ flex: 1 }}>
                 Register Account
               </button>
               <button type="button" className="btn btn-secondary" onClick={onClose}>
@@ -381,13 +390,10 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
             </div>
           </form>
         ) : (
-          /* ========================================================
-             LOGIN FORM
-             ======================================================== */
           <form onSubmit={handleLoginSubmit}>
             <div className="form-group">
               <label className="form-label" htmlFor="login-user">
-                Registered Login ID or Email Address
+                Login ID or Registered Email
                 <span className="required-star">*</span>
               </label>
               <input 
@@ -430,14 +436,14 @@ export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', o
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', fontSize: '13px' }}>
               <label style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#475569', cursor: 'pointer' }}>
                 <input type="checkbox" defaultChecked />
-                <span>Remember me on this device</span>
+                <span>Remember me on this trusted device</span>
               </label>
-              <a href="#forgot" style={{ color: '#0066CC', textDecoration: 'none', fontWeight: 600 }}>
+              <a href="#forgot" style={{ color: 'var(--gov-blue-accent)', textDecoration: 'none', fontWeight: 600 }}>
                 Forgot Password?
               </a>
             </div>
 
-            <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
+            <button type="submit" className="btn btn-navy" style={{ width: '100%' }}>
               Log in to Dashboard
             </button>
           </form>

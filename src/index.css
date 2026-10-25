@@ -1,41 +1,47 @@
 /* ==========================================================================
-   PASSPORT SEVA PORTAL — MODERN GOVTECH DESIGN SYSTEM
-   Addresses UI-01 through UI-15
+   PASSPORT SEVA PORTAL — DIGNIFIED GOVTECH DESIGN SYSTEM
+   Ministry of External Affairs • Government of India
    ========================================================================== */
 
 :root {
-  /* UI-02: Harmonious, Trustworthy GovTech Color System */
-  --gov-primary: #0A2540;        /* Deep Navy Blue */
-  --gov-primary-dark: #061729;   /* Midnight Navy */
-  --gov-primary-light: #16365C;  /* Lighter Navy */
-  --gov-accent: #0066CC;         /* Indian Blue Accent */
-  --gov-accent-hover: #0052A3;
-  --gov-saffron: #FF671F;        /* National Tricolor Saffron */
-  --gov-saffron-hover: #E05410;
-  --gov-green: #059669;          /* National Emerald Green */
-  --gov-green-bg: #ECFDF5;
-  --gov-green-border: #A7F3D0;
-  --gov-red: #DC2626;            /* Accessible Error Red */
+  /* Harmonious, Prestigious Color Palette (UI-02 Fix) */
+  --gov-navy-dark: #041021;     /* Midnight Blue for Top Utility & Footer */
+  --gov-navy: #081E3A;          /* Majestic Deep Imperial Navy */
+  --gov-navy-light: #0F325A;    /* Section Accent Navy */
+  --gov-blue-accent: #0056B3;   /* Clean Trustworthy Action Blue */
+  
+  --gov-gold: #C29329;          /* Regal Gold / Ashoka Emblem Trim */
+  --gov-gold-light: #F4E8C1;
+  --gov-saffron: #E25822;       /* National Saffron CTA */
+  --gov-saffron-hover: #C54411;
+  
+  --gov-emerald: #0F766E;       /* Verification Emerald */
+  --gov-emerald-bg: #F0FDF4;
+  --gov-emerald-border: #BBF7D0;
+  
+  --gov-red: #B91C1C;           /* Standard Accessible Error Red */
   --gov-red-bg: #FEF2F2;
-  --gov-red-border: #FCA5A5;
-  --gov-amber: #D97706;
-  --gov-amber-bg: #FFFBEB;
+  --gov-red-border: #FECACA;
+
+  --bg-page: #F9FAFB;           /* Elegant Warm Alabaster (replaces muddy yellow/beige) */
+  --bg-surface: #FFFFFF;        /* Pure Crisp White Cards */
+  --bg-subtle: #F1F5F9;         /* Soft Cool Gray */
+  --bg-subtle-accent: #EEF4FA;  /* Subtle Navy Tint */
   
-  --bg-main: #F8FAFC;            /* Clean light background (UI-02 fix) */
-  --bg-card: #FFFFFF;            /* Pure white surfaces */
-  --bg-subtle: #F1F5F9;          /* Slate tint */
-  --bg-subtle-2: #E2E8F0;
-  
-  --text-main: #0F172A;          /* Charcoal Black */
-  --text-muted: #475569;         /* Slate Gray */
-  --text-light: #64748B;         /* Subdued Slate */
+  --text-heading: #0A192F;      /* Deep Midnight Charcoal */
+  --text-body: #334155;         /* Crisp Slate for Readability */
+  --text-muted: #64748B;        /* Subdued Secondary Text */
   --text-inverse: #FFFFFF;
   
   --border-light: #E2E8F0;
   --border-medium: #CBD5E1;
-  --border-focus: #0066CC;
+  --border-focus: #C29329;
   
-  /* UI-14: Strict 8px Spacing Grid System */
+  /* Typography Families */
+  --font-serif: 'Times New Roman', 'Merriweather', Georgia, 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Strict 8px Spatial Grid (UI-14 Fix) */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -48,20 +54,19 @@
   --space-16: 64px;
   --space-20: 80px;
   
-  /* Elevation Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  /* Refined Elevation Shadows */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 4px 6px -1px rgba(8, 30, 58, 0.06), 0 2px 4px -2px rgba(8, 30, 58, 0.03);
+  --shadow-hover: 0 12px 24px -4px rgba(8, 30, 58, 0.12), 0 4px 6px -2px rgba(8, 30, 58, 0.04);
+  --shadow-modal: 0 24px 48px -12px rgba(4, 16, 33, 0.25);
   
-  /* Radii */
+  /* Radius */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
-  --radius-xl: 24px;
   --radius-full: 9999px;
   
-  --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Base Resets */
@@ -72,24 +77,24 @@
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-main);
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Font Size Adjustments */
-body.font-size-small { font-size: 14px; }
-body.font-size-normal { font-size: 16px; }
-body.font-size-large { font-size: 18px; }
+h1, h2, h3, .serif-heading {
+  font-family: var(--font-serif);
+  color: var(--text-heading);
+  letter-spacing: -0.01em;
+}
 
-/* Container */
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1220px;
   margin: 0 auto;
   padding: 0 var(--space-4);
 }
@@ -105,11 +110,11 @@ body.font-size-large { font-size: 18px; }
 }
 
 .top-utility-bar {
-  background-color: var(--gov-primary-dark);
+  background-color: var(--gov-navy-dark);
   color: #94A3B8;
   font-size: 12.5px;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(194, 147, 41, 0.25);
 }
 
 .utility-content {
@@ -133,6 +138,11 @@ body.font-size-large { font-size: 18px; }
   color: #CBD5E1;
   text-decoration: none;
   transition: var(--transition);
+}
+
+.utility-item strong {
+  color: #F8FAFC;
+  font-weight: 700;
 }
 
 .utility-item:hover {
@@ -167,7 +177,7 @@ body.font-size-large { font-size: 18px; }
 }
 
 .font-btn:hover, .font-btn.active {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--gov-gold);
   color: #FFFFFF;
 }
 
@@ -176,9 +186,9 @@ body.font-size-large { font-size: 18px; }
   align-items: center;
   gap: 5px;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: #FFFFFF;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: var(--radius-sm);
   font-size: 12px;
   font-weight: 600;
@@ -187,21 +197,22 @@ body.font-size-large { font-size: 18px; }
 }
 
 .lang-switch:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(194, 147, 41, 0.25);
+  border-color: var(--gov-gold);
 }
 
 /* Primary Navbar */
 .primary-navbar {
   background-color: #FFFFFF;
   border-bottom: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-subtle);
 }
 
 .navbar-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 76px;
+  height: 80px;
 }
 
 .brand-section {
@@ -209,39 +220,37 @@ body.font-size-large { font-size: 18px; }
   align-items: center;
   gap: var(--space-3);
   text-decoration: none;
-  user-select: none;
+  cursor: pointer;
 }
 
 .brand-emblem {
-  width: 46px;
-  height: 46px;
+  width: 50px;
+  height: 50px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, #0A2540 0%, #16365C 100%);
+  background: linear-gradient(135deg, #041021 0%, #081E3A 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFB703;
-  box-shadow: 0 4px 10px rgba(10, 37, 64, 0.15);
+  color: var(--gov-gold);
+  box-shadow: 0 4px 12px rgba(8, 30, 58, 0.15);
+  border: 1px solid rgba(194, 147, 41, 0.3);
 }
 
 .brand-text h1 {
-  font-size: 19px;
-  font-weight: 800;
-  color: var(--gov-primary);
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--gov-navy);
   line-height: 1.15;
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-family: var(--font-serif);
 }
 
 .brand-text p {
-  font-size: 11.5px;
-  color: var(--text-light);
-  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-/* UI-05: Streamlined Navigation Links */
 .nav-links {
   display: flex;
   align-items: center;
@@ -253,8 +262,8 @@ body.font-size-large { font-size: 18px; }
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 8px 14px;
-  color: var(--text-muted);
+  padding: 9px 14px;
+  color: var(--text-body);
   text-decoration: none;
   font-size: 14.5px;
   font-weight: 600;
@@ -266,8 +275,8 @@ body.font-size-large { font-size: 18px; }
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--gov-accent);
-  background-color: #F0F7FF;
+  color: var(--gov-navy);
+  background-color: var(--bg-subtle-accent);
 }
 
 .nav-actions {
@@ -276,24 +285,15 @@ body.font-size-large { font-size: 18px; }
   gap: var(--space-3);
 }
 
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-main);
-  cursor: pointer;
-  padding: 8px;
-}
-
 /* ==========================================================================
-   UI-12: UNIFIED BUTTON SYSTEM
+   UI-12: UNIFIED REGAL BUTTON SYSTEM
    ========================================================================== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 10px 22px;
   font-size: 14px;
   font-weight: 600;
   border-radius: var(--radius-md);
@@ -302,10 +302,11 @@ body.font-size-large { font-size: 18px; }
   text-decoration: none;
   transition: var(--transition);
   white-space: nowrap;
+  font-family: var(--font-sans);
 }
 
 .btn-sm {
-  padding: 6px 14px;
+  padding: 7px 14px;
   font-size: 13px;
   border-radius: var(--radius-sm);
 }
@@ -316,71 +317,63 @@ body.font-size-large { font-size: 18px; }
   border-radius: var(--radius-md);
 }
 
-.btn-primary {
-  background-color: var(--gov-accent);
-  color: #FFFFFF;
-  box-shadow: 0 2px 4px rgba(0, 102, 204, 0.2);
-}
-
-.btn-primary:hover {
-  background-color: var(--gov-accent-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 12px rgba(0, 102, 204, 0.25);
-}
-
+/* Saffron / Gold National Primary CTA */
 .btn-saffron {
-  background-color: var(--gov-saffron);
+  background: linear-gradient(135deg, #E25822 0%, #C54411 100%);
   color: #FFFFFF;
-  box-shadow: 0 2px 6px rgba(255, 103, 31, 0.25);
+  box-shadow: 0 2px 6px rgba(226, 88, 34, 0.3);
 }
 
 .btn-saffron:hover {
-  background-color: var(--gov-saffron-hover);
+  background: linear-gradient(135deg, #F0652D 0%, #D44914 100%);
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(255, 103, 31, 0.35);
+  box-shadow: 0 6px 16px rgba(226, 88, 34, 0.35);
+}
+
+/* Navy Secondary Button */
+.btn-navy {
+  background: linear-gradient(135deg, #081E3A 0%, #0F325A 100%);
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(8, 30, 58, 0.25);
+}
+
+.btn-navy:hover {
+  background: linear-gradient(135deg, #0C284D 0%, #164377 100%);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background-color: var(--bg-subtle);
-  color: var(--text-main);
-  border-color: var(--border-light);
+  background-color: var(--bg-surface);
+  color: var(--gov-navy);
+  border-color: var(--border-medium);
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-subtle-2);
-  color: var(--text-main);
+  background-color: var(--bg-subtle);
+  border-color: var(--gov-navy);
 }
 
 .btn-outline {
   background-color: transparent;
-  color: var(--gov-accent);
+  color: var(--gov-navy);
   border-color: var(--border-medium);
 }
 
 .btn-outline:hover {
-  background-color: #F0F7FF;
-  border-color: var(--gov-accent);
-}
-
-.btn-ghost {
-  background-color: transparent;
-  color: var(--text-muted);
-}
-
-.btn-ghost:hover {
-  background-color: var(--bg-subtle);
-  color: var(--text-main);
+  background-color: var(--bg-subtle-accent);
+  border-color: var(--gov-navy);
 }
 
 /* ==========================================================================
-   UI-02 & UI-04: HERO SECTION (Visual Hierarchy & Focal Point)
+   UI-02 & UI-04: HERO SECTION (Majestic Navy & Focal Action Center)
    ========================================================================== */
 .hero-section {
-  background: linear-gradient(180deg, #0A2540 0%, #0F3256 100%);
+  background: linear-gradient(180deg, #081E3A 0%, #0C2B52 100%);
   color: #FFFFFF;
   padding: var(--space-12) 0 var(--space-16) 0;
   position: relative;
   overflow: hidden;
+  border-bottom: 2px solid var(--gov-gold);
 }
 
 .hero-section::before {
@@ -390,7 +383,7 @@ body.font-size-large { font-size: 18px; }
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(0, 102, 204, 0.2) 0%, transparent 60%);
+  background: radial-gradient(circle at 85% 15%, rgba(194, 147, 41, 0.15) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -407,32 +400,35 @@ body.font-size-large { font-size: 18px; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(194, 147, 41, 0.35);
   padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 13px;
   font-weight: 600;
-  color: #E2E8F0;
+  color: #F8FAFC;
   margin-bottom: var(--space-4);
 }
 
+.hero-badge .gold-dot {
+  color: var(--gov-gold);
+}
+
 .hero-title {
-  font-size: 38px;
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.22;
   margin-bottom: var(--space-4);
   color: #FFFFFF;
+  font-family: var(--font-serif);
 }
 
 .hero-subtitle {
   font-size: 16.5px;
-  color: #94A3B8;
-  line-height: 1.6;
+  color: #CBD5E1;
+  line-height: 1.65;
   margin-bottom: var(--space-8);
-  max-width: 560px;
+  max-width: 580px;
 }
 
 .hero-cta-group {
@@ -456,17 +452,17 @@ body.font-size-large { font-size: 18px; }
   align-items: center;
   gap: 8px;
   font-size: 12.5px;
-  color: #CBD5E1;
+  color: #E2E8F0;
 }
 
-/* Hero Quick Status Card (Focal Point UI-04) */
+/* Quick Application Tracker Card */
 .hero-card {
   background: #FFFFFF;
   border-radius: var(--radius-lg);
   padding: var(--space-6);
-  box-shadow: var(--shadow-xl);
-  color: var(--text-main);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-hover);
+  color: var(--text-heading);
+  border: 1px solid rgba(255, 255, 255, 0.85);
 }
 
 .hero-card-header {
@@ -479,43 +475,17 @@ body.font-size-large { font-size: 18px; }
 }
 
 .hero-card-title {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
-  color: var(--gov-primary);
+  color: var(--gov-navy);
+  font-family: var(--font-serif);
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.hero-tabs {
-  display: flex;
-  background: var(--bg-subtle);
-  border-radius: var(--radius-md);
-  padding: 4px;
-  margin-bottom: var(--space-4);
-}
-
-.hero-tab-btn {
-  flex: 1;
-  padding: 8px 12px;
-  border: none;
-  background: none;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.hero-tab-btn.active {
-  background: #FFFFFF;
-  color: var(--gov-accent);
-  box-shadow: var(--shadow-sm);
-}
-
 /* ==========================================================================
-   UI-08 & UI-09: FORM SYSTEM (Sentence Case & Top-Aligned Labels)
+   UI-08 & UI-09: ACCESSIBLE FORM SYSTEM
    ========================================================================== */
 .form-group {
   margin-bottom: var(--space-4);
@@ -527,18 +497,18 @@ body.font-size-large { font-size: 18px; }
   justify-content: space-between;
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--text-main);
+  color: var(--text-heading);
   margin-bottom: 6px;
 }
 
 .form-label .required-star {
   color: var(--gov-red);
-  margin-left: 2px;
+  margin-left: 3px;
 }
 
 .form-label-helper {
   font-size: 12px;
-  color: var(--text-light);
+  color: var(--text-muted);
   font-weight: normal;
 }
 
@@ -546,8 +516,8 @@ body.font-size-large { font-size: 18px; }
   width: 100%;
   padding: 11px 14px;
   font-size: 14.5px;
-  font-family: inherit;
-  color: var(--text-main);
+  font-family: var(--font-sans);
+  color: var(--text-heading);
   background-color: #FFFFFF;
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
@@ -556,8 +526,8 @@ body.font-size-large { font-size: 18px; }
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
-  border-color: var(--gov-accent);
-  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.12);
+  border-color: var(--gov-blue-accent);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.12);
 }
 
 /* UI-13: Validation Error State with Red Border & Accompanying Icon */
@@ -572,12 +542,12 @@ body.font-size-large { font-size: 18px; }
   gap: 6px;
   color: var(--gov-red);
   font-size: 12.5px;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 6px;
 }
 
 /* ==========================================================================
-   UI-03 & UI-10: CITIZEN SERVICES SECTION (Varied Layouts & Consistent Icons)
+   UI-03 & UI-10: CITIZEN SERVICES SECTION
    ========================================================================== */
 .section {
   padding: var(--space-16) 0;
@@ -585,29 +555,31 @@ body.font-size-large { font-size: 18px; }
 
 .section-header {
   text-align: center;
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto var(--space-10) auto;
 }
 
 .section-tag {
   display: inline-block;
-  background: #E0F2FE;
-  color: #0369A1;
+  background: var(--bg-subtle-accent);
+  color: var(--gov-navy);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 4px 12px;
+  letter-spacing: 0.06em;
+  padding: 5px 14px;
   border-radius: var(--radius-full);
   margin-bottom: var(--space-2);
+  border: 1px solid rgba(8, 30, 58, 0.1);
 }
 
 .section-title {
-  font-size: 30px;
-  font-weight: 800;
-  color: var(--gov-primary);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--gov-navy);
   line-height: 1.25;
   margin-bottom: var(--space-2);
+  font-family: var(--font-serif);
 }
 
 .section-desc {
@@ -618,7 +590,7 @@ body.font-size-large { font-size: 18px; }
 /* Services Grid */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   gap: var(--space-6);
 }
 
@@ -627,7 +599,7 @@ body.font-size-large { font-size: 18px; }
   border-radius: var(--radius-lg);
   padding: var(--space-6);
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-card);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
@@ -638,38 +610,40 @@ body.font-size-large { font-size: 18px; }
 
 .service-card:hover {
   transform: translateY(-3px);
-  border-color: #BFDBFE;
-  box-shadow: var(--shadow-lg);
+  border-color: var(--gov-gold);
+  box-shadow: var(--shadow-hover);
 }
 
 .service-icon-wrap {
   width: 52px;
   height: 52px;
   border-radius: var(--radius-md);
-  background: #F0F7FF;
-  color: var(--gov-accent);
+  background: var(--bg-subtle-accent);
+  color: var(--gov-navy);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-4);
   transition: var(--transition);
+  border: 1px solid rgba(8, 30, 58, 0.08);
 }
 
 .service-card:hover .service-icon-wrap {
-  background: var(--gov-accent);
-  color: #FFFFFF;
+  background: var(--gov-navy);
+  color: var(--gov-gold);
 }
 
 .service-title {
-  font-size: 17.5px;
+  font-size: 19px;
   font-weight: 700;
-  color: var(--gov-primary);
+  color: var(--gov-navy);
   margin-bottom: 8px;
+  font-family: var(--font-serif);
 }
 
 .service-desc {
-  font-size: 13.5px;
-  color: var(--text-muted);
+  font-size: 14px;
+  color: var(--text-body);
   line-height: 1.6;
   margin-bottom: var(--space-4);
   flex-grow: 1;
@@ -679,9 +653,11 @@ body.font-size-large { font-size: 18px; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 600;
-  color: var(--gov-accent);
+  color: var(--gov-blue-accent);
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
 }
 
 /* ==========================================================================
@@ -689,36 +665,38 @@ body.font-size-large { font-size: 18px; }
    ========================================================================== */
 .fee-calculator-card {
   background: #FFFFFF;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-card);
   padding: var(--space-8);
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1.35fr 1fr;
   gap: var(--space-8);
 }
 
 .fee-breakdown-panel {
-  background: linear-gradient(135deg, #0A2540 0%, #16365C 100%);
+  background: linear-gradient(135deg, #081E3A 0%, #0F325A 100%);
   color: #FFFFFF;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   padding: var(--space-6);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 1px solid rgba(194, 147, 41, 0.3);
 }
 
 .fee-total-amount {
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 800;
-  color: #38BDF8;
+  color: #F8FAFC;
   margin: var(--space-2) 0;
+  font-family: var(--font-serif);
 }
 
 .fee-row {
   display: flex;
   justify-content: space-between;
-  padding: 8px 0;
+  padding: 9px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 13.5px;
   color: #CBD5E1;
@@ -730,37 +708,37 @@ body.font-size-large { font-size: 18px; }
   font-weight: 700;
   font-size: 16px;
   color: #FFFFFF;
-  padding-top: 12px;
+  padding-top: 14px;
 }
 
 /* ==========================================================================
-   UI-11: MODERN CSS GRID / FLEXBOX (Replaces Legacy Tables)
+   UI-11: MODERN CSS GRID (Replaces Legacy Broken Tables)
    ========================================================================== */
 .modern-table-container {
   background: #FFFFFF;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-card);
   overflow: hidden;
 }
 
 .modern-table-header {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 1fr 1.5fr;
-  padding: 14px 20px;
+  grid-template-columns: 2fr 1.5fr 1.2fr 1.6fr;
+  padding: 16px 24px;
   background: #F8FAFC;
   border-bottom: 1px solid var(--border-light);
   font-size: 13px;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--gov-navy);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
 }
 
 .modern-table-row {
   display: grid;
-  grid-template-columns: 2fr 1.5fr 1fr 1.5fr;
-  padding: 16px 20px;
+  grid-template-columns: 2fr 1.5fr 1.2fr 1.6fr;
+  padding: 18px 24px;
   border-bottom: 1px solid var(--border-light);
   align-items: center;
   font-size: 14px;
@@ -779,23 +757,23 @@ body.font-size-large { font-size: 18px; }
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: #ECFDF5;
-  color: #047857;
-  border: 1px solid #A7F3D0;
-  padding: 4px 10px;
+  background: #F0FDF4;
+  color: #166534;
+  border: 1px solid #BBF7D0;
+  padding: 5px 12px;
   border-radius: var(--radius-full);
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 700;
 }
 
 /* ==========================================================================
-   UI-15: HARMONIZED FOOTER
+   UI-15: HARMONIZED GOVTECH FOOTER
    ========================================================================== */
 .footer-wrapper {
-  background-color: var(--gov-primary-dark);
+  background-color: var(--gov-navy-dark);
   color: #94A3B8;
   padding: var(--space-16) 0 var(--space-8) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 3px solid var(--gov-gold);
 }
 
 .footer-grid {
@@ -806,24 +784,26 @@ body.font-size-large { font-size: 18px; }
 }
 
 .footer-brand h2 {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 24px;
+  font-weight: 700;
   color: #FFFFFF;
   margin-bottom: 8px;
+  font-family: var(--font-serif);
 }
 
 .footer-brand p {
   font-size: 13.5px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #94A3B8;
   max-width: 320px;
 }
 
 .footer-column h3 {
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 700;
   color: #FFFFFF;
   margin-bottom: var(--space-4);
+  font-family: var(--font-serif);
   letter-spacing: 0.02em;
 }
 
@@ -859,7 +839,7 @@ body.font-size-large { font-size: 18px; }
 }
 
 /* ==========================================================================
-   UI-07: RESPONSIVE & MOBILE LAYOUT BREAKPOINTS
+   UI-07: RESPONSIVE BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
   .hero-grid {
@@ -877,11 +857,8 @@ body.font-size-large { font-size: 18px; }
   .nav-links, .nav-actions .btn-outline {
     display: none !important;
   }
-  .mobile-toggle {
-    display: block;
-  }
   .hero-title {
-    font-size: 28px;
+    font-size: 32px;
   }
   .modern-table-header {
     display: none;
