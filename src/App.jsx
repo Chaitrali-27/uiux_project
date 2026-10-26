@@ -235,7 +235,9 @@ export default function App() {
           title="Ask Seva Mitra Citizen Digital Assistant"
         >
           <span style={{ fontSize: '18px' }}>💬</span>
-          <span>Ask Seva Mitra Assistant</span>
+          <span>
+            {language === 'mr' ? 'सेवा मित्र सहाय्यक' : language === 'hi' ? 'सेवा मित्र सहायक' : language === 'kn' ? 'ಸೇವಾ ಮಿತ್ರ ಸಹಾಯಕ' : language === 'gu' ? 'સેવા મિત્ર સહાયક' : 'Ask Seva Mitra Assistant'}
+          </span>
         </button>
       )}
     </div>
