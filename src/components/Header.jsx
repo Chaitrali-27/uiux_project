@@ -33,19 +33,33 @@ export const Header = ({
     }
   };
 
-  const servicesList = [
-    { id: 'services', hash: 'fresh-reissue', label: language === 'kn' ? 'ಹೊಸ / ಮರು-ವಿತರಣೆ ಪಾಸ್‌ಪೋರ್ಟ್' : language === 'gu' ? 'નવો / રિન્યુઅલ પાસપોર્ટ' : language === 'hi' ? 'नया / नवीनीकरण पासपोर्ट' : 'Fresh / Re-issue Passport' },
-    { id: 'services', hash: 'tatkaal', label: language === 'kn' ? 'ತತ್ಕಾಲ್ ಪಾಸ್‌ಪೋರ್ಟ್ ಯೋಜನೆ' : language === 'gu' ? 'તત્કાલ પાસપોર્ટ યોજના' : language === 'hi' ? 'तत्काल पासपोर्ट योजना' : 'Tatkaal Scheme' },
-    { id: 'services', hash: 'pcc', label: language === 'kn' ? 'ಪೊಲೀಸ್ ಕ್ಲಿಯರೆನ್ಸ್ ಪ್ರಮಾಣಪತ್ರ (PCC)' : language === 'gu' ? 'પોલીસ ક્લિયરન્સ સર્ટિફિકેટ (PCC)' : language === 'hi' ? 'पुलिस क्लीयरेंस सर्टिफिकेट (PCC)' : 'Police Clearance (PCC)' },
-    { id: 'services', hash: 'diplomatic', label: language === 'kn' ? 'ರಾಜತಾಂತ್ರಿಕ ಮತ್ತು ಅಧಿಕೃತ ಪಾಸ್‌ಪೋರ್ಟ್' : language === 'gu' ? 'રાજદ્વારી અને સત્તાવાર પાસપોર્ટ' : language === 'hi' ? 'राजनयिक एवं आधिकारिक पासपोर्ट' : 'Diplomatic & Official' },
-    { id: 'services', hash: 'surrender', label: language === 'kn' ? 'ಸರೆಂಡರ್ ಪ್ರಮಾಣಪತ್ರ' : language === 'gu' ? 'સરેન્ડર સર્ટિફિકેટ' : language === 'hi' ? 'समर्पण प्रमाण पत्र' : 'Surrender Certificate' }
-  ];
+    const localizedSvcs = getLocalizedServices(language);
+  const servicesList = localizedSvcs.slice(0, 5).map(s => ({
+    id: 'services',
+    hash: s.id,
+    label: s.title
+  }));
+
+  const announcementsLabel = {
+    en: 'Public Notices',
+    hi: 'सार्वजनिक सूचनाएं',
+    gu: 'જાહેર નોટિસો',
+    mr: 'सार्वजनिक सूचना',
+    kn: 'ಸುತ್ತೋಲೆಗಳು ಮತ್ತು ಪ್ರಕಟಣೆಗಳು',
+    ta: 'பொது அறிவிப்புகள்',
+    te: 'ప్రజా ప్రకటనలు',
+    bn: 'পাবলিক নোটিশ',
+    ml: 'പൊതു അറിയിപ്പുകൾ',
+    pa: 'ਜਨਤਕ ਨੋਟਿਸ',
+    or: 'ସର୍ବସାଧାରଣ ବିଜ୍ଞପ୍ତି',
+    as: 'ৰাজহুৱা জাননী'
+  }[language] || 'Public Notices';
 
   const toolsList = [
     { id: 'document-advisor', label: t.navDocAdvisor },
     { id: 'appointment', label: t.navAppointments },
     { id: 'fee-calculator', label: t.navFeeCalc },
-    { id: 'announcements', label: language === 'kn' ? 'ಸುತ್ತೋಲೆಗಳು ಮತ್ತು ಪ್ರಕಟಣೆಗಳು' : language === 'gu' ? 'જાહેર નોટિસો' : language === 'hi' ? 'सार्वजनिक सूचनाएं' : 'Public Notices' }
+    { id: 'announcements', label: announcementsLabel }
   ];
 
   const handleNavClick = (tabId) => {
@@ -336,7 +350,20 @@ export const Header = ({
                 }}
                 style={{ padding: '8px 12px', fontSize: '13.5px', fontWeight: 600, borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '4px' }}
               >
-                <span>{language === 'kn' ? 'ನಾಗರಿಕ ಪರಿಕರಗಳು' : language === 'gu' ? 'નાગરિક સાધનો' : language === 'hi' ? 'नागरिक उपकरण' : 'Citizen Tools'}</span>
+                <span>{{
+    en: 'Citizen Tools',
+    hi: 'नागरिक उपकरण',
+    gu: 'નાગરિક સાધનો',
+    mr: 'नागरिक साधने',
+    kn: 'ನಾಗರಿಕ ಪರಿಕರಗಳು',
+    ta: 'குடிமக்கள் கருவிகள்',
+    te: 'పౌర సాధనాలు',
+    bn: 'নাগরিক সরঞ্জাম',
+    ml: 'പൗര സേവന ഉപകരണങ്ങൾ',
+    pa: 'ਨਾਗਰਿਕ ਸਾਧਨ',
+    or: 'ନାଗରିକ ଉପକରଣ',
+    as: 'নাগৰিক সঁজুলি'
+  }[language] || 'Citizen Tools'}</span>
                 <ChevronDownIcon className="w-3.5 h-3.5" />
               </button>
 
@@ -513,7 +540,20 @@ export const Header = ({
               ))}
 
               <div style={{ padding: '8px 14px', fontSize: '12px', fontWeight: 700, color: '#64748B', textTransform: 'uppercase' }}>
-                {language === 'kn' ? 'ನಾಗರಿಕ ಪರಿಕರಗಳು' : 'Citizen Tools'}
+                {{
+    en: 'Citizen Tools',
+    hi: 'नागरिक उपकरण',
+    gu: 'નાગરિક સાધનો',
+    mr: 'नागरिक साधने',
+    kn: 'ನಾಗರಿಕ ಪರಿಕರಗಳು',
+    ta: 'குடிமக்கள் கருவிகள்',
+    te: 'పౌర సాధనాలు',
+    bn: 'নাগরিক সরঞ্জাম',
+    ml: 'പൗര സേവന ഉപകരണങ്ങൾ',
+    pa: 'ਨਾਗਰਿਕ ਸਾਧਨ',
+    or: 'ନାଗରିକ ଉପକରଣ',
+    as: 'নাগৰিক সঁজুলি'
+  }[language] || 'Citizen Tools'}
               </div>
               {toolsList.map((tool, idx) => (
                 <button

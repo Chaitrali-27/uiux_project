@@ -236,7 +236,20 @@ export default function App() {
         >
           <span style={{ fontSize: '18px' }}>💬</span>
           <span>
-            {language === 'mr' ? 'सेवा मित्र सहाय्यक' : language === 'hi' ? 'सेवा मित्र सहायक' : language === 'kn' ? 'ಸೇವಾ ಮಿತ್ರ ಸಹಾಯಕ' : language === 'gu' ? 'સેવા મિત્ર સહાયક' : 'Ask Seva Mitra Assistant'}
+            {{
+              en: 'Ask Seva Mitra Assistant',
+              hi: 'सेवा मित्र सहायक',
+              gu: 'સેવા મિત્ર સહાયક',
+              mr: 'सेवा मित्र सहाय्यक',
+              kn: 'ಸೇವಾ ಮಿತ್ರ ಸಹಾಯಕ',
+              ta: 'சேவா மித்ரா உதவியாளர்',
+              te: 'సేవా మిత్ర సహాయకుడు',
+              bn: 'সেবা মিত্র সহায়ক',
+              ml: 'സേവാ മിത്ര അസിസ്റ്റന്റ്',
+              pa: 'ਸੇਵਾ ਮਿੱਤਰ ਸਹਾਇਕ',
+              or: 'ସେବା ମିତ୍ର ସହାୟକ',
+              as: 'সেৱা মিত্ৰ সহায়ক'
+            }[language] || 'Ask Seva Mitra Assistant'}
           </span>
         </button>
       )}

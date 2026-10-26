@@ -1,68 +1,131 @@
-// Comprehensive Localized Content Provider for Services, Document Advisor, Fee Calculator, Announcements, and FAQs
-// Supports English (en), Kannada (kn), Gujarati (gu), Hindi (hi), Marathi (mr), Tamil (ta), Telugu (te), Bengali (bn)
+// Comprehensive Multilingual Content Provider for All 12 Eighth Schedule Official Indian Languages:
+// English (en), Hindi (hi), Gujarati (gu), Marathi (mr), Tamil (ta), Telugu (te), 
+// Bengali (bn), Kannada (kn), Malayalam (ml), Punjabi (pa), Odia (or), Assamese (as)
 
 export const getLocalizedServices = (lang = 'en') => {
   const data = {
-    kn: [
+    en: [
       {
         id: 'fresh-reissue',
-        title: 'ಹೊಸ / ಮರು-ವಿತರಣೆ ಪಾಸ್‌ಪೋರ್ಟ್',
-        shortDesc: 'ಹೊಸ 10 ವರ್ಷಗಳ ಸಾಮಾನ್ಯ ಪಾಸ್‌ಪೋರ್ಟ್‌ಗಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ ಅಥವಾ 36 ಅಥವಾ 60 ಪುಟಗಳೊಂದಿಗೆ ನವೀಕರಿಸಿ.',
-        fullDesc: '18 ವರ್ಷ ಮೇಲ್ಪಟ್ಟ ಎಲ್ಲಾ ಭಾರತೀಯ ನಾಗರಿಕರಿಗೆ ಸಾಮಾನ್ಯ ಪಾಸ್‌ಪೋರ್ಟ್ ಸೇವೆ. ಆಗಾಗ್ಗೆ ವಿದೇಶ ಪ್ರಯಾಣ ಮಾಡುವವರಿಗೆ 36 ಮತ್ತು 60 ಪುಟಗಳಲ್ಲಿ ಲಭ್ಯವಿದೆ.',
-        feeNormal: '₹1,500 (36 ಪುಟಗಳು) / ₹2,000 (60 ಪುಟಗಳು)',
-        feeTatkaal: '₹3,500 (36 ಪುಟಗಳು) / ₹4,000 (60 ಪುಟಗಳು)',
-        eta: 'ಸಾಮಾನ್ಯ: 15–20 ದಿನಗಳು | ತತ್ಕಾಲ್: 1–3 ದಿನಗಳು',
-        docs: ['ಪ್ರಸ್ತುತ ವಿಳಾಸ ಹೊಂದಿರುವ ಆಧಾರ್ ಕಾರ್ಡ್', 'ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಪುರಾವೆ (ಜನನ ಪ್ರಮಾಣಪತ್ರ/ಪ್ಯಾನ್/10ನೇ ತರಗತಿ)', 'ನಾನ್-ಇಸಿಆರ್ 10ನೇ ತರಗತಿ ಪ್ರಮಾಣಪತ್ರ']
+        title: 'Fresh / Re-issue Passport',
+        shortDesc: 'Apply for a new 10-year Ordinary Passport or renew an expiring booklet with 36 or 60 pages.',
+        fullDesc: 'Standard passport service for all Indian citizens above 18 years. Available in 36-page normal booklet and 60-page jumbo booklet for frequent international travellers.',
+        feeNormal: '₹1,500 (36 Pages) / ₹2,000 (60 Pages)',
+        feeTatkaal: '₹3,500 (36 Pages) / ₹4,000 (60 Pages)',
+        eta: 'Normal: 15–20 days | Tatkaal: 1–3 days',
+        docs: ['Aadhaar Card or Valid Address Proof', 'Date of Birth Proof (Birth Cert/PAN/10th)', 'Non-ECR 10th Passing Certificate']
       },
       {
         id: 'tatkaal',
-        title: 'ತತ್ಕಾಲ್ ಪಾಸ್‌ಪೋರ್ಟ್ ಯೋಜನೆ',
-        shortDesc: 'ತುರ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ಪ್ರಯಾಣಕ್ಕಾಗಿ ತ್ವರಿತ ಪ್ರಕ್ರಿಯೆ. 72 ಗಂಟೆಗಳಲ್ಲಿ ಪರಿಶೀಲನೆ ಪೂರ್ಣಗೊಳ್ಳುತ್ತದೆ.',
-        fullDesc: 'ಪಾಸ್‌ಪೋರ್ಟ್ ನಿಯಮಗಳು 1980 ರ ಅಡಿಯಲ್ಲಿ ತುರ್ತು ಯೋಜನೆ. ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ದಿನಾಂಕದಿಂದ 1 ರಿಂದ 3 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ಪಾಸ್‌ಪೋರ್ಟ್ ರವಾನಿಸಲಾಗುತ್ತದೆ.',
-        feeNormal: 'ಪ್ರಮಾಣಿತ ಶುಲ್ಕ + ₹2,000 ತುರ್ತು ಹೆಚ್ಚುವರಿ ಶುಲ್ಕ',
-        feeTatkaal: 'ಒಟ್ಟು ₹3,500 (36 ಪುಟಗಳು)',
-        eta: '1–3 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ರವಾನೆ',
-        docs: ['2 ನಿಗದಿತ ಸರ್ಕಾರಿ ಗುರುತಿನ ಪುರಾವೆಗಳು (ಆಧಾರ್ + ಮತದಾರರ ಗುರುತಿನ ಚೀಟಿ/ಪ್ಯಾನ್)', 'ವಿಳಾಸ ಮತ್ತು ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಪುರಾವೆ']
+        title: 'Tatkaal Passport Scheme',
+        shortDesc: 'Expedited processing for urgent international travel. Verification process completed within 72 hours.',
+        fullDesc: 'Statutory emergency scheme under Schedule IV of Passports Rules 1980. Passports are dispatched within 1 to 3 working days from the appointment date on post-police verification basis.',
+        feeNormal: 'Standard Fee + ₹2,000 Expedited Surcharge',
+        feeTatkaal: 'Total ₹3,500 (36 Pages)',
+        eta: 'Dispatched within 1–3 working days',
+        docs: ['2 Scheduled Government Identity Proofs (e.g. Aadhaar + Voter ID/PAN)', 'Standard Address & DOB Proof', 'Annexure F (if applicable)']
       },
       {
         id: 'pcc',
-        title: 'ಪೊಲೀಸ್ ಕ್ಲಿಯರೆನ್ಸ್ ಪ್ರಮಾಣಪತ್ರ (PCC)',
-        shortDesc: 'ಉದ್ಯೋಗ, ದೀರ್ಘಾವಧಿ ವಾಸ್ತವ್ಯ ಅಥವಾ ವಿದೇಶ ವಲಸೆಗಾಗಿ ಭಾರತೀಯ ನಾಗರಿಕರಿಗೆ ಅಧಿಕೃತ ಪ್ರಮಾಣಪತ್ರ.',
-        fullDesc: 'ವಿದೇಶಿ ರಾಯಭಾರ ಕಚೇರಿಗಳಿಗೆ ಕ್ರಿಮಿನಲ್ ಹಿನ್ನೆಲೆ ಕ್ಲಿಯರೆನ್ಸ್ ಒದಗಿಸಲು ಅಗತ್ಯವಿರುವ ಭಾರತೀಯ ಪಾಸ್‌ಪೋರ್ಟ್ ಹೊಂದಿರುವವರಿಗೆ ನೀಡಲಾಗುತ್ತದೆ.',
-        feeNormal: '₹500 ನಿಗದಿತ ಸರ್ಕಾರಿ ಶುಲ್ಕ',
-        feeTatkaal: 'PCC ಗೆ ತತ್ಕಾಲ್ ಯೋಜನೆ ಅನ್ವಯಿಸುವುದಿಲ್ಲ',
-        eta: 'ಸಾಮಾನ್ಯ: 7–14 ದಿನಗಳು (ಸ್ಥಳೀಯ ಪೊಲೀಸ್ ವರದಿಗೆ ಒಳಪಟ್ಟಿರುತ್ತದೆ)',
-        docs: ['ಮೂಲ ಭಾರತೀಯ ಪಾಸ್‌ಪೋರ್ಟ್ ಮತ್ತು ನಕಲು ಪ್ರತಿ', 'ಪ್ರಸ್ತುತ ವಿಳಾಸದ ಪುರಾವೆ', 'ವಿದೇಶಿ ಉದ್ಯೋಗ / ವೀಸಾ ಪತ್ರ']
+        title: 'Police Clearance Certificate (PCC)',
+        shortDesc: 'Official certificate for Indian citizens seeking employment, long-term stay, or immigration abroad.',
+        fullDesc: 'Issued to Indian passport holders required to furnish a criminal background clearance to foreign embassies for employment, tourist long-stay, student visas, or permanent residency.',
+        feeNormal: '₹500 Flat Statutory Fee',
+        feeTatkaal: 'Tatkaal scheme not applicable to PCC',
+        eta: 'Normal: 7–14 days (Subject to Local Police Report)',
+        docs: ['Original Indian Passport with Self-Attested Photocopy', 'Present Address Proof', 'Proof of Foreign Employment / Visa Letter']
       },
       {
         id: 'diplomatic',
-        title: 'ರಾಜತಾಂತ್ರಿಕ ಮತ್ತು ಅಧಿಕೃತ ಪಾಸ್‌ಪೋರ್ಟ್',
-        shortDesc: 'ಸರ್ಕಾರಿ ಗಣ್ಯರು, ರಾಜತಾಂತ್ರಿಕರು ಮತ್ತು ಅಧಿಕೃತ ನಿಯೋಗಿಗಳಿಗೆ ಅಧಿಕೃತ ಕರ್ತವ್ಯದ ಮೇರೆಗೆ ನೀಡಲಾಗುತ್ತದೆ.',
-        fullDesc: 'ನವದೆಹಲಿಯ ಪಟಿಯಾಲ ಹೌಸ್‌ನಲ್ಲಿರುವ CPV ವಿಭಾಗದ ಮೂಲಕ ಪ್ರತ್ಯೇಕವಾಗಿ ನೀಡಲಾಗುತ್ತದೆ. ಅಧಿಕೃತ ಪಾಸ್‌ಪೋರ್ಟ್‌ಗಳು ಬಿಳಿ ಬಣ್ಣ ಮತ್ತು ರಾಜತಾಂತ್ರಿಕ ಪಾಸ್‌ಪೋರ್ಟ್‌ಗಳು ಮೆರೂನ್ ಬಣ್ಣವನ್ನು ಹೊಂದಿರುತ್ತವೆ.',
-        feeNormal: 'ಉಚಿತ (ಸರ್ಕಾರಿ ಕರ್ತವ್ಯಕ್ಕಾಗಿ ವಿನಾಯಿತಿ)',
-        feeTatkaal: 'ನೇರವಾಗಿ ಸಚಿವಾಲಯ ಪ್ರೋಟೋಕಾಲ್ ಮೂಲಕ',
-        eta: 'CPV ದೆಹಲಿ ಪ್ರೋಟೋಕಾಲ್ ಮೂಲಕ',
-        docs: ['ಅಧಿಕೃತ ಕೇಡರ್ ಕ್ಲಿಯರೆನ್ಸ್ / ನಿಯೋಜನೆ ಆದೇಶ', 'ರಾಜಕೀಯ ಕ್ಲಿಯರೆನ್ಸ್ ಪ್ರಮಾಣಪತ್ರ (MEA)']
+        title: 'Diplomatic & Official Passport',
+        shortDesc: 'Issued to government dignitaries, diplomats, and authorized official delegates travelling on state duty.',
+        fullDesc: 'Processed exclusively through the CPV Division at Patiala House, New Delhi. Official Passports feature white covers, while Diplomatic Passports feature deep maroon covers.',
+        feeNormal: 'Gratis (Government Exempted for State Duty)',
+        feeTatkaal: 'Processed directly via Ministry Protocol',
+        eta: 'Processed via CPV Delhi Protocol',
+        docs: ['Official Cadre Clearance / Deputation Order', 'Political Clearance Certificate (MEA)', 'Identity Certificate Annexure B']
       },
       {
         id: 'surrender',
-        title: 'ಸರೆಂಡರ್ ಪ್ರಮಾಣಪತ್ರ',
-        shortDesc: 'ವಿದೇಶಿ ಪೌರತ್ವ ಪಡೆದ ನಂತರ ಭಾರತೀಯ ಪೌರತ್ವ ಕಾಯ್ದೆ 1955 ರ ಅಡಿಯಲ್ಲಿ ಕಡ್ಡಾಯ ಪ್ರಮಾಣಪತ್ರ.',
-        fullDesc: 'ವಿದೇಶಿ ಪೌರತ್ವ ಪಡೆದ ಭಾರತೀಯ ಮೂಲದ ವ್ಯಕ್ತಿಗಳು ಪಾಸ್‌ಪೋರ್ಟ್ ಕಾಯ್ದೆಯಡಿ ದಂಡವನ್ನು ತಪ್ಪಿಸಲು ತಮ್ಮ ಭಾರತೀಯ ಪಾಸ್‌ಪೋರ್ಟ್ ಅನ್ನು ಒಪ್ಪಿಸಬೇಕು.',
-        feeNormal: '₹500 (2010 ರ ನಂತರ) / ₹1,000',
-        feeTatkaal: 'ಸಾಮಾನ್ಯ ಪ್ರಕ್ರಿಯೆ ಮಾತ್ರ',
-        eta: '5 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ವಿತರಣೆ',
-        docs: ['ಮೂಲ ಭಾರತೀಯ ಪಾಸ್‌ಪೋರ್ಟ್', 'ವಿದೇಶಿ ಪೌರತ್ವ ಪ್ರಮಾಣಪತ್ರ / ವಿದೇಶಿ ಪಾಸ್‌ಪೋರ್ಟ್']
+        title: 'Surrender Certificate',
+        shortDesc: 'Mandatory certificate upon acquisition of foreign citizenship under the Indian Citizenship Act, 1955.',
+        fullDesc: 'Required by persons of Indian origin who have acquired foreign citizenship and must formally surrender their Indian Passport to avoid penalties under Section 12 of the Passports Act.',
+        feeNormal: '₹500 (Acquired post-2010) / ₹1,000',
+        feeTatkaal: 'Normal processing only',
+        eta: 'Issued within 5 working days',
+        docs: ['Original Indian Passport', 'Foreign Citizenship Certificate / Foreign Passport', 'Copy of Naturalisation Certificate']
       },
       {
         id: 'loc-permit',
-        title: 'ಗಡಿ ನಿಯಂತ್ರಣ ರೇಖೆ (LoC) ಪರವಾನಗಿ',
-        shortDesc: 'ಗಡಿ ದಾಟುವ ಪ್ರದೇಶಗಳಲ್ಲಿ ಕುಟುಂಬ ಭೇಟಿಗಾಗಿ ಕಾಯಂ ನಿವಾಸಿಗಳಿಗೆ ವಿಶೇಷ ಪ್ರಯಾಣ ದಾಖಲೆ.',
-        fullDesc: 'ವ್ಯಾಪಾರ ಮತ್ತು ಪ್ರಯಾಣ ಕ್ರಾಸಿಂಗ್ ಪಾಯಿಂಟ್‌ಗಳ ಮೂಲಕ ಕೌಟುಂಬಿಕ ಭೇಟಿಗಳಿಗಾಗಿ ಗಡಿ ನಿಯಂತ್ರಣ ರೇಖೆಯಾದ್ಯಂತ ಪ್ರಯಾಣಿಸುವ ಕಾಯಂ ನಿವಾಸಿಗಳಿಗೆ ನೀಡಲಾಗುತ್ತದೆ.',
-        feeNormal: 'ಉಚಿತ / ನಾಮಮಾತ್ರ ನಿಯಂತ್ರಿತ',
-        feeTatkaal: 'ಅನ್ವಯಿಸುವುದಿಲ್ಲ',
-        eta: 'ವಿಶೇಷ ವಿಭಾಗದ ಮೂಲಕ ಪರಿಶೀಲನೆ',
-        docs: ['ರಾಜ್ಯ ನಿವಾಸಿ ಪ್ರಮಾಣಪತ್ರ (PRC)', 'ಸ್ಥಳೀಯ ಉಪವಿಭಾಗಾಧಿಕಾರಿ ಪರಿಶೀಲನೆ']
+        title: 'Line of Control (LoC) Permit',
+        shortDesc: 'Special travel documentation for permanent residents visiting across designated crossing sectors.',
+        fullDesc: 'Issued to permanent residents travelling across the Line of Control for familial visits through trade and travel crossing points.',
+        feeNormal: 'Free / Nominally Regulated',
+        feeTatkaal: 'N/A',
+        eta: 'Verification through designated cell',
+        docs: ['State Resident Certificate (PRC)', 'Local Sub-Divisional Magistrate Verification', 'Sponsor Details']
+      }
+    ],
+    hi: [
+      {
+        id: 'fresh-reissue',
+        title: 'नया / नवीनीकरण पासपोर्ट',
+        shortDesc: 'नए 10-वर्षीय साधारण पासपोर्ट के लिए आवेदन करें या 36 या 60 पृष्ठों के साथ नवीनीकरण कराएं।',
+        fullDesc: '18 वर्ष से अधिक आयु के सभी भारतीय नागरिकों के लिए मानक सेवा। अक्सर यात्रा करने वालों के लिए 36 एवं 60 पृष्ठों में उपलब्ध।',
+        feeNormal: '₹1,500 (36 पृष्ठ) / ₹2,000 (60 पृष्ठ)',
+        feeTatkaal: '₹3,500 (36 पृष्ठ) / ₹4,000 (60 पृष्ठ)',
+        eta: 'सामान्य: 15–20 दिन | तत्काल: 1–3 दिन',
+        docs: ['वर्तमान पते का प्रमाण (आधार कार्ड)', 'जन्म तिथि प्रमाण (जन्म प्रमाण पत्र/पैन/10वीं)', 'नॉन-ईसीआर 10वीं पास प्रमाण पत्र']
+      },
+      {
+        id: 'tatkaal',
+        title: 'तत्काल पासपोर्ट योजना',
+        shortDesc: 'आपातकालीन अंतरराष्ट्रीय यात्रा हेतु त्वरित प्रक्रिया। 72 घंटों में सत्यापन प्रक्रिया संपन्न।',
+        fullDesc: 'पासपोर्ट नियम 1980 के तहत आपातकालीन योजना। अपॉइंटमेंट तिथि से 1 से 3 कार्य दिवसों में प्रेषित।',
+        feeNormal: 'मानक शुल्क + ₹2,000 तत्काल अधिभार',
+        feeTatkaal: 'कुल ₹3,500 (36 पृष्ठ)',
+        eta: '1–3 कार्य दिवसों में प्रेषण',
+        docs: ['2 निर्धारित सरकारी पहचान प्रमाण (आधार + वोटर आईडी/पैन)', 'पता एवं जन्म तिथि प्रमाण']
+      },
+      {
+        id: 'pcc',
+        title: 'पुलिस क्लीयरेंस सर्टिफिकेट (PCC)',
+        shortDesc: 'विदेश में रोजगार, दीर्घकालिक निवास या प्रवास हेतु भारतीय नागरिकों के लिए आधिकारिक प्रमाण पत्र।',
+        fullDesc: 'विदेशी दूतावासों में आपराधिक पृष्ठभूमि सत्यापन प्रस्तुत करने हेतु भारतीय पासपोर्ट धारकों को जारी।',
+        feeNormal: '₹500 निश्चित सरकारी शुल्क',
+        feeTatkaal: 'PCC के लिए तत्काल योजना लागू नहीं',
+        eta: 'सामान्य: 7–14 दिन (स्थानीय पुलिस रिपोर्ट के अधीन)',
+        docs: ['मूल भारतीय पासपोर्ट व छायाप्रति', 'वर्तमान पते का प्रमाण', 'विदेशी रोजगार / वीजा पत्र']
+      },
+      {
+        id: 'diplomatic',
+        title: 'राजनयिक एवं आधिकारिक पासपोर्ट',
+        shortDesc: 'सरकारी गणमान्य व्यक्तियों, राजनयिकों और अधिकृत प्रतिनिधियों को आधिकारिक कार्य हेतु जारी।',
+        fullDesc: 'पटियाला हाउस, नई दिल्ली स्थित सीपीवी प्रभाग के माध्यम से विशेष रूप से जारी।',
+        feeNormal: 'निःशुल्क (शासकीय कार्य हेतु छूट)',
+        feeTatkaal: 'मंत्रालय प्रोटोकॉल द्वारा',
+        eta: 'सीपीवी दिल्ली प्रोटोकॉल द्वारा',
+        docs: ['आधिकारिक संवर्ग मंजूरी / प्रतिनियुक्ति आदेश', 'राजनीतिक मंजूरी प्रमाण पत्र (MEA)']
+      },
+      {
+        id: 'surrender',
+        title: 'समर्पण प्रमाण पत्र (Surrender Certificate)',
+        shortDesc: 'विदेशी नागरिकता प्राप्त करने पर भारतीय पासपोर्ट समर्पित करने हेतु अनिवार्य प्रमाण पत्र।',
+        fullDesc: 'भारतीय नागरिकता अधिनियम 1955 के तहत पासपोर्ट औपचारिक रूप से जमा करना आवश्यक है।',
+        feeNormal: '₹500 (2010 के बाद) / ₹1,000',
+        feeTatkaal: 'केवल सामान्य प्रक्रिया',
+        eta: '5 कार्य दिवसों में जारी',
+        docs: ['मूल भारतीय पासपोर्ट', 'विदेशी नागरिकता प्रमाण पत्र / विदेशी पासपोर्ट']
+      },
+      {
+        id: 'loc-permit',
+        title: 'नियंत्रण रेखा (LoC) परमिट',
+        shortDesc: 'निर्धारित क्रॉसिंग क्षेत्रों में पारिवारिक यात्राओं हेतु स्थायी निवासियों के लिए विशेष यात्रा दस्तावेज।',
+        fullDesc: 'व्यापार एवं यात्रा क्रॉसिंग बिंदुओं के माध्यम से यात्रा हेतु जारी।',
+        feeNormal: 'निःशुल्क / नाममात्र विनियमित',
+        feeTatkaal: 'लागू नहीं',
+        eta: 'नामित सेल द्वारा सत्यापन',
+        docs: ['स्थायी निवासी प्रमाण पत्र', 'स्थानीय एसडीएम सत्यापन']
       }
     ],
     gu: [
@@ -99,94 +162,32 @@ export const getLocalizedServices = (lang = 'en') => {
       {
         id: 'diplomatic',
         title: 'રાજદ્વારી અને સત્તાવાર પાસપોર્ટ',
-        shortDesc: 'સરકારી મહાનુભાવો, રાજદ્વારીઓ અને સત્તાવાર પ્રતિનિધિઓ માટે જારી કરાય છે.',
-        fullDesc: 'નવી દિલ્હીના પટિયાલા હાઉસ ખાતે CPV વિભાગ દ્વારા સંચાલિત.',
-        feeNormal: 'નિઃશુલ્ક (સરકારી ફરજ માટે)',
+        shortDesc: 'સરકારી અધિકારીઓ, રાજદ્વારીઓ અને માન્ય પ્રતિનિધિઓને સત્તાવાર ફરજ માટે આપવામાં આવે છે.',
+        fullDesc: 'નવી દિલ્હીના પટિયાલા હાઉસ ખાતે આવેલ CPV વિભાગ દ્વારા જારી.',
+        feeNormal: 'મફત (સરકારી ફરજ માટે મુક્તિ)',
         feeTatkaal: 'મંત્રાલય પ્રોટોકોલ દ્વારા',
         eta: 'CPV દિલ્હી પ્રોટોકોલ દ્વારા',
-        docs: ['સત્તાવાર કેડર ક્લિયરન્સ / ડેપ્યુટેશન ઓર્ડર', 'પોલિટિકલ ક્લિયરન્સ સર્ટિફિકેટ']
+        docs: ['સત્તાવાર કેડર ક્લિયરન્સ / ડેપ્યુટેશન ઓર્ડર', 'રાજકીય મંજૂરી પ્રમાણપત્ર']
       },
       {
         id: 'surrender',
         title: 'સરેન્ડર સર્ટિફિકેટ',
-        shortDesc: 'વિદેશી નાગરિકત્વ મેળવ્યા પછી ભારતીય પાસપોર્ટ જમા કરાવવા માટેનું કાનૂની પ્રમાણપત્ર.',
-        fullDesc: 'ભારતીય નાગરિકતા અધિનિયમ 1955 હેઠળ પાસપોર્ટ ઔપચારિક રીતે જમા કરાવવો ફરજિયાત છે.',
+        shortDesc: 'વિદેશી નાગરિકત્વ મેળવ્યા બાદ ભારતીય પાસપોર્ટ જમા કરાવવા માટેનું ફરજિયાત પ્રમાણપત્ર.',
+        fullDesc: 'ભારતીય નાગરિકત્વ અધિનિયમ 1955 હેઠળ પાસપોર્ટ જમા કરાવવો કાયદેસર રીતે અનિવાર્ય છે.',
         feeNormal: '₹500 (2010 પછી) / ₹1,000',
-        feeTatkaal: 'સામાન્ય પ્રક્રિયા માત્ર',
+        feeTatkaal: 'ફક્ત સામાન્ય પ્રક્રિયા',
         eta: '5 કામકાજના દિવસોમાં જારી',
-        docs: ['ઓરિજિનલ ભારતીય પાસપોર્ટ', 'વિદેશી નાગરિકત્વ પ્રમાણપત્ર / વિદેશી પાસપોર્ટ']
+        docs: ['મૂળ ભારતીય પાસપોર્ટ', 'વિદેશી નાગરિકત્વ પ્રમાણપત્ર / વિદેશી પાસપોર્ટ']
       },
       {
         id: 'loc-permit',
-        title: 'લાઈન ઓફ કંટ્રોલ (LoC) પરમિટ',
-        shortDesc: 'નિયુક્ત ક્રોસિંગ સેક્ટરોમાં કૌટુંબિક મુલાકાતો માટે કાયમી રહેવાસીઓ માટે વિશેષ દસ્તાવેજ.',
-        fullDesc: 'વેપાર અને મુસાફરી ક્રોસિંગ પોઈન્ટ્સ દ્વારા મુલાકાત માટે જારી કરવામાં આવે છે.',
-        feeNormal: 'મફત / નજીવો ચાર્જ',
+        title: 'લાઇન ઓફ કંટ્રોલ (LoC) પરમિટ',
+        shortDesc: 'સરહદી વિસ્તારોમાં કૌટુંબિક મુલાકાત માટે કાયમી રહેવાસીઓ માટે ખાસ મુસાફરી દસ્તાવેજ.',
+        fullDesc: 'નિયુક્ત ક્રોસિંગ પોઇન્ટ દ્વારા પારિવારિક મુલાકાત માટે જારી.',
+        feeNormal: 'મફત / નજીવી ફી',
         feeTatkaal: 'લાગુ નથી',
-        eta: 'વિશેષ સેલ દ્વારા ચકાસણી',
-        docs: ['કાયમી રહેવાસી પ્રમાણપત્ર', 'સ્થાનિક એસડીએમ ચકાસણી']
-      }
-    ],
-    hi: [
-      {
-        id: 'fresh-reissue',
-        title: 'नया / नवीनीकरण पासपोर्ट',
-        shortDesc: 'नए 10-वर्षीय साधारण पासपोर्ट के लिए आवेदन करें या 36 या 60 पृष्ठों के साथ नवीनीकृत करें।',
-        fullDesc: '18 वर्ष से अधिक आयु के सभी भारतीय नागरिकों के लिए मानक सेवा। बार-बार यात्रा करने वालों के लिए 36 और 60 पृष्ठों में उपलब्ध।',
-        feeNormal: '₹1,500 (36 पृष्ठ) / ₹2,000 (60 पृष्ठ)',
-        feeTatkaal: '₹3,500 (36 पृष्ठ) / ₹4,000 (60 पृष्ठ)',
-        eta: 'सामान्य: 15–20 दिन | तत्काल: 1–3 दिन',
-        docs: ['वर्तमान पते का प्रमाण (आधार कार्ड)', 'जन्म तिथि का प्रमाण (जन्म प्रमाण पत्र/पैन/10वीं)', 'नॉन-ईसीआर 10वीं उत्तीर्ण प्रमाण पत्र']
-      },
-      {
-        id: 'tatkaal',
-        title: 'तत्काल पासपोर्ट योजना',
-        shortDesc: 'आपातकालीन अंतर्राष्ट्रीय यात्रा हेतु त्वरित सेवा। 72 घंटों में सत्यापन प्रक्रिया पूर्ण।',
-        fullDesc: 'पासपोर्ट नियम 1980 के तहत आपातकालीन योजना। नियुक्ति तिथि से 1 से 3 कार्य दिवसों में प्रेषण।',
-        feeNormal: 'मानक शुल्क + ₹2,000 तत्काल अधिभार',
-        feeTatkaal: 'कुल ₹3,500 (36 पृष्ठ)',
-        eta: '1–3 कार्य दिवसों में प्रेषण',
-        docs: ['2 निर्धारित सरकारी पहचान पत्र (आधार + वोटर आईडी/पैन कार्ड)', 'पता और जन्म तिथि प्रमाण']
-      },
-      {
-        id: 'pcc',
-        title: 'पुलिस क्लीयरेंस सर्टिफिकेट (PCC)',
-        shortDesc: 'विदेश में रोजगार, दीर्घकालिक प्रवास या आव्रजन हेतु आधिकारिक प्रमाण पत्र।',
-        fullDesc: 'विदेशी दूतावासों में आपराधिक रिकॉर्ड क्लीयरेंस प्रस्तुत करने हेतु भारतीय पासपोर्ट धारकों को जारी।',
-        feeNormal: '₹500 वैधानिक सरकारी शुल्क',
-        feeTatkaal: 'PCC के लिए तत्काल योजना लागू नहीं है',
-        eta: 'सामान्य: 7–14 दिन (स्थानीय पुलिस रिपोर्ट के अधीन)',
-        docs: ['मूल पासपोर्ट व स्वप्रमाणित प्रति', 'वर्तमान पते का प्रमाण', 'विदेशी रोजगार / वीज़ा पत्र']
-      },
-      {
-        id: 'diplomatic',
-        title: 'राजनयिक एवं आधिकारिक पासपोर्ट',
-        shortDesc: 'सरकारी गणमान्य व्यक्तियों, राजनयिकों और अधिकृत प्रतिनिधियों के लिए आधिकारिक कर्तव्य हेतु।',
-        fullDesc: 'पटियाला हाउस, नई दिल्ली स्थित सीपीवी प्रभाग द्वारा विशेष रूप से संसाधित।',
-        feeNormal: 'निःशुल्क (सरकारी कर्तव्य हेतु)',
-        feeTatkaal: 'मंत्रालय प्रोटोकॉल द्वारा',
-        eta: 'सीपीवी दिल्ली प्रोटोकॉल द्वारा',
-        docs: ['आधिकारिक कैडर क्लीयरेंस / प्रतिनियुक्ति आदेश', 'राजनीतिक मंजूरी प्रमाण पत्र']
-      },
-      {
-        id: 'surrender',
-        title: 'समर्पण प्रमाण पत्र (Surrender Certificate)',
-        shortDesc: 'विदेशी नागरिकता प्राप्त करने पर भारतीय पासपोर्ट समर्पित करने हेतु अनिवार्य प्रमाण पत्र।',
-        fullDesc: 'भारतीय नागरिकता अधिनियम 1955 के तहत पासपोर्ट औपचारिक रूप से जमा करना आवश्यक है।',
-        feeNormal: '₹500 (2010 के बाद) / ₹1,000',
-        feeTatkaal: 'केवल सामान्य प्रक्रिया',
-        eta: '5 कार्य दिवसों में जारी',
-        docs: ['मूल भारतीय पासपोर्ट', 'विदेशी नागरिकता प्रमाण पत्र / विदेशी पासपोर्ट']
-      },
-      {
-        id: 'loc-permit',
-        title: 'नियंत्रण रेखा (LoC) परमिट',
-        shortDesc: 'निर्धारित क्रॉसिंग क्षेत्रों में पारिवारिक यात्राओं हेतु स्थायी निवासियों के लिए विशेष यात्रा दस्तावेज।',
-        fullDesc: 'व्यापार एवं यात्रा क्रॉसिंग बिंदुओं के माध्यम से यात्रा हेतु जारी।',
-        feeNormal: 'निःशुल्क / नाममात्र विनियमित',
-        feeTatkaal: 'लागू नहीं',
-        eta: 'नामित सेल द्वारा सत्यापन',
-        docs: ['स्थायी निवासी प्रमाण पत्र', 'स्थानीय एसडीएम सत्यापन']
+        eta: 'નિયુક્ત સેલ દ્વારા ચકાસણી',
+        docs: ['કાયમી રહેવાસી પ્રમાણપત્ર (PRC)', 'સ્થાનિક SDM ચકાસણી']
       }
     ],
     mr: [
@@ -251,66 +252,500 @@ export const getLocalizedServices = (lang = 'en') => {
         docs: ['कायमस्वरूपी रहिवासी प्रमाणपत्र (PRC)', 'स्थानिक एसडीएम पडताळणी']
       }
     ],
-    en: [
+    kn: [
       {
         id: 'fresh-reissue',
-        title: 'Fresh / Re-issue Passport',
-        shortDesc: 'Apply for a new 10-year Ordinary Passport or renew an expiring booklet with 36 or 60 pages.',
-        fullDesc: 'Standard passport service for all Indian citizens above 18 years. Available in 36-page normal booklet and 60-page jumbo booklet for frequent international travellers.',
-        feeNormal: '₹1,500 (36 Pages) / ₹2,000 (60 Pages)',
-        feeTatkaal: '₹3,500 (36 Pages) / ₹4,000 (60 Pages)',
-        eta: 'Normal: 15–20 days | Tatkaal: 1–3 days',
-        docs: ['Aadhaar Card or Valid Address Proof', 'Date of Birth Proof (Birth Cert/PAN/10th)', 'Non-ECR 10th Passing Certificate']
+        title: 'ಹೊಸ / ಮರು-ವಿತರಣೆ ಪಾಸ್‌ಪೋರ್ಟ್',
+        shortDesc: 'ಹೊಸ 10 ವರ್ಷಗಳ ಸಾಮಾನ್ಯ ಪಾಸ್‌ಪೋರ್ಟ್‌ಗಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ ಅಥವಾ 36 ಅಥವಾ 60 ಪುಟಗಳೊಂದಿಗೆ ನವೀಕರಿಸಿ.',
+        fullDesc: '18 ವರ್ಷ ಮೇಲ್ಪಟ್ಟ ಎಲ್ಲಾ ಭಾರತೀಯ ನಾಗರಿಕರಿಗೆ ಸಾಮಾನ್ಯ ಪಾಸ್‌ಪೋರ್ಟ್ ಸೇವೆ. ಆಗಾಗ್ಗೆ ವಿದೇಶ ಪ್ರಯಾಣ ಮಾಡುವವರಿಗೆ 36 ಮತ್ತು 60 ಪುಟಗಳಲ್ಲಿ ಲಭ್ಯವಿದೆ.',
+        feeNormal: '₹1,500 (36 ಪುಟಗಳು) / ₹2,000 (60 ಪುಟಗಳು)',
+        feeTatkaal: '₹3,500 (36 ಪುಟಗಳು) / ₹4,000 (60 ಪುಟಗಳು)',
+        eta: 'ಸಾಮಾನ್ಯ: 15–20 ದಿನಗಳು | ತತ್ಕಾಲ್: 1–3 ದಿನಗಳು',
+        docs: ['ಪ್ರಸ್ತುತ ವಿಳಾಸ ಹೊಂದಿರುವ ಆಧಾರ್ ಕಾರ್ಡ್', 'ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಪುರಾವೆ (ಜನನ ಪ್ರಮಾಣಪತ್ರ/ಪ್ಯಾನ್/10ನೇ ತರಗತಿ)', 'ನಾನ್-ಇಸಿಆರ್ 10ನೇ ತರಗತಿ ಪ್ರಮಾಣಪತ್ರ']
       },
       {
         id: 'tatkaal',
-        title: 'Tatkaal Passport Scheme',
-        shortDesc: 'Expedited processing for urgent international travel. Verification process completed within 72 hours.',
-        fullDesc: 'Statutory emergency scheme under Schedule IV of Passports Rules 1980. Passports are dispatched within 1 to 3 working days from the appointment date on post-police verification basis.',
-        feeNormal: 'Standard Fee + ₹2,000 Expedited Surcharge',
-        feeTatkaal: 'Total ₹3,500 (36 Pages)',
-        eta: 'Dispatched within 1–3 working days',
-        docs: ['2 Scheduled Government Identity Proofs (e.g. Aadhaar + Voter ID/PAN)', 'Standard Address & DOB Proof', 'Annexure F (if applicable)']
+        title: 'ತತ್ಕಾಲ್ ಪಾಸ್‌ಪೋರ್ಟ್ ಯೋಜನೆ',
+        shortDesc: 'ತುರ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ಪ್ರಯಾಣಕ್ಕಾಗಿ ತ್ವರಿತ ಪ್ರಕ್ರಿಯೆ. 72 ಗಂಟೆಗಳಲ್ಲಿ ಪರಿಶೀಲನೆ ಪೂರ್ಣಗೊಳ್ಳುತ್ತದೆ.',
+        fullDesc: 'ಪಾಸ್‌ಪೋರ್ಟ್ ನಿಯಮಗಳು 1980 ರ ಅಡಿಯಲ್ಲಿ ತುರ್ತು ಯೋಜನೆ. ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ದಿನಾಂಕದಿಂದ 1 ರಿಂದ 3 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ಪಾಸ್‌ಪೋರ್ಟ್ ರವಾನಿಸಲಾಗುತ್ತದೆ.',
+        feeNormal: 'ಪ್ರಮಾಣಿತ ಶುಲ್ಕ + ₹2,000 ತುರ್ತು ಹೆಚ್ಚುವರಿ ಶುಲ್ಕ',
+        feeTatkaal: 'ಒಟ್ಟು ₹3,500 (36 ಪುಟಗಳು)',
+        eta: '1–3 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ರವಾನೆ',
+        docs: ['2 ನಿಗದಿತ ಸರ್ಕಾರಿ ಗುರುತಿನ ಪುರಾವೆಗಳು (ಆಧಾರ್ + ಮತದಾರರ ಗುರುತಿನ ಚೀಟಿ/ಪ್ಯಾನ್)', 'ವಿಳಾಸ ಮತ್ತು ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಪುರಾವೆ']
       },
       {
         id: 'pcc',
-        title: 'Police Clearance Certificate (PCC)',
-        shortDesc: 'Official certificate for Indian citizens seeking employment, long-term stay, or immigration abroad.',
-        fullDesc: 'Issued to Indian passport holders required to furnish a criminal background clearance to foreign embassies for employment, tourist long-stay, student visas, or permanent residency.',
-        feeNormal: '₹500 Flat Statutory Fee',
-        feeTatkaal: 'Tatkaal scheme not applicable to PCC',
-        eta: 'Normal: 7–14 days (Subject to Local Police Report)',
-        docs: ['Original Indian Passport with Self-Attested Photocopy', 'Present Address Proof', 'Proof of Foreign Employment / Visa Letter']
+        title: 'ಪೊಲೀಸ್ ಕ್ಲಿಯರೆನ್ಸ್ ಪ್ರಮಾಣಪತ್ರ (PCC)',
+        shortDesc: 'ಉದ್ಯೋಗ, ದೀರ್ಘಾವಧಿ ವಾಸ್ತವ್ಯ ಅಥವಾ ವಿದೇಶ ವಲಸೆಗಾಗಿ ಭಾರತೀಯ ನಾಗರಿಕರಿಗೆ ಅಧಿಕೃತ ಪ್ರಮಾಣಪತ್ರ.',
+        fullDesc: 'ವಿದೇಶಿ ರಾಯಭಾರ ಕಚೇರಿಗಳಿಗೆ ಕ್ರಿಮಿನಲ್ ಹಿನ್ನೆಲೆ ಕ್ಲಿಯರೆನ್ಸ್ ಒದಗಿಸಲು ಅಗತ್ಯವಿರುವ ಭಾರತೀಯ ಪಾಸ್‌ಪೋರ್ಟ್ ಹೊಂದಿರುವವರಿಗೆ ನೀಡಲಾಗುತ್ತದೆ.',
+        feeNormal: '₹500 ನಿಗದಿತ ಸರ್ಕಾರಿ ಶುಲ್ಕ',
+        feeTatkaal: 'PCC ಗೆ ತತ್ಕಾಲ್ ಯೋಜನೆ ಅನ್ವಯಿಸುವುದಿಲ್ಲ',
+        eta: 'ಸಾಮಾನ್ಯ: 7–14 ದಿನಗಳು (ಸ್ಥಳೀಯ ಪೊಲೀಸ್ ವರದಿಗೆ ಒಳಪಟ್ಟಿರುತ್ತದೆ)',
+        docs: ['ಮೂಲ ಭಾರತೀಯ ಪಾಸ್‌ಪೋರ್ಟ್ ಮತ್ತು ನಕಲು ಪ್ರತಿ', 'ಪ್ರಸ್ತುತ ವಿಳಾಸದ ಪುರಾವೆ', 'ವಿದೇಶಿ ಉದ್ಯೋಗ / ವೀಸಾ ಪತ್ರ']
       },
       {
         id: 'diplomatic',
-        title: 'Diplomatic & Official Passport',
-        shortDesc: 'Issued to government dignitaries, diplomats, and authorized official delegates travelling on state duty.',
-        fullDesc: 'Processed exclusively through the CPV Division at Patiala House, New Delhi. Official Passports feature white covers, while Diplomatic Passports feature deep maroon covers.',
-        feeNormal: 'Gratis (Government Exempted for State Duty)',
-        feeTatkaal: 'Processed directly via Ministry Protocol',
-        eta: 'Processed via CPV Delhi Protocol',
-        docs: ['Official Cadre Clearance / Deputation Order', 'Political Clearance Certificate (MEA)', 'Identity Certificate Annexure B']
+        title: 'ರಾಜತಾಂತ್ರಿಕ ಮತ್ತು ಅಧಿಕೃತ ಪಾಸ್‌ಪೋರ್ಟ್',
+        shortDesc: 'ಸರ್ಕಾರಿ ಗಣ್ಯರು, ರಾಜತಾಂತ್ರಿಕರು ಮತ್ತು ಅಧಿಕೃತ ನಿಯೋಗಿಗಳಿಗೆ ಅಧಿಕೃತ ಕರ್ತವ್ಯದ ಮೇರೆಗೆ ನೀಡಲಾಗುತ್ತದೆ.',
+        fullDesc: 'ನವದೆಹಲಿಯ ಪಟಿಯಾಲ ಹೌಸ್‌ನಲ್ಲಿರುವ CPV ವಿಭಾಗದ ಮೂಲಕ ಪ್ರತ್ಯೇಕವಾಗಿ ನೀಡಲಾಗುತ್ತದೆ.',
+        feeNormal: 'ಉಚಿತ (ಸರ್ಕಾರಿ ಕರ್ತವ್ಯಕ್ಕಾಗಿ ವಿನಾಯಿತಿ)',
+        feeTatkaal: 'ನೇರವಾಗಿ ಸಚಿವಾಲಯ ಪ್ರೋಟೋಕಾಲ್ ಮೂಲಕ',
+        eta: 'CPV ದೆಹಲಿ ಪ್ರೋಟೋಕಾಲ್ ಮೂಲಕ',
+        docs: ['ಅಧಿಕೃತ ಕೇಡರ್ ಕ್ಲಿಯರೆನ್ಸ್ / ನಿಯೋಜನೆ ಆದೇಶ', 'ರಾಜಕೀಯ ಕ್ಲಿಯರೆನ್ಸ್ ಪ್ರಮಾಣಪತ್ರ (MEA)']
       },
       {
         id: 'surrender',
-        title: 'Surrender Certificate',
-        shortDesc: 'Mandatory certificate upon acquisition of foreign citizenship under the Indian Citizenship Act, 1955.',
-        fullDesc: 'Required by persons of Indian origin who have acquired foreign citizenship and must formally surrender their Indian Passport to avoid penalties under Section 12 of the Passports Act.',
-        feeNormal: '₹500 (Acquired post-2010) / ₹1,000',
-        feeTatkaal: 'Normal processing only',
-        eta: 'Issued within 5 working days',
-        docs: ['Original Indian Passport', 'Foreign Citizenship Certificate / Foreign Passport', 'Copy of Naturalisation Certificate']
+        title: 'ಸರೆಂಡರ್ ಪ್ರಮಾಣಪತ್ರ',
+        shortDesc: 'ವಿದೇಶಿ ಪೌರತ್ವ ಪಡೆದ ನಂತರ ಭಾರತೀಯ ಪೌರತ್ವ ಕಾಯ್ದೆ 1955 ರ ಅಡಿಯಲ್ಲಿ ಕಡ್ಡಾಯ ಪ್ರಮಾಣಪತ್ರ.',
+        fullDesc: 'ವಿದೇಶಿ ಪೌರತ್ವ ಪಡೆದ ಭಾರತೀಯ ಮೂಲದ ವ್ಯಕ್ತಿಗಳು ಪಾಸ್‌ಪೋರ್ಟ್ ಕಾಯ್ದೆಯಡಿ ದಂಡವನ್ನು ತಪ್ಪಿಸಲು ತಮ್ಮ ಭಾರತೀಯ ಪಾಸ್‌ಪೋರ್ಟ್ ಅನ್ನು ಒಪ್ಪಿಸಬೇಕು.',
+        feeNormal: '₹500 (2010 ರ ನಂತರ) / ₹1,000',
+        feeTatkaal: 'ಸಾಮಾನ್ಯ ಪ್ರಕ್ರಿಯೆ ಮಾತ್ರ',
+        eta: '5 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ವಿತರಣೆ',
+        docs: ['ಮೂಲ ಭಾರತೀಯ ಪಾಸ್‌ಪೋರ್ಟ್', 'ವಿದೇಶಿ ಪೌರತ್ವ ಪ್ರಮಾಣಪತ್ರ / ವಿದೇಶಿ ಪಾಸ್‌ಪೋರ್ಟ್']
       },
       {
         id: 'loc-permit',
-        title: 'Line of Control (LoC) Permit',
-        shortDesc: 'Special travel documentation for permanent residents visiting across designated crossing sectors.',
-        fullDesc: 'Issued to permanent residents travelling across the Line of Control for familial visits through trade and travel crossing points.',
-        feeNormal: 'Free / Nominally Regulated',
-        feeTatkaal: 'N/A',
-        eta: 'Verification through designated cell',
-        docs: ['State Resident Certificate (PRC)', 'Local Sub-Divisional Magistrate Verification', 'Sponsor Details']
+        title: 'ಗಡಿ ನಿಯಂತ್ರಣ ರೇಖೆ (LoC) ಪರವಾನಗಿ',
+        shortDesc: 'ಗಡಿ ದಾಟುವ ಪ್ರದೇಶಗಳಲ್ಲಿ ಕುಟುಂಬ ಭೇಟಿಗಾಗಿ ಕಾಯಂ ನಿವಾಸಿಗಳಿಗೆ ವಿಶೇಷ ಪ್ರಯಾಣ ದಾಖಲೆ.',
+        fullDesc: 'ವ್ಯಾಪಾರ ಮತ್ತು ಪ್ರಯಾಣ ಕ್ರಾಸಿಂಗ್ ಪಾಯಿಂಟ್‌ಗಳ ಮೂಲಕ ಕೌಟುಂಬಿಕ ಭೇಟಿಗಳಿಗಾಗಿ ನೀಡಲಾಗುತ್ತದೆ.',
+        feeNormal: 'ಉಚಿತ / ನಾಮಮಾತ್ರ ನಿಯಂತ್ರಿತ',
+        feeTatkaal: 'ಅನ್ವಯಿಸುವುದಿಲ್ಲ',
+        eta: 'ವಿಶೇಷ ವಿಭಾಗದ ಮೂಲಕ ಪರಿಶೀಲನೆ',
+        docs: ['ರಾಜ್ಯ ನಿವಾಸಿ ಪ್ರಮಾಣಪತ್ರ (PRC)', 'ಸ್ಥಳೀಯ ಉಪವಿಭಾಗಾಧಿಕಾರಿ ಪರಿಶೀಲನೆ']
+      }
+    ],
+    ta: [
+      {
+        id: 'fresh-reissue',
+        title: 'புதிய / மறு வெளியீடு பாஸ்போர்ட்',
+        shortDesc: 'புதிய 10 ஆண்டு சாதாரண பாஸ்போர்ட்டிற்கு விண்ணப்பிக்கவும் அல்லது 36 அல்லது 60 பக்கங்களுடன் புதுப்பிக்கவும்.',
+        fullDesc: '18 வயதுக்கு மேற்பட்ட அனைத்து இந்திய குடிமக்களுக்குமான பாஸ்போர்ட் சேவை. அடிக்கடி பயணம் செய்பவர்களுக்கு 36 மற்றும் 60 பக்கங்களில் கிடைக்கிறது.',
+        feeNormal: '₹1,500 (36 பக்கங்கள்) / ₹2,000 (60 பக்கங்கள்)',
+        feeTatkaal: '₹3,500 (36 பக்கங்கள்) / ₹4,000 (60 பக்கங்கள்)',
+        eta: 'சாதாரணம்: 15–20 நாட்கள் | தட்கல்: 1–3 நாட்கள்',
+        docs: ['தற்போதைய முகவரிக்கான ஆதார் அட்டை', 'பிறந்த தேதிச் சான்று (பிறப்புச் சான்றிதழ்/பான்/10-ஆம் வகுப்பு)', 'நான-இசிஆர் 10-ஆம் வகுப்பு சான்றிதழ்']
+      },
+      {
+        id: 'tatkaal',
+        title: 'தட்கல் பாஸ்போர்ட் திட்டம்',
+        shortDesc: 'அவசர சர்வதேச பயணத்திற்கான விரைவுச் சேவை. 72 மணி நேரத்திற்குள் சரிபார்ப்பு நிறைவடைகிறது.',
+        fullDesc: 'பாஸ்போர்ட் விதிகள் 1980 இன் கீழ் அவசர திட்டம். நேர்காணல் நாளிலிருந்து 1 முதல் 3 வேலை நாட்களுக்குள் பாஸ்போர்ட் அனுப்பப்படுகிறது.',
+        feeNormal: 'நிலையான கட்டணம் + ₹2,000 அவசர கூடுதல் கட்டணம்',
+        feeTatkaal: 'மொத்தம் ₹3,500 (36 பக்கங்கள்)',
+        eta: '1–3 வேலை நாட்களுக்குள் அனுப்பி வைக்கப்படும்',
+        docs: ['2 அட்டவணைப்படுத்தப்பட்ட அரசு அடையாளச் சான்றுகள் (ஆதார் + வாக்காளர் அட்டை/பான்)', 'முகவரி மற்றும் பிறந்த தேதிச் சான்று']
+      },
+      {
+        id: 'pcc',
+        title: 'காவல் துறை அனுமதிச் சான்றிதழ் (PCC)',
+        shortDesc: 'வெளிநாட்டு வேலைவாய்ப்பு, நீண்ட கால தங்குதல் அல்லது குடிபெயர்வுக்கு இந்திய குடிமக்களுக்கான சான்றிதழ்.',
+        fullDesc: 'வெளிநாட்டு தூதரகங்களுக்கு குற்றப் பின்னணி சரிபார்ப்பு சமர்ப்பிக்க வேண்டிய இந்திய பாஸ்போர்ட் வைத்திருப்பவர்களுக்கு வழங்கப்படுகிறது.',
+        feeNormal: '₹500 நிலையான அரசு கட்டணம்',
+        feeTatkaal: 'PCC-க்கு தட்கல் திட்டம் பொருந்தாது',
+        eta: 'சாதாரணம்: 7–14 நாட்கள் (உள்ளூர் காவல் துறை அறிக்கைக்கு உட்பட்டது)',
+        docs: ['அசல் இந்திய பாஸ்போர்ட் மற்றும் நகல்', 'தற்போதைய முகவரிச் சான்று', 'வெளிநாட்டு வேலை / விசா கடிதம்']
+      },
+      {
+        id: 'diplomatic',
+        title: 'தூதரக மற்றும் அதிகாரப்பூர்வ பாஸ்போர்ட்',
+        shortDesc: 'அரசு பிரமுகர்கள், தூதர்கள் மற்றும் அரசுப் பணிக்காக பயணிக்கும் பிரதிநிதிகளுக்கு வழங்கப்படுகிறது.',
+        fullDesc: 'புது தில்லி பட்டியாலா ஹவுஸில் உள்ள CPV பிரிவு மூலம் பிரத்யேகமாக வழங்கப்படுகிறது.',
+        feeNormal: 'இலவசம் (அரசு பணிகளுக்காக விலக்கு)',
+        feeTatkaal: 'அமைச்சக நெறிமுறை மூலம்',
+        eta: 'CPV தில்லி நெறிமுறை மூலம்',
+        docs: ['அதிகாரப்பூர்வ பணி ஆணை', 'அரசியல் அனுமதி சான்றிதழ் (MEA)']
+      },
+      {
+        id: 'surrender',
+        title: 'பாஸ்போர்ட் ஒப்படைப்புச் சான்றிதழ்',
+        shortDesc: 'வெளிநாட்டு குடியுரிமை பெற்ற பிறகு இந்திய குடியுரிமை சட்டம் 1955 இன் கீழ் கட்டாயச் சான்றிதழ்.',
+        fullDesc: 'வெளிநாட்டு குடியுரிமை பெற்ற இந்திய வம்சாவளியினர் அபராதங்களைத் தவிர்க்க பாஸ்போர்ட்டை ஒப்படைக்க வேண்டும்.',
+        feeNormal: '₹500 (2010 க்குப் பின்) / ₹1,000',
+        feeTatkaal: 'சாதாரண முறை மட்டுமே',
+        eta: '5 வேலை நாட்களில் வழங்கப்படும்',
+        docs: ['அசல் இந்திய பாஸ்போர்ட்', 'வெளிநாட்டு குடியுரிமைச் சான்றிதழ் / வெளிநாட்டு பாஸ்போர்ட்']
+      },
+      {
+        id: 'loc-permit',
+        title: 'எல்லைக் கட்டுப்பாட்டுக் கோடு (LoC) அனுமதி',
+        shortDesc: 'குடும்ப வருகைகளுக்காக எல்லையோர நிரந்தர குடியிருப்பாளர்களுக்கு வழங்கப்படும் சிறப்பு பயண ஆவணம்.',
+        fullDesc: 'வர்த்தகம் மற்றும் பயண சோதனைச் சாவடிகள் வழியாக குடும்ப சந்திப்புகளுக்கு வழங்கப்படுகிறது.',
+        feeNormal: 'இலவசம் / பெயரளவு கட்டணம்',
+        feeTatkaal: 'பொருந்தாது',
+        eta: 'நியமிக்கப்பட்ட பிரிவு மூலம் சரிபார்ப்பு',
+        docs: ['நிரந்தர குடியிருப்பு சான்றிதழ் (PRC)', 'உள்ளூர் SDM சரிபார்ப்பு']
+      }
+    ],
+    te: [
+      {
+        id: 'fresh-reissue',
+        title: 'కొత్త / పునఃజారీ పాస్‌పోర్ట్',
+        shortDesc: 'కొత్త 10 సంవత్సరాల సాధారణ పాస్‌పోర్ట్ కోసం దరఖాస్తు చేయండి లేదా 36 లేదా 60 పేజీలతో పునరుద్ధరించండి.',
+        fullDesc: '18 ఏళ్లు పైబడిన భారతీయ పౌరులందరికీ ప్రామాణిక సేవ. తరచుగా ప్రయాణించే వారి కోసం 36 మరియు 60 పేజీల బుక్‌లెట్లలో లభిస్తుంది.',
+        feeNormal: '₹1,500 (36 పేజీలు) / ₹2,000 (60 పేజీలు)',
+        feeTatkaal: '₹3,500 (36 పేజీలు) / ₹4,000 (60 పేజీలు)',
+        eta: 'సాధారణం: 15–20 రోజులు | తత్కాల్: 1–3 రోజులు',
+        docs: ['ప్రస్తుత చిరునామాతో ఆధార్ కార్డు', 'పుట్టిన తేదీ రుజువు (జనన ధృవీకరణ పత్రం/పాన్/10వ తరగతి)', 'నాన్-ఈసీఆర్ 10వ తరగతి సర్టిఫికెట్']
+      },
+      {
+        id: 'tatkaal',
+        title: 'తత్కాల్ పాస్‌పోర్ట్ పథకం',
+        shortDesc: 'అత్యవసర అంతర్జాతీయ ప్రయాణం కోసం వేగవంతమైన ప్రక్రియ. 72 గంటల్లో ధృవీకరణ పూర్తి.',
+        fullDesc: 'పాస్‌పోర్ట్ నిబంధనలు 1980 ప్రకారం అత్యవసర పథకం. అపాయింట్‌మెంట్ తేదీ నుండి 1 నుండి 3 పనిదినాల్లో డిస్పాచ్ చేయబడుతుంది.',
+        feeNormal: 'ప్రామాణిక రుసుము + ₹2,000 అత్యవసర సర్‌ఛార్జ్',
+        feeTatkaal: 'మొత్తం ₹3,500 (36 పేజీలు)',
+        eta: '1–3 పనిదినాలలో డిస్పాచ్',
+        docs: ['2 నిర్దేశిత ప్రభుత్వ గుర్తింపు రుజువులు (ఆధార్ + ఓటర్ ఐడీ/పాన్)', 'చిరునామా మరియు పుట్టిన తేదీ రుజువు']
+      },
+      {
+        id: 'pcc',
+        title: 'పోలీస్ క్లియరెన్స్ సర్టిఫికెట్ (PCC)',
+        shortDesc: 'విదేశాల్లో ఉపాధి, దీర్ఘకాలిక బస లేదా ఇమ్మిగ్రేషన్ కోసం భారతీయ పౌరులకు అధికారిక ధృవీకరణ పత్రం.',
+        fullDesc: 'నేర నేపథ్య క్లియరెన్స్ అందించడానికి విదేశీ రాయబార కార్యాలయాల కోసం భారతీయ పాస్‌పోర్ట్ హోల్డర్లకు జారీ చేయబడుతుంది.',
+        feeNormal: '₹500 నిర్ణీత ప్రభుత్వ రుసుము',
+        feeTatkaal: 'PCC కి తత్కాల్ పథకం వర్తించదు',
+        eta: 'సాధారణం: 7–14 రోజులు (స్థానిక పోలీసు నివేదికకు లోబడి)',
+        docs: ['అసలు భారతీయ పాస్‌పోర్ట్ మరియు నకలు', 'ప్రస్తుత చిరునామా రుజువు', 'విదేశీ ఉద్యోగ / వీసా లేఖ']
+      },
+      {
+        id: 'diplomatic',
+        title: 'దౌత్య మరియు అధికారిక పాస్‌పోర్ట్',
+        shortDesc: 'ప్రభుత్వ ప్రముఖులు, దౌత్యవేత్తలు మరియు అధికారిక ప్రతినిధులకు అధికారిక విధిపై జారీ చేయబడుతుంది.',
+        fullDesc: 'న్యూఢిల్లీలోని పాటియాలా హౌస్‌లోని CPV విభాగం ద్వారా ప్రత్యేకంగా ప్రాసెస్ చేయబడుతుంది.',
+        feeNormal: 'ఉచితం (ప్రభుత్వ విధి కోసం మినహాయింపు)',
+        feeTatkaal: 'మంత్రిత్వ శాఖ ప్రోటోకాల్ ద్వారా',
+        eta: 'CPV ఢిల్లీ ప్రోటోకాల్ ద్వారా',
+        docs: ['అధికారిక కేడర్ క్లియరెన్స్ ఆర్డర్', 'రాజకీయ క్లియరెన్స్ సర్టిఫికెట్ (MEA)']
+      },
+      {
+        id: 'surrender',
+        title: 'సరెండర్ సర్టిఫికెట్',
+        shortDesc: 'విదేశీ పౌరసత్వం పొందిన తర్వాత భారత పౌరసత్వ చట్టం 1955 ప్రకారం తప్పనిసరి సర్టిఫికెట్.',
+        fullDesc: 'విదేశీ పౌరసత్వం పొందిన భారతీయులు జరిమానాలను నివారించడానికి పాస్‌పోర్ట్‌ను అప్పగించాలి.',
+        feeNormal: '₹500 (2010 తర్వాత) / ₹1,000',
+        feeTatkaal: 'సాధారణ ప్రక్రియ మాత్రమే',
+        eta: '5 పనిదినాలలో జారీ',
+        docs: ['అసలు భారతీయ పాస్‌పోర్ట్', 'విదేశీ పౌరసత్వ ధృవీకరణ పత్రం / విదేశీ పాస్‌పోర్ట్']
+      },
+      {
+        id: 'loc-permit',
+        title: 'నియంత్రణ రేఖ (LoC) పర్మిట్',
+        shortDesc: 'సరిహద్దు క్రాసింగ్ ప్రాంతాలలో కుటుంబ సందర్శనల కోసం శాశ్వత నివాసితులకు ప్రత్యేక ప్రయాణ పత్రం.',
+        fullDesc: 'వ్యాపార మరియు ప్రయాణ క్రాసింగ్ పాయింట్ల ద్వారా కుటుంబ సందర్శనల కోసం జారీ చేయబడుతుంది.',
+        feeNormal: 'ఉచితం / నామమాత్రపు రుసుము',
+        feeTatkaal: 'వర్తించదు',
+        eta: 'నిర్దేశిత సెల్ ద్వారా ధృవీకరణ',
+        docs: ['శాశ్వత నివాస ధృవీకరణ పత్రం (PRC)', 'స్థానిక SDM ధృవీకరణ']
+      }
+    ],
+    bn: [
+      {
+        id: 'fresh-reissue',
+        title: 'নতুন / পুনর্নবীকরণ পাসপোর্ট',
+        shortDesc: 'নতুন ১০ বছরের সাধারণ পাসপোর্টের জন্য আবেদন করুন বা ৩৬ বা ৬০ পৃষ্ঠা সহ পুনর্নবীকরণ করুন।',
+        fullDesc: '১৮ বছরের ঊর্ধ্বে সকল ভারতীয় নাগরিকের জন্য আদর্শ পাসপোর্ট পরিষেবা। ৩৬ এবং ৬০ পৃষ্ঠায় উপলব্ধ।',
+        feeNormal: '₹১,৫০০ (৩৬ পৃষ্ঠা) / ₹২,০০০ (৬০ পৃষ্ঠা)',
+        feeTatkaal: '₹৩,৫০০ (৩৬ পৃষ্ঠা) / ₹৪,০০০ (৬০ পৃষ্ঠা)',
+        eta: 'সাধারণ: ১৫–২০ দিন | তৎকাল: ১–৩ দিন',
+        docs: ['বর্তমান ঠিকানার আধার কার্ড', 'জন্ম তারিখের প্রমাণপত্র (জন্ম সার্টিফিকেট/প্যান/১০ম)', 'নন-ইসিআর ১০ম শ্রেণি উত্তীর্ণ সার্টিফিকেট']
+      },
+      {
+        id: 'tatkaal',
+        title: 'তৎকাল পাসপোর্ট স্কিম',
+        shortDesc: 'জরুরি আন্তর্জাতিক ভ্রমণের জন্য দ্রুত প্রক্রিয়াকরণ। ৭২ ঘণ্টার মধ্যে যাচাইকরণ সম্পন্ন।',
+        fullDesc: 'পাসপোর্ট নিয়মাবলী ১৯৮০-এর অধীনে জরুরি স্কিম। অ্যাপয়েন্টমেন্ট থেকে ১ থেকে ৩ কার্যদিবসের মধ্যে প্রেরিত।',
+        feeNormal: 'মানক ফি + ₹২,০০০ জরুরি সারচার্জ',
+        feeTatkaal: 'মোট ₹৩,৫০০ (৩৬ পৃষ্ঠা)',
+        eta: '১–৩ কার্যদিবসের মধ্যে প্রেরণ',
+        docs: ['২টি নির্ধারিত সরকারি পরিচয়পত্র (আধার + ভোটার আইডি/প্যান)', 'ঠিকানা ও জন্ম তারিখের প্রমাণ']
+      },
+      {
+        id: 'pcc',
+        title: 'পুলিশ ক্লিয়ারেন্স সার্টিফিকেট (PCC)',
+        shortDesc: 'বিদেশে কর্মসংস্থান, দীর্ঘমেয়াদী বসবাস বা অভিবাসনের জন্য ভারতীয় নাগরিকদের অফিসিয়াল শংসাপত্র।',
+        fullDesc: 'বিদেশি দূতাবাসে জমা দেওয়ার জন্য অপরাধমূলক পটভূমি ছাড়পত্রের উদ্দেশ্যে জারি করা হয়।',
+        feeNormal: '₹৫০০ নির্ধারিত সরকারি ফি',
+        feeTatkaal: 'PCC-র জন্য তৎকাল স্কিম প্রযোজ্য নয়',
+        eta: 'সাধারণ: ৭–১৪ দিন (স্থানীয় পুলিশ রিপোর্টের ওপর নির্ভরশীল)',
+        docs: ['মূল পাসপোর্ট ও স্ব-প্রত্যয়িত ফটোকপি', 'বর্তমান ঠিকানার প্রমাণ', 'বিদেশি নিয়োগপত্র / ভিসা']
+      },
+      {
+        id: 'diplomatic',
+        title: 'কূটনৈতিক ও সরকারি পাসপোর্ট',
+        shortDesc: 'সরকারি গণ্যমান্য ব্যক্তি, কূটনীতিক এবং সরকারি কাজে ভ্রমণকারী প্রতিনিধিদের জন্য জারি করা হয়।',
+        fullDesc: 'নতুন দিল্লির পাতিয়ালা হাউসের CPV বিভাগের মাধ্যমে প্রক্রিয়াভুক্ত।',
+        feeNormal: 'বিনামূল্যে (সরকারি কাজের জন্য ছাড়)',
+        feeTatkaal: 'মন্ত্রণালয়ের প্রোটোকল দ্বারা',
+        eta: 'CPV দিল্লি প্রোটোকল দ্বারা',
+        docs: ['অফিসিয়াল ক্যাডার ক্লিয়ারেন্স অর্ডার', 'রাজনৈতিক অনুমোদন সার্টিফিকেট (MEA)']
+      },
+      {
+        id: 'surrender',
+        title: 'সমর্পণ সার্টিফিকেট (Surrender Certificate)',
+        shortDesc: 'বিদেশি নাগরিকত্ব গ্রহণের পর ভারতীয় নাগরিকত্ব আইন ১৯৫৫ অনুযায়ী বাধ্যতামূলক সার্টিফিকেট।',
+        fullDesc: 'জরিমানা এড়াতে বিদেশি নাগরিকত্ব গ্রহণকারী ভারতীয়দের পাসপোর্ট জমা দেওয়া বাধ্যতামূলক।',
+        feeNormal: '₹৫০০ (২০১০ পরবর্তী) / ₹১,০০০',
+        feeTatkaal: 'শুধুমাত্র সাধারণ প্রক্রিয়া',
+        eta: '৫ কার্যদিবসে জারি',
+        docs: ['মূল ভারতীয় পাসপোর্ট', 'বিদেশি নাগরিকত্ব শংসাপত্র / বিদেশি পাসপোর্ট']
+      },
+      {
+        id: 'loc-permit',
+        title: 'নিয়ন্ত্রণ রেখা (LoC) পারমিট',
+        shortDesc: 'সীমান্ত অতিক্রমকারী অঞ্চলে পারিবারিক সাক্ষাতের জন্য স্থায়ী বাসিন্দাদের বিশেষ ভ্রমণ নথি।',
+        fullDesc: 'নির্ধারিত ক্রসিং পয়েন্টের মাধ্যমে পারিবারিক সাক্ষাতের জন্য জারি করা হয়।',
+        feeNormal: 'বিনামূল্যে / নামমাত্র',
+        feeTatkaal: 'প্রযোজ্য নয়',
+        eta: 'নির্ধারিত সেল দ্বারা যাচাইকরণ',
+        docs: ['স্থায়ী বাসিন্দার শংসাপত্র (PRC)', 'স্থানীয় এসডিএম যাচাইকরণ']
+      }
+    ],
+    ml: [
+      {
+        id: 'fresh-reissue',
+        title: 'പുതിയ / പുതുക്കൽ പാസ്‌പോർട്ട്',
+        shortDesc: 'പുതിയ 10 വർഷത്തെ സാധാരണ പാസ്‌പോർട്ടിനായി അപേക്ഷിക്കുക അല്ലെങ്കിൽ 36 അല്ലെങ്കിൽ 60 പേജുകൾ പുതുക്കുക.',
+        fullDesc: '18 വയസ്സിന് മുകളിലുള്ള എല്ലാ ഇന്ത്യൻ പൗരന്മാർക്കുമുള്ള സ്റ്റാൻഡേർഡ് സേവനം. 36, 60 പേജുകളിൽ ലഭ്യമാണ്.',
+        feeNormal: '₹1,500 (36 പേജുകൾ) / ₹2,000 (60 പേജുകൾ)',
+        feeTatkaal: '₹3,500 (36 പേജുകൾ) / ₹4,000 (60 പേജുകൾ)',
+        eta: 'സാധാരണ: 15–20 ദിവസങ്ങൾ | തത്കാൽ: 1–3 ദിവസങ്ങൾ',
+        docs: ['നിലവിലെ മേൽവിലാസമുള്ള ആധാർ കാർഡ്', 'ജനനത്തീയതി രേഖ (ജനന സർട്ടിഫിക്കറ്റ്/പാൻ/10-ാം ക്ലാസ്)', 'നോൺ-ഇസിആർ 10-ാം ക്ലാസ് സർട്ടിഫിക്കറ്റ്']
+      },
+      {
+        id: 'tatkaal',
+        title: 'തത്കാൽ പാസ്‌പോർട്ട് പദ്ധതി',
+        shortDesc: 'അടിയന്തര അന്താരാഷ്ട്ര യാത്രകൾക്കായുള്ള അതിവേഗ സേവനം. 72 മണിക്കൂറിനുള്ളിൽ പരിശോധന പൂർത്തിയാകും.',
+        fullDesc: 'പാസ്‌പോർട്ട് ചട്ടങ്ങൾ 1980 പ്രകാരമുള്ള അടിയന്തര പദ്ധതി. അപ്പോയിന്റ്മെന്റ് തീയതി മുതൽ 1-3 ദിവസത്തിനകം അയക്കുന്നു.',
+        feeNormal: 'സ്റ്റാൻഡേർഡ് ഫീസ് + ₹2,000 തത്കാൽ സർചാർജ്',
+        feeTatkaal: 'ആകെ ₹3,500 (36 പേജുകൾ)',
+        eta: '1–3 പ്രവൃത്തിദിനങ്ങൾക്കുള്ളിൽ ഡിസ്പാച്ച്',
+        docs: ['2 നിശ്ചിത സർക്കാർ തിരിച്ചറിയൽ രേഖകൾ (ആധാർ + വോട്ടർ ഐഡി/പാൻ)', 'മേൽവിലാസവും ജനനത്തീയതിയും തെളിയിക്കുന്ന രേഖ']
+      },
+      {
+        id: 'pcc',
+        title: 'പോലീസ് ക്ലിയറൻസ് സർട്ടിഫിക്കറ്റ് (PCC)',
+        shortDesc: 'വിദേശത്തെ ജോലി, ദീർഘകാല താമസം അല്ലെങ്കിൽ കുടിയേറ്റം എന്നിവയ്ക്കായി ഇന്ത്യൻ പൗരന്മാർക്കുള്ള സർട്ടിഫിക്കറ്റ്.',
+        fullDesc: 'വിദേശ എംബസികളിൽ ക്രിമിനൽ പശ്ചാത്തല ക്ലിയറൻസ് സമർപ്പിക്കുന്നതിനായി നൽകുന്നു.',
+        feeNormal: '₹500 നിശ്ചിത സർക്കാർ ഫീസ്',
+        feeTatkaal: 'PCC-ക്ക് തത്കാൽ ബാധകമല്ല',
+        eta: 'സാധാരണ: 7–14 ദിവസങ്ങൾ (ലോക്കൽ പോലീസ് റിപ്പോർട്ടിന് വിധേയം)',
+        docs: ['യഥാർത്ഥ ഇന്ത്യൻ പാസ്‌പോർട്ടും പകർപ്പും', 'നിലവിലെ മേൽവിലാസ രേഖ', 'വിദേശ തൊഴിൽ / വിസ കത്ത്']
+      },
+      {
+        id: 'diplomatic',
+        title: 'ഡിപ്ലോമാറ്റിക് & ഔദ്യോഗിക പാസ്‌പോർട്ട്',
+        shortDesc: 'സർക്കാർ പ്രമുഖർ, നയതന്ത്രജ്ഞർ എന്നിവർക്ക് ഔദ്യോഗിക ആവശ്യങ്ങൾക്കായി നൽകുന്നു.',
+        fullDesc: 'ന്യൂഡൽഹിയിലെ പട്യാല ഹൗസിലുള്ള CPV ഡിവിഷൻ വഴി മാത്രമാണ് നൽകുന്നത്.',
+        feeNormal: 'സൗജന്യം (ഔദ്യോഗിക ആവശ്യങ്ങൾക്ക് ഇളവ്)',
+        feeTatkaal: 'മന്ത്രാലയ പ്രോട്ടോക്കോൾ വഴി',
+        eta: 'CPV ഡൽഹി പ്രോട്ടോക്കോൾ വഴി',
+        docs: ['ഔദ്യോഗിക കേഡർ ക്ലിയറൻസ് ഓർഡർ', 'പൊളിറ്റിക്കൽ ക്ലിയറൻസ് സർട്ടിഫിക്കറ്റ് (MEA)']
+      },
+      {
+        id: 'surrender',
+        title: 'സറണ്ടർ സർട്ടിഫിക്കറ്റ്',
+        shortDesc: 'വിദേശ പൗരത്വം സ്വീകരിച്ച ശേഷം ഇന്ത്യൻ പൗരത്വ നിയമം 1955 പ്രകാരം നിർബന്ധമായ സർട്ടിഫിക്കറ്റ്.',
+        fullDesc: 'പിഴ ഒഴിവാക്കാൻ വിദേശ പൗരത്വം നേടിയവർ പാസ്‌പോർട്ട് തിരികെ നൽകണം.',
+        feeNormal: '₹500 (2010 ന് ശേഷം) / ₹1,000',
+        feeTatkaal: 'സാധാരണ പ്രക്രിയ മാത്രം',
+        eta: '5 പ്രവൃത്തിദിനങ്ങൾക്കകം ലഭ്യമാകും',
+        docs: ['യഥാർത്ഥ ഇന്ത്യൻ പാസ്‌പോർട്ട്', 'വിദേശ പൗരത്വ സർട്ടിഫിക്കറ്റ് / വിദേശ പാസ്‌പോർട്ട്']
+      },
+      {
+        id: 'loc-permit',
+        title: 'നിയന്ത്രണ രേഖ (LoC) പെർമിറ്റ്',
+        shortDesc: 'അതിർത്തി മേഖലകളിൽ കുടുംബ സന്ദർശനത്തിനായി സ്ഥിരതാമസക്കാർക്കുള്ള പ്രത്യേക യാത്രാരേഖ.',
+        fullDesc: 'നിശ്ചിത ക്രോസിംഗ് പോയിന്റുകൾ വഴി കുടുംബ സന്ദർശനങ്ങൾക്കായി നൽകുന്നു.',
+        feeNormal: 'സൗജന്യം / നാമമാത്രമായ ഫീസ്',
+        feeTatkaal: 'ബാധകമല്ല',
+        eta: 'പ്രത്യേക സെൽ വഴിയുള്ള പരിശോധന',
+        docs: ['സ്ഥിരതാമസ സർട്ടിഫിക്കറ്റ് (PRC)', 'പ്രാദേശിക SDM പരിശോധന']
+      }
+    ],
+    pa: [
+      {
+        id: 'fresh-reissue',
+        title: 'ਨਵਾਂ / ਰੀ-ਇਸ਼ੂ ਪਾਸਪੋਰਟ',
+        shortDesc: 'ਨਵੇਂ 10 ਸਾਲਾਂ ਦੇ ਸਾਧਾਰਨ ਪਾਸਪੋਰਟ ਲਈ ਅਰਜ਼ੀ ਦਿਓ ਜਾਂ 36 ਜਾਂ 60 ਪੰਨਿਆਂ ਨਾਲ ਨਵਿਆਓ।',
+        fullDesc: '18 ਸਾਲ ਤੋਂ ਵੱਧ ਉਮਰ ਦੇ ਸਾਰੇ ਭਾਰਤੀ ਨਾਗਰਿਕਾਂ ਲਈ ਮਿਆਰੀ ਸੇਵਾ। 36 ਅਤੇ 60 ਪੰਨਿਆਂ ਦੀ ਬੁੱਕਲੇਟ ਵਿੱਚ ਉਪਲਬਧ।',
+        feeNormal: '₹1,500 (36 ਪੰਨੇ) / ₹2,000 (60 ਪੰਨੇ)',
+        feeTatkaal: '₹3,500 (36 ਪੰਨੇ) / ₹4,000 (60 ਪੰਨੇ)',
+        eta: 'ਸਧਾਰਨ: 15–20 ਦਿਨ | ਤਤਕਾਲ: 1–3 ਦਿਨ',
+        docs: ['ਮੌਜੂਦਾ ਪਤੇ ਦਾ ਆਧਾਰ ਕਾਰਡ', 'ਜਨਮ ਮਿਤੀ ਦਾ ਸਬੂਤ (ਜਨਮ ਸਰਟੀਫਿਕੇਟ/ਪੈਨ/10ਵੀਂ)', 'ਨਾਨ-ਈਸੀਆਰ 10ਵੀਂ ਪਾਸ ਸਰਟੀਫਿਕੇਟ']
+      },
+      {
+        id: 'tatkaal',
+        title: 'ਤਤਕਾਲ ਪਾਸਪੋਰਟ ਸਕੀਮ',
+        shortDesc: 'ਜ਼ਰੂਰੀ ਅੰਤਰਰਾਸ਼ਟਰੀ ਯਾਤਰਾ ਲਈ ਤੇਜ਼ ਪ੍ਰਕਿਰਿਆ। 72 ਘੰਟਿਆਂ ਦੇ ਅੰਦਰ ਤਸਦੀਕ ਮੁਕੰਮਲ।',
+        fullDesc: 'ਪਾਸਪੋਰਟ ਨਿਯਮ 1980 ਅਧੀਨ ਐਮਰਜੈਂਸੀ ਸਕੀਮ। ਅਪਾਇੰਟਮੈਂਟ ਦੀ ਮਿਤੀ ਤੋਂ 1 ਤੋਂ 3 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਵਿੱਚ ਰਵਾਨਾ।',
+        feeNormal: 'ਮਿਆਰੀ ਫੀਸ + ₹2,000 ਤਤਕਾਲ ਸਰਚਾਰਜ',
+        feeTatkaal: 'ਕੁੱਲ ₹3,500 (36 ਪੰਨੇ)',
+        eta: '1–3 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਵਿੱਚ ਡਿਸਪੈਚ',
+        docs: ['2 ਨਿਰਧਾਰਿਤ ਸਰਕਾਰੀ ਪਛਾਣ ਪੱਤਰ (ਆਧਾਰ + ਵੋਟਰ ਆਈਡੀ/ਪੈਨ)', 'ਪਤੇ ਅਤੇ ਜਨਮ ਮਿਤੀ ਦਾ ਸਬੂਤ']
+      },
+      {
+        id: 'pcc',
+        title: 'ਪੁਲਿਸ ਕਲੀਅਰੈਂਸ ਸਰਟੀਫਿਕੇਟ (PCC)',
+        shortDesc: 'ਵਿਦੇਸ਼ ਵਿੱਚ ਰੁਜ਼ਗਾਰ, ਲੰਬੇ ਸਮੇਂ ਦੇ ਠਹਿਰਾਅ ਜਾਂ ਇਮੀਗ੍ਰੇਸ਼ਨ ਲਈ ਅਧਿਕਾਰਤ ਸਰਟੀਫਿਕੇਟ।',
+        fullDesc: 'ਵਿਦੇਸ਼ੀ ਦੂਤਾਵਾਸਾਂ ਨੂੰ ਅਪਰਾਧਿਕ ਪਿਛੋਕੜ ਕਲੀਅਰੈਂਸ ਦੇਣ ਲਈ ਭਾਰਤੀ ਪਾਸਪੋਰਟ ਧਾਰਕਾਂ ਨੂੰ ਜਾਰੀ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।',
+        feeNormal: '₹500 ਨਿਸ਼ਚਿਤ ਸਰਕਾਰੀ ਫੀਸ',
+        feeTatkaal: 'PCC ਲਈ ਤਤਕਾਲ ਸਕੀਮ ਲਾਗੂ ਨਹੀਂ',
+        eta: 'ਸਧਾਰਨ: 7–14 ਦਿਨ (ਸਥਾਨਕ ਪੁਲਿਸ ਰਿਪੋਰਟ ਦੇ ਅਧੀਨ)',
+        docs: ['ਅਸਲ ਭਾਰਤੀ ਪਾਸਪੋਰਟ ਅਤੇ ਕਾਪੀ', 'ਮੌਜੂਦਾ ਪਤੇ ਦਾ ਸਬੂਤ', 'ਵਿਦੇਸ਼ੀ ਰੁਜ਼ਗਾਰ / ਵੀਜ਼ਾ ਪੱਤਰ']
+      },
+      {
+        id: 'diplomatic',
+        title: 'ਕੂਟਨੀਤਕ ਅਤੇ ਸਰਕਾਰੀ ਪਾਸਪੋਰਟ',
+        shortDesc: 'ਸਰਕਾਰੀ ਅਧਿਕਾਰੀਆਂ, ਡਿਪਲੋਮੈਟਾਂ ਅਤੇ ਅਧਿਕਾਰਤ ਡੈਲੀਗੇਟਾਂ ਨੂੰ ਸਰਕਾਰੀ ਡਿਊਟੀ ਲਈ ਜਾਰੀ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।',
+        fullDesc: 'ਨਵੀਂ ਦਿੱਲੀ ਦੇ ਪਟਿਆਲਾ ਹਾਊਸ ਸਥਿਤ CPV ਡਿਵੀਜ਼ਨ ਰਾਹੀਂ ਜਾਰੀ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।',
+        feeNormal: 'ਮੁਫ਼ਤ (ਸਰਕਾਰੀ ਕੰਮ ਲਈ ਛੋਟ)',
+        feeTatkaal: 'ਮੰਤਰਾਲੇ ਦੇ ਪ੍ਰੋਟੋਕੋਲ ਰਾਹੀਂ',
+        eta: 'CPV ਦਿੱਲੀ ਪ੍ਰੋਟੋਕੋਲ ਰਾਹੀਂ',
+        docs: ['ਸਰਕਾਰੀ ਕੇਡਰ ਕਲੀਅਰੈਂਸ ਆਰਡਰ', 'ਸਿਆਸੀ ਮਨਜ਼ੂਰੀ ਸਰਟੀਫਿਕੇਟ (MEA)']
+      },
+      {
+        id: 'surrender',
+        title: 'ਸਰੰਡਰ ਸਰਟੀਫਿਕੇਟ',
+        shortDesc: 'ਵਿਦੇਸ਼ੀ ਨਾਗਰਿਕਤਾ ਪ੍ਰਾਪਤ ਕਰਨ ਤੋਂ ਬਾਅਦ ਭਾਰਤੀ ਨਾਗਰਿਕਤਾ ਐਕਟ 1955 ਤਹਿਤ ਲਾਜ਼ਮੀ ਸਰਟੀਫਿਕੇਟ।',
+        fullDesc: 'ਜੁਰਮਾਨਿਆਂ ਤੋਂ ਬਚਣ ਲਈ ਵਿਦੇਸ਼ੀ ਨਾਗਰਿਕਤਾ ਹਾਸਲ ਕਰਨ ਵਾਲਿਆਂ ਲਈ ਪਾਸਪੋਰਟ ਜਮ੍ਹਾਂ ਕਰਵਾਉਣਾ ਜ਼ਰੂਰੀ ਹੈ।',
+        feeNormal: '₹500 (2010 ਤੋਂ ਬਾਅਦ) / ₹1,000',
+        feeTatkaal: 'ਸਿਰਫ਼ ਸਧਾਰਨ ਪ੍ਰਕਿਰਿਆ',
+        eta: '5 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਵਿੱਚ ਜਾਰੀ',
+        docs: ['ਅਸਲ ਭਾਰਤੀ ਪਾਸਪੋਰਟ', 'ਵਿਦੇਸ਼ੀ ਨਾਗਰਿਕਤਾ ਸਰਟੀਫਿਕੇਟ / ਵਿਦੇਸ਼ੀ ਪਾਸਪੋਰਟ']
+      },
+      {
+        id: 'loc-permit',
+        title: 'ਕੰਟਰੋਲ ਰੇਖਾ (LoC) ਪਰਮਿਟ',
+        shortDesc: 'ਸਰਹੱਦ ਪਾਰ ਪਰਿਵਾਰਕ ਮੁਲਾਕਾਤਾਂ ਲਈ ਪੱਕੇ ਵਸਨੀਕਾਂ ਲਈ ਵਿਸ਼ੇਸ਼ ਯਾਤਰਾ ਦਸਤਾਵੇਜ਼।',
+        fullDesc: 'ਨਿਰਧਾਰਿਤ ਪੁਆਇੰਟਾਂ ਰਾਹੀਂ ਪਰਿਵਾਰਕ ਦੌਰਿਆਂ ਲਈ ਜਾਰੀ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।',
+        feeNormal: 'ਮੁਫ਼ਤ / ਮਾਮੂਲੀ ਫੀਸ',
+        feeTatkaal: 'ਲਾਗੂ ਨਹੀਂ',
+        eta: 'ਵਿਸ਼ੇਸ਼ ਸੈੱਲ ਦੁਆਰਾ ਤਸਦੀਕ',
+        docs: ['ਪੱਕੇ ਨਿਵਾਸੀ ਸਰਟੀਫਿਕੇਟ (PRC)', 'ਸਥਾਨਕ SDM ਤਸਦੀਕ']
+      }
+    ],
+    or: [
+      {
+        id: 'fresh-reissue',
+        title: 'ନୂତନ / ପୁନଃ ପ୍ରଦାନ ପାସପୋର୍ଟ',
+        shortDesc: 'ନୂତନ ୧୦ ବର୍ଷର ସାଧାରଣ ପାସପୋର୍ଟ ପାଇଁ ଆବେଦନ କରନ୍ତୁ କିମ୍ବା ୩୬ ବା ୬୦ ପୃଷ୍ଠା ସହିତ ନବୀକରଣ କରନ୍ତୁ।',
+        fullDesc: '୧୮ ବର୍ଷରୁ ଊର୍ଦ୍ଧ୍ୱ ସମସ୍ତ ଭାରତୀୟ ନାଗରିକଙ୍କ ପାଇଁ ମାନକ ସେବା। ୩୬ ଏବଂ ୬୦ ପୃଷ୍ଠାରେ ଉପଲବ୍ଧ।',
+        feeNormal: '₹୧,୫୦୦ (୩୬ ପୃଷ୍ଠା) / ₹୨,୦୦୦ (୬୦ ପୃଷ୍ଠା)',
+        feeTatkaal: '₹୩,୫୦୦ (୩୬ ପୃଷ୍ଠା) / ₹୪,୦୦୦ (୬୦ ପୃଷ୍ଠା)',
+        eta: 'ସାଧାରଣ: ୧୫–୨୦ ଦିନ | ତତ୍କାଳ: ୧–୩ ଦିନ',
+        docs: ['ବର୍ତ୍ତମାନର ଠିକଣା ଥିବା ଆଧାର କାର୍ଡ', 'ଜନ୍ମ ତାରିଖ ପ୍ରମାଣପତ୍ର (ଜନ୍ମ ପ୍ରମାଣପତ୍ର/ପ୍ୟାନ୍/୧୦ମ)', 'ନନ୍-ଇସିଆର୍ ୧୦ମ ପାସ୍ ସାର୍ଟିଫିକେଟ୍']
+      },
+      {
+        id: 'tatkaal',
+        title: 'ତତ୍କାଳ ପାସପୋର୍ଟ ଯୋଜନା',
+        shortDesc: 'ଜରୁରୀ ଆନ୍ତର୍ଜାତୀୟ ଯାତ୍ରା ପାଇଁ ଦ୍ରୁତ ପ୍ରକ୍ରିୟାକରଣ। ୭୨ ଘଣ୍ଟା ମଧ୍ୟରେ ଯାଞ୍ଚ ସମ୍ପୂର୍ଣ୍ଣ।',
+        fullDesc: 'ପାସପୋର୍ଟ ନିୟମ ୧୯୮୦ ଅନୁଯାୟୀ ଜରୁରୀ ଯୋଜନା। ଆପଏଣ୍ଟମେଣ୍ଟ ତାରିଖରୁ ୧ ରୁ ୩ କାର୍ଯ୍ୟଦିବସ ମଧ୍ୟରେ ପ୍ରେରିତ।',
+        feeNormal: 'ମାନକ ଫିସ୍ + ₹୨,୦୦୦ ତତ୍କାଳ ସରଚାର୍ଜ',
+        feeTatkaal: 'ମୋଟ ₹୩,୫୦୦ (୩୬ ପୃଷ୍ଠା)',
+        eta: '୧–୩ କାର୍ଯ୍ୟଦିବସ ମଧ୍ୟରେ ପ୍ରେରଣ',
+        docs: ['୨ଟି ସରକାରୀ ପରିଚୟ ପ୍ରମାଣ (ଆଧାର + ଭୋଟର ଆଇଡି/ପ୍ୟାନ୍)', 'ଠିକଣା ଏବଂ ଜନ୍ମ ତାରିଖ ପ୍ରମାଣ']
+      },
+      {
+        id: 'pcc',
+        title: 'ପୋଲିସ କ୍ଲିୟରାନ୍ସ ସାର୍ଟିଫିକେଟ୍ (PCC)',
+        shortDesc: 'ବିଦେଶରେ ନିଯୁକ୍ତି, ଦୀର୍ଘକାଳୀନ ରହଣି କିମ୍ବା ସ୍ଥାନାନ୍ତର ପାଇଁ ଭାରତୀୟ ନାଗରିକଙ୍କ ପାଇଁ ପ୍ରମାଣପତ୍ର।',
+        fullDesc: 'ଅପରାଧିକ ପୃଷ୍ଠଭୂମି ଯାଞ୍ଚ ପାଇଁ ଭାରତୀୟ ପାସପୋର୍ଟ ଧାରକଙ୍କୁ ବିଦେଶୀ ଦୂତାବାସ ପାଇଁ ଦିଆଯାଏ।',
+        feeNormal: '₹୫୦୦ ନିର୍ଦ୍ଧାରିତ ସରକାରୀ ଫିସ୍',
+        feeTatkaal: 'PCC ପାଇଁ ତତ୍କାଳ ଯୋଜନା ପ୍ରଯୁଜ୍ୟ ନୁହେଁ',
+        eta: 'ସାଧାରଣ: ୭–୧୪ ଦିନ (ସ୍ଥାନୀୟ ପୋଲିସ ରିପୋର୍ଟ ଅଧୀନ)',
+        docs: ['ମୂଳ ଭାରତୀୟ ପାସପୋର୍ଟ ଏବଂ ନକଲ', 'ବର୍ତ୍ତମାନର ଠିକଣା ପ୍ରମାଣ', 'ବିଦେଶୀ ଚାକିରି / ଭିସା ପତ୍ର']
+      },
+      {
+        id: 'diplomatic',
+        title: 'କୂଟନୈତିକ ଏବଂ ସରକାରୀ ପାସପୋର୍ଟ',
+        shortDesc: 'ସରକାରୀ ଅଧିକାରୀ, କୂଟନୀତିଜ୍ଞ ଏବଂ ପ୍ରତିନିଧିମାନଙ୍କୁ ସରକାରୀ କାର୍ଯ୍ୟ ପାଇଁ ଜାରି କରାଯାଏ।',
+        fullDesc: 'ନୂଆଦିଲ୍ଲୀର ପଟିଆଲା ହାଉସ୍ ସ୍ଥିତ CPV ବିଭାଗ ଦ୍ୱାରା ପ୍ରଦାନ କରାଯାଏ।',
+        feeNormal: 'ମାଗଣା (ସରକାରୀ କାର୍ଯ୍ୟ ପାଇଁ ଛାଡ଼)',
+        feeTatkaal: 'ମନ୍ତ୍ରଣାଳୟ ପ୍ରୋଟୋକଲ୍ ମାଧ୍ୟମରେ',
+        eta: 'CPV ଦିଲ୍ଲୀ ପ୍ରୋଟୋକଲ୍ ମାଧ୍ୟମରେ',
+        docs: ['ଅଫିସିଆଲ୍ କ୍ୟାଡର କ୍ଲିୟରାନ୍ସ ଅର୍ଡର', 'ରାଜନୈତିକ ମଞ୍ଜୁରୀ ପ୍ରମାଣପତ୍ର (MEA)']
+      },
+      {
+        id: 'surrender',
+        title: 'ସମର୍ପଣ ପ୍ରମାଣପତ୍ର (Surrender Certificate)',
+        shortDesc: 'ବିଦେଶୀ ନାଗରିକତା ଗ୍ରହଣ ପରେ ଭାରତୀୟ ନାଗରିକତା ଅଧିନିୟମ ୧୯୫୫ ଅନୁଯାୟୀ ବାଧ୍ୟତାମୂଳକ ପ୍ରମାଣପତ୍ର।',
+        fullDesc: 'ଜୋରିମାନାରୁ ବଞ୍ଚିବା ପାଇଁ ବିଦେଶୀ ନାଗରିକତା ପାଇଥିବା ଭାରତୀୟଙ୍କ ପାଇଁ ପାସପୋର୍ଟ ସମର୍ପଣ କରିବା ବାଧ୍ୟତାମୂଳକ।',
+        feeNormal: '₹୫୦୦ (୨୦୧୦ ପରେ) / ₹୧,୦୦୦',
+        feeTatkaal: 'କେବଳ ସାଧାରଣ ପ୍ରକ୍ରିୟା',
+        eta: '୫ କାର୍ଯ୍ୟଦିବସ ମଧ୍ୟରେ ପ୍ରଦାନ',
+        docs: ['ମୂଳ ଭାରତୀୟ ପାସପୋର୍ଟ', 'ବିଦେଶୀ ନାଗରିକତା ପ୍ରମାଣପତ୍ର / ବିଦେଶୀ ପାସପୋର୍ଟ']
+      },
+      {
+        id: 'loc-permit',
+        title: 'ନିୟନ୍ତ୍ରଣ ରେଖା (LoC) ଅନୁମତି ପତ୍ର',
+        shortDesc: 'ସୀମା କ୍ରସିଂ ଅଞ୍ଚଳରେ ପାରିବାରିକ ପରିଦର୍ଶନ ପାଇଁ ସ୍ଥାୟୀ ବାସିନ୍ଦାଙ୍କ ପାଇଁ ସ୍ୱତନ୍ତ୍ର ଯାତ୍ରା ଦଲିଲ।',
+        fullDesc: 'ନିର୍ଦ୍ଧାରିତ କ୍ରସିଂ ପଏଣ୍ଟ ମାଧ୍ୟମରେ ପାରିବାରିକ ଭେଟ ପାଇଁ ପ୍ରଦାନ କରାଯାଏ।',
+        feeNormal: 'ମାଗଣା / ନାମମାତ୍ର ଫିସ୍',
+        feeTatkaal: 'ପ୍ରଯୁଜ୍ୟ ନୁହେଁ',
+        eta: 'ନିର୍ଦ୍ଦିଷ୍ଟ ସେଲ୍ ଦ୍ୱାରା ଯାଞ୍ଚ',
+        docs: ['ସ୍ଥାୟୀ ବାସିନ୍ଦା ପ୍ରମାଣପତ୍ର (PRC)', 'ସ୍ଥାନୀୟ SDM ଯାଞ୍ଚ']
+      }
+    ],
+    as: [
+      {
+        id: 'fresh-reissue',
+        title: 'নতুন / পুনৰ জাৰী পাছপ’ৰ্ট',
+        shortDesc: 'নতুন ১০ বছৰীয়া সাধাৰণ পাছপ’ৰ্টৰ বাবে আবেদন কৰক বা ৩৬ বা ৬০ পৃষ্ঠাৰে নৱীকৰণ কৰক।',
+        fullDesc: '১৮ বছৰৰ ওপৰৰ সকলো ভাৰতীয় নাগৰিকৰ বাবে মানক সেৱা। ৩৬ আৰু ৬০ পৃষ্ঠাত উপলব্ধ।',
+        feeNormal: '₹১,৫০০ (৩৬ পৃষ্ঠা) / ₹২,০০০ (৬০ পৃষ্ঠা)',
+        feeTatkaal: '₹৩,৫০০ (৩৬ পৃষ্ঠা) / ₹৪,০০০ (৬০ পৃষ্ঠা)',
+        eta: 'সাধাৰণ: ১৫–২০ দিন | তৎকাল: ১–৩ দিন',
+        docs: ['বৰ্তমান ঠিকনাৰ আধাৰ কাৰ্ড', 'জন্ম তাৰিখৰ প্ৰমাণ (জন্ম প্ৰমাণপত্ৰ/পেন/১০ম শ্ৰেণী)', 'নন-ইচিআৰ ১০ম শ্ৰেণী উত্তীৰ্ণ প্ৰমাণপত্ৰ']
+      },
+      {
+        id: 'tatkaal',
+        title: 'তৎকাল পাছপ’ৰ্ট আঁচনি',
+        shortDesc: 'জৰুৰী আন্তঃৰাষ্ট্ৰীয় ভ্ৰমণৰ বাবে ক্ষিপ্ৰ সেৱা। ৭২ ঘণ্টাৰ ভিতৰত সত্যপন সম্পূৰ্ণ।',
+        fullDesc: 'পাছপ’ৰ্ট নিয়ম ১৯৮০ অনুসৰি জৰুৰীকালীন আঁচনি। সাক্ষাৎকাৰৰ তাৰিখৰ পৰা ১-৩ কাৰ্যদিবসৰ ভিতৰত প্ৰেৰণ।',
+        feeNormal: 'মানক মাচুল + ₹২,০০০ তৎকাল চাৰ্জ',
+        feeTatkaal: 'মুঠ ₹৩,৫০০ (৩৬ পৃষ্ঠা)',
+        eta: '১–৩ কাৰ্যদিবসৰ ভিতৰত প্ৰেৰণ',
+        docs: ['২খন চৰকাৰী পৰিচয় পত্ৰ (আধাৰ + ভোটাৰ আই ডি/পেন)', 'ঠিকনা আৰু জন্ম তাৰিখৰ প্ৰমাণ']
+      },
+      {
+        id: 'pcc',
+        title: 'আৰক্ষী ক্লিয়াৰেন্স প্ৰমাণপত্ৰ (PCC)',
+        shortDesc: 'বিদেশত নিযুক্তি, দীৰ্ঘম্যাদী বসবাস বা প্ৰব্ৰজনৰ বাবে ভাৰতীয় নাগৰিকৰ বাবে প্ৰমাণপত্ৰ।',
+        fullDesc: 'বিদেশী দূতাবাসত অপৰাধমূলক ইতিহাস পৰীক্ষাৰ্থে ভাৰতীয় পাছপ’ৰ্টধাৰীসকলক প্ৰদান কৰা হয়।',
+        feeNormal: '₹৫০০ নিৰ্ধাৰিত চৰকাৰী মাচুল',
+        feeTatkaal: 'PCC ৰ বাবে তৎকাল আঁচনি প্ৰযোজ্য নহয়',
+        eta: 'সাধাৰণ: ৭–১৪ দিন (স্থানীয় আৰক্ষী প্ৰতিবেদন সাপেক্ষে)',
+        docs: ['মূল ভাৰতীয় পাছপ’ৰ্ট আৰু প্ৰতিলিপি', 'বৰ্তমান ঠিকনাৰ প্ৰমাণ', 'বিদেশী নিযুক্তি / ভিছা পত্ৰ']
+      },
+      {
+        id: 'diplomatic',
+        title: 'কূটনৈতিক আৰু চৰকাৰী পাছপ’ৰ্ট',
+        shortDesc: 'চৰকাৰী পদাধিকাৰী, কূটনীতিবিদ আৰু প্ৰতিনিধিসকলক চৰকাৰী কৰ্তব্যৰ বাবে দিয়া হয়।',
+        fullDesc: 'নতুন দিল্লীৰ পাটিয়ালা হাউচত থকা CPV বিভাগৰ দ্বাৰা বিশেষভাৱে প্ৰদান কৰা হয়।',
+        feeNormal: 'বিনামূলীয়া (চৰকাৰী কৰ্তব্যৰ বাবে ৰেহাই)',
+        feeTatkaal: 'মন্ত্রণালয় প্ৰট’কল যোগে',
+        eta: 'CPV দিল্লী প্ৰট’কল যোগে',
+        docs: ['চৰকাৰী কেডাৰ ক্লিয়াৰেন্স অৰ্ডাৰ', 'ৰাজনৈতিক অনুমোদন প্ৰমাণপত্ৰ (MEA)']
+      },
+      {
+        id: 'surrender',
+        title: 'সমৰ্পণ প্ৰমাণপত্ৰ (Surrender Certificate)',
+        shortDesc: 'বিদেশী নাগৰিকত্ব গ্ৰহণ কৰাৰ পিছত ভাৰতীয় নাগৰিকত্ব আইন ১৯৫৫ ৰ অধীনত বাধ্যতামূলক প্ৰমাণপত্ৰ।',
+        fullDesc: 'জৰিমনাৰ পৰা হাত সাৰিবলৈ বিদেশী নাগৰিকত্ব লোৱা ভাৰতীয়সকলে পাছপ’ৰ্ট সমৰ্পণ কৰিব লাগিব।',
+        feeNormal: '₹৫০০ (২০১০ ৰ পিছত) / ₹১,০০০',
+        feeTatkaal: 'কেৱল সাধাৰণ প্ৰক্ৰিয়া',
+        eta: '৫ কাৰ্যদিবসৰ ভিতৰত প্ৰদান',
+        docs: ['মূল ভাৰতীয় পাছপ’ৰ্ট', 'বিদেশী নাগৰিকত্ব প্ৰমাণপত্ৰ / বিদেশী পাছপ’ৰ্ট']
+      },
+      {
+        id: 'loc-permit',
+        title: 'নিয়ন্ত্ৰণ ৰেখা (LoC) অনুমতি পত্ৰ',
+        shortDesc: 'সীমা অতিক্ৰম কৰা অঞ্চলসমূহত পাৰিবাৰিক ভ্ৰমণৰ বাবে স্থায়ী বাসিন্দাসকলৰ বিশেষ ভ্ৰমণ নথি।',
+        fullDesc: 'নিৰ্ধাৰিত ক্ৰছিং পইণ্টৰ জৰিয়তে পাৰিবাৰিক সাক্ষাতৰ বাবে প্ৰদান কৰা হয়।',
+        feeNormal: 'বিনামূলীয়া / নামমাত্ৰ মাচুল',
+        feeTatkaal: 'প্ৰযোজ্য নহয়',
+        eta: 'নিৰ্দিষ্ট শাখাৰ দ্বাৰা সত্যাপন',
+        docs: ['স্থায়ী বাসিন্দা প্ৰমাণপত্ৰ (PRC)', 'স্থানীয় SDM সত্যাপন']
       }
     ]
   };
@@ -319,107 +754,423 @@ export const getLocalizedServices = (lang = 'en') => {
 };
 
 export const getLocalizedDocuments = (lang = 'en', applicantType = 'adult', reason = 'fresh') => {
-  const isKn = lang === 'kn';
-  const isGu = lang === 'gu';
-  const isHi = lang === 'hi';
-  const isMr = lang === 'mr';
-
-  const labels = {
-    badge: isKn ? 'ಅಗತ್ಯ ದಾಖಲೆಗಳ ಪಟ್ಟಿ' : isGu ? 'વિશેષ દસ્તાવેજ ચેકલિસ્ટ' : isHi ? 'दस्तावेज़ चेकलिस्ट' : isMr ? 'कागदपत्र चेकलिस्ट' : 'Tailored Document Checklist',
-    mandatory: isKn ? 'ಕಡ್ಡಾಯ' : isGu ? 'ફરજિયાત' : isHi ? 'अनिवार್ಯ' : 'Mandatory',
-    printBtn: isKn ? 'ದಾಖಲೆಗಳ ಪಟ್ಟಿ ಮುದ್ರಿಸಿ' : isGu ? 'ચેકલિસ્ટ પ્રિન્ટ કરો' : isHi ? 'चेकलिस्ट प्रिंट करें' : isMr ? 'चेकलिस्ट प्रिंट करा' : 'Print Checklist',
-    headingPrefix: isKn ? 'ಅಗತ್ಯವಿರುವ ದಾಖಲೆಗಳು:' : isGu ? 'માટે જરૂરી દસ્તાવેજો:' : isHi ? 'के लिए आवश्यक दस्तावेज़:' : isMr ? 'साठी आवश्यक कागदपत्रे:' : 'Required Documents for',
-    adult: isKn ? 'ವಯಸ್ಕರು' : isGu ? 'પુખ્ત' : isHi ? 'वयस्क' : 'Adult',
-    minor: isKn ? 'ಅಪ್ರಾಪ್ತರು' : isGu ? 'સગીર' : isHi ? 'नाबालिग' : isMr ? 'अल्पवयीन' : 'Minor',
-    senior: isKn ? 'ಹಿರಿಯ ನಾಗರಿಕರು' : isGu ? 'વરિષ્ઠ નાગરિક' : isHi ? 'वरिष्ठ नागरिक' : isMr ? 'ज्येष्ठ नागरिक' : 'Senior',
-    fresh: isKn ? 'ಹೊಸ ಪಾಸ್‌ಪೋರ್ಟ್' : isGu ? 'નવો પાસપોર્ટ' : isHi ? 'नया पासपोर्ट' : isMr ? 'नवीन पासपोर्ट' : 'Fresh Passport',
-    reissue: isKn ? 'ನವೀಕರಣ' : isGu ? 'રિન્યુઅલ' : isHi ? 'नवीनीकरण' : isMr ? 'नूतनीकरण' : 'Renewal',
-    lost: isKn ? 'ಕಳೆದುಹೋದ ಪ್ರಕರಣ' : isGu ? 'ખોવાયેલ કેસ' : isHi ? 'खोया हुआ केस' : isMr ? 'हरवलेला पासपोर्ट' : 'Lost Case'
-  };
-
-  const docs = [
-    {
-      category: isKn 
-        ? 'ಪ್ರಸ್ತುತ ವಸತಿ ವಿಳಾಸದ ಪುರಾವೆ (ಯಾವುದಾದರೂ ಒಂದು)' 
-        : isGu ? 'હાલના સરનામાનો પુરાવો (કોઈપણ એક)' 
-        : isHi ? 'वर्तमान पते का प्रमाण (कोई एक)' 
-        : 'Proof of Present Residential Address (Any One)',
-      mandatory: true,
-      options: isKn ? [
-        'ಪ್ರಸ್ತುತ ವಿಳಾಸ ಹೊಂದಿರುವ ಆಧಾರ್ ಕಾರ್ಡ್',
-        'ಫೋಟೋ ಹೊಂದಿರುವ ಸಕ್ರಿಯ ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್ (ರಾಷ್ಟ್ರೀಕೃತ/ಖಾಸಗಿ ಬ್ಯಾಂಕ್)',
-        'ವಿದ್ಯುತ್ ಬಿಲ್ / ನೀರು ಬಿಲ್ / ಗ್ಯಾಸ್ ಬಿಲ್ (ಕಳೆದ 2 ತಿಂಗಳು)',
-        'ನೋಂದಾಯಿತ ಬಾಡಿಗೆ ಒಪ್ಪಂದ (ಕನಿಷ್ಠ 1 ವರ್ಷದ ಸಿಂಧುತ್ವ)'
-      ] : isGu ? [
-        'હાલના સરનામા સાથેનું આધાર કાર્ડ',
-        'ફોટો સાથે સક્રિય બેંક પાસબુક (જાહેર / ખાનગી બેંક)',
-        'લાઈટ બિલ / પાણી બિલ / ગેસ બિલ (છેલ્લા ૨ મહિના)',
-        'નોંધણી થયેલ ભાડા કરાર (ઓછામાં ઓછા ૧ વર્ષની માન્યતા)'
-      ] : isHi ? [
-        'वर्तमान पते वाला आधार कार्ड',
-        'फोटो सहित सक्रिय बैंक पासबुक (राष्ट्रीयकृत/निजी बैंक)',
-        'बिजली बिल / पानी का बिल / गैस कनेक्शन बिल (पिछले 2 महीने)',
-        'पंजीकृत किराया समझौता (न्यूनतम 1 वर्ष की वैधता)'
-      ] : [
+  const dictionary = {
+    en: {
+      badge: 'Tailored Document Checklist',
+      mandatory: 'Mandatory',
+      printBtn: 'Print Checklist',
+      headingPrefix: 'Required Documents for',
+      adult: 'Adult',
+      minor: 'Minor',
+      senior: 'Senior',
+      fresh: 'Fresh Passport',
+      reissue: 'Renewal',
+      lost: 'Lost Case',
+      catAddress: 'Proof of Present Residential Address (Any One)',
+      catDob: 'Proof of Date of Birth (DOB) (Any One)',
+      catNonEcr: 'Non-ECR Proof (Emigration Check Not Required)',
+      docsAddress: [
         'Aadhaar Card with current address',
         'Active Bank Passbook (Scheduled Public / Private Bank with photo)',
         'Electricity Bill / Water Bill / Gas Connection Bill (Last 2 months)',
         'Registered Rent Agreement (Minimum 1 year validity)'
-      ]
-    },
-    {
-      category: isKn 
-        ? 'ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಪುರಾವೆ (ಯಾವುದಾದರೂ ಒಂದು)' 
-        : isGu ? 'જન્મ તારીખનો પુરાવો (કોઈપણ એક)' 
-        : isHi ? 'जन्म तिथि का प्रमाण (कोई एक)' 
-        : 'Proof of Date of Birth (DOB) (Any One)',
-      mandatory: true,
-      options: isKn ? [
-        'ಜನನ ಮತ್ತು ಮರಣಗಳ ನೋಂದಣಿದಾರರಿಂದ ನೀಡಲಾದ ಜನನ ಪ್ರಮಾಣಪತ್ರ',
-        'ಪೂರ್ಣ ದಿನಾಂಕದೊಂದಿಗೆ ಆಧಾರ್ ಕಾರ್ಡ್ / ಇ-ಆಧಾರ್ (DD/MM/YYYY)',
-        '10 ನೇ ತರಗತಿ ಶಾಲಾ ಬಿಡುವ ಪ್ರಮಾಣಪತ್ರ / ಮೆಟ್ರಿಕ್ಯುಲೇಶನ್ ಪ್ರಮಾಣಪತ್ರ',
-        'ಆದಾಯ ತೆರಿಗೆ ಇಲಾಖೆ ನೀಡಿದ ಪ್ಯಾನ್ ಕಾರ್ಡ್'
-      ] : isGu ? [
-        'મ્યુનિસિપલ સત્તામંડળ દ્વારા જારી કરાયેલ જન્મ પ્રમાણપત્ર',
-        'સંપૂર્ણ જન્મ તારીખ સાથેનું આધાર કાર્ડ / ઇ-આધાર',
-        '10મું ધોરણ સ્કૂલ લિવિંગ સર્ટિફિકેટ / મેટ્રિક પ્રમાણપત્ર',
-        'આવકવેરા વિભાગ દ્વારા જારી કરાયેલ પાન કાર્ડ'
-      ] : isHi ? [
-        'नगर निगम / जन्म एवं मृत्यु रजिस्ट्रार द्वारा जारी जन्म प्रमाण पत्र',
-        'पूर्ण जन्मतिथि युक्त आधार कार्ड / ई-आधार (DD/MM/YYYY)',
-        '10वीं कक्षा स्कूल छोड़ने का प्रमाण पत्र / मैट्रिकुलेशन प्रमाण पत्र',
-        'आयकर विभाग द्वारा जारी पैन कार्ड'
-      ] : [
+      ],
+      docsDob: [
         'Birth Certificate issued by Registrar of Births & Deaths / Municipal Corporation',
         'Aadhaar Card / e-Aadhaar with complete DD/MM/YYYY',
         'Secondary School Leaving Certificate (SSLC) / Matriculation Certificate',
         'PAN Card issued by Income Tax Department'
-      ]
-    },
-    {
-      category: isKn 
-        ? 'ನಾನ್-ಇಸಿಆರ್ ಪುರಾವೆ (ವಲಸೆ ತಪಾಸಣೆ ಅಗತ್ಯವಿಲ್ಲ)' 
-        : isGu ? 'નોન-ECR પુરાવો (ઈમિગ્રેશન ચેક જરૂરી નથી)' 
-        : isHi ? 'नॉन-ईसीआर प्रमाण (उत्प्रवास जांच आवश्यक नहीं)' 
-        : 'Non-ECR Proof (Emigration Check Not Required)',
-      mandatory: true,
-      options: isKn ? [
-        '10 ನೇ ತರಗತಿ / ಮೆಟ್ರಿಕ್ಯುಲೇಶನ್ ಉತ್ತೀರ್ಣ ಪ್ರಮಾಣಪತ್ರ',
-        'ಉನ್ನತ ಮಾಧ್ಯಮಿಕ / ಡಿಪ್ಲೊಮಾ / ವಿಶ್ವವಿದ್ಯಾಲಯ ಪದವಿ ಪ್ರಮಾಣಪತ್ರ',
-        'ಆದಾಯ ತೆರಿಗೆ ಮೌಲ್ಯಮಾಪನ ಆದೇಶ / ವೃತ್ತಿಪರ ತೆರಿಗೆ ರಸೀದಿ'
-      ] : isGu ? [
-        '10મું ધોરણ / મેટ્રિક્યુલેશન પાસ પ્રમાણપત્ર',
-        'ઉચ્ચતર માધ્યમિક / ડિપ્લોમા / ડિગ્રી સર્ટિફિકેટ',
-        'આવકવેરા આકારણી હુકમ'
-      ] : isHi ? [
-        '10वीं कक्षा / मैट्रिकुलेशन उत्तीर्ण प्रमाण पत्र',
-        'उच्चतर माध्यमिक / डिप्लोमा / विश्वविद्यालय डिग्री प्रमाण पत्र',
-        'आयकर निर्धारण आदेश'
-      ] : [
+      ],
+      docsNonEcr: [
         '10th Standard / Matriculation Passing Certificate',
         'Higher Secondary / Diploma / University Degree Certificate',
         'Income Tax Assessment Order / Professional Tax Receipts (if applicable)'
       ]
+    },
+    hi: {
+      badge: 'अनिवार्य दस्तावेज़ चेकलिस्ट',
+      mandatory: 'अनिवार्य',
+      printBtn: 'चेकलिस्ट प्रिंट करें',
+      headingPrefix: 'के लिए आवश्यक दस्तावेज़:',
+      adult: 'वयस्क',
+      minor: 'नाबालिग',
+      senior: 'वरिष्ठ नागरिक',
+      fresh: 'नया पासपोर्ट',
+      reissue: 'नवीनीकरण',
+      lost: 'खोया हुआ केस',
+      catAddress: 'वर्तमान पते का प्रमाण (कोई एक)',
+      catDob: 'जन्म तिथि का प्रमाण (कोई एक)',
+      catNonEcr: 'नॉन-ईसीआर प्रमाण (उत्प्रवास जांच आवश्यक नहीं)',
+      docsAddress: [
+        'वर्तमान पते वाला आधार कार्ड',
+        'फोटो सहित सक्रिय बैंक पासबुक (राष्ट्रीयकृत/निजी बैंक)',
+        'बिजली बिल / पानी का बिल / गैस कनेक्शन बिल (पिछले 2 महीने)',
+        'पंजीकृत किराया समझौता (न्यूनतम 1 वर्ष की वैधता)'
+      ],
+      docsDob: [
+        'नगर निगम / जन्म एवं मृत्यु रजिस्ट्रार द्वारा जारी जन्म प्रमाण पत्र',
+        'पूर्ण जन्मतिथि युक्त आधार कार्ड / ई-आधार (DD/MM/YYYY)',
+        '10वीं कक्षा स्कूल छोड़ने का प्रमाण पत्र / मैट्रिकुलेशन प्रमाण पत्र',
+        'आयकर विभाग द्वारा जारी पैन कार्ड'
+      ],
+      docsNonEcr: [
+        '10वीं कक्षा / मैट्रिकुलेशन उत्तीर्ण प्रमाण पत्र',
+        'उच्चतर माध्यमिक / डिप्लोमा / विश्वविद्यालय डिग्री प्रमाण पत्र',
+        'आयकर निर्धारण आदेश'
+      ]
+    },
+    gu: {
+      badge: 'વિશેષ દસ્તાવેજ ચેકલિસ્ટ',
+      mandatory: 'ફરજિયાત',
+      printBtn: 'ચેકલિસ્ટ પ્રિન્ટ કરો',
+      headingPrefix: 'માટે જરૂરી દસ્તાવેજો:',
+      adult: 'પુખ્ત',
+      minor: 'સગીર',
+      senior: 'વરિષ્ઠ નાગરિક',
+      fresh: 'નવો પાસપોર્ટ',
+      reissue: 'રિન્યુઅલ',
+      lost: 'ખોવાયેલ કેસ',
+      catAddress: 'હાલના સરનામાનો પુરાવો (કોઈપણ એક)',
+      catDob: 'જન્મ તારીખનો પુરાવો (કોઈપણ એક)',
+      catNonEcr: 'નોન-ECR પુરાવો (ઈમિગ્રેશન ચેક જરૂરી નથી)',
+      docsAddress: [
+        'હાલના સરનામા સાથેનું આધાર કાર્ડ',
+        'ફોટો સાથે સક્રિય બેંક પાસબુક (જાહેર / ખાનગી બેંક)',
+        'લાઈટ બિલ / પાણી બિલ / ગેસ બિલ (છેલ્લા ૨ મહિના)',
+        'નોંધણી થયેલ ભાડા કરાર (ઓછામાં ઓછા ૧ વર્ષની માન્યતા)'
+      ],
+      docsDob: [
+        'મ્યુનિસિપલ સત્તામંડળ દ્વારા જારી કરાયેલ જન્મ પ્રમાણપત્ર',
+        'સંપૂર્ણ જન્મ તારીખ સાથેનું આધાર કાર્ડ / ઇ-આધાર',
+        '10મું ધોરણ સ્કૂલ લિવિંગ સર્ટિફિકેટ / મેટ્રિક પ્રમાણપત્ર',
+        'આવકવેરા વિભાગ દ્વારા જારી કરાયેલ પાન કાર્ડ'
+      ],
+      docsNonEcr: [
+        '10મું ધોરણ / મેટ્રિક્યુલેશન પાસ પ્રમાણપત્ર',
+        'ઉચ્ચતર માધ્યમિક / ડિપ્લોમા / ડિગ્રી સર્ટિફિકેટ',
+        'આવકવેરા આકારણી હુકમ'
+      ]
+    },
+    mr: {
+      badge: 'कागदपत्र चेकलिस्ट',
+      mandatory: 'अनिवार्य',
+      printBtn: 'चेकलिस्ट प्रिंट करा',
+      headingPrefix: 'साठी आवश्यक कागदपत्रे:',
+      adult: 'प्रौढ',
+      minor: 'अल्पवयीन',
+      senior: 'ज्येष्ठ नागरिक',
+      fresh: 'नवीन पासपोर्ट',
+      reissue: 'नूतनीकरण',
+      lost: 'हरवलेला पासपोर्ट',
+      catAddress: 'सध्याच्या पत्त्याचा पुरावा (कोणताही एक)',
+      catDob: 'जन्मतारखेचा पुरावा (कोणताही एक)',
+      catNonEcr: 'नॉन-ईसीआर पुरावा (इमिग्रेशन तपासणी आवश्यक नाही)',
+      docsAddress: [
+        'सध्याच्या पत्त्यासह आधार कार्ड',
+        'छायाचित्रासह सक्रिय बँक पासबुक (राष्ट्रीयीकृत/खाजगी बँक)',
+        'वीज बिल / पाणी बिल / गॅस बिल (मागील २ महिने)',
+        'नोंदणीकृत भाडे करार (किमान १ वर्षाची वैधता)'
+      ],
+      docsDob: [
+        'जन्म आणि मृत्यू निबंधक / महानगरपालिकेकडील जन्म दाखला',
+        'पूर्ण जन्मतारीख असलेले आधार कार्ड / ई-आधार (DD/MM/YYYY)',
+        '१०वी शाळा सोडल्याचा दाखला (LC) / मॅट्रिक प्रमाणपत्र',
+        'प्राप्तिकर विभागाकडील पॅन कार्ड'
+      ],
+      docsNonEcr: [
+        '१०वी उत्तीर्ण / मॅट्रिक्युलेशन प्रमाणपत्र',
+        'उच्च माध्यमिक / पदविका / पदवी प्रमाणपत्र',
+        'प्राप्तिकर मूल्यांकन आदेश'
+      ]
+    },
+    kn: {
+      badge: 'ಅಗತ್ಯ ದಾಖಲೆಗಳ ಪಟ್ಟಿ',
+      mandatory: 'ಕಡ್ಡಾಯ',
+      printBtn: 'ದಾಖಲೆಗಳ ಪಟ್ಟಿ ಮುದ್ರಿಸಿ',
+      headingPrefix: 'ಅಗತ್ಯವಿರುವ ದಾಖಲೆಗಳು:',
+      adult: 'ವಯಸ್ಕರು',
+      minor: 'ಅಪ್ರಾಪ್ತರು',
+      senior: 'ಹಿರಿಯ ನಾಗರಿಕರು',
+      fresh: 'ಹೊಸ ಪಾಸ್‌ಪೋರ್ಟ್',
+      reissue: 'ನವೀಕರಣ',
+      lost: 'ಕಳೆದುಹೋದ ಪ್ರಕರಣ',
+      catAddress: 'ಪ್ರಸ್ತುತ ವಸತಿ ವಿಳಾಸದ ಪುರಾವೆ (ಯಾವುದಾದರೂ ಒಂದು)',
+      catDob: 'ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಪುರಾವೆ (ಯಾವುದಾದರೂ ಒಂದು)',
+      catNonEcr: 'ನಾನ್-ಇಸಿಆರ್ ಪುರಾವೆ (ವಲಸೆ ತಪಾಸಣೆ ಅಗತ್ಯವಿಲ್ಲ)',
+      docsAddress: [
+        'ಪ್ರಸ್ತುತ ವಿಳಾಸ ಹೊಂದಿರುವ ಆಧಾರ್ ಕಾರ್ಡ್',
+        'ಫೋಟೋ ಹೊಂದಿರುವ ಸಕ್ರಿಯ ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್ (ರಾಷ್ಟ್ರೀಕೃತ/ಖಾಸಗಿ ಬ್ಯಾಂಕ್)',
+        'ವಿದ್ಯುತ್ ಬಿಲ್ / ನೀರು ಬಿಲ್ / ಗ್ಯಾಸ್ ಬಿಲ್ (ಕಳೆದ 2 ತಿಂಗಳು)',
+        'ನೋಂದಾಯಿತ ಬಾಡಿಗೆ ಒಪ್ಪಂದ (ಕನಿಷ್ಠ 1 ವರ್ಷದ ಸಿಂಧುತ್ವ)'
+      ],
+      docsDob: [
+        'ಜನನ ಮತ್ತು ಮರಣಗಳ ನೋಂದಣಿದಾರರಿಂದ ನೀಡಲಾದ ಜನನ ಪ್ರಮಾಣಪತ್ರ',
+        'ಪೂರ್ಣ ದಿನಾಂಕದೊಂದಿಗೆ ಆಧಾರ್ ಕಾರ್ಡ್ / ಇ-ಆಧಾರ್ (DD/MM/YYYY)',
+        '10 ನೇ ತರಗತಿ ಶಾಲಾ ಬಿಡುವ ಪ್ರಮಾಣಪತ್ರ / ಮೆಟ್ರಿಕ್ಯುಲೇಶನ್ ಪ್ರಮಾಣಪತ್ರ',
+        'ಆದಾಯ ತೆರಿಗೆ ಇಲಾಖೆ ನೀಡಿದ ಪ್ಯಾನ್ ಕಾರ್ಡ್'
+      ],
+      docsNonEcr: [
+        '10 ನೇ ತರಗತಿ / ಮೆಟ್ರಿಕ್ಯುಲೇಶನ್ ಉತ್ತೀರ್ಣ ಪ್ರಮಾಣಪತ್ರ',
+        'ಉನ್ನತ ಮಾಧ್ಯಮಿಕ / ಡಿಪ್ಲೊಮಾ / ವಿಶ್ವವಿದ್ಯಾಲಯ ಪದವಿ ಪ್ರಮಾಣಪತ್ರ',
+        'ಆದಾಯ ತೆರಿಗೆ ಮೌಲ್ಯಮಾಪನ ಆದೇಶ / ವೃತ್ತಿಪರ ತೆರಿಗೆ ರಸೀದಿ'
+      ]
+    },
+    ta: {
+      badge: 'தேவையான ஆவணங்களின் பட்டியல்',
+      mandatory: 'கட்டாயம்',
+      printBtn: 'பட்டியலை அச்சிடுக',
+      headingPrefix: 'தேவையான ஆவணங்கள்:',
+      adult: 'பெரியவர்கள்',
+      minor: 'சிறியவர்கள்',
+      senior: 'முதியவர்கள்',
+      fresh: 'புதிய பாஸ்போர்ட்',
+      reissue: 'புதுப்பித்தல்',
+      lost: 'தொலைந்த பாஸ்போர்ட்',
+      catAddress: 'தற்போதைய குடியிருப்பு முகவரிச் சான்று (ஏதேனும் ஒன்று)',
+      catDob: 'பிறந்த தேதிச் சான்று (ஏதேனும் ஒன்று)',
+      catNonEcr: 'நான-இசிஆர் சான்று (குடிவரவு சோதனை தேவையில்லை)',
+      docsAddress: [
+        'தற்போதைய முகவரியுடன் கூடிய ஆதார் அட்டை',
+        'புகைப்படத்துடன் கூடிய செயலில் உள்ள வங்கி பாஸ்புக்',
+        'மின் கட்டண ரசீது / குடிநீர் கட்டண ரசீது / எரிவாயு ரசீது',
+        'பதிவு செய்யப்பட்ட வாடகை ஒப்பந்தம் (குறைந்தது 1 ஆண்டு செல்லுபடியாகும்)'
+      ],
+      docsDob: [
+        'பிறப்பு மற்றும் இறப்பு பதிவாளர் வழங்கிய பிறப்புச் சான்றிதழ்',
+        'முழு பிறந்த தேதியுடன் கூடிய ஆதார் அட்டை / இ-ஆதார்',
+        '10-ஆம் வகுப்பு பள்ளி மாற்றுச் சான்றிதழ் / மெட்ரிகுலேஷன் சான்றிதழ்',
+        'வருமான வரித் துறை வழங்கிய பான் கார்டு'
+      ],
+      docsNonEcr: [
+        '10-ஆம் வகுப்பு / மெட்ரிகுலேஷன் தேர்ச்சி சான்றிதழ்',
+        'மேல்நிலைப் பள்ளி / டிப்ளமோ / பட்டப்படிப்பு சான்றிதழ்',
+        'வருமான வரி மதிப்பீட்டு ஆணை'
+      ]
+    },
+    te: {
+      badge: 'అవసరమైన పత్రాల జాబితా',
+      mandatory: 'తప్పనిసరి',
+      printBtn: 'చెక్‌లిస్ట్‌ను ముద్రించండి',
+      headingPrefix: 'కోసం అవసరమైన పత్రాలు:',
+      adult: 'పెద్దలు',
+      minor: 'మైనర్లు',
+      senior: 'సీనియర్ సిటిజన్లు',
+      fresh: 'కొత్త పాస్‌పోర్ట్',
+      reissue: 'పునరుద్ధరణ',
+      lost: 'కోల్పోయిన కేసు',
+      catAddress: 'ప్రస్తుత నివాస చిరునామా రుజువు (ఏదైనా ఒకటి)',
+      catDob: 'పుట్టిన తేదీ రుజువు (ఏదైనా ఒకటి)',
+      catNonEcr: 'నాన్-ఈసీఆర్ రుజువు (ఇమ్మిగ్రేషన్ తనిఖీ అవసరం లేదు)',
+      docsAddress: [
+        'ప్రస్తుత చిరునామాతో ఆధార్ కార్డు',
+        'ఫోటోతో కూడిన యాక్టివ్ బ్యాంక్ పాస్‌బుక్ (షెడ్యూల్డ్ బ్యాంక్)',
+        'విద్యుత్ బిల్లు / నీటి బిల్లు / గ్యాస్ కనెక్షన్ బిల్లు (గత 2 నెలలు)',
+        'రిజిస్టర్డ్ అద్దె ఒప్పందం (కనీసం 1 సంవత్సరం చెల్లుబాటు)'
+      ],
+      docsDob: [
+        'మున్సిపాలిటీ లేదా రిజిస్ట్రార్ జారీ చేసిన జనన ధృవీకరణ పత్రం',
+        'పూర్తి పుట్టిన తేదీతో కూడిన ఆధార్ కార్డు / ఈ-ఆధార్',
+        '10వ తరగతి స్కూల్ లీవింగ్ సర్టిఫికెట్ / మెట్రిక్యులేషన్ సర్టిఫికెట్',
+        'ఆదాయపు పన్ను శాఖ జారీ చేసిన పాన్ కార్డు'
+      ],
+      docsNonEcr: [
+        '10వ తరగతి / మెట్రిక్యులేషన్ ఉత్తీర్ణత సర్టిఫికెట్',
+        'హయ్యర్ సెకండరీ / డిప్లొమా / డిగ్రీ సర్టిఫికెట్',
+        'ఆదాయపు పన్ను అసెస్‌మెంట్ ఆర్డర్'
+      ]
+    },
+    bn: {
+      badge: 'প্রয়োজনীয় নথির তালিকা',
+      mandatory: 'বাধ্যতামূলক',
+      printBtn: 'চেকলিস্ট প্রিন্ট করুন',
+      headingPrefix: 'জন্য প্রয়োজনীয় নথিপত্র:',
+      adult: 'প্রাপ্তবয়স্ক',
+      minor: 'নাবালক',
+      senior: 'প্রবীণ নাগরিক',
+      fresh: 'নতুন পাসপোর্ট',
+      reissue: 'পুনর্নবীকরণ',
+      lost: 'হারিয়ে যাওয়া পাসপোর্ট',
+      catAddress: 'বর্তমান আবাসিক ঠিকানার প্রমাণ (যেকোনো একটি)',
+      catDob: 'জন্ম তারিখের প্রমাণ (যেকোনো একটি)',
+      catNonEcr: 'নন-ইসিআর প্রমাণ (ইমিগ্রেশন যাচাই অপ্রয়োজনীয়)',
+      docsAddress: [
+        'বর্তমান ঠিকানা সহ আধার কার্ড',
+        'ছবি সহ সক্রিয় ব্যাংক পাসবুক (রাষ্ট্রায়ত্ত/বেসরকারি ব্যাংক)',
+        'বিদ্যুৎ বিল / জল বিল / গ্যাস সংযোগ বিল (বিগত ২ মাস)',
+        'নিবন্ধিত ভাড়া চুক্তি (নূন্যতম ১ বছর মেয়াদী)'
+      ],
+      docsDob: [
+        'পৌরসভা বা জন্ম ও মৃত্যু নিবন্ধক কর্তৃক প্রদত্ত জন্ম শংসাপত্র',
+        'সম্পূর্ণ জন্ম তারিখ সহ আধার কার্ড / ই-আধার',
+        'মাধ্যমিক বা দশম শ্রেণির স্কুল লিভিং সার্টিফিকেট',
+        'আয়কর বিভাগ কর্তৃক প্রদত্ত প্যান কার্ড'
+      ],
+      docsNonEcr: [
+        'দশম শ্রেণি / মাধ্যমিক উত্তীর্ণ শংসাপত্র',
+        'উচ্চ মাধ্যমিক / ডিপ্লোমা / বিশ্ববিদ্যালয় ডিগ্রি সার্টিফিকেট',
+        'আয়কর মূল্যায়ন আদেশ'
+      ]
+    },
+    ml: {
+      badge: 'ആവശ്യമായ രേഖകളുടെ ചെക്ക്‌ലിസ്റ്റ്',
+      mandatory: 'നിർബന്ധം',
+      printBtn: 'ചെക്ക്‌ലിസ്റ്റ് പ്രിന്റ് ചെയ്യുക',
+      headingPrefix: 'ആവശ്യമായ രേഖകൾ:',
+      adult: 'മുതിർന്നവർ',
+      minor: 'പ്രായപൂർത്തിയാകാത്തവർ',
+      senior: 'മുതിർന്ന പൗരന്മാർ',
+      fresh: 'പുതിയ പാസ്‌പോർട്ട്',
+      reissue: 'പുതുക്കൽ',
+      lost: 'നഷ്ടപ്പെട്ട പാസ്‌പോർട്ട്',
+      catAddress: 'നിലവിലെ താമസ മേൽവിലാസ രേഖ (ഏതെങ്കിലും ഒന്ന്)',
+      catDob: 'ജനനത്തീയതി രേഖ (ഏതെങ്കിലും ഒന്ന്)',
+      catNonEcr: 'നോൺ-ഇസിആർ രേഖ (ഇമിഗ്രേഷൻ പരിശോധന ആവശ്യമില്ല)',
+      docsAddress: [
+        'നിലവിലെ വിലാസമുള്ള ആധാർ കാർഡ്',
+        'ഫോട്ടോ സഹിതമുള്ള ബാങ്ക് പാസ്ബുക്ക്',
+        'വൈദ്യുതി ബിൽ / വാട്ടർ ബിൽ / ഗ്യാസ് ബിൽ (കഴിഞ്ഞ 2 മാസം)',
+        'രജിസ്റ്റർ ചെയ്ത വാടകക്കരാർ (കുറഞ്ഞത് 1 വർഷത്തെ കാലാവധി)'
+      ],
+      docsDob: [
+        'മുനിസിപ്പാലിറ്റി നൽകിയ ജനന സർട്ടിഫിക്കറ്റ്',
+        'പൂർണ്ണ ജനനത്തീയതിയുള്ള ആധാർ കാർഡ് / ഇ-ആധാർ',
+        'എസ്എസ്എൽസി / പത്താം ക്ലാസ് സർട്ടിഫിക്കറ്റ്',
+        'വരുമാന നികുതി വകുപ്പ് നൽകിയ പാൻ കാർഡ്'
+      ],
+      docsNonEcr: [
+        'പത്താം ക്ലാസ് പാസ് സർട്ടിഫിക്കറ്റ്',
+        'ഹയർ സെക്കൻഡറി / ഡിപ്ലോമ / ബിരുദ സർട്ടിഫിക്കറ്റ്',
+        'വരുമാന നികുതി അസസ്‌മെന്റ് ഓർഡർ'
+      ]
+    },
+    pa: {
+      badge: 'ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼ਾਂ ਦੀ ਸੂਚੀ',
+      mandatory: 'ਲਾਜ਼ਮੀ',
+      printBtn: 'ਸੂਚੀ ਪ੍ਰਿੰਟ ਕਰੋ',
+      headingPrefix: 'ਲਈ ਲੋੜੀਂਦੇ ਦਸਤਾਵੇਜ਼:',
+      adult: 'ਬਾਲਗ',
+      minor: 'ਨਾਬਾਲਗ',
+      senior: 'ਸੀਨੀਅਰ ਸਿਟੀਜ਼ਨ',
+      fresh: 'ਨਵਾਂ ਪਾਸਪੋਰਟ',
+      reissue: 'ਨਵਿਆਉਣਾ',
+      lost: 'ਗੁੰਮ ਹੋਇਆ ਕੇਸ',
+      catAddress: 'ਮੌਜੂਦਾ ਰਿਹਾਇਸ਼ੀ ਪਤੇ ਦਾ ਸਬੂਤ (ਕੋਈ ਇੱਕ)',
+      catDob: 'ਜਨਮ ਮਿਤੀ ਦਾ ਸਬੂਤ (ਕੋਈ ਇੱਕ)',
+      catNonEcr: 'ਨਾਨ-ਈਸੀਆਰ ਸਬੂਤ (ਇਮੀਗ੍ਰੇਸ਼ਨ ਜਾਂਚ ਦੀ ਲੋੜ ਨਹੀਂ)',
+      docsAddress: [
+        'ਮੌਜੂਦਾ ਪਤੇ ਵਾਲਾ ਆਧਾਰ ਕਾਰਡ',
+        'ਫੋਟੋ ਸਮੇਤ ਸਰਗਰਮ ਬੈਂਕ ਪਾਸਬੁੱਕ',
+        'ਬਿਜਲੀ ਬਿੱਲ / ਪਾਣੀ ਬਿੱਲ / ਗੈਸ ਕਨੈਕਸ਼ਨ ਬਿੱਲ (ਪਿਛਲੇ 2 ਮਹੀਨੇ)',
+        'ਰਜਿਸਟਰਡ ਕਿਰਾਇਆ ਇਕਰਾਰਨਾਮਾ (ਘੱਟੋ-ਘੱਟ 1 ਸਾਲ ਦੀ ਵੈਧਤਾ)'
+      ],
+      docsDob: [
+        'ਨਗਰ ਨਿਗਮ ਵੱਲੋਂ ਜਾਰੀ ਜਨਮ ਸਰਟੀਫਿਕੇਟ',
+        'ਪੂਰੀ ਜਨਮ ਮਿਤੀ ਵਾਲਾ ਆਧਾਰ ਕਾਰਡ / ਈ-ਆਧਾਰ',
+        '10ਵੀਂ ਜਮਾਤ ਦਾ ਸਕੂਲ ਛੱਡਣ ਦਾ ਸਰਟੀਫਿਕੇਟ / ਮੈਟ੍ਰਿਕ ਸਰਟੀਫਿਕੇਟ',
+        'ਇਨਕਮ ਟੈਕਸ ਵਿਭਾਗ ਵੱਲੋਂ ਜਾਰੀ ਪੈਨ ਕਾਰਡ'
+      ],
+      docsNonEcr: [
+        '10ਵੀਂ ਜਮਾਤ / ਮੈਟ੍ਰਿਕ ਪਾਸ ਸਰਟੀਫਿਕੇਟ',
+        'ਸੀਨੀਅਰ ਸੈਕੰਡਰੀ / ਡਿਪਲੋਮਾ / ਡਿਗਰੀ ਸਰਟੀਫਿਕੇਟ',
+        'ਆਮਦਨ ਕਰ ਮੁਲਾਂਕਣ ਆਰਡਰ'
+      ]
+    },
+    or: {
+      badge: 'ଆବଶ୍ୟକୀୟ ଦସ୍ତାବିଜ୍ ତାଲିକା',
+      mandatory: 'ବାଧ୍ୟତାମୂଳକ',
+      printBtn: 'ଚେକଲିଷ୍ଟ ପ୍ରିଣ୍ଟ କରନ୍ତୁ',
+      headingPrefix: 'ପାଇଁ ଆବଶ୍ୟକ ଦସ୍ତାବିଜ୍:',
+      adult: 'ବୟସ୍କ',
+      minor: 'ନାବାଳକ',
+      senior: 'ବରିଷ୍ଠ ନାଗରିକ',
+      fresh: 'ନୂତନ ପାସପୋର୍ଟ',
+      reissue: 'ନବୀକରଣ',
+      lost: 'ହଜିଯାଇଥିବା କେସ୍',
+      catAddress: 'ବର୍ତ୍ତମାନର ଠିକଣା ପ୍ରମାଣ (ଯେକୌଣସି ଗୋଟିଏ)',
+      catDob: 'ଜନ୍ମ ତାରିଖ ପ୍ରମାଣ (ଯେକୌଣସି ଗୋଟିଏ)',
+      catNonEcr: 'ନନ୍-ଇସିଆର୍ ପ୍ରମାଣ (ଇମିଗ୍ରେସନ ଯାଞ୍ଚ ଆବଶ୍ୟକ ନାହିଁ)',
+      docsAddress: [
+        'ବର୍ତ୍ତମାନର ଠିକଣା ସହିତ ଆଧାର କାର୍ଡ',
+        'ଫଟୋ ସହିତ ସକ୍ରିୟ ବ୍ୟାଙ୍କ ପାସବୁକ୍',
+        'ବିଦ୍ୟୁତ୍ ବିଲ୍ / ପାଣି ବିଲ୍ / ଗ୍ୟାସ ସଂଯୋଗ ବିଲ୍ (ଗତ ୨ ମାସ)',
+        'ପଞ୍ଜୀକୃତ ଭଡ଼ା ଚୁକ୍ତିପତ୍ର (ଅତି କମରେ ୧ ବର୍ଷ ବୈଧତା)'
+      ],
+      docsDob: [
+        'ପୌରପାଳିକା କିମ୍ବା ରେଜିଷ୍ଟ୍ରାରଙ୍କ ଦ୍ୱାରା ଜାରି ଜନ୍ମ ପ୍ରମାଣପତ୍ର',
+        'ସମ୍ପୂର୍ଣ୍ଣ ଜନ୍ମ ତାରିଖ ସହିତ ଆଧାର କାର୍ଡ / ଇ-ଆଧାର',
+        '୧୦ମ ବୋର୍ଡ ସାର୍ଟିଫିକେଟ୍ / ମାଟ୍ରିକ୍ ସାର୍ଟିଫିକେଟ୍',
+        'ଆୟକର ବିଭାଗ ଦ୍ୱାରା ଜାରି ପ୍ୟାନ୍ କାର୍ଡ'
+      ],
+      docsNonEcr: [
+        '୧୦ମ ଶ୍ରେଣୀ / ମାଟ୍ରିକ୍ୟୁଲେସନ୍ ପାସ୍ ସାର୍ଟିଫିକେଟ୍',
+        'ଉଚ୍ଚ ମାଧ୍ୟମିକ / ଡିପ୍ଲୋମା / ଡିଗ୍ରୀ ସାର୍ଟିଫିକେଟ୍',
+        'ଆୟକର ନିର୍ଦ୍ଧାରଣ ଆଦେଶ'
+      ]
+    },
+    as: {
+      badge: 'প্ৰয়োজনীয় নথিৰ তালিকা',
+      mandatory: 'বাধ্যতামূলক',
+      printBtn: 'তালিকা প্ৰিণ্ট কৰক',
+      headingPrefix: 'বাবে প্ৰয়োজনীয় নথিপত্ৰ:',
+      adult: 'প্ৰাপ্তবয়স্ক',
+      minor: 'নাবালক',
+      senior: 'জ্যেষ্ঠ নাগৰিক',
+      fresh: 'নতুন পাছপ’ৰ্ট',
+      reissue: 'নৱীকৰণ',
+      lost: 'হেৰোৱা পাছপ’ৰ্ট',
+      catAddress: 'বৰ্তমান ঠিকনাৰ প্ৰমাণ (যিকোনো এটা)',
+      catDob: 'জন্ম তাৰিখৰ প্ৰমাণ (যিকোনো এটা)',
+      catNonEcr: 'নন-ইচিআৰ প্ৰমাণ (ইমিগ্ৰেচন পৰীক্ষণ প্ৰয়োজন নাই)',
+      docsAddress: [
+        'বৰ্তমান ঠিকনা সম্বলিত আধাৰ কাৰ্ড',
+        'ফটো থকা সক্ৰিয় বেংক পাছবুক',
+        'বিদ্যুৎ বিল / পানীৰ বিল / গেছ বিল (যোৱা ২ মাহৰ)',
+        'পঞ্জীভুক্ত ভাড়া চুক্তি (নূন্যতম ১ বছৰৰ বৈধতা)'
+      ],
+      docsDob: [
+        'পৌৰসভা বা জন্ম-মৃত্যু পঞ্জীয়কে দিয়া জন্ম প্ৰমাণপত্ৰ',
+        'সম্পূৰ্ণ জন্ম তাৰিখ থকা আধাৰ কাৰ্ড / ই-আধাৰ',
+        'মেট্ৰিকুলেচন / দশম শ্ৰেণীৰ স্কুল এৰা প্ৰমাণপত্ৰ',
+        'আয়কৰ বিভাগে দিয়া পেন কাৰ্ড'
+      ],
+      docsNonEcr: [
+        'দশম শ্ৰেণী / মেট্ৰিকুলেচন উত্তীৰ্ণ প্ৰমাণপত্ৰ',
+        'উচ্চতৰ মাধ্যমিক / ডিপ্ল’মা / ডিগ্ৰী প্ৰমাণপত্ৰ',
+        'আয়কৰ নিৰ্ধাৰণ আদেশ'
+      ]
+    }
+  };
+
+  const current = dictionary[lang] || dictionary.en || dictionary.hi;
+
+  const labels = {
+    badge: current.badge,
+    mandatory: current.mandatory,
+    printBtn: current.printBtn,
+    headingPrefix: current.headingPrefix,
+    adult: current.adult,
+    minor: current.minor,
+    senior: current.senior,
+    fresh: current.fresh,
+    reissue: current.reissue,
+    lost: current.lost
+  };
+
+  const docs = [
+    {
+      category: current.catAddress,
+      mandatory: true,
+      options: current.docsAddress
+    },
+    {
+      category: current.catDob,
+      mandatory: true,
+      options: current.docsDob
+    },
+    {
+      category: current.catNonEcr,
+      mandatory: true,
+      options: current.docsNonEcr
     }
   ];
 
@@ -427,110 +1178,624 @@ export const getLocalizedDocuments = (lang = 'en', applicantType = 'adult', reas
 };
 
 export const getLocalizedFeeCalc = (lang = 'en') => {
-  const isKn = lang === 'kn';
-  const isGu = lang === 'gu';
-  const isHi = lang === 'hi';
-
-  return {
-    serviceCategoryLabel: isKn ? 'ಅರ್ಜಿ ಸೇವಾ ವರ್ಗ' : isGu ? 'અરજી સેવા શ્રેણી' : isHi ? 'आवेदन सेवा श्रेणी' : 'Application Service Category',
-    selectServicePrompt: isKn ? 'ಸೇವಾ ಪ್ರಕಾರ ಆಯ್ಕೆಮಾಡಿ' : isGu ? 'સેવા પ્રકાર પસંદ કરો' : isHi ? 'सेवा प्रकार चुनें' : 'Select service type',
-    freshOption: isKn ? 'ಹೊಸ ಪಾಸ್‌ಪೋರ್ಟ್ (ಮೊದಲ ಬಾರಿಗೆ)' : isGu ? 'નવો પાસપોર્ટ (પ્રથમ અરજદાર)' : isHi ? 'नया पासपोर्ट (प्रथम आवेदक)' : 'Fresh Passport (First-time Applicant)',
-    reissueOption: isKn ? 'ಪಾಸ್‌ಪೋರ್ಟ್ ನವೀಕರಣ / ಮರು-ವಿತರಣೆ' : isGu ? 'પાસપોર્ટ રિન્યુઅલ' : isHi ? 'पासपोर्ट नवीनीकरण' : 'Re-issue of Passport',
-    pccOption: isKn ? 'ಪೊಲೀಸ್ ಕ್ಲಿಯರೆನ್ಸ್ ಪ್ರಮಾಣಪತ್ರ (PCC)' : isGu ? 'પોલીસ ક્લિયરન્સ સર્ટિફિકેટ (PCC)' : isHi ? 'पुलिस क्लीयरेंस सर्टिफिकेट (PCC)' : 'Police Clearance Certificate (PCC)',
-    
-    ageGroupLabel: isKn ? 'ಅರ್ಜಿದಾರರ ವಯೋಮಿತಿ' : isGu ? 'અરજદારની વય શ્રેણી' : isHi ? 'आवेदक आयु वर्ग' : 'Applicant Age Group',
-    adultOption: isKn ? 'ವಯಸ್ಕರು (18 ರಿಂದ 59 ವರ್ಷ)' : isGu ? 'પુખ્ત (18 થી 59 વર્ષ)' : isHi ? 'वयस्क (18 से 59 वर्ष)' : 'Adult (18 to 59 years)',
-    minorOption: isKn ? 'ಅಪ್ರಾಪ್ತರು (18 ವರ್ಷಕ್ಕಿಂತ ಕಡಿಮೆ)' : isGu ? 'સગીર (18 વર્ષથી ઓછી)' : isHi ? 'नाबालिग (18 वर्ष से कम)' : 'Minor (Below 18 years)',
-    seniorOption: isKn ? 'ಹಿರಿಯ ನಾಗರಿಕರು (60+ ವರ್ಷ)' : isGu ? 'વરિષ્ઠ નાગરિક (60+ વર્ષ)' : isHi ? 'वरिष्ठ नागरिक (60+ वर्ष)' : 'Senior Citizen (60+ years)',
-
-    bookletSizeLabel: isKn ? 'ಪಾಸ್‌ಪೋರ್ಟ್ ಬುಕ್‌ಲೆಟ್ ಪುಟಗಳು' : isGu ? 'પાસપોર્ટ પુસ્તિકા કદ' : isHi ? 'पासपोर्ट पुस्तिका आकार' : 'Passport Booklet Size',
-    pages36: isKn ? 'ಪ್ರಮಾಣಿತ ಬುಕ್‌ಲೆಟ್ (36 ಪುಟಗಳು)' : isGu ? 'સામાન્ય પુસ્તિકા (36 પાના)' : isHi ? 'मानक पुस्तिका (36 पृष्ठ)' : 'Standard Booklet (36 Pages)',
-    pages60: isKn ? 'ಜಂಬೋ ಬುಕ್‌ಲೆಟ್ (60 ಪುಟಗಳು)' : isGu ? 'જમ્બો પુસ્તિકા (60 પાના)' : isHi ? 'जंबो पुस्तिका (60 पृष्ठ)' : 'Jumbo Booklet (60 Pages)',
-
-    schemeLabel: isKn ? 'ಅಗತ್ಯವಿರುವ ಪ್ರಕ್ರಿಯೆ ಯೋಜನೆ' : isGu ? 'જરૂરી પ્રક્રિયા યોજના' : isHi ? 'आवश्यक प्रसंस्करण योजना' : 'Required Processing Scheme',
-    normalScheme: isKn ? 'ಸಾಮಾನ್ಯ ಯೋಜನೆ' : isGu ? 'સામાન્ય યોજના' : isHi ? 'सामान्य योजना' : 'Normal Scheme',
-    normalDesc: isKn ? 'ಸಾಮಾನ್ಯ ಪ್ರಕ್ರಿಯೆ (15-20 ದಿನಗಳು)' : isGu ? 'સામાન્ય પ્રક્રિયા (15-20 દિવસ)' : isHi ? 'मानक प्रसंस्करण (15-20 दिन)' : 'Standard processing (15–20 days)',
-    tatkaalScheme: isKn ? 'ತತ್ಕಾಲ್ ಯೋಜನೆ (+₹2,000)' : isGu ? 'તત્કાલ યોજના (+₹2,000)' : isHi ? 'तत्काल योजना (+₹2,000)' : 'Tatkaal Scheme (+₹2,000)',
-    tatkaalDesc: isKn ? 'ತುರ್ತು ಪ್ರಕ್ರಿಯೆ (1-3 ದಿನಗಳು)' : isGu ? 'તાકીદની પ્રક્રિયા (1-3 દિવસ)' : isHi ? 'त्वरित प्रसंस्करण (1-3 दिन)' : 'Urgent processing (1–3 days)',
-
-    estimatedSummary: isKn ? 'ಅಂದಾಜು ಶುಲ್ಕ ಸಾರಾಂಶ' : isGu ? 'અંદાજિત ફી સારાંશ' : isHi ? 'अनुमानित शुल्क सारांश' : 'Estimated Fee Summary',
-    scheduleTariff: isKn ? 'ಅನುಸೂಚಿ IV ದರ' : isGu ? 'શેડ્યૂલ IV ટેરિફ' : isHi ? 'अनुसूची IV दर' : 'Schedule IV Tariff',
-    baseFeeLabel: isKn ? 'ಮೂಲ ಅರ್ಜಿ ಶುಲ್ಕ' : isGu ? 'મૂળ અરજી ફી' : isHi ? 'मूल आवेदन शुल्क' : 'Base Application Fee',
-    tatkaalFeeLabel: isKn ? 'ತತ್ಕಾಲ್ ತುರ್ತು ಸರ್ಚಾರ್ಜ್' : isGu ? 'તત્કાલ સરચાર્જ' : isHi ? 'तत्काल अधिभार' : 'Tatkaal Expedited Surcharge',
-    concessionLabel: isKn ? 'ಕಾನೂನುಬದ್ಧ ರಿಯಾಯಿತಿ (10%)' : isGu ? 'સરકારી છૂટછાટ (10%)' : isHi ? 'वैधानिक छूट (10%)' : 'Statutory Concession (10%)',
-    totalPayableLabel: isKn ? 'ಒಟ್ಟು ಪಾವತಿಸಬೇಕಾದ ಮೊತ್ತ' : isGu ? 'કુલ ચૂકવવાપાત્ર રકમ' : isHi ? 'कुल देय राशि' : 'Total Amount Payable',
-    proceedApplyBtn: isKn ? 'ಈ ಶುಲ್ಕದೊಂದಿಗೆ ಮುಂದುವರಿಯಿರಿ →' : isGu ? 'આ ફી સાથે અરજી કરો →' : isHi ? 'इस शुल्क के साथ आवेदन करें →' : 'Proceed to Apply with This Fee →',
-    paymentNotice: isKn 
-      ? 'ಎಸ್.ಬಿ.ಐ ಇಂಟರ್ನೆಟ್ ಬ್ಯಾಂಕಿಂಗ್, ಡೆಬಿಟ್/ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್, ಯುಪಿಐ ಅಥವಾ ನಗದು ಚಲನ್ ಮೂಲಕ ಪಾವತಿಸಬಹುದು.'
-      : isGu ? 'SBI ઇન્ટરનેટ બેંકિંગ, ક્રેડિટ/ડેબિટ કાર્ડ્સ, UPI અથવા બેંક ચલણ દ્વારા ઓનલાઇન ચુકવણી કરી શકાય છે.'
-      : isHi ? 'एसबीआई इंटरनेट बैंकिंग, क्रेडिट/डेबिट कार्ड, यूपीआई या चालान द्वारा भुगतान किया जा सकता है।'
-      : 'Statutory payment can be completed online via SBI Internet Banking, Credit/Debit cards, UPI, or through SBI Bank Challan at any branch nationwide.'
+  const dictionary = {
+    en: {
+      serviceCategoryLabel: 'Application Service Category',
+      selectServicePrompt: 'Select service type',
+      freshOption: 'Fresh Passport (First-time Applicant)',
+      reissueOption: 'Re-issue of Passport',
+      pccOption: 'Police Clearance Certificate (PCC)',
+      ageGroupLabel: 'Applicant Age Group',
+      adultOption: 'Adult (18 to 59 years)',
+      minorOption: 'Minor (Below 18 years)',
+      seniorOption: 'Senior Citizen (60+ years)',
+      bookletSizeLabel: 'Passport Booklet Size',
+      pages36: 'Standard Booklet (36 Pages)',
+      pages60: 'Jumbo Booklet (60 Pages)',
+      schemeLabel: 'Required Processing Scheme',
+      normalScheme: 'Normal Scheme',
+      normalDesc: 'Standard processing (15–20 days)',
+      tatkaalScheme: 'Tatkaal Scheme (+₹2,000)',
+      tatkaalDesc: 'Urgent processing (1–3 days)',
+      estimatedSummary: 'Estimated Fee Summary',
+      scheduleTariff: 'Schedule IV Tariff',
+      baseFeeLabel: 'Base Application Fee',
+      tatkaalFeeLabel: 'Tatkaal Expedited Surcharge',
+      concessionLabel: 'Statutory Concession (10%)',
+      totalPayableLabel: 'Total Amount Payable',
+      proceedApplyBtn: 'Proceed to Apply with This Fee →',
+      paymentNotice: 'Statutory payment can be completed online via SBI Internet Banking, Credit/Debit cards, UPI, or through SBI Bank Challan at any branch nationwide.'
+    },
+    hi: {
+      serviceCategoryLabel: 'आवेदन सेवा श्रेणी',
+      selectServicePrompt: 'सेवा प्रकार चुनें',
+      freshOption: 'नया पासपोर्ट (प्रथम आवेदक)',
+      reissueOption: 'पासपोर्ट नवीनीकरण',
+      pccOption: 'पुलिस क्लीयरेंस सर्टिफिकेट (PCC)',
+      ageGroupLabel: 'आवेदक आयु वर्ग',
+      adultOption: 'वयस्क (18 से 59 वर्ष)',
+      minorOption: 'नाबालिग (18 वर्ष से कम)',
+      seniorOption: 'वरिष्ठ नागरिक (60+ वर्ष)',
+      bookletSizeLabel: 'पासपोर्ट पुस्तिका आकार',
+      pages36: 'मानक पुस्तिका (36 पृष्ठ)',
+      pages60: 'जंबो पुस्तिका (60 पृष्ठ)',
+      schemeLabel: 'आवश्यक प्रसंस्करण योजना',
+      normalScheme: 'सामान्य योजना',
+      normalDesc: 'मानक प्रसंस्करण (15-20 दिन)',
+      tatkaalScheme: 'तत्काल योजना (+₹2,000)',
+      tatkaalDesc: 'त्वरित प्रसंस्करण (1-3 दिन)',
+      estimatedSummary: 'अनुमानित शुल्क सारांश',
+      scheduleTariff: 'अनुसूची IV दर',
+      baseFeeLabel: 'मूल आवेदन शुल्क',
+      tatkaalFeeLabel: 'तत्काल अधिभार',
+      concessionLabel: 'वैधानिक छूट (10%)',
+      totalPayableLabel: 'कुल देय राशि',
+      proceedApplyBtn: 'इस शुल्क के साथ आवेदन करें →',
+      paymentNotice: 'एसबीआई इंटरनेट बैंकिंग, क्रेडिट/डेबिट कार्ड, यूपीआई या चालान द्वारा भुगतान किया जा सकता है।'
+    },
+    gu: {
+      serviceCategoryLabel: 'અરજી સેવા શ્રેણી',
+      selectServicePrompt: 'સેવા પ્રકાર પસંદ કરો',
+      freshOption: 'નવો પાસપોર્ટ (પ્રથમ અરજદાર)',
+      reissueOption: 'પાસપોર્ટ રિન્યુઅલ',
+      pccOption: 'પોલીસ ક્લિયરન્સ સર્ટિફિકેટ (PCC)',
+      ageGroupLabel: 'અરજદારની વય શ્રેણી',
+      adultOption: 'પુખ્ત (18 થી 59 વર્ષ)',
+      minorOption: 'સગીર (18 વર્ષથી ઓછી)',
+      seniorOption: 'વરિષ્ઠ નાગરિક (60+ વર્ષ)',
+      bookletSizeLabel: 'પાસપોર્ટ પુસ્તિકા કદ',
+      pages36: 'સામાન્ય પુસ્તિકા (36 પાના)',
+      pages60: 'જમ્બો પુસ્તિકા (60 પાના)',
+      schemeLabel: 'જરૂરી પ્રક્રિયા યોજના',
+      normalScheme: 'સામાન્ય યોજના',
+      normalDesc: 'સામાન્ય પ્રક્રિયા (15-20 દિવસ)',
+      tatkaalScheme: 'તત્કાલ યોજના (+₹2,000)',
+      tatkaalDesc: 'તાકીદની પ્રક્રિયા (1-3 દિવસ)',
+      estimatedSummary: 'અંદાજિત ફી સારાંશ',
+      scheduleTariff: 'શેડ્યૂલ IV ટેરિફ',
+      baseFeeLabel: 'મૂળ અરજી ફી',
+      tatkaalFeeLabel: 'તત્કાલ સરચાર્જ',
+      concessionLabel: 'સરકારી છૂટછાટ (10%)',
+      totalPayableLabel: 'કુલ ચૂકવવાપાત્ર રકમ',
+      proceedApplyBtn: 'આ ફી સાથે અરજી કરો →',
+      paymentNotice: 'SBI ઇન્ટરનેટ બેંકિંગ, ક્રેડિટ/ડેબિટ કાર્ડ્સ, UPI અથવા બેંક ચલણ દ્વારા ઓનલાઇન ચુકવણી કરી શકાય છે.'
+    },
+    mr: {
+      serviceCategoryLabel: 'अर्ज सेवा श्रेणी',
+      selectServicePrompt: 'सेवा प्रकार निवडा',
+      freshOption: 'नवीन पासपोर्ट (प्रथम अर्जदार)',
+      reissueOption: 'पासपोर्ट नूतनीकरण',
+      pccOption: 'पोलीस क्लिअरन्स प्रमाणपत्र (PCC)',
+      ageGroupLabel: 'अर्जदार वयोगट',
+      adultOption: 'प्रौढ (१८ ते ५९ वर्षे)',
+      minorOption: 'अल्पवयीन (१८ वर्षांपेक्षा कमी)',
+      seniorOption: 'ज्येष्ठ नागरिक (६०+ वर्षे)',
+      bookletSizeLabel: 'पासपोर्ट पुस्तिका आकार',
+      pages36: 'मानक पुस्तिका (३६ पाने)',
+      pages60: 'जंबो पुस्तिका (६० पाने)',
+      schemeLabel: 'आवश्यक प्रक्रिया योजना',
+      normalScheme: 'सामान्य योजना',
+      normalDesc: 'मानक प्रक्रिया (१५-२० दिवस)',
+      tatkaalScheme: 'तत्काळ योजना (+₹२,०००)',
+      tatkaalDesc: 'तातडीची प्रक्रिया (१-३ दिवस)',
+      estimatedSummary: 'अंदाजित शुल्क सारांश',
+      scheduleTariff: 'अनुसूची IV दर',
+      baseFeeLabel: 'मूळ अर्ज शुल्क',
+      tatkaalFeeLabel: 'तत्काळ अधिभार',
+      concessionLabel: 'कायदेशीर सवलत (१०%)',
+      totalPayableLabel: 'एकूण देय रक्कम',
+      proceedApplyBtn: 'या शुल्कासह अर्ज करा →',
+      paymentNotice: 'एसबीआय नेट बँकिंग, डेबिट/क्रेडिट कार्ड, यूपीआय किंवा बँकेत चलनाद्वारे भरणा करता येईल.'
+    },
+    kn: {
+      serviceCategoryLabel: 'ಅರ್ಜಿ ಸೇವಾ ವರ್ಗ',
+      selectServicePrompt: 'ಸೇವಾ ಪ್ರಕಾರ ಆಯ್ಕೆಮಾಡಿ',
+      freshOption: 'ಹೊಸ ಪಾಸ್‌ಪೋರ್ಟ್ (ಮೊದಲ ಬಾರಿಗೆ)',
+      reissueOption: 'ಪಾಸ್‌ಪೋರ್ಟ್ ನವೀಕರಣ / ಮರು-ವಿತರಣೆ',
+      pccOption: 'ಪೊಲೀಸ್ ಕ್ಲಿಯರೆನ್ಸ್ ಪ್ರಮಾಣಪತ್ರ (PCC)',
+      ageGroupLabel: 'ಅರ್ಜಿದಾರರ ವಯೋಮಿತಿ',
+      adultOption: 'ವಯಸ್ಕರು (18 ರಿಂದ 59 ವರ್ಷ)',
+      minorOption: 'ಅಪ್ರಾಪ್ತರು (18 ವರ್ಷಕ್ಕಿಂತ ಕಡಿಮೆ)',
+      seniorOption: 'ಹಿರಿಯ ನಾಗರಿಕರು (60+ ವರ್ಷ)',
+      bookletSizeLabel: 'ಪಾಸ್‌ಪೋರ್ಟ್ ಬುಕ್‌ಲೆಟ್ ಪುಟಗಳು',
+      pages36: 'ಪ್ರಮಾಣಿತ ಬುಕ್‌ಲೆಟ್ (36 ಪುಟಗಳು)',
+      pages60: 'ಜಂಬೋ ಬುಕ್‌ಲೆಟ್ (60 ಪುಟಗಳು)',
+      schemeLabel: 'ಅಗತ್ಯವಿರುವ ಪ್ರಕ್ರಿಯೆ ಯೋಜನೆ',
+      normalScheme: 'ಸಾಮಾನ್ಯ ಯೋಜನೆ',
+      normalDesc: 'ಸಾಮಾನ್ಯ ಪ್ರಕ್ರಿಯೆ (15-20 ದಿನಗಳು)',
+      tatkaalScheme: 'ತತ್ಕಾಲ್ ಯೋಜನೆ (+₹2,000)',
+      tatkaalDesc: 'ತುರ್ತು ಪ್ರಕ್ರಿಯೆ (1-3 ದಿನಗಳು)',
+      estimatedSummary: 'ಅಂದಾಜು ಶುಲ್ಕ ಸಾರಾಂಶ',
+      scheduleTariff: 'ಅನುಸೂಚಿ IV ದರ',
+      baseFeeLabel: 'ಮೂಲ ಅರ್ಜಿ ಶುಲ್ಕ',
+      tatkaalFeeLabel: 'ತತ್ಕಾಲ್ ತುರ್ತು ಸರ್ಚಾರ್ಜ್',
+      concessionLabel: 'ಕಾನೂನುಬದ್ಧ ರಿಯಾಯಿತಿ (10%)',
+      totalPayableLabel: 'ಒಟ್ಟು ಪಾವತಿಸಬೇಕಾದ ಮೊತ್ತ',
+      proceedApplyBtn: 'ಈ ಶುಲ್ಕದೊಂದಿಗೆ ಮುಂದುವರಿಯಿರಿ →',
+      paymentNotice: 'ಎಸ್.ಬಿ.ಐ ಇಂಟರ್ನೆಟ್ ಬ್ಯಾಂಕಿಂಗ್, ಡೆಬಿಟ್/ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್, ಯುಪಿಐ ಅಥವಾ ನಗದು ಚಲನ್ ಮೂಲಕ ಪಾವತಿಸಬಹುದು.'
+    },
+    ta: {
+      serviceCategoryLabel: 'விண்ணப்ப சேவைப் பிரிவு',
+      selectServicePrompt: 'சேவை வகையைத் தேர்ந்தெடுக்கவும்',
+      freshOption: 'புதிய பாஸ்போர்ட் (முதல் விண்ணப்பதாரர்)',
+      reissueOption: 'பாஸ்போர்ட் புதுப்பித்தல்',
+      pccOption: 'காவல் துறை அனுமதிச் சான்றிதழ் (PCC)',
+      ageGroupLabel: 'விண்ணப்பதாரர் வயதுக் குழு',
+      adultOption: 'பெரியவர்கள் (18 முதல் 59 ஆண்டுகள்)',
+      minorOption: 'சிறியவர்கள் (18 வயதுக்கு கீழ்)',
+      seniorOption: 'முதியவர்கள் (60+ ஆண்டுகள்)',
+      bookletSizeLabel: 'பாஸ்போர்ட் பக்கங்களின் அளவு',
+      pages36: 'நிலையான புத்தகம் (36 பக்கங்கள்)',
+      pages60: 'ஜம்போ புத்தகம் (60 பக்கங்கள்)',
+      schemeLabel: 'தேவையான செயலாக்கத் திட்டம்',
+      normalScheme: 'சாதாரண திட்டம்',
+      normalDesc: 'நிலையான செயலாக்கம் (15–20 நாட்கள்)',
+      tatkaalScheme: 'தட்கல் திட்டம் (+₹2,000)',
+      tatkaalDesc: 'அவசர செயலாக்கம் (1–3 நாட்கள்)',
+      estimatedSummary: 'கட்டண விவரச் சுருக்கம்',
+      scheduleTariff: 'அட்டவணை IV கட்டணம்',
+      baseFeeLabel: 'அடிப்படை விண்ணப்பக் கட்டணம்',
+      tatkaalFeeLabel: 'தட்கல் அவசர கூடுதல் கட்டணம்',
+      concessionLabel: 'சட்டரீதியான சலுகை (10%)',
+      totalPayableLabel: 'செலுத்த வேண்டிய மொத்தத் தொகை',
+      proceedApplyBtn: 'இந்தக் கட்டணத்துடன் தொடரவும் →',
+      paymentNotice: 'எஸ்பிஐ இன்டர்நெட் பேங்கிங், டெபிட்/கிரெடிட் கார்டுகள், யுபிஐ அல்லது சலான் மூலம் செலுத்தலாம்.'
+    },
+    te: {
+      serviceCategoryLabel: 'దరఖాస్తు సేవా వర్గం',
+      selectServicePrompt: 'సేవా రకాన్ని ఎంచుకోండి',
+      freshOption: 'కొత్త పాస్‌పోర్ట్ (మొదటిసారి దరఖాస్తుదారు)',
+      reissueOption: 'పాస్‌పోర్ట్ పునఃజారీ / పునరుద్ధరణ',
+      pccOption: 'పోలీస్ క్లియరెన్స్ సర్టిఫికెట్ (PCC)',
+      ageGroupLabel: 'దరఖాస్తుదారు వయోపరిమితి',
+      adultOption: 'పెద్దలు (18 నుండి 59 సంవత్సరాలు)',
+      minorOption: 'మైనర్లు (18 సంవత్సరాల లోపు)',
+      seniorOption: 'సీనియర్ సిటిజన్లు (60+ సంవత్సరాలు)',
+      bookletSizeLabel: 'పాస్‌పోర్ట్ బుక్‌లెట్ పరిమాణం',
+      pages36: 'ప్రామాణిక బుక్‌లెట్ (36 పేజీలు)',
+      pages60: 'జంబో బుక్‌లెట్ (60 పేజీలు)',
+      schemeLabel: 'అవసరమైన ప్రాసెసింగ్ పథకం',
+      normalScheme: 'సాధారణ పథకం',
+      normalDesc: 'ప్రామాణిక ప్రాసెసింగ్ (15-20 రోజులు)',
+      tatkaalScheme: 'తత్కాల్ పథకం (+₹2,000)',
+      tatkaalDesc: 'అత్యవసర ప్రాసెసింగ్ (1-3 రోజులు)',
+      estimatedSummary: 'అంచనా రుసుము సారాంశం',
+      scheduleTariff: 'షెడ్యూల్ IV టారిఫ్',
+      baseFeeLabel: 'ప్రాథమిక దరఖాస్తు రుసుము',
+      tatkaalFeeLabel: 'తత్కాల్ అత్యవసర సర్‌ఛార్జ్',
+      concessionLabel: 'చట్టబద్ధమైన రాయితీ (10%)',
+      totalPayableLabel: 'మొత్తం చెల్లించాల్సిన మొత్తం',
+      proceedApplyBtn: 'ఈ ఫీజుతో దరఖాస్తుకు వెళ్లండి →',
+      paymentNotice: 'SBI ఇంటర్నెట్ బ్యాంకింగ్, క్రెడిట్/డెబిట్ కార్డులు, UPI లేదా చలాన్ ద్వారా చెల్లించవచ్చు.'
+    },
+    bn: {
+      serviceCategoryLabel: 'আবেদন পরিষেবা বিভাগ',
+      selectServicePrompt: 'পরিষেবার ধরন নির্বাচন করুন',
+      freshOption: 'নতুন পাসপোর্ট (প্রথম আবেদনকারী)',
+      reissueOption: 'পাসপোর্ট পুনর্নবীকরণ',
+      pccOption: 'পুলিশ ক্লিয়ারেন্স সার্টিফিকেট (PCC)',
+      ageGroupLabel: 'আবেদনকারীর বয়স গোষ্ঠী',
+      adultOption: 'প্রাপ্তবয়স্ক (১৮ থেকে ৫৯ বছর)',
+      minorOption: 'নাবালক (১৮ বছরের নিচে)',
+      seniorOption: 'প্রবীণ নাগরিক (৬০+ বছর)',
+      bookletSizeLabel: 'পাসপোর্ট পুস্তিকার আকার',
+      pages36: 'সাধারণ পুস্তিকা (৩৬ পৃষ্ঠা)',
+      pages60: 'জম্বো পুস্তিকা (৬০ পৃষ্ঠা)',
+      schemeLabel: 'প্রয়োজনীয় প্রক্রিয়াকরণ স্কিম',
+      normalScheme: 'সাধারণ স্কিম',
+      normalDesc: 'সাধারণ প্রক্রিয়াকরণ (১৫-২০ দিন)',
+      tatkaalScheme: 'তৎকাল স্কিম (+₹২,০০০)',
+      tatkaalDesc: 'জরুরি প্রক্রিয়াকরণ (১-৩ দিন)',
+      estimatedSummary: 'আনুমানিক ফি সারসংক্ষেপ',
+      scheduleTariff: 'তফসিল IV ট্যারিফ',
+      baseFeeLabel: 'মূল আবেদন ফি',
+      tatkaalFeeLabel: 'তৎকাল জরুরি সারচার্জ',
+      concessionLabel: 'সংবিধিবদ্ধ ছাড় (১০%)',
+      totalPayableLabel: 'মোট প্রদেয় পরিমাণ',
+      proceedApplyBtn: 'এই ফি দিয়ে আবেদন করুন →',
+      paymentNotice: 'SBI ইন্টারনেট ব্যাংকিং, ডেবিট/ক্রেডিট কার্ড, UPI বা ব্যাংক চালানের মাধ্যমে পেমেন্ট করা যাবে।'
+    },
+    ml: {
+      serviceCategoryLabel: 'അപേക്ഷാ സേവന വിഭാഗം',
+      selectServicePrompt: 'സേവന തരം തിരഞ്ഞെടുക്കുക',
+      freshOption: 'പുതിയ പാസ്‌പോർട്ട് (ആദ്യ അപേക്ഷകൻ)',
+      reissueOption: 'പാസ്‌പോർട്ട് പുതുക്കൽ',
+      pccOption: 'പോലീസ് ക്ലിയറൻസ് സർട്ടിഫിക്കറ്റ് (PCC)',
+      ageGroupLabel: 'അപേക്ഷകന്റെ പ്രായപരിധി',
+      adultOption: 'മുതിർന്നവർ (18 മുതൽ 59 വയസ്സ് വരെ)',
+      minorOption: 'കുട്ടികൾ (18 വയസ്സിൽ താഴെ)',
+      seniorOption: 'മുതിർന്ന പൗരന്മാർ (60+ വയസ്സ്)',
+      bookletSizeLabel: 'പാസ്‌പോർട്ട് ബുക്ക്‌ലെറ്റ് വലുപ്പം',
+      pages36: 'സ്റ്റാൻഡേർഡ് ബുക്ക്‌ലെറ്റ് (36 പേജുകൾ)',
+      pages60: 'ജംബോ ബുക്ക്‌ലെറ്റ് (60 പേജുകൾ)',
+      schemeLabel: 'പ്രോസസ്സിംഗ് സ്കീം',
+      normalScheme: 'സാധാരണ സ്കീം',
+      normalDesc: 'സാധാരണ പ്രോസസ്സിംഗ് (15-20 ദിവസങ്ങൾ)',
+      tatkaalScheme: 'തത്കാൽ സ്കീം (+₹2,000)',
+      tatkaalDesc: 'അടിയന്തര പ്രോസസ്സിംഗ് (1-3 ദിവസങ്ങൾ)',
+      estimatedSummary: 'കണക്കാക്കിയ ഫീസ് സംഗ്രഹം',
+      scheduleTariff: 'ഷെഡ്യൂൾ IV നിരക്ക്',
+      baseFeeLabel: 'അടിസ്ഥാന അപേക്ഷാ ഫീസ്',
+      tatkaalFeeLabel: 'തത്കാൽ അടിയന്തര സർചാർജ്',
+      concessionLabel: 'നിയമാനുസൃത ഇളവ് (10%)',
+      totalPayableLabel: 'ആകെ അടയ്‌ക്കേണ്ട തുക',
+      proceedApplyBtn: 'ഈ ഫീസ് നൽകി തുടരുക →',
+      paymentNotice: 'എസ്ബിഐ ഇന്റർനെറ്റ് ബാങ്കിംഗ്, കാർഡുകൾ, യുപിഐ അല്ലെങ്കിൽ ചലാൻ വഴി പണമടയ്ക്കാം.'
+    },
+    pa: {
+      serviceCategoryLabel: 'ਅਰਜ਼ੀ ਸੇਵਾ ਸ਼੍ਰੇਣੀ',
+      selectServicePrompt: 'ਸੇਵਾ ਦੀ ਕਿਸਮ ਚੁਣੋ',
+      freshOption: 'ਨਵਾਂ ਪਾਸਪੋਰਟ (ਪਹਿਲੀ ਵਾਰ ਬਿਨੈਕਾਰ)',
+      reissueOption: 'ਪਾਸਪੋਰਟ ਰੀ-ਇਸ਼ੂ / ਨਵਿਆਉਣਾ',
+      pccOption: 'ਪੁਲਿਸ ਕਲੀਅਰੈਂਸ ਸਰਟੀਫਿਕੇਟ (PCC)',
+      ageGroupLabel: 'ਬਿਨੈਕਾਰ ਉਮਰ ਵਰਗ',
+      adultOption: 'ਬਾਲਗ (18 ਤੋਂ 59 ਸਾਲ)',
+      minorOption: 'ਨਾਬਾਲਗ (18 ਸਾਲ ਤੋਂ ਘੱਟ)',
+      seniorOption: 'ਸੀਨੀਅਰ ਸਿਟੀਜ਼ਨ (60+ ਸਾਲ)',
+      bookletSizeLabel: 'ਪਾਸਪੋਰਟ ਪੁਸਤਿਕਾ ਆਕਾਰ',
+      pages36: 'ਮਿਆਰੀ ਪੁਸਤਿਕਾ (36 ਪੰਨੇ)',
+      pages60: 'ਜੰਬੋ ਪੁਸਤਿਕਾ (60 ਪੰਨੇ)',
+      schemeLabel: 'ਲੋੜੀਂਦੀ ਪ੍ਰੋਸੈਸਿੰਗ ਸਕੀਮ',
+      normalScheme: 'ਸਧਾਰਨ ਸਕੀਮ',
+      normalDesc: 'ਸਧਾਰਨ ਪ੍ਰਕਿਰਿਆ (15-20 ਦਿਨ)',
+      tatkaalScheme: 'ਤਤਕਾਲ ਸਕੀਮ (+₹2,000)',
+      tatkaalDesc: 'ਜ਼ਰੂਰੀ ਪ੍ਰਕਿਰਿਆ (1-3 ਦਿਨ)',
+      estimatedSummary: 'ਅੰਦਾਜ਼ਨ ਫੀਸ ਸਾਰਾਂਸ਼',
+      scheduleTariff: 'ਸ਼ਡਿਊਲ IV ਦਰ',
+      baseFeeLabel: 'ਮੁੱਢਲੀ ਅਰਜ਼ੀ ਫੀਸ',
+      tatkaalFeeLabel: 'ਤਤਕਾਲ ਐਮਰਜੈਂਸੀ ਸਰਚਾਰਜ',
+      concessionLabel: 'ਕਾਨੂੰਨੀ ਛੋਟ (10%)',
+      totalPayableLabel: 'ਕੁੱਲ ਭੁਗਤਾਨ ਯੋਗ ਰਕਮ',
+      proceedApplyBtn: 'ਇਸ ਫੀਸ ਨਾਲ ਅੱਗੇ ਵਧੋ →',
+      paymentNotice: 'SBI ਇੰਟਰਨੈੱਟ ਬੈਂਕਿੰਗ, ਡੈਬਿਟ/ਕ੍ਰੈਡਿਟ ਕਾਰਡ, UPI ਜਾਂ ਬੈਂਕ ਚਲਾਨ ਰਾਹੀਂ ਭੁਗਤਾਨ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।'
+    },
+    or: {
+      serviceCategoryLabel: 'ଆବେଦନ ସେବା ବର୍ଗ',
+      selectServicePrompt: 'ସେବା ପ୍ରକାର ବାଛନ୍ତୁ',
+      freshOption: 'ନୂତନ ପାସପୋର୍ଟ (ପ୍ରଥମ ଆବେଦନକାରୀ)',
+      reissueOption: 'ପାସପୋର୍ଟ ପୁନଃ ପ୍ରଦାନ',
+      pccOption: 'ପୋଲିସ କ୍ଲିୟରାନ୍ସ ସାର୍ଟିଫିକେଟ୍ (PCC)',
+      ageGroupLabel: 'ଆବେଦନକାରୀଙ୍କ ବୟସ ବର୍ଗ',
+      adultOption: 'ବୟସ୍କ (୧୮ ରୁ ୫୯ ବର୍ଷ)',
+      minorOption: 'ନାବାଳକ (୧୮ ବର୍ଷରୁ କମ୍)',
+      seniorOption: 'ବରିଷ୍ଠ ନାଗରିକ (୬୦+ ବର୍ଷ)',
+      bookletSizeLabel: 'ପାସପୋର୍ଟ ପୁସ୍ତିକା ଆକାର',
+      pages36: 'ମାନକ ପୁସ୍ତିକା (୩୬ ପୃଷ୍ଠା)',
+      pages60: 'ଜମ୍ବୋ ପୁସ୍ତିକା (୬୦ ପୃଷ୍ଠା)',
+      schemeLabel: 'ପ୍ରକ୍ରିୟାକରଣ ଯୋଜନା',
+      normalScheme: 'ସାଧାରଣ ଯୋଜନା',
+      normalDesc: 'ମାନକ ପ୍ରକ୍ରିୟାକରଣ (୧୫-୨୦ ଦିନ)',
+      tatkaalScheme: 'ତତ୍କାଳ ଯୋଜନା (+₹୨,୦୦୦)',
+      tatkaalDesc: 'ଜରୁରୀ ପ୍ରକ୍ରିୟାକରଣ (୧-୩ ଦିନ)',
+      estimatedSummary: 'ଆନୁମାନିକ ଫିସ୍ ସାରାଂଶ',
+      scheduleTariff: 'ଅନୁସୂଚୀ IV ଦର',
+      baseFeeLabel: 'ମୂଳ ଆବେଦନ ଫିସ୍',
+      tatkaalFeeLabel: 'ତତ୍କାଳ ଜରୁରୀ ସରଚାର୍ଜ',
+      concessionLabel: 'ସରକାରୀ ରିହାତି (୧୦%)',
+      totalPayableLabel: 'ମୋଟ ଦେୟ ରାଶି',
+      proceedApplyBtn: 'ଏହି ଫିସ୍ ସହିତ ଆଗକୁ ବଢ଼ନ୍ତୁ →',
+      paymentNotice: 'SBI ଇଣ୍ଟରନେଟ୍ ବ୍ୟାଙ୍କିଙ୍ଗ୍, କାର୍ଡ, UPI କିମ୍ବା ଚାଲାଣ ମାଧ୍ୟମରେ ଦେୟ ପ୍ରଦାନ କରିହେବ।'
+    },
+    as: {
+      serviceCategoryLabel: 'আবেদন সেৱা শ্ৰেণী',
+      selectServicePrompt: 'সেৱাৰ প্ৰকাৰ বাছক',
+      freshOption: 'নতুন পাছপ’ৰ্ট (প্ৰথম আবেদনকাৰী)',
+      reissueOption: 'পাছপ’ৰ্ট নৱীকৰণ',
+      pccOption: 'আৰক্ষী ক্লিয়াৰেন্স প্ৰমাণপত্ৰ (PCC)',
+      ageGroupLabel: 'আবেদনকাৰীৰ বয়স গোট',
+      adultOption: 'প্ৰাপ্তবয়স্ক (১৮ ৰ পৰা ৫৯ বছৰ)',
+      minorOption: 'নাবালক (১৮ বছৰৰ তলৰ)',
+      seniorOption: 'জ্যেষ্ঠ নাগৰিক (৬০+ বছৰ)',
+      bookletSizeLabel: 'পাছপ’ৰ্ট পুস্তিকাৰ আকাৰ',
+      pages36: 'মানক পুস্তিকা (৩৬ পৃষ্ঠা)',
+      pages60: 'জম্বো পুস্তিকা (৬০ পৃষ্ঠা)',
+      schemeLabel: 'প্ৰয়োজনীয় প্ৰক্ৰিয়াকৰণ আঁচনি',
+      normalScheme: 'সাধাৰণ আঁচনি',
+      normalDesc: 'সাধাৰণ প্ৰক্ৰিয়াকৰণ (১৫-২০ দিন)',
+      tatkaalScheme: 'তৎকাল আঁচনি (+₹২,০০০)',
+      tatkaalDesc: 'জৰুৰী প্ৰক্ৰিয়াকৰণ (১-৩ দিন)',
+      estimatedSummary: 'আনুমানিক মাচুল সাৰাংশ',
+      scheduleTariff: 'অনুসূচী IV নিৰিখ',
+      baseFeeLabel: 'মূল আবেদন মাচুল',
+      tatkaalFeeLabel: 'তৎকাল জৰুৰী চাৰ্জ',
+      concessionLabel: 'সংবিধিবদ্ধ ৰেহাই (১০%)',
+      totalPayableLabel: 'মুঠ পৰিশোধ কৰিবলগীয়া ধন',
+      proceedApplyBtn: 'এই মাচুলৰ সৈতে আবেদন কৰক →',
+      paymentNotice: 'এছবিআই ইণ্টাৰনেট বেংকিং, ডেবিট/ক্ৰেডিট কাৰ্ড, ইউপিআই বা বেংক চালান যোগে পৰিশোধ কৰিব পাৰি।'
+    }
   };
+
+  return dictionary[lang] || dictionary.en || dictionary.hi;
 };
 
 export const getLocalizedAnnouncements = (lang = 'en') => {
-  const isKn = lang === 'kn';
-  const isGu = lang === 'gu';
-  const isHi = lang === 'hi';
+  const dictionary = {
+    en: {
+      activeBadge: '● Active Announcement',
+      archivedBadge: 'Archived (Event Concluded)',
+      jurisdictionLabel: 'Jurisdiction:',
+      statusLabel: 'Status:',
+      notice1Title: 'Special Saturday Passport Processing Camps',
+      notice1Rpo: 'Mumbai, Pune & Bengaluru RPOs',
+      notice1Valid: 'Active until 30 November 2026',
+      notice1Desc: 'To facilitate working professionals and students, select Passport Seva Kendras will operate on alternate Saturdays. Online appointment booking mandatory.',
+      notice2Title: 'Advisory on Non-Official / Lookalike Websites',
+      notice2Rpo: 'All India PSKs',
+      notice2Valid: 'Permanent Citizen Advisory',
+      notice2Desc: 'Applicants are cautioned against unauthorized third-party agencies charging arbitrary fees. All appointment scheduling is conducted strictly via passportindia.gov.in.',
+      archive1Title: 'Mobile Passport Van Camp at PSK Vijay Cross Road',
+      archive1Rpo: 'Ahmedabad Jurisdiction',
+      archive1Desc: 'Special van camp operations completed. All records migrated to RPO Ahmedabad.',
+      archive2Title: 'Revised Passport Fee Notification (Historical Gazette)',
+      archive2Rpo: 'National CPV Division',
+      archive2Desc: 'Schedule IV fee adjustments completed. Current fees are now calculated live via the interactive portal calculator.'
+    },
+    hi: {
+      activeBadge: '● सक्रिय सूचना',
+      archivedBadge: 'अभिलेखागार (समाप्त)',
+      jurisdictionLabel: 'अधिकार क्षेत्र:',
+      statusLabel: 'स्थिति:',
+      notice1Title: 'विशेष शनिवार पासपोर्ट प्रोसेसिंग शिविर',
+      notice1Rpo: 'मुंबई, पुणे एवं बेंगलुरु आरपीओ',
+      notice1Valid: '30 नवंबर 2026 तक सक्रिय',
+      notice1Desc: 'कार्यरत पेशेवरों एवं छात्रों की सुविधा हेतु चयनित केंद्र शनिवार को खुलेंगे। ऑनलाइन अपॉइंटमेंट अनिवार्य है।',
+      notice2Title: 'अनधिकृत / फर्जी वेबसाइटों से सावधान रहने की सलाह',
+      notice2Rpo: 'अखिल भारतीय पीएसके',
+      notice2Valid: 'स्थायी नागरिक परामर्श',
+      notice2Desc: 'अनधिकृत एजेंसियों से सावधान रहें। सभी आवेदन केवल passportindia.gov.in के माध्यम से ही करें।',
+      archive1Title: 'मोबाइल पासपोर्ट वैन शिविर - विजय क्रॉस रोड',
+      archive1Rpo: 'अहमदाबाद क्षेत्राधिकार',
+      archive1Desc: 'विशेष वैन शिविर संचालन संपन्न। सभी रिकॉर्ड आरपीओ अहमदाबाद में स्थानांतरित।',
+      archive2Title: 'संशोधित पासपोर्ट शुल्क अधिसूचना',
+      archive2Rpo: 'राष्ट्रीय सीपीवी प्रभाग',
+      archive2Desc: 'अनुसूची IV शुल्क समायोजन पूर्ण। वर्तमान शुल्क कैलकुलेटर द्वारा देखा जा सकता है।'
+    },
+    gu: {
+      activeBadge: '● સક્રિય જાહેરાત',
+      archivedBadge: 'આર્કાઇવ કરેલ (ઇવેન્ટ પૂર્ણ)',
+      jurisdictionLabel: 'અધિકારક્ષેત્ર:',
+      statusLabel: 'સ્થિતિ:',
+      notice1Title: 'વિશેષ શનિવાર પાસપોર્ટ પ્રોસેસિંગ કેમ્પ',
+      notice1Rpo: 'મુંબઈ, પુણે અને બેંગલુરુ RPO',
+      notice1Valid: '30 નવેમ્બર 2026 સુધી સક્રિય',
+      notice1Desc: 'કામકાજી વ્યાવસાયિકો અને વિદ્યાર્થીઓ માટે પસંદગીના કેન્દ્રો વૈકલ્પિક શનિવારે ચાલુ રહેશે. ઓનલાઇન એપોઇન્ટમેન્ટ ફરજિયાત.',
+      notice2Title: 'બિન-સત્તાવાર વેબસાઇટ્સ અંગે સાવચેતી સલાહ',
+      notice2Rpo: 'ઓલ ઇન્ડિયા PSK',
+      notice2Valid: 'કાયમી નાગરિક સલાહ',
+      notice2Desc: 'અનધિકૃત એજન્સીઓથી સાવચેત રહો. તમામ સેવાઓ માત્ર passportindia.gov.in દ્વારા જ સંચાલિત થાય છે.',
+      archive1Title: 'મોબાઇલ પાસપોર્ટ વાન કેમ્પ - વિજય ક્રોસ રોડ',
+      archive1Rpo: 'અમદાવાદ અધિકારક્ષેત્ર',
+      archive1Desc: 'સ્પેશિયલ વાન કેમ્પ પૂર્ણ. તમામ રેકોર્ડ RPO અમદાવાદમાં ખસેડાયા.',
+      archive2Title: 'સુધારેલ પાસપોર્ટ ફી ગેઝેટ સૂચના',
+      archive2Rpo: 'રાષ્ટ્રીય CPV વિભાગ',
+      archive2Desc: 'શેડ્યૂલ IV ફી ગોઠવણ પૂર્ણ. ફી હવે કેલ્ક્યુલેટર દ્વારા લાઈવ ગણાય છે.'
+    },
+    mr: {
+      activeBadge: '● सक्रिय सूचना',
+      archivedBadge: 'अभिलेखागार (कार्यक्रम पूर्ण)',
+      jurisdictionLabel: 'अधिकार क्षेत्र:',
+      statusLabel: 'स्थिती:',
+      notice1Title: 'विशेष शनिवार पासपोर्ट प्रक्रिया शिबिरे',
+      notice1Rpo: 'मुंबई, पुणे आणि बंगळुरू आरपीओ',
+      notice1Valid: '३० नोव्हेंबर २०२६ पर्यंत सक्रिय',
+      notice1Desc: 'नोकरदार आणि विद्यार्थ्यांच्या सोयीसाठी निवडक पासपोर्ट केंद्रे पर्यायी शनिवारी सुरू राहतील. ऑनलाइन अपॉइंटमेंट अनिवार्य.',
+      notice2Title: 'अनधिकृत व बनावट वेबसाइटबाबत सतर्कतेचा इशारा',
+      notice2Rpo: 'अखिल भारतीय पीएसके',
+      notice2Valid: 'कायमस्वरूपी नागरिक सल्लागार',
+      notice2Desc: 'अनधिकृत संस्थांपासून सावध राहा. सर्व अर्ज केवळ passportindia.gov.in द्वारेच करा.',
+      archive1Title: 'मोबाईल पासपोर्ट व्हॅन शिबीर - विजय क्रॉस रोड',
+      archive1Rpo: 'अहमदाबाद कार्यक्षेत्र',
+      archive1Desc: 'विशेष व्हॅन शिबिर पूर्ण. सर्व नोंदी आरपीओ अहमदाबादकडे स्थलांतरित.',
+      archive2Title: 'सुधारित पासपोर्ट शुल्क राजपत्र अधिसूचना',
+      archive2Rpo: 'राष्ट्रीय सीपीव्ही विभाग',
+      archive2Desc: 'अनुसूची IV शुल्क समायोजन पूर्ण. वर्तमान शुल्क आता कॅल्क्युलेटरद्वारे तपासता येईल.'
+    },
+    kn: {
+      activeBadge: '● ಸಕ್ರಿಯ ಪ್ರಕಟಣೆ',
+      archivedBadge: 'ಸಂಗ್ರಹಿಸಲಾಗಿದೆ (ಕಾರ್ಯಕ್ರಮ ಮುಕ್ತಾಯ)',
+      jurisdictionLabel: 'ಅಧಿಕಾರ ವ್ಯಾಪ್ತಿ:',
+      statusLabel: 'ಸ್ಥಿತಿ:',
+      notice1Title: 'ವಿಶೇಷ ಶನಿವಾರದ ಪಾಸ್‌ಪೋರ್ಟ್ ಸಂಸ್ಕರಣಾ ಶಿಬಿರಗಳು',
+      notice1Rpo: 'ಮುಂಬೈ, ಪುಣೆ ಮತ್ತು ಬೆಂಗಳೂರು ಆರ್‌ಪಿಒಗಳು',
+      notice1Valid: '30 ನವೆಂಬರ್ 2026 ರವರೆಗೆ ಸಕ್ರಿಯವಾಗಿದೆ',
+      notice1Desc: 'ವೃತ್ತಿಪರರು ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಅನುಕೂಲವಾಗುವಂತೆ ಆಯ್ದ ಕೇಂದ್ರಗಳು ಪರ್ಯಾಯ ಶನಿವಾರದಂದು ತೆರೆದಿರುತ್ತವೆ. ಆನ್‌ಲೈನ್ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಕಡ್ಡಾಯ.',
+      notice2Title: 'ಅನಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗಳ ಕುರಿತು ಎಚ್ಚರಿಕೆ ಸಲಹೆ',
+      notice2Rpo: 'ಅಖಿಲ ಭಾರತ ಪಿಎಸ್‌ಕೆಗಳು',
+      notice2Valid: 'ಶಾಶ್ವತ ನಾಗರಿಕ ಸಲಹೆ',
+      notice2Desc: 'ಅನಧಿಕೃತ ಮೂರನೇ ವ್ಯಕ್ತಿಯ ಏಜೆನ್ಸಿಗಳ ವಿರುದ್ಧ ನಾಗರಿಕರಿಗೆ ಎಚ್ಚರಿಕೆ ನೀಡಲಾಗಿದೆ. ಎಲ್ಲಾ ಸೇವೆಗಳು passportindia.gov.in ಮೂಲಕವೇ ನಡೆಯುತ್ತವೆ.',
+      archive1Title: 'ಮೊಬೈಲ್ ವ್ಯಾನ್ ಶಿಬಿರ - ವಿಜಯ ಕ್ರಾಸ್ ರಸ್ತೆ',
+      archive1Rpo: 'ಅಹಮದಾಬಾದ್ ಅಧಿಕಾರ ವ್ಯಾಪ್ತಿ',
+      archive1Desc: 'ವಿಶೇಷ ವ್ಯಾನ್ ಶಿಬಿರ ಮುಕ್ತಾಯಗೊಂಡಿದೆ. ಎಲ್ಲಾ ದಾಖಲೆಗಳನ್ನು ಆರ್‌.ಪಿ.ಒ ಗೆ ಸ್ಥಳಾಂತರಿಸಲಾಗಿದೆ.',
+      archive2Title: 'ಪರಿಷ್ಕೃತ ಶುಲ್ಕ ಗೆಜೆಟ್ ಅಧಿಸೂಚನೆ',
+      archive2Rpo: 'ರಾಷ್ಟ್ರೀಯ CPV ವಿಭಾಗ',
+      archive2Desc: 'ಅನುಸೂಚಿ IV ಶುಲ್ಕ ಹೊಂದಾಣಿಕೆ ಪೂರ್ಣಗೊಂಡಿದೆ.'
+    },
+    ta: {
+      activeBadge: '● செயலில் உள்ள அறிவிப்பு',
+      archivedBadge: 'காப்பகப்படுத்தப்பட்டது (நிறைவடைந்தது)',
+      jurisdictionLabel: 'அதிகார வரம்பு:',
+      statusLabel: 'நிலை:',
+      notice1Title: 'சிறப்பு சனிக்கிழமை பாஸ்போர்ட் முகாம்கள்',
+      notice1Rpo: 'மும்பை, புனே மற்றும் பெங்களூரு RPO-க்கள்',
+      notice1Valid: '30 நவம்பர் 2026 வரை செயலில் உள்ளது',
+      notice1Desc: 'பணிபுரியும் வல்லுநர்கள் மற்றும் மாணவர்களின் வசதிக்காக மாற்று சனிக்கிழமைகளில் சேவை மையங்கள் இயங்கும். ஆன்லைன் முன்பதிவு கட்டாயம்.',
+      notice2Title: 'அங்கீகரிக்கப்படாத வலைத்தளங்கள் குறித்த எச்சரிக்கை',
+      notice2Rpo: 'அனைத்து இந்திய PSK-க்கள்',
+      notice2Valid: 'நிரந்தர குடிமக்கள் ஆலோசனை',
+      notice2Desc: 'அங்கீகரிக்கப்படாத மூன்றாம் தரப்பு முகவர்களிடம் எச்சரிக்கையாக இருங்கள். அனைத்து சேவைகளும் passportindia.gov.in மூலமே நடைபெறுகின்றன.',
+      archive1Title: 'மொபைல் பாஸ்போர்ட் வேன் முகாம் - விஜய் கிராஸ் ரோடு',
+      archive1Rpo: 'அகமதாபாத் அதிகார வரம்பு',
+      archive1Desc: 'சிறப்பு வேன் முகாம் நிறைவடைந்தது. பதிவுகள் RPO அகமதாபாத்திற்கு மாற்றப்பட்டன.',
+      archive2Title: 'திருத்தப்பட்ட பாஸ்போர்ட் கட்டண அறிவிப்பு',
+      archive2Rpo: 'தேசிய CPV பிரிவு',
+      archive2Desc: 'அட்டவணை IV கட்டண திருத்தம் நிறைவடைந்தது.'
+    },
+    te: {
+      activeBadge: '● క్రియాశీల ప్రకటన',
+      archivedBadge: 'ఆర్కైవ్ చేయబడింది (ముగిసింది)',
+      jurisdictionLabel: 'అధికార పరిధి:',
+      statusLabel: 'స్థితి:',
+      notice1Title: 'ప్రత్యేక శనివారం పాస్‌పోర్ట్ ప్రాసెసింగ్ శిబిరాలు',
+      notice1Rpo: 'ముంబై, పూణే & బెంగళూరు RPOలు',
+      notice1Valid: '30 నవంబర్ 2026 వరకు క్రియాశీలంగా ఉంటుంది',
+      notice1Desc: 'ఉద్యోగులు మరియు విద్యార్థుల సౌలభ్యం కోసం ఎంపిక చేసిన కేంద్రాలు శనివారాల్లో తెరిచి ఉంటాయి. ఆన్‌లైన్ అపాయింట్‌మెంట్ తప్పనిసరి.',
+      notice2Title: 'అనధికారిక / నకిలీ వెబ్‌సైట్లపై హెచ్చరిక సలహా',
+      notice2Rpo: 'ఆల్ ఇండియా PSKలు',
+      notice2Valid: 'శాశ్వత పౌర సలహా',
+      notice2Desc: 'అనధికార ఏజెన్సీలతో జాగ్రత్తగా ఉండండి. అన్ని అపాయింట్‌మెంట్‌లు కేవలం passportindia.gov.in ద్వారా మాత్రమే జరుగుతాయి.',
+      archive1Title: 'మొబైల్ పాస్‌పోర్ట్ వ్యాన్ క్యాంప్ - విజయ్ క్రాస్ రోడ్',
+      archive1Rpo: 'అహ్మదాబాద్ అధికార పరిధి',
+      archive1Desc: 'ప్రత్యేక వ్యాన్ క్యాంప్ పూర్తయింది. రికార్డులు RPO అహ్మదాబాద్‌కు బదిలీ చేయబడ్డాయి.',
+      archive2Title: 'సవరించిన పాస్‌పోర్ట్ ఫీజు గెజిట్ నోటిఫికేషన్',
+      archive2Rpo: 'జాతీయ CPV విభాగం',
+      archive2Desc: 'షెడ్యూల్ IV ఫీజు సవరణ పూర్తయింది.'
+    },
+    bn: {
+      activeBadge: '● সক্রিয় বিজ্ঞপ্তি',
+      archivedBadge: 'সংরক্ষণাগার (সমাপ্ত)',
+      jurisdictionLabel: 'এখতিয়ার:',
+      statusLabel: 'স্থিতি:',
+      notice1Title: 'বিশেষ শনিবারের পাসপোর্ট প্রক্রিয়াকরণ শিবির',
+      notice1Rpo: 'মুম্বাই, পুনে এবং বেঙ্গালুরু RPO',
+      notice1Valid: '৩০ নভেম্বর ২০২৬ পর্যন্ত সক্রিয়',
+      notice1Desc: 'কর্মজীবী ও শিক্ষার্থীদের সুবিধার্থে নির্দিষ্ট কেন্দ্রগুলি বিকল্প শনিবারে খোলা থাকবে। অনলাইন অ্যাপয়েন্টমেন্ট বাধ্যতামূলক।',
+      notice2Title: 'অননুমোদিত / ভুয়া ওয়েবসাইট সম্পর্কিত সতর্কবার্তা',
+      notice2Rpo: 'অল ইন্ডিয়া PSK',
+      notice2Valid: 'স্থায়ী নাগরিক পরামর্শ',
+      notice2Desc: 'অননুমোদিত সংস্থা থেকে সাবধান থাকুন। সমস্ত আবেদন কেবল passportindia.gov.in মাধ্যমেই সম্পন্ন হয়।',
+      archive1Title: 'মোবাইল পাসপোর্ট ভ্যান ক্যাম্প - বিজয় ক্রস রোড',
+      archive1Rpo: 'আহমেদাবাদ এখতিয়ার',
+      archive1Desc: 'বিশেষ ভ্যান ক্যাম্প সমাপ্ত। সমস্ত রেকর্ড RPO আহমেদাবাদে স্থানান্তরিত।',
+      archive2Title: 'সংশোধিত পাসপোর্ট ফি গেজেট বিজ্ঞপ্তি',
+      archive2Rpo: 'জাতীয় CPV বিভাগ',
+      archive2Desc: 'তফসিল IV ফি সমন্বয় সম্পন্ন।'
+    },
+    ml: {
+      activeBadge: '● സജീവ അറിയിപ്പ്',
+      archivedBadge: 'ആർക്കൈവ് ചെയ്തു (പൂർത്തിയായി)',
+      jurisdictionLabel: 'അധികാരപരിധി:',
+      statusLabel: 'നില:',
+      notice1Title: 'പ്രത്യേക ശനിയാഴ്ച പാസ്‌പോർട്ട് പ്രോസസ്സിംഗ് ക്യാമ്പുകൾ',
+      notice1Rpo: 'മുംബൈ, പൂനെ & ബെംഗളൂരു RPO-കൾ',
+      notice1Valid: '2026 നവംബർ 30 വരെ സജീവം',
+      notice1Desc: 'വിദ്യാർത്ഥികൾക്കും ഉദ്യോഗസ്ഥർക്കും സൗകര്യപ്രദമായി കേന്ദ്രങ്ങൾ ശനിയാഴ്ചകളിൽ പ്രവർത്തിക്കും. ഓൺലൈൻ ബുക്കിംഗ് നിർബന്ധം.',
+      notice2Title: 'വ്യാജ വെബ്‌സൈറ്റുകൾക്കെതിരായ ജാഗ്രതാ നിർദ്ദേശം',
+      notice2Rpo: 'ഓൾ ഇന്ത്യ PSK-കൾ',
+      notice2Valid: 'സ്ഥിരം പൗര ജാഗ്രതാ നിർദ്ദേശം',
+      notice2Desc: 'അനധികൃത ഏജൻസികൾക്കെതിരെ ജാഗ്രത പാലിക്കുക. അപേക്ഷകൾ passportindia.gov.in വഴി മാത്രം നൽകുക.',
+      archive1Title: 'മൊബൈൽ പാസ്‌പോർട്ട് വാൻ ക്യാമ്പ് - വിജയ് ക്രോസ് റോഡ്',
+      archive1Rpo: 'അഹമ്മദാബാദ് അധികാരപരിധി',
+      archive1Desc: 'പ്രത്യേക വാൻ ക്യാമ്പ് പൂർത്തിയായി.',
+      archive2Title: 'പരിഷ്കരിച്ച പാസ്‌പോർട്ട് ഫീസ് വിജ്ഞാപനം',
+      archive2Rpo: 'ദേശീയ CPV ഡിവിഷൻ',
+      archive2Desc: 'ഷെഡ്യൂൾ IV ഫീസ് ക്രമീകരണം പൂർത്തിയായി.'
+    },
+    pa: {
+      activeBadge: '● ਸਰਗਰਮ ਨੋਟਿਸ',
+      archivedBadge: 'ਪੁਰਾਲੇਖ (ਸਮਾਪਤ)',
+      jurisdictionLabel: 'ਅਧਿਕਾਰ ਖੇਤਰ:',
+      statusLabel: 'ਸਥਿਤੀ:',
+      notice1Title: 'ਵਿਸ਼ੇਸ਼ ਸ਼ਨੀਵਾਰ ਪਾਸਪੋਰਟ ਪ੍ਰੋਸੈਸਿੰਗ ਕੈਂਪ',
+      notice1Rpo: 'ਮੁੰਬਈ, ਪੁਣੇ ਅਤੇ ਬੈਂਗਲੁਰੂ RPO',
+      notice1Valid: '30 ਨਵੰਬਰ 2026 ਤੱਕ ਸਰਗਰਮ',
+      notice1Desc: 'ਵਿਦਿਆਰਥੀਆਂ ਅਤੇ ਪੇਸ਼ੇਵਰਾਂ ਦੀ ਸਹੂਲਤ ਲਈ ਚੋਣਵੇਂ ਕੇਂਦਰ ਸ਼ਨੀਵਾਰ ਨੂੰ ਖੁੱਲ੍ਹਣਗੇ। ਆਨਲਾਈਨ ਅਪਾਇੰਟਮੈਂਟ ਲਾਜ਼ਮੀ ਹੈ।',
+      notice2Title: 'ਗੈਰ-ਅਧਿਕਾਰਤ / ਨਕਲੀ ਵੈੱਬਸਾਈਟਾਂ ਬਾਰੇ ਚੇਤਾਵਨੀ ਸਲਾਹ',
+      notice2Rpo: 'ਆਲ ਇੰਡੀਆ PSK',
+      notice2Valid: 'ਸਥਾਈ ਨਾਗਰਿਕ ਸਲਾਹ',
+      notice2Desc: 'ਗੈਰ-ਅਧਿਕਾਰਤ ਏਜੰਸੀਆਂ ਤੋਂ ਸਾਵਧਾਨ ਰਹੋ। ਸਾਰੀਆਂ ਅਰਜ਼ੀਆਂ ਸਿਰਫ਼ passportindia.gov.in ਰਾਹੀਂ ਹੀ ਕਰੋ।',
+      archive1Title: 'ਮੋਬਾਈਲ ਪਾਸਪੋਰਟ ਵੈਨ ਕੈਂਪ - ਵਿਜੇ ਕਰਾਸ ਰੋਡ',
+      archive1Rpo: 'ਅਹਿਮਦਾਬਾਦ ਅਧਿਕਾਰ ਖੇਤਰ',
+      archive1Desc: 'ਵਿਸ਼ੇਸ਼ ਵੈਨ ਕੈਂਪ ਮੁਕੰਮਲ।',
+      archive2Title: 'ਸੋਧਿਆ ਪਾਸਪੋਰਟ ਫੀਸ ਗਜ਼ਟ ਨੋਟੀਫਿਕੇਸ਼ਨ',
+      archive2Rpo: 'ਰਾਸ਼ਟਰੀ CPV ਡਿਵੀਜ਼ਨ',
+      archive2Desc: 'ਸ਼ਡਿਊਲ IV ਫੀਸ ਵਿਵਸਥਾ ਮੁਕੰਮਲ।'
+    },
+    or: {
+      activeBadge: '● ସକ୍ରିୟ ବିଜ୍ଞପ୍ତି',
+      archivedBadge: 'ଅଭିଲେଖାଗାର (ସମାପ୍ତ)',
+      jurisdictionLabel: 'ଅଧିକାର କ୍ଷେତ୍ର:',
+      statusLabel: 'ସ୍ଥିତି:',
+      notice1Title: 'ସ୍ୱତନ୍ତ୍ର ଶନିବାର ପାସପୋର୍ଟ ଶିବିର',
+      notice1Rpo: 'ମୁମ୍ବାଇ, ପୁଣେ ଏବଂ ବେଙ୍ଗାଲୁରୁ RPO',
+      notice1Valid: '୩୦ ନଭେମ୍ବର ୨୦୨୬ ପର୍ଯ୍ୟନ୍ତ ସକ୍ରିୟ',
+      notice1Desc: 'କର୍ମଜୀବୀ ଏବଂ ଛାତ୍ରଛାତ୍ରୀଙ୍କ ସୁବିଧା ପାଇଁ କେନ୍ଦ୍ରଗୁଡ଼ିକ ଶନିବାର ଖୋଲା ରହିବ। ଅନଲାଇନ୍ ଆପଏଣ୍ଟମେଣ୍ଟ ବାଧ୍ୟତାମୂଳକ।',
+      notice2Title: 'ଅଣ-ଅଧିକୃତ ୱେବସାଇଟ୍ ସତର୍କତା ପରାମର୍ଶ',
+      notice2Rpo: 'ଅଲ୍ ଇଣ୍ଡିଆ PSK',
+      notice2Valid: 'ସ୍ଥାୟୀ ନାଗରିକ ପରାମର୍ଶ',
+      notice2Desc: 'ଅଣ-ଅଧିକୃତ ଏଜେନ୍ସିଠାରୁ ସତର୍କ ରୁହନ୍ତୁ। ସମସ୍ତ ସେବା କେବଳ passportindia.gov.in ମାଧ୍ୟମରେ ହୁଏ।',
+      archive1Title: 'ମୋବାଇଲ୍ ପାସପୋର୍ଟ ଭ୍ୟାନ୍ କ୍ୟାମ୍ପ - ବିଜୟ କ୍ରସ ରୋଡ',
+      archive1Rpo: 'ଅହମ୍ମଦାବାଦ ଅଧିକାର କ୍ଷେତ୍ର',
+      archive1Desc: 'ସ୍ୱତନ୍ତ୍ର ଭ୍ୟାନ୍ କ୍ୟାମ୍ପ ସମାପ୍ତ।',
+      archive2Title: 'ସଂଶୋଧିତ ପାସପୋର୍ଟ ଫିସ୍ ବିଜ୍ଞପ୍ତି',
+      archive2Rpo: 'ଜାତୀୟ CPV ବିଭାଗ',
+      archive2Desc: 'ଅନୁସୂଚୀ IV ଫିସ୍ ସଂଶୋଧନ ସମ୍ପୂର୍ଣ୍ଣ।'
+    },
+    as: {
+      activeBadge: '● সক্ৰিয় জাননী',
+      archivedBadge: 'আৰ্কাইভ কৰা হৈছে (সমাপ্ত)',
+      jurisdictionLabel: 'এখতিয়াৰ:',
+      statusLabel: 'স্থিতি:',
+      notice1Title: 'বিশেষ শনিবাৰৰ পাছপ’ৰ্ট প্ৰক্ৰিয়াকৰণ শিবিৰ',
+      notice1Rpo: 'মুম্বাই, পুনে আৰু বেংগালুৰু RPO',
+      notice1Valid: '৩০ নৱেম্বৰ ২০২৬ লৈকে সক্ৰিয়',
+      notice1Desc: 'কৰ্মৰত ব্যক্তি আৰু শিক্ষাৰ্থীৰ সুবিধাৰ্থে নিৰ্বাচিত কেন্দ্ৰ শনিবাৰে খোলা থাকিব। অনলাইন সাক্ষাৎকাৰ বাধ্যতামূলক।',
+      notice2Title: 'অননুমোদিত ৱেবছাইটৰ বিৰুদ্ধে সতৰ্কবাৰ্তা',
+      notice2Rpo: 'অল ইণ্ডিয়া PSK',
+      notice2Valid: 'স্থায়ী নাগৰিক সতৰ্কবাৰ্তা',
+      notice2Desc: 'অননুমোদিত সংস্থাৰ পৰা সাৱধান হওক। সকলো আবেদন কেৱল passportindia.gov.in যোগে সম্পন্ন কৰক।',
+      archive1Title: 'ম’বাইল পাছপ’ৰ্ট ভ্যান শিবিৰ - বিজয় ক্ৰছ ৰোড',
+      archive1Rpo: 'আহমেদাবাদ এখতিয়াৰ',
+      archive1Desc: 'বিশেষ ভ্যান শিবিৰ সম্পন্ন।',
+      archive2Title: 'সংশোধিত পাছপ’ৰ্ট মাচুল গেজেট অধিসূচনা',
+      archive2Rpo: 'ৰাষ্ট্ৰীয় CPV বিভাগ',
+      archive2Desc: 'অনুসূচী IV মাচুল সমন্বয় সম্পূৰ্ণ।'
+    }
+  };
+
+  const cur = dictionary[lang] || dictionary.en || dictionary.hi;
 
   return {
-    activeBadge: isKn ? '● ಸಕ್ರಿಯ ಪ್ರಕಟಣೆ' : isGu ? '● સક્રિય જાહેરાત' : isHi ? '● सक्रिय सूचना' : '● Active Announcement',
-    archivedBadge: isKn ? 'ಸಂಗ್ರಹಿಸಲಾಗಿದೆ (ಕಾರ್ಯಕ್ರಮ ಮುಕ್ತಾಯ)' : isGu ? 'આર્કાઇવ કરેલ (ઇવેન્ટ પૂર્ણ)' : isHi ? 'अभिलेखागार (समाप्त)' : 'Archived (Event Concluded)',
-    jurisdictionLabel: isKn ? 'ಅಧಿಕಾರ ವ್ಯಾಪ್ತಿ:' : isGu ? 'અધિકારક્ષેત્ર:' : isHi ? 'अधिकार क्षेत्र:' : 'Jurisdiction:',
-    statusLabel: isKn ? 'ಸ್ಥಿತಿ:' : isGu ? 'સ્થિતિ:' : isHi ? 'स्थिति:' : 'Status:',
+    activeBadge: cur.activeBadge,
+    archivedBadge: cur.archivedBadge,
+    jurisdictionLabel: cur.jurisdictionLabel,
+    statusLabel: cur.statusLabel,
     activeNotices: [
       {
         id: 1,
-        title: isKn 
-          ? 'ವಿಶೇಷ ಶನಿವಾರದ ಪಾಸ್‌ಪೋರ್ಟ್ ಸಂಸ್ಕರಣಾ ಶಿಬಿರಗಳು'
-          : isGu ? 'વિશેષ શનિવાર પાસપોર્ટ પ્રોસેસિંગ કેમ્પ'
-          : isHi ? 'विशेष शनिवार पासपोर्ट प्रोसेसिंग शिविर'
-          : 'Special Saturday Passport Processing Camps',
-        rpo: isKn ? 'ಮುಂಬೈ, ಪುಣೆ ಮತ್ತು ಬೆಂಗಳೂರು ಆರ್‌ಪಿಒಗಳು' : isGu ? 'મુંબઈ, પુણે અને બેંગલુરુ RPO' : 'Mumbai, Pune & Bengaluru RPOs',
+        title: cur.notice1Title,
+        rpo: cur.notice1Rpo,
         published: '20 October 2026',
-        validTill: isKn ? '30 ನವೆಂಬರ್ 2026 ರವರೆಗೆ ಸಕ್ರಿಯವಾಗಿದೆ' : isGu ? '30 નવેમ્બર 2026 સુધી સક્રિય' : isHi ? '30 नवंबर 2026 तक सक्रिय' : 'Active until 30 November 2026',
-        desc: isKn
-          ? 'ವೃತ್ತಿಪರರು ಮತ್ತು ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಅನುಕೂಲವಾಗುವಂತೆ ಆಯ್ದ ಕೇಂದ್ರಗಳು ಪರ್ಯಾಯ ಶನಿವಾರದಂದು ತೆರೆದಿರುತ್ತವೆ. ಆನ್‌ಲೈನ್ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಕಡ್ಡಾಯ.'
-          : isGu ? 'કામકાજી વ્યાવસાયિકો અને વિદ્યાર્થીઓ માટે પસંદગીના કેન્દ્રો વૈકલ્પિક શનિવારે ચાલુ રહેશે. ઓનલાઇન એપોઇન્ટમેન્ટ ફરજિયાત.'
-          : isHi ? 'कार्यरत पेशेवरों एवं छात्रों की सुविधा हेतु चयनित केंद्र शनिवार को खुलेंगे। ऑनलाइन अपॉइंटमेंट अनिवार्य है।'
-          : 'To facilitate working professionals and students, select Passport Seva Kendras will operate on alternate Saturdays. Online appointment booking mandatory.',
+        validTill: cur.notice1Valid,
+        desc: cur.notice1Desc,
         status: 'active'
       },
       {
         id: 2,
-        title: isKn
-          ? 'ಅನಧಿಕೃತ ವೆಬ್‌ಸೈಟ್‌ಗಳ ಕುರಿತು ಎಚ್ಚರಿಕೆ ಸಲಹೆ'
-          : isGu ? 'બિન-સત્તાવાર વેબસાઇટ્સ અંગે સાવચેતી સલાહ'
-          : isHi ? 'अनधिकृत / फर्जी वेबसाइटों से सावधान रहने की सलाह'
-          : 'Advisory on Non-Official / Lookalike Websites',
-        rpo: isKn ? 'ಅಖಿಲ ಭಾರತ ಪಿಎಸ್‌ಕೆಗಳು' : isGu ? 'ઓલ ઇન્ડિયા PSK' : 'All India PSKs',
+        title: cur.notice2Title,
+        rpo: cur.notice2Rpo,
         published: '15 October 2026',
-        validTill: isKn ? 'ಶಾಶ್ವತ ನಾಗರಿಕ ಸಲಹೆ' : isGu ? 'કાયમી નાગરિક સલાહ' : isHi ? 'स्थायी नागरिक परामर्श' : 'Permanent Citizen Advisory',
-        desc: isKn
-          ? 'ಅನಧಿಕೃತ ಮೂರನೇ ವ್ಯಕ್ತಿಯ ಏಜೆನ್ಸಿಗಳ ವಿರುದ್ಧ ನಾಗರಿಕರಿಗೆ ಎಚ್ಚರಿಕೆ ನೀಡಲಾಗಿದೆ. ಎಲ್ಲಾ ಸೇವೆಗಳು passportindia.gov.in ಮೂಲಕವೇ ಕಟ್ಟುನಿಟ್ಟಾಗಿ ನಡೆಯುತ್ತವೆ.'
-          : isGu ? 'અનધિકૃત એજન્સીઓથી સાવચેત રહો. તમામ સેવાઓ માત્ર passportindia.gov.in દ્વારા જ સંચાલિત થાય છે.'
-          : isHi ? 'अनधिकृत एजेंसियों से सावधान रहें। सभी आवेदन केवल passportindia.gov.in के माध्यम से ही करें।'
-          : 'Applicants are cautioned against unauthorized third-party agencies charging arbitrary fees. All appointment scheduling is conducted strictly via passportindia.gov.in.',
+        validTill: cur.notice2Valid,
+        desc: cur.notice2Desc,
         status: 'active'
       }
     ],
     archivedNotices: [
       {
         id: 3,
-        title: isKn ? 'ಮೊಬೈಲ್ ವ್ಯಾನ್ ಶಿಬಿರ - ವಿಜಯ ಕ್ರಾಸ್ ರಸ್ತೆ' : 'Mobile Passport Van Camp at PSK Vijay Cross Road',
-        rpo: 'Ahmedabad Jurisdiction',
+        title: cur.archive1Title,
+        rpo: cur.archive1Rpo,
         published: '21 July 2026',
-        validTill: 'Concluded on 24 July 2026',
-        desc: 'Special van camp operations completed. All records migrated to RPO Ahmedabad.',
+        validTill: 'Concluded',
+        desc: cur.archive1Desc,
         status: 'archived'
       },
       {
         id: 4,
-        title: isKn ? 'ಪರಿಷ್ಕೃತ ಶುಲ್ಕ ಗೆಜೆಟ್ ಅಧಿಸೂಚನೆ' : 'Revised Passport Fee Notification (Historical Gazette)',
-        rpo: 'National CPV Division',
+        title: cur.archive2Title,
+        rpo: cur.archive2Rpo,
         published: '1 July 2025',
-        validTill: 'Superseded by Schedule IV',
-        desc: 'Schedule IV fee adjustments completed. Current fees are now calculated live via the interactive portal calculator.',
+        validTill: 'Superseded',
+        desc: cur.archive2Desc,
         status: 'archived'
       }
     ]
@@ -538,204 +1803,493 @@ export const getLocalizedAnnouncements = (lang = 'en') => {
 };
 
 export const getLocalizedFaqs = (lang = 'en') => {
-  const isKn = lang === 'kn';
-  const isGu = lang === 'gu';
-  const isHi = lang === 'hi';
+  const categoriesDict = {
+    en: ['All', 'Application & Form', 'Tatkaal Scheme', 'Police Verification', 'Fees & Payment', 'Appointments & Slots', 'Documents & Rules'],
+    hi: ['सभी', 'आवेदन एवं फॉर्म', 'तत्काल योजना', 'पुलिस सत्यापन', 'शुल्क एवं भुगतान', 'अपॉइंटमेंट', 'दस्तावेज़ एवं नियम'],
+    gu: ['બધા', 'અરજી અને ફોર્મ', 'તત્કાલ યોજના', 'પોલીસ ચકાસણી', 'ફી અને ચુકવણી', 'એપોઇન્ટમેન્ટ્સ', 'દસ્તાવેજો અને નિયમો'],
+    mr: ['सर्व', 'अर्ज आणि फॉर्म', 'तत्काळ योजना', 'पोलीस पडताळणी', 'शुल्क आणि भरणा', 'अपॉइंटमेंट्स', 'कागदपत्रे आणि नियम'],
+    kn: ['ಎಲ್ಲವೂ', 'ಅರ್ಜಿ ಮತ್ತು ಫಾರ್ಮ್', 'ತತ್ಕಾಲ್ ಯೋಜನೆ', 'ಪೊಲೀಸ್ ಪರಿಶೀಲನೆ', 'ಶುಲ್ಕ ಮತ್ತು ಪಾವತಿ', 'ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್‌ಗಳು', 'ದಾಖಲೆಗಳು ಮತ್ತು ನಿಯಮಗಳು'],
+    ta: ['அனைத்தும்', 'விண்ணப்பம் & படிவம்', 'தட்கல் திட்டம்', 'காவல் சரிபார்ப்பு', 'கட்டணம் & செலுத்துதல்', 'முன்பதிவு இடங்கள்', 'ஆவணங்கள் & விதிகள்'],
+    te: ['అన్నీ', 'దరఖాస్తు & ఫారం', 'తత్కాల్ పథకం', 'పోలీస్ వెరిఫికేషన్', 'ఫీజు & చెల్లింపు', 'అపాయింట్‌మెంట్‌లు', 'పత్రాలు & నిబంధనలు'],
+    bn: ['সমস্ত', 'আবেদন ও ফর্ম', 'তৎকাল স্কিম', 'পুলিশ ভেরিফিকেশন', 'ফি ও পেমেন্ট', 'অ্যাপয়েন্টমেন্ট', 'নথি ও নিয়মাবলী'],
+    ml: ['എല്ലാം', 'അപേക്ഷയും ഫോമും', 'തത്കാൽ പദ്ധതി', 'പോലീസ് പരിശോധന', 'ഫീസും പേയ്‌മെന്റും', 'അപ്പോയിന്റ്മെന്റുകൾ', 'രേഖകളും നിയമങ്ങളും'],
+    pa: ['ਸਾਰੇ', 'ਅਰਜ਼ੀ ਅਤੇ ਫਾਰਮ', 'ਤਤਕਾਲ ਸਕੀਮ', 'ਪੁਲਿਸ ਪੜਤਾਲ', 'ਫੀਸ ਅਤੇ ਭੁਗਤਾਨ', 'ਮੁਲਾਕਾਤਾਂ (ਸਲਾਟ)', 'ਦਸਤਾਵੇਜ਼ ਅਤੇ ਨਿਯਮ'],
+    or: ['ସମସ୍ତ', 'ଆବେଦନ ଓ ଫର୍ମ', 'ତତ୍କାଳ ଯୋଜନା', 'ପୋଲିସ ଯାଞ୍ଚ', 'ଫିସ୍ ଏବଂ ପେମେଣ୍ଟ', 'ଆପଏଣ୍ଟମେଣ୍ଟ', 'ଦଲିଲ ଓ ନିୟମ'],
+    as: ['সকলো', 'আবেদন আৰু প্ৰপত্ৰ', 'তৎকাল আঁচনি', 'আৰক্ষী পৰীক্ষণ', 'মাচুল আৰু পৰিশোধ', 'সাক্ষাৎকাৰ (স্লট)', 'নথি আৰু নিয়ম']
+  };
 
-  const categories = isKn ? [
-    'ಎಲ್ಲವೂ',
-    'ಅರ್ಜಿ ಮತ್ತು ಫಾರ್ಮ್',
-    'ತತ್ಕಾಲ್ ಯೋಜನೆ',
-    'ಪೊಲೀಸ್ ಪರಿಶೀಲನೆ',
-    'ಶುಲ್ಕ ಮತ್ತು ಪಾವತಿ',
-    'ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್‌ಗಳು',
-    'ದಾಖಲೆಗಳು ಮತ್ತು ನಿಯಮಗಳು'
-  ] : isGu ? [
-    'બધા',
-    'અરજી અને ફોર્મ',
-    'તત્કાલ યોજના',
-    'પોલીસ ચકાસણી',
-    'ફી અને ચુકવણી',
-    'એપોઇન્ટમેન્ટ્સ',
-    'દસ્તાવેજો અને નિયમો'
-  ] : isHi ? [
-    'सभी',
-    'आवेदन एवं फॉर्म',
-    'तत्काल योजना',
-    'पुलिस सत्यापन',
-    'शुल्क एवं भुगतान',
-    'अपॉइंटमेंट',
-    'दस्तावेज़ एवं नियम'
-  ] : [
-    'All',
-    'Application & Form',
-    'Tatkaal Scheme',
-    'Police Verification',
-    'Fees & Payment',
-    'Appointments & Slots',
-    'Documents & Rules'
-  ];
+  const categories = categoriesDict[lang] || categoriesDict.en || categoriesDict.hi;
+
+  // Question 1, 2, 3, 4, 5, 6, 7, 8 in all 12 languages
+  const qDict = {
+    en: [
+      {
+        q: 'What documents are required to apply for a Fresh Passport for an Adult?',
+        a: 'Applicants need only three core documents: 1. Proof of Present Residential Address: Aadhaar Card, Active Bank Passbook with photo, or Electricity bill. 2. Proof of Date of Birth: Birth Certificate, Aadhaar Card, or Matriculation Certificate. 3. Proof for Non-ECR Category: 10th standard pass certificate. Original documents along with one self-attested photocopy must be presented on your appointment day.'
+      },
+      {
+        q: 'What is the processing time, surcharge, and document rule for Tatkaal Scheme?',
+        a: 'Key regulations under the Tatkaal Scheme: • Fast-Track Turnaround: Dispatched within 1 to 3 working days from the appointment date. • Statutory Tariff: Additional surcharge of ₹2,000 applies (Total ₹3,500 for a standard 36-page booklet). • Mandatory Identity Proofs: Produce at least two verified scheduled documents (e.g. Aadhaar Card + Voter ID or PAN Card).'
+      },
+      {
+        q: 'How is Police Verification conducted, and do I need to visit the police station?',
+        a: 'Police Verification Process: After your PSK appointment, your file is dispatched electronically to the SP Office. A police officer will contact your registered mobile number for physical address verification. In mPassport Police App enabled cities, it is completed in under 5 days. No cash fee is required to be paid.'
+      },
+      {
+        q: 'How many times can I reschedule my confirmed passport appointment?',
+        a: 'Rescheduling Rules: Applicants can reschedule or cancel a confirmed appointment up to 3 times within 12 months from the original fee payment date without paying any extra charges. Rescheduling must be completed online at least 24 hours prior to the original booked slot time.'
+      },
+      {
+        q: 'Is the passport fee refundable if my appointment is delayed or cancelled?',
+        a: 'Fee Validity & Refund Policy: Application fees remain valid for 365 days (one full calendar year) from payment receipt date. As per Rule 12 of the Passports Rules 1980, statutory government fees are non-refundable unless a duplicate transaction occurred due to technical banking failure.'
+      },
+      {
+        q: 'What is the difference between Ordinary, Official, and Diplomatic Passports?',
+        a: 'Classification of Indian Passports: • Ordinary Passport (Type P, Deep Navy Blue Cover): Issued to general citizens for personal travel, business, or education. • Official Passport (Type S, White Cover): Issued to designated government officials travelling on state duty. • Diplomatic Passport (Type D, Maroon Cover): Issued to diplomats and ministers.'
+      },
+      {
+        q: 'What are the rules and consent requirements for Minor Passports (Under 18)?',
+        a: 'Minors Passport Guidelines: • Validity: Valid for 5 years or until the child turns 18 years of age. • Concession: 10% statutory concession applies to base fees. • Parental Consent: Both parents must sign Annexure D. • Accompaniment: Either parent must accompany the minor with original passport.'
+      },
+      {
+        q: 'What should I do if my passport is lost, stolen, or damaged?',
+        a: 'Lost / Damaged Passport Procedure: 1. Immediately lodge a police report (FIR) at the local police station or police portal. 2. Apply online for Re-issue of Passport under category Lost / Damaged Passport. 3. Submit an affidavit detailing how the loss occurred along with Annexure F.'
+      }
+    ],
+    hi: [
+      {
+        q: 'वयस्क के नए पासपोर्ट हेतु कौन से दस्तावेज़ आवश्यक हैं?',
+        a: 'आवेदक को केवल तीन मुख्य दस्तावेज़ चाहिए: 1. वर्तमान पते का प्रमाण: आधार कार्ड, फोटो सहित बैंक पासबुक, या बिजली बिल। 2. जन्म तिथि प्रमाण: जन्म प्रमाण पत्र, आधार कार्ड या 10वीं पास प्रमाणपत्र। 3. नॉन-ईसीआर प्रमाण: 10वीं कक्षा उत्तीर्ण प्रमाणपत्र। मूल दस्तावेज़ों के साथ एक स्व-सत्यापित प्रति पीएसके में प्रस्तुत करें।'
+      },
+      {
+        q: 'तत्काल योजना के तहत प्रसंस्करण समय, अधिभार और नियम क्या हैं?',
+        a: 'तत्काल योजना के प्रमुख नियम: • त्वरित प्रेषण: अपॉइंटमेंट तिथि से 1 से 3 कार्य दिवसों में प्रेषित। • वैधानिक शुल्क: सामान्य शुल्क पर ₹2,000 अतिरिक्त अधिभार (36 पृष्ठों हेतु कुल ₹3,500)। • पहचान प्रमाण: कम से कम दो निर्धारित सरकारी दस्तावेज़ (आधार + वोटर आईडी या पैन कार्ड)।'
+      },
+      {
+        q: 'पुलिस सत्यापन कैसे होता है और क्या मुझे थाने जाना पड़ेगा?',
+        a: 'सत्यापन प्रक्रिया: पीएसके अपॉइंटमेंट के बाद आपकी फाइल एसपी कार्यालय को इलेक्ट्रॉनिक रूप से भेजी जाती है। पुलिस अधिकारी आपके पंजीकृत मोबाइल नंबर पर संपर्क करेंगे। एम-पासपोर्ट ऐप वाले शहरों में यह 5 दिनों में पूरा हो जाता है। कोई नकद शुल्क देय नहीं है।'
+      },
+      {
+        q: 'पुष्टि किए गए अपॉइंटमेंट को कितनी बार पुनर्निर्धारित किया जा सकता है?',
+        a: 'पुनर्निर्धारण नियम: आवेदक भुगतान तिथि से 12 महीने के भीतर बिना किसी अतिरिक्त शुल्क के 3 बार अपॉइंटमेंट पुनर्निर्धारित या रद्द कर सकते हैं। यह स्लॉट समय से कम से कम 24 घंटे पहले किया जाना चाहिए।'
+      },
+      {
+        q: 'क्या अपॉइंटमेंट रद्द होने पर पासपोर्ट शुल्क वापस मिलता है?',
+        a: 'शुल्क वैधता एवं वापसी: भुगतान शुल्क 365 दिनों (एक वर्ष) के लिए वैध रहता है। पासपोर्ट नियम 1980 के नियम 12 के अनुसार सरकारी शुल्क अप्रतिदेय (नॉन-रिफंडेबल) है, जब तक कि तकनीकी बैंकिंग विफलता न हुई हो।'
+      },
+      {
+        q: 'साधारण, आधिकारिक और राजनयिक पासपोर्ट में क्या अंतर है?',
+        a: 'पासपोर्ट वर्गीकरण: • साधारण पासपोर्ट (टाइप पी, नीला कवर): आम नागरिकों के निजी, व्यावसायिक या शैक्षणिक यात्रा हेतु। • आधिकारिक पासपोर्ट (टाइप एस, सफेद कवर): सरकारी अधिकारियों हेतु। • राजनयिक पासपोर्ट (टाइप डी, मैरून कवर): राजनयिकों एवं मंत्रियों हेतु।'
+      },
+      {
+        q: 'नाबालिगों (18 वर्ष से कम) के पासपोर्ट हेतु क्या नियम व सहमति आवश्यक है?',
+        a: 'नाबालिग दिशानिर्देश: • वैधता: 5 वर्ष या 18 वर्ष की आयु होने तक। • छूट: मूल शुल्क में 10% वैधानिक छूट। • अभिभावक सहमति: दोनों माता-पिता द्वारा अनुलग्नक डी पर हस्ताक्षर। • उपस्थिति: किसी एक माता-पिता का साथ होना अनिवार्य।'
+      },
+      {
+        q: 'यदि मेरा पासपोर्ट खो जाए या क्षतिग्रस्त हो जाए तो मुझे क्या करना चाहिए?',
+        a: 'खोया/क्षतिग्रस्त पासपोर्ट प्रक्रिया: 1. तुरंत नजदीकी थाने में प्राथमिकी (FIR) दर्ज कराएं। 2. खोया/क्षतिग्रस्त श्रेणी में पासपोर्ट पुनर्जारी हेतु ऑनलाइन आवेदन करें। 3. अनुलग्नक एफ के साथ शपथ पत्र जमा करें।'
+      }
+    ],
+    gu: [
+      {
+        q: 'પુખ્ત વયના વ્યક્તિ માટે નવા પાસપોર્ટ માટે કયા દસ્તાવેજો જરૂરી છે?',
+        a: 'અરજદારોને ફક્ત ત્રણ મુખ્ય દસ્તાવેજોની જરૂર છે: ૧. રહેઠાણ સરનામાનો પુરાવો: આધાર કાર્ડ, ફોટો સાથેની બેંક પાસબુક અથવા લાઈટ બિલ. ૨. જન્મ તારીખનો પુરાવો: જન્મ પ્રમાણપત્ર, આધાર કાર્ડ અથવા ૧૦મું પાસ પ્રમાણપત્ર. ૩. નોન-ECR પુરાવો: ૧૦મું ધોરણ પાસ પ્રમાણપત્ર. મૂળ દસ્તાવેજો સાથે સ્વ-પ્રમાણિત નકલ PSK ખાતે રજૂ કરવી આવશ્યક છે.'
+      },
+      {
+        q: 'તત્કાલ યોજના હેઠળ પ્રોસેસિંગ સમય, સરચાર્જ અને નિયમો શું છે?',
+        a: 'તત્કાલ યોજનાના મુખ્ય નિયમો: • ઝડપી નિકાલ: એપોઇન્ટમેન્ટ તારીખથી ૧ થી ૩ કામકાજના દિવસોમાં ડિસ્પેચ. • સરકારી ફી: ₹૨,૦૦૦ વધારાનો સરચાર્જ (કુલ ₹૩,૫૦૦). • ઓળખ પુરાવા: ઓછામાં ઓછા બે માન્ય સરકારી દસ્તાવેજો (આધાર + ચૂંટણી કાર્ડ અથવા પાન કાર્ડ).'
+      },
+      {
+        q: 'પોલીસ વેરિફિકેશન કેવી રીતે થાય છે અને શું મારે પોલીસ સ્ટેશન જવું પડે છે?',
+        a: 'વેરિફિકેશન પ્રક્રિયા: PSK એપોઇન્ટમેન્ટ પછી તમારી ફાઇલ SP ઓફિસ મોકલવામાં આવે છે. પોલીસ અધિકારી તમારા મોબાઈલ પર સંપર્ક કરીને સરનામું ચકાસશે. કોઈ રોકડ ફી ચૂકવવાની જરૂર નથી.'
+      },
+      {
+        q: 'કન્ફર્મ થયેલ પાસપોર્ટ એપોઇન્ટમેન્ટ કેટલી વાર રીશેડ્યુલ કરી શકાય?',
+        a: 'રીશેડ્યુલ નિયમો: ફી ચુકવણી તારીખથી ૧૨ મહિનામાં કોઈપણ વધારાની ફી વગર ૩ વખત એપોઇન્ટમેન્ટ બદલી શકાય છે. ઓછામાં ઓછા ૨૪ કલાક અગાઉ ઓનલાઇન ફેરફાર કરવો જરૂરી છે.'
+      },
+      {
+        q: 'જો મારી એપોઇન્ટમેન્ટ વિલંબિત કે રદ થાય તો શું ફી રિફંડ મળે?',
+        a: 'ફી માન્યતા: ચૂકવેલ ફી ૩૬૫ દિવસ માટે માન્ય રહે છે. પાસપોર્ટ નિયમો ૧૯૮૦ અનુસાર સરકારી ફી પરત મળવાપાત્ર નથી.'
+      },
+      {
+        q: 'સામાન્ય, સત્તાવાર અને રાજદ્વારી પાસપોર્ટ વચ્ચે શું તફાવત છે?',
+        a: 'વર્ગીકરણ: • સામાન્ય પાસપોર્ટ (પ્રકાર P, વાદળી કવર): સામાન્ય નાગરਿਕો માટે. • સત્તાવાર પાસપોર્ટ (પ્રકાર S, સફેદ કવર): સરકારી ફરજ માટે. • રાજદ્વારી પાસપોર્ટ (પ્રકાર D, મરૂન કવર): રાજદ્વારીઓ માટે.'
+      },
+      {
+        q: 'સગીર વયના બાળકોના પાસપોર્ટ માટે કયા નિયમો અને સંમતિ જરૂરી છે?',
+        a: 'સગીર માર્ગદર્શિકા: • માન્યતા: ૫ વર્ષ અથવા ૧૮ વર્ષની ઉંમર સુધી. • છૂટછાટ: મૂળ ફીમાં ૧૦% સરકારી છૂટ. • માતાપિતાની સંમતિ: બંને માતાપિતાએ એનેક્ષર ડી પર સહી કરવી આવશ્યક છે.'
+      },
+      {
+        q: 'જો મારો પાસપોર્ટ ખોવાઈ જાય અથવા ડેમેજ થાય તો શું કરવું?',
+        a: 'પ્રક્રિયા: ૧. નજીકના પોલીસ સ્ટેશનમાં તાત્કાલિક FIR નોંધાવો. ૨. ખોવાયેલ શ્રેણી હેઠળ ઓનલાઇન રી-ઇશ્યુ માટે અરજી કરો. ૩. એનેક્ષર એફ સાથે સોગંદનામું સબમિટ કરો.'
+      }
+    ],
+    mr: [
+      {
+        q: 'प्रौढांसाठी नवीन पासपोर्ट अर्ज करण्यासाठी कोणती कागदपत्रे लागतात?',
+        a: 'अर्जदाराला फक्त तीन प्रमुख कागदपत्रे आवश्यक आहेत: १. सध्याच्या पत्त्याचा पुरावा: आधार कार्ड, छायाचित्रासह बँक पासबुक किंवा वीज बिल. २. जन्मतारखेचा पुरावा: जन्म दाखला, आधार कार्ड किंवा १०वी उत्तीर्ण प्रमाणपत्र. ३. नॉन-ईसीआर पुरावा: १०वी उत्तीर्ण प्रमाणपत्र. मूळ कागदपत्रांसह एक छायाप्रत पीएसके येथे सादर करावी.'
+      },
+      {
+        q: 'तत्काळ योजनेअंतर्गत प्रक्रियेची वेळ, अधिभार आणि नियम काय आहेत?',
+        a: 'तत्काळ योजनेचे मुख्य नियम: • जलद वितरण: अपॉइंटमेंटच्या तारखेपासून १ ते ३ कामकाजाच्या दिवसांत पाठवले जाते. • शुल्क: ₹२,००० अतिरिक्त अधिभार (३६ पानांसाठी एकूण ₹३,५००). • ओळखपत्रे: किमान दोन विहित सरकारी ओळखपत्रे (आधार + मतदार ओळखपत्र किंवा पॅन कार्ड).'
+      },
+      {
+        q: 'पोलीस पडताळणी कशी होते आणि पोलीस ठाण्यात जावे लागते का?',
+        a: 'पडताळणी प्रक्रिया: पीएसके भेटीनंतर फाइल इलेक्ट्रॉनिक पद्धतीने पोलीस अधीक्षकांच्या कार्यालयाकडे पाठवली जाते. अधिकारी तुमच्या नोंदणीकृत मोबाइलवर संपर्क साधतील. कोणत्याही अधिकाऱ्याला रोख रक्कम देण्याची गरज नाही.'
+      },
+      {
+        q: 'निश्चित केलेली पासपोर्ट अपॉइंटमेंट किती वेळा बदलता येते?',
+        a: 'पुनर्निर्धारण नियम: अर्जदार शुल्क भरल्याच्या तारखेपासून १२ महिन्यांत अतिरिक्त शुल्क न देता ३ वेळा अपॉइंटमेंट बदलू शकतात. नियोजित वेळेच्या किमान २४ तास आधी बदल करणे आवश्यक आहे.'
+      },
+      {
+        q: 'अपॉइंटमेंट रद्द झाल्यास पासपोर्ट शुल्क परत मिळते का?',
+        a: 'शुल्क वैधता: भरलेले शुल्क ३६५ दिवसांसाठी वैध राहते. पासपोर्ट नियम १९८० च्या नियम १२ नुसार भरलेले शासकीय शुल्क परत मिळत नाही, तांत्रिक त्रुटीमुळे दुहेरी भरणा झाला असल्यास अपवाद.'
+      },
+      {
+        q: 'सामान्य, अधिकृत आणि राजनयिक पासपोर्टमध्ये काय फरक आहे?',
+        a: 'पासपोर्टचे वर्गीकरण: • सामान्य पासपोर्ट (टाइप पी, निळा कव्हर): वैयक्तिक व व्यावसायिक प्रवासासाठी. • अधिकृत पासपोर्ट (टाइप एस, पांढरा कव्हर): शासकीय कर्तव्यावरील अधिकाऱ्यांसाठी. • राजनयिक पासपोर्ट (टाइप डी, मरून कव्हर): मुत्सद्दी व मंत्र्यांसाठी.'
+      },
+      {
+        q: 'अल्पवयीन मुलांच्या (१८ वर्षांखालील) पासपोर्टसाठी काय नियम आहेत?',
+        a: 'अल्पवयीन मुलांसाठी नियम: • वैधता: ५ वर्षे किंवा मूल १८ वर्षांचे होईपर्यंत. • सवलत: मूळ शुल्कात १०% कायदेशीर सवलत. • पालकांची संमती: दोन्ही पालकांनी अ‍ॅनेक्सचर डी वर स्वाक्षरी करणे आवश्यक.'
+      },
+      {
+        q: 'पासपोर्ट हरवला किंवा खराब झाला तर काय करावे?',
+        a: 'हरवल्यास प्रक्रिया: १. जवळच्या पोलीस ठाण्यात त्वरित एफआयआर (FIR) नोंदवा. २. हरवलेला/खराब पासपोर्ट श्रेणीत नूतनीकरणासाठी ऑनलाइन अर्ज करा. ३. अ‍ॅनेक्सचर एफ सोबत प्रतिज्ञापत्र सादर करा.'
+      }
+    ],
+    kn: [
+      {
+        q: 'ವಯಸ್ಕರಿಗೆ ಹೊಸ ಪಾಸ್‌ಪೋರ್ಟ್‌ಗಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಲು ಯಾವ ದಾಖಲೆಗಳು ಬೇಕು?',
+        a: 'ಅರ್ಜಿದಾರರಿಗೆ ಕೇವಲ ಮೂರು ಮುಖ್ಯ ದಾಖಲೆಗಳು ಬೇಕಾಗುತ್ತವೆ: 1. ಪ್ರಸ್ತುತ ವಸತಿ ವಿಳಾಸದ ಪುರಾವೆ: ಆಧಾರ್ ಕಾರ್ಡ್, ಫೋಟೋ ಹೊಂದಿರುವ ಸಕ್ರಿಯ ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ವಿದ್ಯುತ್ ಬಿಲ್. 2. ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಪುರಾವೆ: ಜನನ ಪ್ರಮಾಣಪತ್ರ, ಆಧಾರ್ ಕಾರ್ಡ್ ಅಥವಾ 10ನೇ ತರಗತಿ ಪ್ರಮಾಣಪತ್ರ. 3. ನಾನ್-ಇಸಿಆರ್ ವರ್ಗದ ಪುರಾವೆ: 10ನೇ ತರಗತಿ ಪಾಸ್ ಪ್ರಮಾಣಪತ್ರ. ಮೂಲ ದಾಖಲೆಗಳೊಂದಿಗೆ ಒಂದು ಸ್ವಯಂ-ದೃಢೀಕರಿಸಿದ ನಕಲು ಪ್ರತಿ ಹಾಜರುಪಡಿಸಬೇಕು.'
+      },
+      {
+        q: 'ತತ್ಕಾಲ್ ಯೋಜನೆಗೆ ಪ್ರಕ್ರಿಯೆ ಸಮಯ, ಹೆಚ್ಚುವರಿ ಶುಲ್ಕ ಮತ್ತು ನಿಯಮಗಳೇನು?',
+        a: 'ತತ್ಕಾಲ್ ಯೋಜನೆಯ ಪ್ರಮುಖ ನಿಯಮಗಳು: • ವೇಗದ ವಿತರಣೆ: 1 ರಿಂದ 3 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ರವಾನೆ. • ಶುಲ್ಕ: ಸಾಮಾನ್ಯ ಅರ್ಜಿ ಶುಲ್ಕಕ್ಕಿಂತ ₹2,000 ಹೆಚ್ಚುವರಿ ಶುಲ್ಕ (ಒಟ್ಟು ₹3,500). • ಗುರುತಿನ ಪುರಾವೆ: ಕನಿಷ್ಠ ಎರಡು ಪರಿಶೀಲಿಸಿದ ಸರ್ಕಾರಿ ದಾಖಲೆಗಳು (ಆಧಾರ್ + ಮತದಾರರ ಗುರುತಿನ ಚೀಟಿ ಅಥವಾ ಪ್ಯಾನ್).'
+      },
+      {
+        q: 'ಪೊಲೀಸ್ ಪರಿಶೀಲನೆ ಹೇಗೆ ನಡೆಯುತ್ತದೆ ಮತ್ತು ನಾನು ಪೊಲೀಸ್ ಠಾಣೆಗೆ ಭೇಟಿ ನೀಡಬೇಕೇ?',
+        a: 'ಪೊಲೀಸ್ ಪರಿಶೀಲನೆ ಪ್ರಕ್ರಿಯೆ: PSK ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ನಂತರ ನಿಮ್ಮ ಫೈಲ್ ಅನ್ನು SP ಕಚೇರಿಗೆ ಎಲೆಕ್ಟ್ರಾನಿಕ್ ಆಗಿ ಕಳುಹಿಸಲಾಗುತ್ತದೆ. ಅಧಿಕಾರಿ ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಗೆ ಕರೆ ಮಾಡಿ ವಿಳಾಸ ಪರಿಶೀಲಿಸುತ್ತಾರೆ. ಯಾವುದೇ ನಗದು ನೀಡಬೇಕಾಗಿಲ್ಲ.'
+      },
+      {
+        q: 'ದೃಢಪಡಿಸಿದ ಪಾಸ್‌ಪೋರ್ಟ್ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಅನ್ನು ಎಷ್ಟು ಬಾರಿ ಮರುಹೊಂದಿಸಬಹುದು?',
+        a: 'ಮರುಹೊಂದಿಸುವ ನಿಯಮಗಳು: ಶುಲ್ಕ ಪಾವತಿ ದಿನಾಂಕದಿಂದ 12 ತಿಂಗಳೊಳಗೆ ಯಾವುದೇ ಹೆಚ್ಚುವರಿ ಶುಲ್ಕವಿಲ್ಲದೆ 3 ಬಾರಿ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಮರುಹೊಂದಿಸಬಹುದು. ನಿಗದಿತ ಸಮಯಕ್ಕಿಂತ 24 ಗಂಟೆಗಳ ಮೊದಲು ಬದಲಾಯಿಸಬೇಕು.'
+      },
+      {
+        q: 'ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ರದ್ದಾದರೆ ಅಥವಾ ವಿಳಂಬವಾದರೆ ಶುಲ್ಕ ಮರುಪಾವತಿಸಲಾಗುತ್ತದೆಯೇ?',
+        a: 'ಶುಲ್ಕ ಸಿಂಧುತ್ವ: ಪಾವತಿಸಿದ ಅರ್ಜಿ ಶುಲ್ಕವು 365 ದಿನಗಳವರೆಗೆ ಮಾನ್ಯವಾಗಿರುತ್ತದೆ. ಪಾಸ್‌ಪೋರ್ಟ್ ನಿಯಮಗಳು 1980 ರ ಪ್ರಕಾರ ಸರ್ಕಾರಿ ಶುಲ್ಕವನ್ನು ಮರುಪಾವತಿಸಲಾಗುವುದಿಲ್ಲ.'
+      },
+      {
+        q: 'ಸಾಮಾನ್ಯ, ಅಧಿಕೃತ ಮತ್ತು ರಾಜತಾಂತ್ರಿಕ ಪಾಸ್‌ಪೋರ್ಟ್‌ಗಳ ನಡುವಿನ ವ್ಯತ್ಯಾಸವೇನು?',
+        a: 'ಪಾಸ್‌ಪೋರ್ಟ್‌ಗಳ ವರ್ಗೀಕರಣ: • ಸಾಮಾನ್ಯ ಪಾಸ್‌ಪೋರ್ಟ್ (ಟೈಪ್ ಪಿ, ನೀಲಿ): ನಾಗರಿಕರಿಗೆ ವೈಯಕ್ತಿಕ ಪ್ರಯಾಣಕ್ಕಾಗಿ. • ಅಧಿಕೃತ ಪಾಸ್‌ಪೋರ್ಟ್ (ಟೈಪ್ ಎಸ್, ಬಿಳಿ): ಸರ್ಕಾರಿ ಕರ್ತವ್ಯಕ್ಕಾಗಿ. • ರಾಜತಾಂತ್ರಿಕ ಪಾಸ್‌ಪೋರ್ಟ್ (ಟೈಪ್ ಡಿ, ಮೆರೂನ್): ರಾಜತಾಂತ್ರಿಕರಿಗೆ.'
+      },
+      {
+        q: 'ಅಪ್ರಾಪ್ತ ವಯಸ್ಕರ (18 ವರ್ಷದೊಳಗಿನ) ಪಾಸ್‌ಪೋರ್ಟ್‌ಗೆ ನಿಯಮಗಳು ಯಾವುವು?',
+        a: 'ಅಪ್ರಾಪ್ತರ ಮಾರ್ಗಸೂಚಿಗಳು: • ಸಿಂಧುತ್ವ: 5 ವರ್ಷಗಳವರೆಗೆ ಅಥವಾ ಮಗುವಿಗೆ 18 ವರ್ಷ ತುಂಬುವವರೆಗೆ. • ರಿಯಾಯಿತಿ: ಮೂಲ ಶುಲ್ಕದಲ್ಲಿ 10% ರಿಯಾಯಿತಿ. • ಪೋಷಕರ ಸಮ್ಮತಿ: ಇಬ್ಬರೂ ಪೋಷಕರು ಅನುಬಂಧ D ಗೆ ಸಹಿ ಮಾಡಬೇಕು.'
+      },
+      {
+        q: 'ಪಾಸ್‌ಪೋರ್ಟ್ ಕಳೆದುಹೋದರೆ ಅಥವಾ ಹಾನಿಗೊಳಗಾದರೆ ನಾನು ಏನು ಮಾಡಬೇಕು?',
+        a: 'ಕಳೆದುಹೋದ ಪಾಸ್‌ಪೋರ್ಟ್ ಪ್ರಕ್ರಿಯೆ: 1. ತಕ್ಷಣವೇ ಪೊಲೀಸ್ ಠಾಣೆಯಲ್ಲಿ ದೂರು (FIR) ದಾಖಲಿಸಿ. 2. ಕಳೆದುಹೋದ ವರ್ಗದಡಿ ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಮರು-ವಿತರಣೆಗಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ. 3. ಅನುಬಂಧ F ಜೊತೆಗೆ ಅಫಿಡವಿಟ್ ಸಲ್ಲಿಸಿ.'
+      }
+    ],
+    ta: [
+      {
+        q: 'பெரியவர்கள் புதிய பாஸ்போர்ட்டிற்கு விண்ணப்பிக்க என்னென்ன ஆவணங்கள் தேவை?',
+        a: 'விண்ணப்பதாரர்களுக்கு மூன்று முக்கிய ஆவணங்கள் மட்டுமே தேவை: 1. தற்போதைய முகவரிச் சான்று: ஆதார் அட்டை, புகைப்படத்துடன் கூடிய வங்கி பாஸ்புக், அல்லது மின்கட்டண ரசீது. 2. பிறந்த தேதிச் சான்று: பிறப்புச் சான்றிதழ், ஆதார் அல்லது 10-ஆம் வகுப்பு சான்றிதழ். 3. நான்-இசிஆர் சான்று: 10-ஆம் வகுப்பு தேர்ச்சி சான்றிதழ். அசல் ஆவணங்களுடன் ஒரு நகல் சமர்ப்பிக்க வேண்டும்.'
+      },
+      {
+        q: 'தட்கல் திட்டத்திற்கான செயலாக்க நேரம், கூடுதல் கட்டணம் மற்றும் விதிகள் யாவை?',
+        a: 'தட்கல் திட்டத்தின் முக்கிய விதிகள்: • விரைவான விநியோகம்: நேர்காணல் தேதியிலிருந்து 1 முதல் 3 வேலை நாட்களுக்குள் அனுப்பி வைக்கப்படும். • கட்டணம்: ₹2,000 கூடுதல் அவசர கட்டணம் (மொத்தம் ₹3,500). • அடையாள சான்றுகள்: குறைந்தது இரண்டு அரசு ஆவணங்கள் (ஆதார் + வாக்காளர் அட்டை அல்லது பான் கார்டு).'
+      },
+      {
+        q: 'காவல் துறை சரிபார்ப்பு எவ்வாறு நடைபெறுகிறது, நான் காவல் நிலையத்திற்கு செல்ல வேண்டுமா?',
+        a: 'சரிபார்ப்பு முறை: PSK வருகைக்குப் பிறகு உங்கள் கோப்பு எஸ்பி அலுவலகத்திற்கு மின்னணு முறையில் அனுப்பப்படும். காவல் அதிகாரி உங்கள் மொபைல் எண்ணைத் தொடர்புகொண்டு முகவரியைச் சரிபார்ப்பார். ரொக்கக் கட்டணம் எதுவும் செலுத்தத் தேவையில்லை.'
+      },
+      {
+        q: 'உறுதிசெய்யப்பட்ட பாஸ்போர்ட் நேர்காணலை எத்தனை முறை மாற்றி அமைக்கலாம்?',
+        a: 'மறுஅட்டவணை விதிகள்: கட்டணம் செலுத்திய தேதியிலிருந்து 12 மாதங்களுக்குள் கூடுதல் கட்டணமின்றி 3 முறை நேர்காணலை மாற்றிக் கொள்ளலாம். குறைந்தபட்சம் 24 மணி நேரத்திற்கு முன்பாக ஆன்லைனில் மாற்ற வேண்டும்.'
+      },
+      {
+        q: 'நேர்காணல் தாமதமானால் அல்லது ரத்து செய்யப்பட்டால் கட்டணம் திருப்பித் தரப்படுமா?',
+        a: 'கட்டண செல்லுபடியாகும் காலம்: செலுத்திய கட்டணம் 365 நாட்களுக்கு செல்லுபடியாகும். பாஸ்போர்ட் விதிகள் 1980 இன் படி அரசாங்க கட்டணம் திரும்பப் பெற முடியாது.'
+      },
+      {
+        q: 'சாதாரண, அதிகாரப்பூர்வ மற்றும் தூதரக பாஸ்போர்ட்களுக்கு என்ன வித்தியாசம்?',
+        a: 'வகைப்பாடு: • சாதாரண பாஸ்போர்ட் (வகை P, நீல அட்டை): குடிமக்களின் தனிப்பட்ட பயணத்திற்கு. • அதிகாரப்பூர்வ பாஸ்போர்ட் (வகை S, வெள்ளை அட்டை): அரசுப் பணிக்கு. • தூதரக பாஸ்போர்ட் (வகை D, மெரூன் அட்டை): தூதர்கள் மற்றும் அமைச்சர்களுக்கு.'
+      },
+      {
+        q: 'சிறார்களின் (18 வயதுக்குட்பட்ட) பாஸ்போர்ட்டிற்கான விதிகள் என்ன?',
+        a: 'சிறார்களுக்கான வழிகாட்டுதல்கள்: • செல்லுபடியாகும் காலம்: 5 ஆண்டுகள் அல்லது 18 வயது வரை. • சலுகை: அடிப்படைக் கட்டணத்தில் 10% சலுகை. • பெற்றோர் சம்மதம்: பெற்றோர் இருவரும் இணைப்பு D-யில் கையொப்பமிட வேண்டும்.'
+      },
+      {
+        q: 'பாஸ்போர்ட் தொலைந்துவிட்டால் அல்லது சேதமடைந்தால் என்ன செய்ய வேண்டும்?',
+        a: 'நடைமுறை: 1. உடனடியாக அருகிலுள்ள காவல் நிலையத்தில் புகார் (FIR) பதிவு செய்யவும். 2. பாஸ்போர்ட் மறு வெளியீட்டிற்கு ஆன்லைனில் விண்ணப்பிக்கவும். 3. இணைப்பு F உடன் பிரமாணப் பத்திரம் சமர்ப்பிக்கவும்.'
+      }
+    ],
+    te: [
+      {
+        q: 'పెద్దలు కొత్త పాస్‌పోర్ట్ కోసం దరఖాస్తు చేసుకోవడానికి ఏ పత్రాలు అవసరం?',
+        a: 'దరఖాస్తుదారులకు కేవలం మూడు ప్రధాన పత్రాలు అవసరం: 1. ప్రస్తుత నివాస చిరునామా రుజువు: ఆధార్ కార్డు, బ్యాంక్ పాస్‌బుక్, లేదా కరెంట్ బిల్లు. 2. పుట్టిన తేదీ రుజువు: జనన ధృవీకరణ పత్రం, ఆధార్ లేదా 10వ తరగతి సర్టిఫికెట్. 3. నాన్-ఈసీఆర్ రుజువు: 10వ తరగతి పాస్ సర్టిఫికెట్. అసలు పత్రాలతో పాటు ఒక నకలు సమర్పించాలి.'
+      },
+      {
+        q: 'తత్కాల్ పథకం ప్రాసెసింగ్ సమయం, అదనపు ఛార్జీ మరియు నిబంధనలు ఏమిటి?',
+        a: 'తత్కాల్ నిబంధనలు: • వేగవంతమైన డెలివరీ: అపాయింట్‌మెంట్ నుండి 1 నుండి 3 పనిదినాల్లో డిస్పాచ్. • ఫీజు: సాధారణ ఫీజుపై ₹2,000 అదనపు సర్ఛార్జ్ (మొత్తం ₹3,500). • గుర్తింపు రుజువులు: కనీసం రెండు ప్రభుత్వ పత్రాలు (ఆధార్ + ఓటర్ ఐడీ లేదా పాన్ కార్డు).'
+      },
+      {
+        q: 'పోలీస్ వెరిఫికేషన్ ఎలా జరుగుతుంది, నేను పోలీస్ స్టేషన్‌కు వెళ్లాలా?',
+        a: 'ధృవీకరణ ప్రక్రియ: PSK అపాయింట్‌మెంట్ తర్వాత మీ ఫైల్ ఎస్పీ కార్యాలయానికి పంపబడుతుంది. పోలీసు అధికారి మీ మొబైల్ నంబర్‌కు కాల్ చేసి చిరునామాను ధృవీకరిస్తారు. నగదు చెల్లించాల్సిన అవసరం లేదు.'
+      },
+      {
+        q: 'ధృవీకరించబడిన పాస్‌పోర్ట్ అపాయింట్‌మెంట్‌ను ఎన్నిసార్లు రీషెడ్యూల్ చేయవచ్చు?',
+        a: 'రీషెడ్యూల్ నిబంధనలు: ఫీజు చెల్లించిన తేదీ నుండి 12 నెలల్లోపు అదనపు ఛార్జీ లేకుండా 3 సార్లు అపాయింట్‌మెంట్‌ను రీషెడ్యూల్ చేయవచ్చు. కనీసం 24 గంటల ముందు ఆన్‌లైన్‌లో మార్చుకోవాలి.'
+      },
+      {
+        q: 'అపాయింట్‌మెంట్ ఆలస్యమైతే లేదా రద్దయితే ఫీజు రీఫండ్ అవుతుందా?',
+        a: 'ఫీజు చెల్లుబాటు: చెల్లించిన రుసుము 365 రోజుల పాటు చెల్లుబాటులో ఉంటుంది. పాస్‌పోర్ట్ నిబంధనలు 1980 ప్రకారం ప్రభుత్వ రుసుము వాపసు ఇవ్వబడదు.'
+      },
+      {
+        q: 'సాధారణ, అధికారిక మరియు దౌత్య పాస్‌పోర్ట్‌ల మధ్య తేడా ఏమిటి?',
+        a: 'వర్గీకరణ: • సాధారణ పాస్‌పోర్ట్ (టైప్ P, నీలం కవర్): వ్యక్తిగత పర్యటనల కోసం. • అధికారిక పాస్‌పోర్ట్ (టైప్ S, తెలుపు కవర్): ప్రభుత్వ విధులకు. • దౌత్య పాస్‌పోర్ట్ (టైప్ D, మెరూన్ కవర్): దౌత్యవేత్తలకు.'
+      },
+      {
+        q: 'మైనర్ల (18 ఏళ్ల లోపు) పాస్‌పోర్ట్‌కు సంబంధించిన నిబంధనలు ఏమిటి?',
+        a: 'మైనర్ మార్గదర్శకాలు: • చెల్లుబాటు: 5 సంవత్సరాలు లేదా 18 ఏళ్లు వచ్చే వరకు. • రాయితీ: ప్రాథమిక రుసుములో 10% రాయితీ. • తల్లిదండ్రుల సమ్మతి: ఇద్దరు తల్లిదండ్రులు అనెక్చర్ D పై సంతకం చేయాలి.'
+      },
+      {
+        q: 'పాస్‌పోర్ట్ పోయినా లేదా పాడైపోయినా ఏమి చేయాలి?',
+        a: 'విధానం: 1. వెంటనే సమీపంలోని పోలీస్ స్టేషన్‌లో ఎఫ్ఐఆర్ (FIR) నమోదు చేయండి. 2. పోయిన విభాగంలో ఆన్‌లైన్‌లో రీ-ఇష్యూ కోసం దరఖాస్తు చేయండి. 3. అనెక్చర్ F తో అఫిడవిట్ సమర్పించండి.'
+      }
+    ],
+    bn: [
+      {
+        q: 'প্রাপ্তবয়স্কদের নতুন পাসপোর্টের জন্য আবেদন করতে কী কী নথি প্রয়োজন?',
+        a: 'আবেদনকারীদের জন্য কেবল তিনটি মূল নথি প্রয়োজন: ১. বর্তমান ঠিকানার প্রমাণ: আধার কার্ড, ব্যাংক পাসবুক বা বিদ্যুৎ বিল। ২. জন্ম তারিখের প্রমাণ: জন্ম শংসাপত্র, আধার বা মাধ্যমিক পাসের সার্টিফিকেট। ৩. নন-ইসিআর প্রমাণ: দশম শ্রেণি পাসের শংসাপত্র। আসল নথির সাথে একটি স্ব-প্রত্যয়িত ফটোকপি উপস্থাপন করতে হবে।'
+      },
+      {
+        q: 'তৎকাল স্কিমের অধীনে প্রক্রিয়াকরণের সময়, সারচার্জ ও নিয়মাবলী কী?',
+        a: 'তৎকাল স্কিমের মূল নিয়মাবলী: • দ্রুত ডেলিভারি: অ্যাপয়েন্টমেন্ট থেকে ১ থেকে ৩ কার্যদিবসের মধ্যে প্রেরণ। • সংবিধিবদ্ধ ফি: ₹২,০০০ অতিরিক্ত সারচার্জ (মোট ₹৩,৫০০)। • পরিচয় প্রমাণপত্র: কমপক্ষে দুটি নির্ধারিত সরকারি নথি (আধার + ভোটার কার্ড বা প্যান)।'
+      },
+      {
+        q: 'পুলিশ ভেরিফিকেশন কীভাবে সম্পন্ন হয় અને আমার কি থানায় যেতে হবে?',
+        a: 'ভেরিফিকেশন প্রক্রিয়া: পিএসকে অ্যাপয়েন্টমেন্টের পর আপনার ফাইল এসপি অফিসে পাঠানো হয়। পুলিশ আধিকারিক আপনার মোবাইল নম্বরে যোগাযোগ করে ঠিকানা যাচাই করবেন। কোনো নগদ ফি দিতে হবে না।'
+      },
+      {
+        q: 'নিশ্চিত হওয়া অ্যাপয়েন্টমেন্ট কতবার পুনঃনির্ধারণ করা যায়?',
+        a: 'পুনঃনির্ধারণের নিয়ম: ফি প্রদানের তারিখ থেকে ১২ মাসের মধ্যে কোনো অতিরিক্ত ফি ছাড়াই ৩ বার অ্যাপয়েন্টমেন্ট পুনঃনির্ধারণ বা বাতিল করা যায়। নির্ধারিত সময়ের অন্তত ২৪ ঘণ্টা আগে এটি করতে হবে।'
+      },
+      {
+        q: 'অ্যাপয়েন্টমেন্ট বিলম্বিত বা বাতিল হলে ফি কি ফেরত পাওয়া যায়?',
+        a: 'ফি-এর বৈধতা: জমাকৃত ফি ৩৬৫ দিন বৈধ থাকে। পাসপোর্ট নিয়মাবলী ১৯৮০ এর নিয়ম ১২ অনুসারে সরকারি ফি ফেরতযোগ্য নয়।'
+      },
+      {
+        q: 'সাধারণ, অফিসিয়াল এবং কূটনৈতিক পাসপোর্টের মধ্যে পার্থক্য কী?',
+        a: 'শ্রেণিবিভাগ: • সাধারণ পাসপোর্ট (টাইপ P, নীল কভার): সাধারণ নাগরিকদের ব্যক্তিগত ভ্রমণের জন্য। • অফিসিয়াল পাসপোর্ট (টাইপ S, সাদা কভার): সরকারি আধিকারিকদের জন্য। • কূটনৈতিক পাসপোর্ট (টাইপ D, মেরুন কভার): কূটনীতিক ও মন্ত্রীদের জন্য।'
+      },
+      {
+        q: 'নাবালকদের (১৮ বছরের নিচে) পাসপোর্টের নিয়ম ও সম্মতি কী?',
+        a: 'নাবালকদের নির্দেশিকা: • মেয়াদ: ৫ বছর বা শিশুর ১৮ বছর বয়স পর্যন্ত। • ছাড়: মূল ফিতে ১০% ছাড় প্রযোজ্য। • পিতামাতার সম্মতি: উভয় পিতামাতাকে অ্যানেক্সচার ডি স্বাক্ষর করতে হবে।'
+      },
+      {
+        q: 'পাসপোর্ট হারিয়ে গেলে বা নষ্ট হলে কী করণীয়?',
+        a: 'পদ্ধতি: ১. অবিলম্বে থানায় এফআইআর (FIR) দায়ের করুন। ২. হারিয়ে যাওয়া ক্যাটাগরিতে অনলাইনে পাসপোর্টের জন্য আবেদন করুন। ৩. অ্যানেক্সচার এফ সহ এফিডেভিট জমা দিন।'
+      }
+    ],
+    ml: [
+      {
+        q: 'മുതിർന്നവർക്ക് പുതിയ പാസ്‌പോർട്ടിന് അപേക്ഷിക്കാൻ എന്തൊക്കെ രേഖകൾ വേണം?',
+        a: 'അപേക്ഷകർക്ക് മൂന്ന് പ്രധാന രേഖകൾ മാത്രം മതി: 1. താമസ മേൽവിലാസ രേഖ: ആധാർ കാർഡ്, ബാങ്ക് പാസ്ബുക്ക്, അല്ലെങ്കിൽ വൈദ്യുതി ബിൽ. 2. ജനനത്തീയതി രേഖ: ജനന സർട്ടിഫിക്കറ്റ്, ആധാർ അല്ലെങ്കിൽ പത്താം ക്ലാസ് സർട്ടിഫിക്കറ്റ്. 3. നോൺ-ഇസിആർ രേഖ: പത്താം ക്ലാസ് പാസ് സർട്ടിഫിക്കറ്റ്. ഒറിജിനൽ രേഖകളോടൊപ്പം ഒരു കോപ്പിയും ഹാജരാക്കണം.'
+      },
+      {
+        q: 'തത്കാൽ പദ്ധതിയുടെ പ്രോസസ്സിംഗ് സമയം, അധിക ഫീസ്, നിയമങ്ങൾ എന്തൊക്കെയാണ്?',
+        a: 'തത്കാൽ മാർഗ്ഗനിർദ്ദേശങ്ങൾ: • വേഗത്തിലുള്ള വിതരണം: അപ്പോയിന്റ്മെന്റ് മുതൽ 1-3 ദിവസത്തിനകം അയക്കുന്നു. • ഫീസ്: സാധാരണ ഫീസിന് പുറമെ ₹2,000 അധിക സർചാർജ് (ആകെ ₹3,500). • തിരിച്ചറിയൽ രേഖകൾ: കുറഞ്ഞത് രണ്ട് സർക്കാർ രേഖകൾ (ആധാർ + വോട്ടർ ഐഡി അല്ലെങ്കിൽ പാൻ).'
+      },
+      {
+        q: 'പോലീസ് വെരിഫിക്കേഷൻ എങ്ങനെയാണ് നടക്കുന്നത്, ഞാൻ പോലീസ് സ്റ്റേഷനിൽ പോകേണ്ടതുണ്ടോ?',
+        a: 'പരിശോധനാ രീതി: പിഎസ്കെ സന്ദർശനത്തിന് ശേഷം ഫയൽ എസ്പി ഓഫീസിലേക്ക് അയക്കുന്നു. പോലീസ് ഉദ്യോഗസ്ഥൻ നിങ്ങളുടെ ഫോണിൽ വിളിച്ച് വിലാസം പരിശോധിക്കും. പണം നൽകേണ്ടതില്ല.'
+      },
+      {
+        q: 'ഉറപ്പിച്ച പാസ്‌പോർട്ട് അപ്പോയിന്റ്മെന്റ് എത്ര തവണ മാറ്റിവെക്കാം?',
+        a: 'മാറ്റിവെക്കൽ നിയമങ്ങൾ: ഫീസ് അടച്ച തീയതി മുതൽ 12 മാസത്തിനുള്ളിൽ അധിക ഫീസില്ലാതെ 3 തവണ വരെ മാറ്റിവെക്കാം. 24 മണിക്കൂർ മുൻപ് ഓൺലൈനായി മാറ്റണം.'
+      },
+      {
+        q: 'അപ്പോയിന്റ്മെന്റ് റദ്ദാക്കിയാൽ ഫീസ് തിരികെ ലഭിക്കുമോ?',
+        a: 'ഫീസ് കാലാവധി: അടച്ച ഫീസ് 365 ദിവസത്തേക്ക് സാധുവാണ്. പാസ്‌പോർട്ട് ചട്ടങ്ങൾ 1980 പ്രകാരം സർക്കാർ ഫീസ് തിരികെ നൽകുന്നതല്ല.'
+      },
+      {
+        q: 'ഓർഡിനറി, ഒഫീഷ്യൽ, ഡിപ്ലോമാറ്റിക് പാസ്‌പോർട്ടുകൾ തമ്മിലുള്ള വ്യത്യാസം എന്താണ്?',
+        a: 'തരംതിരിവ്: • ഓർഡിനറി (ടൈപ്പ് P, നീല): സാധാരണ പൗരന്മാർക്ക്. • ഒഫീഷ്യൽ (ടൈപ്പ് S, വെള്ള): സർക്കാർ ജീവനക്കാർക്ക്. • ഡിപ്ലോമാറ്റിക് (ടൈപ്പ് D, മെറൂൺ): നയതന്ത്രജ്ഞർക്ക്.'
+      },
+      {
+        q: 'കുട്ടികൾക്കുള്ള (18 വയസ്സിൽ താഴെ) പാസ്‌പോർട്ട് ചട്ടങ്ങൾ എന്തൊക്കെയാണ്?',
+        a: 'കുട്ടികളുടെ പാസ്‌പോർട്ട്: • കാലാവധി: 5 വർഷം അല്ലെങ്കിൽ 18 വയസ്സ് തികയുന്നത് വരെ. • ഇളവ്: അടിസ്ഥാന ഫീസിൽ 10% ഇളവ്. • മാതാപിതാക്കളുടെ അനുമതി: രണ്ട് പേരും അനക്സർഷർ D-യിൽ ഒപ്പിടണം.'
+      },
+      {
+        q: 'പാസ്‌പോർട്ട് നഷ്ടപ്പെടുകയോ കേടുപാടുകൾ സംഭവിക്കുകയോ ചെയ്താൽ എന്തുചെയ്യണം?',
+        a: 'നടപടിക്രമം: 1. ഉടൻ തന്നെ പോലീസ് സ്റ്റേഷനിൽ പരാതി (FIR) നൽകുക. 2. പാസ്‌പോർട്ട് റീ-ഇഷ്യുവിനായി ഓൺലൈനായി അപേക്ഷിക്കുക. 3. അനക്സർഷർ F സഹിതം സത്യവാങ്മൂലം നൽകുക.'
+      }
+    ],
+    pa: [
+      {
+        q: 'ਬਾਲਗਾਂ ਲਈ ਨਵਾਂ ਪਾਸਪੋਰਟ ਬਣਾਉਣ ਵਾਸਤੇ ਕਿਹੜੇ ਦਸਤਾਵੇਜ਼ ਚਾਹੀਦੇ ਹਨ?',
+        a: 'ਬਿਨੈਕਾਰਾਂ ਨੂੰ ਸਿਰਫ਼ ਤਿੰਨ ਮੁੱਖ ਦਸਤਾਵੇਜ਼ ਚਾਹੀਦੇ ਹਨ: 1. ਮੌਜੂਦਾ ਪਤੇ ਦਾ ਸਬੂਤ: ਆਧਾਰ ਕਾਰਡ, ਬੈਂਕ ਪਾਸਬੁੱਕ, ਜਾਂ ਬਿਜਲੀ ਬਿੱਲ। 2. ਜਨਮ ਮਿਤੀ ਦਾ ਸਬੂਤ: ਜਨਮ ਸਰਟੀਫਿਕੇਟ, ਆਧਾਰ ਜਾਂ 10ਵੀਂ ਦਾ ਸਰਟੀਫਿਕੇਟ। 3. ਨਾਨ-ਈਸੀਆਰ ਸਬੂਤ: 10ਵੀਂ ਪਾਸ ਸਰਟੀਫਿਕੇਟ। ਅਸਲ ਦਸਤਾਵੇਜ਼ਾਂ ਦੇ ਨਾਲ ਇੱਕ ਕਾਪੀ ਪੇਸ਼ ਕਰਨੀ ਹੋਵੇਗੀ।'
+      },
+      {
+        q: 'ਤਤਕਾਲ ਸਕੀਮ ਅਧੀਨ ਪ੍ਰਕਿਰਿਆ ਦਾ ਸਮਾਂ, ਵਾਧੂ ਫੀਸ ਅਤੇ ਨਿਯਮ ਕੀ ਹਨ?',
+        a: 'ਤਤਕਾਲ ਸਕੀਮ ਦੇ ਨਿਯਮ: • ਤੇਜ਼ ਡਿਲੀਵਰੀ: ਅਪਾਇੰਟਮੈਂਟ ਤੋਂ 1 ਤੋਂ 3 ਕੰਮਕਾਜੀ ਦਿਨਾਂ ਵਿੱਚ ਡਿਸਪੈਚ। • ਸਰਕਾਰੀ ਫੀਸ: ₹2,000 ਵਾਧੂ ਸਰਚਾਰਜ (ਕੁੱਲ ₹3,500)। • ਪਛਾਣ ਸਬੂਤ: ਘੱਟੋ-ਘੱਟ ਦੋ ਨਿਰਧਾਰਿਤ ਸਰਕਾਰੀ ਦਸਤਾਵੇਜ਼ (ਆਧਾਰ + ਵੋਟਰ ਕਾਰਡ ਜਾਂ ਪੈਨ)।'
+      },
+      {
+        q: 'ਪੁਲਿਸ ਪੜਤਾਲ ਕਿਵੇਂ ਹੁੰਦੀ ਹੈ ਅਤੇ ਕੀ ਮੈਨੂੰ ਥਾਣੇ ਜਾਣਾ ਪਵੇਗਾ?',
+        a: 'ਪੜਤਾਲ ਪ੍ਰਕਿਰਿਆ: PSK ਅਪਾਇੰਟਮੈਂਟ ਤੋਂ ਬਾਅਦ ਤੁਹਾਡੀ ਫਾਈਲ ਐਸਪੀ ਦਫ਼ਤਰ ਭੇਜੀ ਜਾਂਦੀ ਹੈ। ਪੁਲਿਸ ਅਧਿਕਾਰੀ ਤੁਹਾਡੇ ਫ਼ੋਨ \'ਤੇ ਸੰਪਰਕ ਕਰਕੇ ਪਤਾ ਤਸਦੀਕ ਕਰਨਗੇ। ਕੋਈ ਨਕਦ ਫੀਸ ਦੇਣ ਦੀ ਲੋੜ ਨਹੀਂ।'
+      },
+      {
+        q: 'ਪੁਸ਼ਟੀ ਕੀਤੀ ਅਪਾਇੰਟਮੈਂਟ ਨੂੰ ਕਿੰਨੀ ਵਾਰ ਬਦਲਿਆ ਜਾ ਸਕਦਾ ਹੈ?',
+        a: 'ਨਿਯਮ: ਫੀਸ ਭਰਨ ਦੀ ਮਿਤੀ ਤੋਂ 12 ਮਹੀਨਿਆਂ ਵਿੱਚ ਬਿਨਾਂ ਵਾਧੂ ਖਰਚੇ ਦੇ 3 ਵਾਰ ਅਪਾਇੰਟਮੈਂਟ ਬਦਲੀ ਜਾ ਸਕਦੀ ਹੈ। ਇਹ ਘੱਟੋ-ਘੱਟ 24 ਘੰਟੇ ਪਹਿਲਾਂ ਆਨਲਾਈਨ ਕਰਨਾ ਲਾਜ਼ਮੀ ਹੈ।'
+      },
+      {
+        q: 'ਕੀ ਅਪਾਇੰਟਮੈਂਟ ਰੱਦ ਹੋਣ \'ਤੇ ਪਾਸਪੋਰਟ ਫੀਸ ਵਾਪਸ ਮਿਲਦੀ ਹੈ?',
+        a: 'ਫੀਸ ਵੈਧਤਾ: ਭਰੀ ਗਈ ਫੀਸ 365 ਦਿਨਾਂ ਲਈ ਵੈਧ ਰਹਿੰਦੀ ਹੈ। ਪਾਸਪੋਰਟ ਨਿਯਮ 1980 ਅਨੁਸਾਰ ਸਰਕਾਰੀ ਫੀਸ ਵਾਪਸ ਨਹੀਂ ਹੁੰਦੀ।'
+      },
+      {
+        q: 'ਸਾਧਾਰਨ, ਸਰਕਾਰੀ ਅਤੇ ਕੂਟਨੀਤਕ ਪਾਸਪੋਰਟ ਵਿੱਚ ਕੀ ਅੰਤਰ ਹੈ?',
+        a: 'ਵਰਗੀਕਰਨ: • ਸਾਧਾਰਨ ਪਾਸਪੋਰਟ (ਟਾਈਪ P, ਨੀਲਾ ਕਵਰ): ਨਿੱਜੀ ਯਾਤਰਾ ਲਈ। • ਸਰਕਾਰੀ ਪਾਸਪੋਰਟ (ਟਾਈਪ S, ਚਿੱਟਾ ਕਵਰ): ਸਰਕਾਰੀ ਡਿਊਟੀ ਲਈ। • ਕੂਟਨੀਤਕ ਪਾਸਪੋਰਟ (ਟਾਈਪ D, ਮੈਰੂਨ ਕਵਰ): ਡਿਪਲੋਮੈਟਾਂ ਲਈ।'
+      },
+      {
+        q: 'ਨਾਬਾਲਗਾਂ (18 ਸਾਲ ਤੋਂ ਘੱਟ) ਦੇ ਪਾਸਪੋਰਟ ਲਈ ਕੀ ਨਿਯਮ ਹਨ?',
+        a: 'ਨਾਬਾਲਗ ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼: • ਮਿਆਦ: 5 ਸਾਲ ਜਾਂ 18 ਸਾਲ ਦੀ ਉਮਰ ਤੱਕ। • ਛੋਟ: ਮੁੱਢਲੀ ਫੀਸ ਵਿੱਚ 10% ਛੋਟ। • ਮਾਪਿਆਂ ਦੀ ਸਹਿਮਤੀ: ਦੋਵਾਂ ਮਾਪਿਆਂ ਵੱਲੋਂ ਅਨੈਕਸਚਰ D \'ਤੇ ਦਸਤਖ਼ਤ ਜ਼ਰੂਰੀ।'
+      },
+      {
+        q: 'ਜੇ ਪਾਸਪੋਰਟ ਗੁੰਮ ਜਾਂ ਖਰਾਬ ਹੋ ਜਾਵੇ ਤਾਂ ਕੀ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ?',
+        a: 'ਢੰਗ: 1. ਤੁਰੰਤ ਪੁਲਿਸ ਥਾਣੇ ਵਿੱਚ ਐਫਆਈਆਰ (FIR) ਦਰਜ ਕਰਵਾਓ। 2. ਗੁੰਮ ਸ਼੍ਰੇਣੀ ਤਹਿਤ ਰੀ-ਇਸ਼ੂ ਲਈ ਆਨਲਾਈਨ ਅਰਜ਼ੀ ਦਿਓ। 3. ਅਨੈਕਸਚਰ F ਸਮੇਤ ਹਲਫ਼ਨਾਮਾ ਜਮ੍ਹਾਂ ਕਰੋ।'
+      }
+    ],
+    or: [
+      {
+        q: 'ବୟସ୍କଙ୍କ ନୂତନ ପାସପୋର୍ଟ ପାଇଁ କେଉଁ ଦଲିଲ ଆବଶ୍ୟକ?',
+        a: 'ଆବେଦନକାରୀଙ୍କ ପାଇଁ କେବଳ ତିନୋଟି ମୁଖ୍ୟ ଦଲିଲ ଆବଶ୍ୟକ: ୧. ବର୍ତ୍ତମାନର ଠିକଣା ପ୍ରମାଣ: ଆଧାର କାର୍ଡ, ବ୍ୟାଙ୍କ ପାସବୁକ୍ ବା ବିଦ୍ୟୁତ ବିଲ୍। ୨. ଜନ୍ମ ତାରିଖ ପ୍ରମାଣ: ଜନ୍ମ ପ୍ରମାଣପତ୍ର, ଆଧାର ବା ୧୦ମ ବୋର୍ଡ ସାର୍ଟିଫିକେଟ୍। ୩. ନନ୍-ଇସିଆର୍ ପ୍ରମାଣ: ୧୦ମ ପାସ୍ ସାର୍ଟିଫିକେଟ୍। ମୂଳ ଦଲିଲ ସହିତ ଗୋଟିଏ ନକଲ ଦାଖଲ କରିବାକୁ ହେବ।'
+      },
+      {
+        q: 'ତତ୍କାଳ ଯୋଜନାର ପ୍ରକ୍ରିୟାକରଣ ସମୟ, ଅତିରିକ୍ତ ଫିସ୍ ଏବଂ ନିୟମ କ\'ଣ?',
+        a: 'ତତ୍କାଳ ଯୋଜନାର ନିୟମ: • ଦ୍ରୁତ ବିତରଣ: ଆପଏଣ୍ଟମେଣ୍ଟ ତାରିଖରୁ ୧ ରୁ ୩ କାର୍ଯ୍ୟଦିବସ ମଧ୍ୟରେ ପ୍ରେରଣ। • ଫିସ୍: ସାଧାରଣ ଫିସ୍ ଉପରେ ₹୨,୦୦୦ ଅତିରିକ୍ତ ସରଚାର୍ଜ (ମୋଟ ₹୩,୫୦୦)। • ପରିଚୟ ପ୍ରମାଣ: ଅତି କମରେ ଦୁଇଟି ସରକାରୀ ଦଲିଲ (ଆଧାର + ଭୋଟର ଆଇଡି ବା ପ୍ୟାନ୍)।'
+      },
+      {
+        q: 'ପୋଲିସ ଯାଞ୍ଚ କିପରି ହୁଏ ଏବଂ ମୋତେ ଥାନାକୁ ଯିବାକୁ ପଡ଼ିବ କି?',
+        a: 'ଯାଞ୍ଚ ପ୍ରକ୍ରିୟା: PSK ଆପଏଣ୍ଟମେଣ୍ଟ ପରେ ଫାଇଲ୍ ଏସପି ଅଫିସକୁ ପଠାଯାଏ। ପୋଲିସ ଅଧିକାରୀ ଆପଣଙ୍କ ଫୋନରେ ଯୋଗାଯୋଗ କରି ଠିକଣା ଯାଞ୍ଚ କରିବେ। କୌଣସି ନଗଦ ଟଙ୍କା ଦେବାକୁ ପଡ଼ିବ ନାହିଁ।'
+      },
+      {
+        q: 'ନିଶ୍ଚିତ ଆପଏଣ୍ଟମେଣ୍ଟକୁ କେତେ ଥର ପୁନଃନିର୍ଦ୍ଧାରଣ କରାଯାଇପାରିବ?',
+        a: 'ନିୟମ: ଫିସ୍ ଦେବାର ୧୨ ମାସ ମଧ୍ୟରେ ବିନା ଅତିରିକ୍ତ ଖର୍ଚ୍ଚରେ ୩ ଥର ଆପଏଣ୍ଟମେଣ୍ଟ ବଦଳାଯାଇପାରିବ। ଏହା ଅତି କମରେ ୨୪ ଘଣ୍ଟା ପୂର୍ବରୁ ଅନଲାଇନରେ କରିବାକୁ ହେବ।'
+      },
+      {
+        q: 'ଆପଏଣ୍ଟମେଣ୍ଟ ବାତିଲ ହେଲେ ଫିସ୍ ଫେରସ୍ତ ମିଳେ କି?',
+        a: 'ବୈଧତା: ଦିଆଯାଇଥିବା ଫିସ୍ ୩୬୫ ଦିନ ପାଇଁ ବୈଧ ରହେ। ପାସପୋର୍ଟ ନିୟମ ୧୯୮୦ ଅନୁଯାୟୀ ସରକାରୀ ଫିସ୍ ଫେରସ୍ତଯୋଗ୍ୟ ନୁହେଁ।'
+      },
+      {
+        q: 'ସାଧାରଣ, ସରକାରୀ ଏବଂ କୂଟନୈତିକ ପାସପୋର୍ଟ ମଧ୍ୟରେ ପାର୍ଥକ୍ୟ କ\'ଣ?',
+        a: 'ବର୍ଗୀକରଣ: • ସାଧାରଣ ପାସପୋର୍ଟ (ଟାଇପ୍ P, ନୀଳ କଭର): ବ୍ୟକ୍ତିଗତ ଯାତ୍ରା ପାଇଁ। • ସରକାରୀ ପାସପୋର୍ଟ (ଟାଇପ୍ S, ଧଳା କଭର): ସରକାରୀ କାର୍ଯ୍ୟ ପାଇଁ। • କୂଟନୈତିକ ପାସପୋର୍ଟ (ଟାଇପ୍ D, ମେରୁନ୍ କଭର): କୂଟନୀତିଜ୍ଞଙ୍କ ପାଇଁ।'
+      },
+      {
+        q: 'ନାବାଳକଙ୍କ (୧୮ ବର୍ଷରୁ କମ୍) ପାସପୋର୍ଟ ନିୟମ କ\'ଣ?',
+        a: 'ନାବାଳକ ନିର୍ଦ୍ଦେଶାବଳୀ: • ବୈଧତା: ୫ ବର୍ଷ କିମ୍ବା ୧୮ ବର୍ଷ ବୟସ ପର୍ଯ୍ୟନ୍ତ। • ରିହାତି: ମୂଳ ଫିସରେ ୧୦% ରିହାତି। • ପିତାମାତାଙ୍କ ସମ୍ମତି: ଉଭୟ ପିତାମାତା ଆନେକ୍ସଚର D ରେ ଦସ୍ତଖତ କରିବା ଆବଶ୍ୟକ।'
+      },
+      {
+        q: 'ପାସପୋର୍ଟ ହଜିଗଲେ ବା ନଷ୍ଟ ହୋଇଗଲେ କ\'ଣ କରିବାକୁ ହେବ?',
+        a: 'ପ୍ରଣାଳୀ: ୧. ତୁରନ୍ତ ଥାନାରେ ଏଫଆଇଆର (FIR) କରନ୍ତୁ। ୨. ହଜିବା ଶ୍ରେଣୀରେ ପୁନଃ ପ୍ରଦାନ ପାଇଁ ଅନଲାଇନ୍ ଆବେଦନ କରନ୍ତୁ। ୩. ଆନେକ୍ସଚର F ସହିତ ଶପଥପତ୍ର ଦାଖଲ କରନ୍ତୁ।'
+      }
+    ],
+    as: [
+      {
+        q: 'প্ৰাপ্তবয়স্কৰ নতুন পাছপ’ৰ্টৰ বাবে কি কি নথিৰ প্ৰয়োজন?',
+        a: 'আবেদনকাৰীৰ বাবে মাত্ৰ তিনিখন মুখ্য নথিৰ প্ৰয়োজন: ১. বৰ্তমান ঠিকনাৰ প্ৰমাণ: আধাৰ কাৰ্ড, বেংক পাছবুক বা বিদ্যুৎ বিল। ২. জন্ম তাৰিখৰ প্ৰমাণ: জন্ম প্ৰমাণপত্ৰ, আধাৰ বা মেট্ৰিক উত্তীৰ্ণ প্ৰমাণপত্ৰ। ৩. নন-ইচিআৰ প্ৰমাণ: দশম শ্ৰেণী উত্তীৰ্ণ প্ৰমাণপত্ৰ। মূল নথিৰ সৈতে এখন প্ৰতিলিপি পিএছকেত জমা দিব লাগিব।'
+      },
+      {
+        q: 'তৎকাল আঁচনিৰ অধীনত প্ৰক্ৰিয়াকৰণ সময়, মাচুল আৰু নিয়ম কি?',
+        a: 'তৎকাল আঁচনিৰ নিয়ম: • ক্ষিপ্ৰ প্ৰেৰণ: সাক্ষাৎকাৰৰ তাৰিখৰ পৰা ১-৩ কাৰ্যদিবসৰ ভিতৰত প্ৰেৰণ। • মাচুল: সাধাৰণ মাচুলৰ উপৰি ₹২,০০০ অতিৰিক্ত চাৰ্জ (মুঠ ₹৩,৫০০)। • পৰিচয় প্ৰমাণ: কমেও দুখন চৰকাৰী নথি (আধাৰ + ভোটাৰ কাৰ্ড বা পেন)।'
+      },
+      {
+        q: 'আৰক্ষী পৰীক্ষণ কেনেদৰে হয় আৰু মই থানালৈ যাব লাগিব নেকি?',
+        a: 'পৰীক্ষণ প্ৰক্ৰিয়া: পিএছকে সাক্ষাৎকাৰৰ পিছত ফাইল এছপি কাৰ্যালয়লৈ প্ৰেৰণ কৰা হয়। আৰক্ষী বিষয়াই আপোনাৰ ফোনত যোগাযোগ কৰি ঠিকনা পৰীক্ষা কৰিব। কোনো নগদ ধন দিব নালাগে।'
+      },
+      {
+        q: 'নিশ্চিত সাক্ষাৎকাৰ কিমান বাৰ পুনৰ নিৰ্ধাৰণ কৰিব পাৰি?',
+        a: 'নিয়ম: মাচুল দিয়াৰ তাৰিখৰ পৰা ১২ মাহৰ ভিতৰত অতিৰিক্ত মাচুল অবিহনে ৩ বাৰ সাক্ষাৎকাৰ সলনি কৰিব পাৰি। কমেও ২৪ ঘণ্টা পূৰ্বে অনলাইনযোগে এইটো কৰিব লাগিব।'
+      },
+      {
+        q: 'সাক্ষাৎকাৰ পলম হ’লে বা বাতিল হ’লে মাচুল ঘূৰাই পোৱা যায়নে?',
+        a: 'মাচুলৰ বৈধতা: পৰিশোধ কৰা মাচুল ৩৬৫ দিনলৈকে বৈধ থাকে। পাছপ’ৰ্ট নিয়ম ১৯৮০ অনুসৰি চৰকাৰী মাচুল ঘূৰাই দিয়া নহয়।'
+      },
+      {
+        q: 'সাধাৰণ, চৰকাৰী আৰু কূটনৈতিক পাছপ’ৰ্টৰ মাজত কি পাৰ্থক্য আছে?',
+        a: 'শ্ৰেণীবিভাজন: • সাধাৰণ পাছপ’ৰ্ট (টাইপ P, নীলা কভাৰ): সাধাৰণ ভ্ৰমণৰ বাবে। • চৰকাৰী পাছপ’ৰ্ট (টাইপ S, বগা কভাৰ): চৰকাৰী দায়িত্ব পালনৰ বাবে। • কূটনৈতিক পাছপ’ৰ্ট (টাইপ D, মেৰুন কভাৰ): কূটনীতিবিদৰ বাবে।'
+      },
+      {
+        q: 'নাবালকৰ (১৮ বছৰৰ তলৰ) পাছপ’ৰ্টৰ নিয়ম আৰু সন্মতি কি?',
+        a: 'নাবালকৰ নিৰ্দেশনা: • বৈধতা: ৫ বছৰ বা ১৮ বছৰ বয়সলৈকে। • ৰেহাই: মূল মাচুলত ১০% ৰেহাই। • অভিভাৱকৰ সন্মতি: পিতৃ-মাতৃ দুয়োজনে এনেক্সাৰ D ত স্বাক্ষৰ কৰিব লাগিব।'
+      },
+      {
+        q: 'পাছপ’ৰ্ট হেৰালে বা নষ্ট হ’লে কি কৰিব লাগে?',
+        a: 'পদ্ধতি: ১. লগে লগে আৰক্ষী চকীত এজাহাৰ (FIR) দাখিল কৰক। ২. হেৰোৱা শ্ৰেণীৰ অধীনত পুনৰ জাৰীৰ বাবে অনলাইন আবেদন কৰক। ৩. এনেক্সাৰ F ৰ সৈতে শপতনামা দাখিল কৰক।'
+      }
+    ]
+  };
+
+  const currentQuestions = qDict[lang] || qDict.en || qDict.hi;
 
   const faqs = [
     {
       id: 1,
-      category: isKn ? 'ದಾಖಲೆಗಳು ಮತ್ತು ನಿಯಮಗಳು' : isGu ? 'દસ્તાવેજો અને નિયમો' : isHi ? 'दस्तावेज़ एवं नियम' : 'Documents & Rules',
-      question: isKn
-        ? 'ವಯಸ್ಕರಿಗೆ ಹೊಸ ಪಾಸ್‌ಪೋರ್ಟ್‌ಗಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಲು ಯಾವ ದಾಖಲೆಗಳು ಬೇಕು?'
-        : isGu ? 'પુખ્ત વયના વ્યક્તિ માટે નવા પાસપોર્ટ માટે કયા દસ્તાવેજો જરૂરી છે?'
-        : isHi ? 'वयस्क के नए पासपोर्ट हेतु कौन से दस्तावेज़ आवश्यक हैं?'
-        : 'What documents are required to apply for a Fresh Passport for an Adult?',
-      answer: isKn
-        ? `ಅರ್ಜಿದಾರರಿಗೆ ಕೇವಲ ಮೂರು ಮುಖ್ಯ ದಾಖಲೆಗಳು ಬೇಕಾಗುತ್ತವೆ:
-1. ಪ್ರಸ್ತುತ ವಸತಿ ವಿಳಾಸದ ಪುರಾವೆ: ಆಧಾರ್ ಕಾರ್ಡ್, ಫೋಟೋ ಹೊಂದಿರುವ ಸಕ್ರಿಯ ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್, ವಿದ್ಯುತ್/ನೀರು ಬಿಲ್ ಅಥವಾ ನೋಂದಾಯಿತ ಬಾಡಿಗೆ ಒಪ್ಪಂದ.
-2. ಹುಟ್ಟಿದ ದಿನಾಂಕದ ಪುರಾವೆ (DOB): ಜನನ ಪ್ರಮಾಣಪತ್ರ, ಆಧಾರ್ ಕಾರ್ಡ್, 10ನೇ ತರಗತಿ ಪ್ರಮಾಣಪತ್ರ ಅಥವಾ ಪ್ಯಾನ್ ಕಾರ್ಡ್.
-3. ನಾನ್-ಇಸಿಆರ್ ವರ್ಗದ ಪುರಾವೆ: 10ನೇ ತರಗತಿ ಮೆಟ್ರಿಕ್ಯುಲೇಶನ್ ಅಥವಾ ಪದವಿ ಪ್ರಮಾಣಪತ್ರ.
-ಮೂಲ ದಾಖಲೆಗಳೊಂದಿಗೆ ಒಂದು ಸ್ವಯಂ-ದೃಢೀಕರಿಸಿದ ನಕಲು ಪ್ರತಿಯನ್ನು PSK ನಲ್ಲಿ ಹಾಜರುಪಡಿಸಬೇಕು.`
-        : isGu ? `અરજદારોને ફક્ત ત્રણ મુખ્ય દસ્તાવેજોની જરૂર છે:
-1. રહેઠાણ સરનામાનો પુરાવો: આધાર કાર્ડ, ફોટો સાથેની સક્રિય બેંક પાસબુક, લાઈટ/પાણીનું બિલ.
-2. જન્મ તારીખનો પુરાવો: જન્મ પ્રમાણપત્ર, આધાર કાર્ડ, 10મું પ્રમાણપત્ર અથવા પાન કાર્ડ.
-3. નોન-ECR પુરાવો: 10મું ધોરણ પાસ પ્રમાણપત્ર.
-મૂળ દસ્તાવેજો સાથે સ્વ-પ્રમાણિત નકલ એપોઇન્ટમેન્ટના દિવસે PSK ખાતે રજૂ કરવી આવશ્યક છે.`
-        : `Applicants need only three core documents:
-1. Proof of Present Residential Address: Aadhaar Card, Active Bank Passbook with photograph, Electricity / Water bill (last 2 months), or Registered Rent Agreement.
-2. Proof of Date of Birth (DOB): Birth Certificate issued by municipal authority, Aadhaar Card, 10th Standard School Leaving Certificate, or PAN Card.
-3. Proof for Non-ECR Category: 10th standard matriculation pass certificate or degree from a recognized institution.
-Original documents along with one self-attested photocopy must be presented on your appointment day at the PSK.`,
-      keywords: 'documents address proof dob birth certificate aadhaar pan non-ecr 10th fresh adult ದಾಖಲೆ ವಿಳಾಸ'
+      category: categories[6] || 'Documents & Rules',
+      question: currentQuestions[0].q,
+      answer: currentQuestions[0].a,
+      keywords: 'documents address proof dob birth certificate aadhaar pan non-ecr 10th fresh adult'
     },
     {
       id: 2,
-      category: isKn ? 'ತತ್ಕಾಲ್ ಯೋಜನೆ' : isGu ? 'તત્કાલ યોજના' : isHi ? 'तत्काल योजना' : 'Tatkaal Scheme',
-      question: isKn
-        ? 'ತತ್ಕಾಲ್ ಯೋಜನೆಗೆ ಪ್ರಕ್ರಿಯೆ ಸಮಯ, ಹೆಚ್ಚುವರಿ ಶುಲ್ಕ ಮತ್ತು ನಿಯಮಗಳೇನು?'
-        : isGu ? 'તત્કાલ યોજના હેઠળ પ્રોસેસિંગ સમય, સરચાર્જ અને નિયમો શું છે?'
-        : isHi ? 'तत्काल योजना के तहत प्रसंस्करण समय, अधिभार और नियम क्या हैं?'
-        : 'What is the processing time, surcharge, and document rule for Tatkaal Scheme?',
-      answer: isKn
-        ? `ತತ್ಕಾಲ್ ಯೋಜನೆಯ ಪ್ರಮುಖ ನಿಯಮಗಳು:
-• ವೇಗದ ವಿತರಣೆ: ಪೊಲೀಸ್ ಪರಿಶೀಲನೆಗೆ ಕಾಯದೆ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ದಿನಾಂಕದಿಂದ 1 ರಿಂದ 3 ಕೆಲಸದ ದಿನಗಳಲ್ಲಿ ರವಾನೆ.
-• ಶುಲ್ಕ: ಸಾಮಾನ್ಯ ಅರ್ಜಿ ಶುಲ್ಕಕ್ಕಿಂತ ₹2,000 ಹೆಚ್ಚುವರಿ ಶುಲ್ಕ (36 ಪುಟಗಳ ಬುಕ್‌ಲೆಟ್‌ಗೆ ಒಟ್ಟು ₹3,500).
-• ಕಡ್ಡಾಯ ಗುರುತಿನ ಪುರಾವೆ: ಕನಿಷ್ಠ ಎರಡು ಪರಿಶೀಲಿಸಿದ ಸರ್ಕಾರಿ ದಾಖಲೆಗಳು (ಆಧಾರ್ + ಮತದಾರರ ಗುರುತಿನ ಚೀಟಿ ಅಥವಾ ಪ್ಯಾನ್ ಕಾರ್ಡ್).`
-        : `Key regulations under the Tatkaal Scheme:
-• Fast-Track Turnaround: Processed on high priority and dispatched within 1 to 3 working days from the appointment date without waiting for prior police verification.
-• Statutory Tariff: Additional surcharge of ₹2,000 applies over the normal application fee (Total ₹3,500 for a standard 36-page booklet).
-• Mandatory Identity Proofs: Applicants must produce at least two verified documents from the government schedule (e.g. Aadhaar Card + Voter ID or PAN Card).`,
-      keywords: 'tatkaal tatkal urgent emergency fast fee charge 2000 3500 surcharge days processing ತತ್ಕಾಲ್'
+      category: categories[2] || 'Tatkaal Scheme',
+      question: currentQuestions[1].q,
+      answer: currentQuestions[1].a,
+      keywords: 'tatkaal tatkal urgent emergency fast fee charge 2000 3500 surcharge days processing'
     },
     {
       id: 3,
-      category: isKn ? 'ಪೊಲೀಸ್ ಪರಿಶೀಲನೆ' : isGu ? 'પોલીસ ચકાસણી' : isHi ? 'पुलिस सत्यापन' : 'Police Verification',
-      question: isKn
-        ? 'ಪೊಲೀಸ್ ಪರಿಶೀಲನೆ ಹೇಗೆ ನಡೆಯುತ್ತದೆ ಮತ್ತು ನಾನು ಪೊಲೀಸ್ ಠಾಣೆಗೆ ಭೇಟಿ ನೀಡಬೇಕೇ?'
-        : isGu ? 'પોલીસ વેરિફિકેશન કેવી રીતે થાય છે અને શું મારે પોલીસ સ્ટેશન જવું પડે છે?'
-        : isHi ? 'पुलिस सत्यापन कैसे होता है और क्या मुझे थाने जाना पड़ेगा?'
-        : 'How is Police Verification conducted, and do I need to visit the police station?',
-      answer: isKn
-        ? `ಪೊಲೀಸ್ ಪರಿಶೀಲನೆ ಪ್ರಕ್ರಿಯೆ:
-• PSK ನಲ್ಲಿ ನಿಮ್ಮ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ನಂತರ ನಿಮ್ಮ ಫೈಲ್ ಅನ್ನು ಜಿಲ್ಲಾ ಪೊಲೀಸ್ ಅಧೀಕ್ಷಕರ ಕಚೇರಿಗೆ ಎಲೆಕ್ಟ್ರಾನಿಕ್ ಆಗಿ ಕಳುಹಿಸಲಾಗುತ್ತದೆ.
-• ಪರಿಶೀಲನಾ ಅಧಿಕಾರಿ ನಿಮ್ಮ ನೋಂದಾಯಿತ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಗೆ ಕರೆ ಮಾಡಿ ವಿಳಾಸ ಪರಿಶೀಲನೆ ನಡೆಸುತ್ತಾರೆ.
-• ಭೇಟಿ ನೀಡುವ ಅಧಿಕಾರಿಗೆ ಯಾವುದೇ ನಗದು ಶುಲ್ಕ ನೀಡಬೇಕಾಗಿಲ್ಲ. ಸ್ಪಷ್ಟವಾಗಿ ಕರೆಯದ ಹೊರತು ನೀವು ಪೊಲೀಸ್ ಠಾಣೆಗೆ ಭೇಟಿ ನೀಡುವ ಅಗತ್ಯವಿಲ್ಲ.`
-        : `Police Verification Process:
-• After your appointment at the PSK, your file is dispatched electronically to the District Superintendent of Police (SP Office).
-• A field police officer will contact you via your registered mobile number for physical address verification.
-• In cities enabled with the mPassport Police App, verification is done paperlessly and completed in under 5 days.
-• Note: No cash fee is required to be paid to the visiting police officer. You do not need to visit the police station unless explicitly summoned.`,
-      keywords: 'police verification pvp thana chowki inspector enquiry mpassport bribe cash fee ಪೊಲೀಸ್'
+      category: categories[3] || 'Police Verification',
+      question: currentQuestions[2].q,
+      answer: currentQuestions[2].a,
+      keywords: 'police verification pvp thana chowki inspector enquiry mpassport bribe cash fee'
     },
     {
       id: 4,
-      category: isKn ? 'ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್‌ಗಳು' : isGu ? 'એપોઇન્ટમેન્ટ્સ' : isHi ? 'अपॉइंटमेंट' : 'Appointments & Slots',
-      question: isKn
-        ? 'ದೃಢಪಡಿಸಿದ ಪಾಸ್‌ಪೋರ್ಟ್ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಅನ್ನು ಎಷ್ಟು ಬಾರಿ ಮರುಹೊಂದಿಸಬಹುದು?'
-        : isGu ? 'કન્ફર્મ થયેલ પાસપોર્ટ એપોઇન્ટમેન્ટ કેટલી વાર રીશેડ્યુલ કરી શકાય?'
-        : isHi ? 'पुष्टि किए गए अपॉइंटमेंट को कितनी बार पुनर्निर्धारित किया जा सकता है?'
-        : 'How many times can I reschedule my confirmed passport appointment?',
-      answer: isKn
-        ? `ಮರುಹೊಂದಿಸುವ ನಿಯಮಗಳು:
-• ಅರ್ಜಿದಾರರು ಯಾವುದೇ ಹೆಚ್ಚುವರಿ ಶುಲ್ಕ ಪಾವತಿಸದೆ ಶುಲ್ಕ ಪಾವತಿ ದಿನಾಂಕದಿಂದ 12 ತಿಂಗಳೊಳಗೆ 3 ಬಾರಿ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಮರುಹೊಂದಿಸಬಹುದು ಅಥವಾ ರದ್ದುಗೊಳಿಸಬಹುದು.
-• ಬುಕ್ ಮಾಡಿದ ಸಮಯಕ್ಕೆ ಕನಿಷ್ಠ 24 ಗಂಟೆಗಳ ಮೊದಲು ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಮರುಹೊಂದಿಸಬೇಕು.`
-        : `Rescheduling Rules:
-• Applicants are entitled to reschedule or cancel a confirmed appointment up to 3 times within 12 months from the original fee payment date without paying any extra charges.
-• Rescheduling must be completed online at least 24 hours prior to the original booked slot time.`,
-      keywords: 'reschedule cancel appointment slot postpone date change 3 times 12 months ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್'
+      category: categories[5] || 'Appointments & Slots',
+      question: currentQuestions[3].q,
+      answer: currentQuestions[3].a,
+      keywords: 'reschedule cancel appointment slot postpone date change 3 times 12 months'
     },
     {
       id: 5,
-      category: isKn ? 'ಶುಲ್ಕ ಮತ್ತು ಪಾವತಿ' : isGu ? 'ફી અને ચુકવણી' : isHi ? 'शुल्क एवं भुगतान' : 'Fees & Payment',
-      question: isKn
-        ? 'ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ರದ್ದಾದರೆ ಅಥವಾ ವಿಳಂಬವಾದರೆ ಶುಲ್ಕ ಮರುಪಾವತಿಸಲಾಗುತ್ತದೆಯೇ?'
-        : isGu ? 'જો મારી એપોઇન્ટમેન્ટ વિલંબિત કે રદ થાય તો શું ફી રિફંડ મળે?'
-        : isHi ? 'क्या अपॉइंटमेंट रद्द होने पर पासपोर्ट शुल्क वापस मिलता है?'
-        : 'Is the passport fee refundable if my appointment is delayed or cancelled?',
-      answer: isKn
-        ? `ಶುಲ್ಕ ಸಿಂಧುತ್ವ ಮತ್ತು ಮರುಪಾವತಿ ನಿಯಮಗಳು:
-• ಪಾವತಿಸಿದ ಅರ್ಜಿ ಶುಲ್ಕವು ಪಾವತಿ ರಶೀದಿಯ ದಿನಾಂಕದಿಂದ 365 ದಿನಗಳವರೆಗೆ (ಒಂದು ವರ್ಷ) ಮಾನ್ಯವಾಗಿರುತ್ತದೆ.
-• ಈ 1 ವರ್ಷದ ಅವಧಿಯಲ್ಲಿ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಮರುಹೊಂದಿಸಬಹುದು.
-• ಪಾಸ್‌ಪೋರ್ಟ್ ನಿಯಮಗಳು 1980 ರ ನಿಯಮ 12 ರ ಪ್ರಕಾರ, ಸರ್ಕಾರಿ ಶುಲ್ಕವನ್ನು ಮರುಪಾವತಿಸಲಾಗುವುದಿಲ್ಲ (ತಾಂತ್ರಿಕ ಬ್ಯಾಂಕಿಂಗ್ ದೋಷದ ಸಂದರ್ಭದಲ್ಲಿ ಹೊರತುಪಡಿಸಿ).`
-        : `Fee Validity & Refund Policy:
-• Application fees paid remain valid for 365 days (one full calendar year) from the payment receipt date.
-• You can reuse the payment receipt to book appointments within this 1-year window.
-• Once paid, statutory government fees are non-refundable as per Rule 12 of the Passports Rules, 1980, unless a duplicate transaction occurred due to technical banking failure.`,
-      keywords: 'fee refund money back cancel payment sbi epay validity 1 year 365 days ಶುಲ್ಕ ಮರುಪಾವತಿ'
+      category: categories[4] || 'Fees & Payment',
+      question: currentQuestions[4].q,
+      answer: currentQuestions[4].a,
+      keywords: 'fee refund money back cancel payment sbi epay validity 1 year 365 days'
     },
     {
       id: 6,
-      category: isKn ? 'ಅರ್ಜಿ ಮತ್ತು ಫಾರ್ಮ್' : isGu ? 'અરજી અને ફોર્મ' : isHi ? 'आवेदन एवं फॉर्म' : 'Application & Form',
-      question: isKn
-        ? 'ಸಾಮಾನ್ಯ, ಅಧಿಕೃತ ಮತ್ತು ರಾಜತಾಂತ್ರಿಕ ಪಾಸ್‌ಪೋರ್ಟ್‌ಗಳ ನಡುವಿನ ವ್ಯತ್ಯಾಸವೇನು?'
-        : isGu ? 'સામાન્ય, સત્તાવાર અને રાજદ્વારી પાસપોર્ટ વચ્ચે શું તફાવત છે?'
-        : isHi ? 'साधारण, आधिकारिक और राजनयिक पासपोर्ट में क्या अंतर है?'
-        : 'What is the difference between Ordinary, Official, and Diplomatic Passports?',
-      answer: isKn
-        ? `ಭಾರತೀಯ ಪಾಸ್‌ಪೋರ್ಟ್‌ಗಳ ವರ್ಗೀಕರಣ:
-• ಸಾಮಾನ್ಯ ಪಾಸ್‌ಪೋರ್ಟ್ (ಟೈಪ್ ಪಿ, ನೀಲಿ ಕವರ್): ಸಾಮಾನ್ಯ ನಾಗರಿಕರಿಗೆ ವೈಯಕ್ತಿಕ, ವ್ಯಾಪಾರ, ರಜೆ ಅಥವಾ ವಿದ್ಯಾಭ್ಯಾಸಕ್ಕಾಗಿ ನೀಡಲಾಗುತ್ತದೆ.
-• ಅಧಿಕೃತ ಪಾಸ್‌ಪೋರ್ಟ್ (ಟೈಪ್ ಎಸ್, ಬಿಳಿ ಕವರ್): ಸರ್ಕಾರಿ ಕರ್ತವ್ಯದ ಮೇರೆಗೆ ವಿದೇಶಕ್ಕೆ ಪ್ರಯಾಣಿಸುವ ಸರ್ಕಾರಿ ಅಧಿಕಾರಿಗಳಿಗೆ ನೀಡಲಾಗುತ್ತದೆ.
-• ರಾಜತಾಂತ್ರಿಕ ಪಾಸ್‌ಪೋರ್ಟ್ (ಟೈಪ್ ಡಿ, ಮೆರೂನ್ ಕವರ್): ರಾಜತಾಂತ್ರಿಕರು ಮತ್ತು ಸಚಿವರಿಗೆ ರಾಜತಾಂತ್ರಿಕ ಕಾರ್ಯಗಳಿಗಾಗಿ ನವದೆಹಲಿಯ CPV ವಿಭಾಗದಿಂದ ನೀಡಲಾಗುತ್ತದೆ.`
-        : `Classification of Indian Passports:
-• Ordinary Passport (Type P, Deep Navy Blue Cover): Issued to general citizens for personal travel, business, vacation, or education.
-• Official Passport (Type S, White Cover): Issued to designated government officials travelling on official sovereign state duty.
-• Diplomatic Passport (Type D, Maroon Cover): Issued to diplomats and ministers through CPV Division, New Delhi.`,
-      keywords: 'types blue white maroon official diplomatic ordinary passport p s d cpv delhi ಪಾಸ್‌ಪೋರ್ಟ್ ಪ್ರಕಾರಗಳು'
+      category: categories[1] || 'Application & Form',
+      question: currentQuestions[5].q,
+      answer: currentQuestions[5].a,
+      keywords: 'types blue white maroon official diplomatic ordinary passport p s d cpv delhi'
     },
     {
       id: 7,
-      category: isKn ? 'ದಾಖಲೆಗಳು ಮತ್ತು ನಿಯಮಗಳು' : isGu ? 'દસ્તાવેજો અને નિયમો' : isHi ? 'दस्तावेज़ एवं नियम' : 'Documents & Rules',
-      question: isKn
-        ? 'ಅಪ್ರಾಪ್ತ ವಯಸ್ಕರ (18 ವರ್ಷದೊಳಗಿನ) ಪಾಸ್‌ಪೋರ್ಟ್‌ಗೆ ನಿಯಮಗಳು ಮತ್ತು ಸಮ್ಮತಿ ಯಾವುದು?'
-        : isGu ? 'સગીર વયના બાળકોના પાસપોર્ટ માટે કયા નિયમો અને સંમતિ જરૂરી છે?'
-        : isHi ? 'नाबालिगों (18 वर्ष से कम) के पासपोर्ट हेतु क्या नियम व सहमति आवश्यक है?'
-        : 'What are the rules and consent requirements for Minor Passports (Under 18)?',
-      answer: isKn
-        ? `ಅಪ್ರಾಪ್ತರ ಪಾಸ್‌ಪೋರ್ಟ್ ಮಾರ್ಗಸೂಚಿಗಳು:
-• ಸಿಂಧುತ್ವ: 5 ವರ್ಷಗಳವರೆಗೆ ಅಥವಾ ಮಗುವಿಗೆ 18 ವರ್ಷ ತುಂಬುವವರೆಗೆ, ಯಾವುದು ಮೊದಲೋ ಅದು.
-• ರಿಯಾಯಿತಿ: ಮೂಲ ಶುಲ್ಕದಲ್ಲಿ 10% ಶಾಸನಬದ್ಧ ರಿಯಾಯಿತಿ ಅನ್ವಯಿಸುತ್ತದೆ.
-• ಪೋಷಕರ ಸಮ್ಮತಿ: ಇಬ್ಬರೂ ಪೋಷಕರು ಅನುಬಂಧ 'D' ಗೆ ಸಹಿ ಮಾಡಬೇಕು.
-• ಜೊತೆಯಲ್ಲಿ ಬರುವುದು: ಪೋಷಕರಲ್ಲಿ ಒಬ್ಬರು ತಮ್ಮ ಮೂಲ ಪಾಸ್‌ಪೋರ್ಟ್‌ನೊಂದಿಗೆ ಮಗುವಿನ ಜೊತೆಗೆ PSK ಗೆ ಬರಬೇಕು.`
-        : `Minors Passport Guidelines:
-• Validity: Valid for 5 years or until the child turns 18 years of age, whichever is earlier.
-• Concession: 10% statutory concession applies to base fees.
-• Parental Consent: Both parents must sign Annexure 'D'.
-• Accompaniment: Either parent must accompany the minor with their original passport to the PSK.`,
-      keywords: 'minor child baby kid son daughter under 18 annexure d consent 5 years ಅಪ್ರಾಪ್ತ ಮಕ್ಕಳು'
+      category: categories[6] || 'Documents & Rules',
+      question: currentQuestions[6].q,
+      answer: currentQuestions[6].a,
+      keywords: 'minor child baby kid son daughter under 18 annexure d consent 5 years'
     },
     {
       id: 8,
-      category: isKn ? 'ಅರ್ಜಿ ಮತ್ತು ಫಾರ್ಮ್' : isGu ? 'અરજી અને ફોર્મ' : isHi ? 'आवेदन एवं फॉर्म' : 'Application & Form',
-      question: isKn
-        ? 'ಪಾಸ್‌ಪೋರ್ಟ್ ಕಳೆದುಹೋದರೆ ಅಥವಾ ಹಾನಿಗೊಳಗಾದರೆ ನಾನು ಏನು ಮಾಡಬೇಕು?'
-        : isGu ? 'જો મારો પાસપોર્ટ ખોવાઈ જાય અથવા ડેમેજ થાય તો શું કરવું?'
-        : isHi ? 'यदि मेरा पासपोर्ट खो जाए या क्षतिग्रस्त हो जाए तो मुझे क्या करना चाहिए?'
-        : 'What should I do if my passport is lost, stolen, or damaged?',
-      answer: isKn
-        ? `ಕಳೆದುಹೋದ / ಹಾನಿಗೊಳಗಾದ ಪಾಸ್‌ಪೋರ್ಟ್ ಪ್ರಕ್ರಿಯೆ:
-1. ತಕ್ಷಣವೇ ಹತ್ತಿರದ ಪೊಲೀಸ್ ಠಾಣೆಯಲ್ಲಿ ಅಥವಾ ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ದೂರು (FIR) ದಾಖಲಿಸಿ.
-2. 'ಕಳೆದುಹೋದ / ಹಾನಿಗೊಳಗಾದ ಪಾಸ್‌ಪೋರ್ಟ್' ವರ್ಗದ ಅಡಿಯಲ್ಲಿ ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ 'ಪಾಸ್‌ಪೋರ್ಟ್ ಮರು-ವಿತರಣೆ'ಗಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.
-3. ಅನುಬಂಧ 'F' ಜೊತೆಗೆ ನಷ್ಟದ ವಿವರಗಳ ಅಫಿಡವಿಟ್ ಸಲ್ಲಿಸಿ.`
-        : `Lost / Damaged Passport Procedure:
-1. Immediately lodge a police report (FIR) at the local police station or police portal.
-2. Apply online for 'Re-issue of Passport' under category 'Lost / Damaged Passport'.
-3. Submit an affidavit detailing how the loss occurred along with Annexure 'F'.`,
-      keywords: 'lost stolen damaged torn water theft misplaced fir affidavit replacement fee ಕಳೆದುಹೋದ'
+      category: categories[1] || 'Application & Form',
+      question: currentQuestions[7].q,
+      answer: currentQuestions[7].a,
+      keywords: 'lost stolen damaged torn water theft misplaced fir affidavit replacement fee'
     }
   ];
 

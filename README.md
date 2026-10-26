@@ -2,8 +2,6 @@
 
 ## UI/UX Mini Project
 **Project Team**:
-- Vaibhavi Aochar — 202401040342
-- Dhruvi Raju Nanotkar — 202401040359
 - Chaitrali Kamble — 202401040145
 - Shravani Deshmukh — 202401040155
 
