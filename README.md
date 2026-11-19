@@ -2,8 +2,9 @@
 
 ## UI/UX Mini Project
 **Project Team**:
+
 - Chaitrali Kamble — 202401040145
-- Shravani Deshmukh — 202401040155
+
 
 ## Overview
 A comprehensive redesign of the official Government of India **Passport Seva Portal**, resolving 15 visual/interface (UI) flaws and 15 interaction/experience (UX) flaws identified in Assignment 01.
