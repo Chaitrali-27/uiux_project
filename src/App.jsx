@@ -16,6 +16,7 @@ import { CitizenChatbot } from './components/CitizenChatbot';
 import { SecurityTrustModal } from './components/SecurityTrustModal';
 import { LiveTrackerModal } from './components/LiveTrackerModal';
 import { Footer } from './components/Footer';
+import { FlawInspector } from './components/FlawInspector';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState('home');
@@ -26,12 +27,25 @@ export default function App() {
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authMode, setAuthMode] = useState('register');
   const [wizardOpen, setWizardOpen] = useState(false);
+  const [selectedServiceId, setSelectedServiceId] = useState('fresh');
   const [searchOpen, setSearchOpen] = useState(false);
   const [chatbotOpen, setChatbotOpen] = useState(false);
   const [securityModalOpen, setSecurityModalOpen] = useState(false);
   const [trackerModalOpen, setTrackerModalOpen] = useState(false);
   const [trackedFileNo, setTrackedFileNo] = useState('BOM069123456726');
   const [userSession, setUserSession] = useState(null);
+  const [flawInspectorOpen, setFlawInspectorOpen] = useState(false);
+  const [pendingAction, setPendingAction] = useState(null);
+
+  const handleProtectedAction = (action) => {
+    if (!userSession) {
+      setPendingAction(() => action);
+      setAuthMode('login');
+      setAuthModalOpen(true);
+      return;
+    }
+    action();
+  };
 
   const handleNavigation = (targetId) => {
     if (targetId === 'login') {
@@ -45,6 +59,7 @@ export default function App() {
       return;
     }
     if (targetId === 'apply-wizard') {
+      setSelectedServiceId('fresh');
       setWizardOpen(true);
       return;
     }
@@ -89,6 +104,7 @@ export default function App() {
         userSession={userSession}
         onOpenSearch={() => setSearchOpen(true)}
         onOpenSecurityTrust={() => setSecurityModalOpen(true)}
+        onOpenFlawInspector={() => setFlawInspectorOpen(true)}
       />
 
       {/* Main View: Public Portal vs Logged-In Dashboard */}
@@ -109,8 +125,11 @@ export default function App() {
           <div id="hero">
             <Hero
               language={language}
-              onApplyClick={() => setWizardOpen(true)}
-              onTrackClick={handleTrackFile}
+              userSession={userSession}
+              onLoginClick={() => { setAuthMode('login'); setAuthModalOpen(true); }}
+              onRegisterClick={() => { setAuthMode('register'); setAuthModalOpen(true); }}
+              onApplyClick={() => handleProtectedAction(() => { setSelectedServiceId('fresh'); setWizardOpen(true); })}
+              onTrackClick={(fileNumber) => handleProtectedAction(() => handleTrackFile(fileNumber))}
               onCheckSlotsClick={() => handleNavigation('appointment')}
               onDocAdvisorClick={() => handleNavigation('document-advisor')}
               onFeeClick={() => handleNavigation('fee-calculator')}
@@ -122,12 +141,18 @@ export default function App() {
 
           {/* Interactive Document Advisor Engine */}
           <div id="document-advisor">
-            <DocumentAdvisor language={language} onStartApplication={() => setWizardOpen(true)} />
+            <DocumentAdvisor 
+              language={language} 
+              onStartApplication={() => handleProtectedAction(() => { setSelectedServiceId('fresh'); setWizardOpen(true); })} 
+            />
           </div>
 
           {/* Citizen Services */}
           <div id="services">
-            <ServicesSection language={language} onSelectService={() => setWizardOpen(true)} />
+            <ServicesSection 
+              language={language} 
+              onSelectService={(serviceId) => handleProtectedAction(() => { setSelectedServiceId(serviceId || 'fresh'); setWizardOpen(true); })} 
+            />
           </div>
 
           {/* Statistics Section */}
@@ -137,12 +162,18 @@ export default function App() {
 
           {/* Appointment Availability Finder (Table & Heatmap View) */}
           <div id="appointment">
-            <AppointmentChecker language={language} onBookSlot={() => setWizardOpen(true)} />
+            <AppointmentChecker 
+              language={language} 
+              onBookSlot={() => handleProtectedAction(() => { setSelectedServiceId('fresh'); setWizardOpen(true); })} 
+            />
           </div>
 
           {/* Interactive Fee Calculator */}
           <div id="fee-calculator">
-            <FeeCalculator language={language} onApplyNow={() => setWizardOpen(true)} />
+            <FeeCalculator 
+              language={language} 
+              onApplyNow={() => handleProtectedAction(() => { setSelectedServiceId('fresh'); setWizardOpen(true); })} 
+            />
           </div>
 
           {/* Centralized FAQ Knowledge Base */}
@@ -164,13 +195,21 @@ export default function App() {
         initialMode={authMode}
         onSuccess={(user) => {
           setUserSession(user);
-          setCurrentTab('dashboard');
+          setAuthModalOpen(false);
+          if (pendingAction) {
+            const act = pendingAction;
+            setPendingAction(null);
+            act();
+          } else {
+            setCurrentTab('dashboard');
+          }
         }}
       />
 
       {/* Multi-Step Application Wizard with Draft Auto-Save */}
       <ApplicationWizard
         isOpen={wizardOpen}
+        initialService={selectedServiceId}
         onClose={() => setWizardOpen(false)}
         onFinish={() => {
           alert('Application successfully initiated! Reference number generated: BOM069123456726. Redirecting to your dashboard.');
@@ -200,6 +239,53 @@ export default function App() {
         isOpen={securityModalOpen}
         onClose={() => setSecurityModalOpen(false)}
       />
+
+      {/* UI/UX Flaws & Solutions Inspector Modal */}
+      <FlawInspector
+        isOpen={flawInspectorOpen}
+        onClose={() => setFlawInspectorOpen(false)}
+        onSelectFlaw={(targetId) => {
+          handleNavigation(targetId);
+          setFlawInspectorOpen(false);
+        }}
+      />
+
+      {/* Floating Flaw Inspector Trigger Badge (Bottom Left) */}
+      <button
+        onClick={() => setFlawInspectorOpen(true)}
+        style={{
+          position: 'fixed',
+          bottom: '24px',
+          left: '24px',
+          background: 'linear-gradient(135deg, #041021 0%, #0A2540 100%)',
+          color: '#FDE047',
+          border: '2px solid #C29329',
+          borderRadius: '9999px',
+          padding: '11px 20px',
+          boxShadow: '0 6px 20px rgba(0, 0, 0, 0.35)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '9px',
+          cursor: 'pointer',
+          zIndex: 1000,
+          fontSize: '14px',
+          fontWeight: 800,
+          fontFamily: 'var(--font-serif)',
+          transition: 'all 0.2s ease'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-2px)';
+          e.currentTarget.style.boxShadow = '0 8px 24px rgba(194, 147, 41, 0.45)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.35)';
+        }}
+        title="Open Assignment 1 & 2 UI Flaws and Solutions Audit"
+      >
+        <span style={{ fontSize: '16px' }}>⭐</span>
+        <span>UI Flaws Audit (UI-01 to UI-15)</span>
+      </button>
 
       {/* Live 5-Stage Dispatch Tracker Modal */}
       <LiveTrackerModal

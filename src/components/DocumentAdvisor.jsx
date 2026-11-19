@@ -193,10 +193,62 @@ export const DocumentAdvisor = ({ language = 'en', onStartApplication }) => {
   const [serviceReason, setServiceReason] = useState('fresh'); // fresh, reissue, lost
   const [educationLevel, setEducationLevel] = useState('graduate'); // graduate, 10th_pass, below_10th
 
-  const { labels, docs: documentList } = getLocalizedDocuments(language, applicantType, serviceReason);
+  const { labels, docs: documentList } = getLocalizedDocuments(language, applicantType, serviceReason, educationLevel);
 
   const translatedType = applicantType === 'adult' ? labels.adult : applicantType === 'minor' ? labels.minor : labels.senior;
   const translatedReason = serviceReason === 'fresh' ? labels.fresh : serviceReason === 'reissue' ? labels.reissue : labels.lost;
+
+  const handleDownloadChecklist = () => {
+    const title = `PASSPORT SEVA - OFFICIAL DOCUMENT CHECKLIST`;
+    const subTitle = `Ministry of External Affairs, Government of India`;
+    const genDate = new Date().toLocaleString();
+    
+    let content = `==========================================================\n`;
+    content += ` ${title}\n`;
+    content += ` ${subTitle}\n`;
+    content += ` Generated On: ${genDate}\n`;
+    content += `==========================================================\n\n`;
+    content += `APPLICANT PROFILE:\n`;
+    content += ` • Category: ${translatedType.toUpperCase()}\n`;
+    content += ` • Service Type: ${translatedReason.toUpperCase()}\n`;
+    content += ` • Education / ECR Status: ${educationLevel.toUpperCase()}\n\n`;
+    content += `----------------------------------------------------------\n`;
+    content += `REQUIRED DOCUMENTARY PROOFS (MANDATORY & ACCEPTABLE OPTIONS):\n`;
+    content += `----------------------------------------------------------\n\n`;
+
+    documentList.forEach((doc, idx) => {
+      content += `[${idx + 1}] ${doc.category.toUpperCase()} ${doc.mandatory ? '(MANDATORY)' : ''}\n`;
+      if (doc.options && doc.options.length > 0) {
+        doc.options.forEach((opt) => {
+          content += `    [ ] ${opt}\n`;
+        });
+      } else if (doc.note) {
+        content += `    Note: ${doc.note}\n`;
+      }
+      content += `\n`;
+    });
+
+    content += `----------------------------------------------------------\n`;
+    content += `IMPORTANT OFFICIAL INSTRUCTIONS FOR APPOINTMENT AT PSK/POPSK:\n`;
+    content += ` 1. Carry all ORIGINAL documents for physical verification by the Granting Officer.\n`;
+    content += ` 2. Carry at least ONE set of self-attested black & white / colour photocopies of all originals.\n`;
+    content += ` 3. Ensure details (Name, Father's Name, DOB) match verbatim across all submitted proofs.\n`;
+    content += ` 4. In case of discrepancies in spelling, furnish an official Gazette Notification or Sworn Affidavit.\n`;
+    content += `==========================================================\n`;
+    content += ` National Passport Seva Call Centre: 1800-258-1800 (Toll Free)\n`;
+    content += ` Official Portal: https://passportindia.gov.in\n`;
+    content += `==========================================================\n`;
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `Passport_Checklist_${applicantType}_${serviceReason}.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <section className="section" id="document-advisor" style={{ backgroundColor: '#FFFFFF', borderTop: '1px solid #E2E8F0', fontFamily: 'var(--font-serif)' }}>
@@ -358,7 +410,8 @@ export const DocumentAdvisor = ({ language = 'en', onStartApplication }) => {
               <button 
                 type="button"
                 className="btn btn-outline btn-sm"
-                onClick={() => alert('Official Document Checklist downloaded for your selected category.')}
+                onClick={handleDownloadChecklist}
+                title="Download formatted official checklist to your device"
               >
                 📄 {t.downloadPdfBtn}
               </button>

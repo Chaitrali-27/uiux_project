@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PhoneIcon, GlobeIcon, SearchIcon, UserIcon, ShieldIcon, ChevronDownIcon, XIcon } from './Icons';
 import { getTranslation, languagesList } from '../utils/translations';
+import { getLocalizedServices } from '../utils/localizedContent';
 
 export const Header = ({ 
   currentTab, 
@@ -11,7 +12,8 @@ export const Header = ({
   setFontSize,
   userSession,
   onOpenSearch,
-  onOpenSecurityTrust
+  onOpenSecurityTrust,
+  onOpenFlawInspector
 }) => {
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
@@ -249,24 +251,22 @@ export const Header = ({
 
             <div>
               <h1 style={{
-                fontSize: '20px',
+                fontSize: '24px',
                 fontWeight: 800,
                 color: 'var(--gov-navy)',
                 margin: 0,
-                lineHeight: 1.15,
-                textTransform: 'uppercase'
+                lineHeight: 1.18,
+                letterSpacing: '-0.01em'
               }}>
-                {t.brandTitle} <span style={{ color: 'var(--gov-gold)', fontSize: '14px' }}>• भारत</span>
+                {t.brandTitle} <span style={{ color: 'var(--gov-gold)', fontSize: '16px', fontWeight: 700 }}>• भारत</span>
               </h1>
               <p style={{
-                fontSize: '11px',
-                color: '#64748B',
-                margin: '2px 0 0 0',
+                fontSize: '13.5px',
+                color: '#475569',
+                margin: '3px 0 0 0',
                 fontWeight: 600,
-                maxWidth: '260px',
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis'
+                maxWidth: '460px',
+                lineHeight: 1.3
               }}>
                 {t.brandSubtitle}
               </p>
@@ -279,7 +279,7 @@ export const Header = ({
               <button
                 className={`nav-link ${currentTab === 'home' ? 'active' : ''}`}
                 onClick={() => handleNavClick('home')}
-                style={{ padding: '8px 12px', fontSize: '13.5px', fontWeight: currentTab === 'home' ? 700 : 600, borderRadius: '6px' }}
+                style={{ padding: '10px 16px', fontSize: '15.5px', fontWeight: currentTab === 'home' ? 700 : 600, borderRadius: '8px' }}
               >
                 {t.navHome}
               </button>
@@ -293,7 +293,7 @@ export const Header = ({
                   setServicesDropdownOpen(!servicesDropdownOpen);
                   setToolsDropdownOpen(false);
                 }}
-                style={{ padding: '8px 12px', fontSize: '13.5px', fontWeight: currentTab === 'services' ? 700 : 600, borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '4px' }}
+                style={{ padding: '10px 16px', fontSize: '15.5px', fontWeight: currentTab === 'services' ? 700 : 600, borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '5px' }}
               >
                 <span>{t.navServices}</span>
                 <ChevronDownIcon className="w-3.5 h-3.5" />
@@ -324,7 +324,7 @@ export const Header = ({
                         border: 'none',
                         background: 'transparent',
                         color: 'var(--gov-navy)',
-                        fontSize: '13px',
+                        fontSize: '14.5px',
                         fontWeight: 600,
                         borderRadius: '6px',
                         cursor: 'pointer',
@@ -348,7 +348,7 @@ export const Header = ({
                   setToolsDropdownOpen(!toolsDropdownOpen);
                   setServicesDropdownOpen(false);
                 }}
-                style={{ padding: '8px 12px', fontSize: '13.5px', fontWeight: 600, borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '4px' }}
+                style={{ padding: '10px 16px', fontSize: '15.5px', fontWeight: 600, borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '5px' }}
               >
                 <span>{{
     en: 'Citizen Tools',
@@ -392,7 +392,7 @@ export const Header = ({
                         border: 'none',
                         background: 'transparent',
                         color: 'var(--gov-navy)',
-                        fontSize: '13px',
+                        fontSize: '14.5px',
                         fontWeight: 600,
                         borderRadius: '6px',
                         cursor: 'pointer',
@@ -412,7 +412,7 @@ export const Header = ({
               <button
                 className={`nav-link ${currentTab === 'faq' ? 'active' : ''}`}
                 onClick={() => handleNavClick('faq')}
-                style={{ padding: '8px 12px', fontSize: '13.5px', fontWeight: currentTab === 'faq' ? 700 : 600, borderRadius: '6px' }}
+                style={{ padding: '10px 16px', fontSize: '15.5px', fontWeight: currentTab === 'faq' ? 700 : 600, borderRadius: '8px' }}
               >
                 {t.navFaq}
               </button>
@@ -431,9 +431,9 @@ export const Header = ({
                 background: '#F8FAFC',
                 border: '1px solid var(--border-medium)',
                 borderRadius: '8px',
-                padding: '6px 12px',
-                color: '#475569',
-                fontSize: '12.5px',
+                padding: '8px 14px',
+                color: '#334155',
+                fontSize: '14.5px',
                 cursor: 'pointer',
                 fontFamily: 'var(--font-serif)'
               }}
@@ -451,7 +451,7 @@ export const Header = ({
                 <button 
                   className="btn btn-outline btn-sm"
                   onClick={() => handleNavClick('login')}
-                  style={{ fontWeight: 700, padding: '7px 12px', fontSize: '12.5px' }}
+                  style={{ fontWeight: 700, padding: '8px 16px', fontSize: '14.5px' }}
                 >
                   <UserIcon className="w-3.5 h-3.5" />
                   <span>{t.login}</span>
@@ -459,7 +459,7 @@ export const Header = ({
                 <button 
                   className="btn btn-navy btn-sm"
                   onClick={() => handleNavClick('register')}
-                  style={{ fontWeight: 700, padding: '7px 14px', fontSize: '12.5px' }}
+                  style={{ fontWeight: 700, padding: '9px 18px', fontSize: '15px' }}
                 >
                   <span>{t.register}</span>
                 </button>

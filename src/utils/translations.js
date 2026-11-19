@@ -59,6 +59,17 @@ export const translations = {
     stepperVerified: 'Verified',
     stepperDispatched: 'Dispatched',
 
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'Citizen Portal Access',
+    portalAccessBadge: 'Official Passport Seva Services',
+    portalAccessDesc: 'Please log in to your registered citizen account to track live application progress, book appointment slots, or submit a new passport application.',
+    portalLoginBtn: 'Log In to Track & Apply',
+    portalRegisterBtn: 'Register New Citizen Account',
+    portalAuthWhyTitle: 'Why Authentication is Required:',
+    portalAuthWhy1: 'Application tracking is strictly mapped to verified citizen identity',
+    portalAuthWhy2: 'Instant SpeedPost India Post dispatch status upon login',
+    portalAuthWhy3: 'Safe storage of documents, payment challans, and appointment receipts',
+
     // Announcements
     announcementTag: 'Official Circulars',
     announcementTitle: 'Public Notices & Service Advisories',
@@ -163,6 +174,17 @@ export const translations = {
     stepperBiometrics: 'બાયોમેટ્રિક્સ',
     stepperVerified: 'વેરિફાઇડ',
     stepperDispatched: 'ડિસ્પેચ થયેલ',
+
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'નાગરિક પોર્ટલ ઍક્સેસ',
+    portalAccessBadge: 'સત્તાવાર પાસપોર્ટ સેવાઓ',
+    portalAccessDesc: 'લાઈવ અરજી પ્રગતિ ટ્રેક કરવા, એપોઇન્ટમેન્ટ સ્લોટ બુક કરવા અથવા નવી પાસપોર્ટ અરજી સબમિટ કરવા માટે કૃપા કરીને તમારા નોંધાયેલા એકાઉન્ટમાં લોગ ઇન કરો.',
+    portalLoginBtn: 'ટ્રેક અને અરજી કરવા લોગ ઇન કરો',
+    portalRegisterBtn: 'નવું નાગરિક એકાઉન્ટ નોંધાવો',
+    portalAuthWhyTitle: 'પ્રમાણીકરણ શા માટે જરૂરી છે:',
+    portalAuthWhy1: 'અરજી ટ્રેકિંગ ચકાસાયેલ નાગરિક ઓળખ સાથે જોડાયેલ છે',
+    portalAuthWhy2: 'લોગ ઇન થતાં જ તાત્કાલિક સ્પીડપોસ્ટ ડિસ્પેચ સ્થિતિ',
+    portalAuthWhy3: 'દસ્તાવેજો, ફી ચલાન અને એપોઇન્ટમેન્ટ પાવતીઓનો સુરક્ષિત સંગ્રહ',
 
     // Announcements
     announcementTag: 'સત્તાવાર પરિપત્રો',
@@ -269,6 +291,17 @@ export const translations = {
     stepperVerified: 'सत्यापित',
     stepperDispatched: 'प्रेषित',
 
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'नागरिक पोर्टल एक्सेस',
+    portalAccessBadge: 'आधिकारिक पासपोर्ट सेवा',
+    portalAccessDesc: 'लाइव आवेदन स्थिति ट्रैक करने, अपॉइंटमेंट स्लॉट बुक करने, या नया पासपोर्ट आवेदन जमा करने के लिए कृपया अपने पंजीकृत नागरिक खाते में लॉगिन करें।',
+    portalLoginBtn: 'ट्रैक एवं आवेदन हेतु लॉगिन करें',
+    portalRegisterBtn: 'नया नागरिक खाता पंजीकृत करें',
+    portalAuthWhyTitle: 'प्रमाणीकरण क्यों आवश्यक है:',
+    portalAuthWhy1: 'आवेदन ट्रैकिंग केवल सत्यापित नागरिक पहचान से जुड़ी है',
+    portalAuthWhy2: 'लॉगिन करते ही त्वरित स्पीड पोस्ट डिस्पैच स्थिति',
+    portalAuthWhy3: 'दस्तावेजों, भुगतान चालान और रसीदों का सुरक्षित भंडारण',
+
     // Announcements
     announcementTag: 'आधिकारिक परिपत्र',
     announcementTitle: 'सार्वजनिक सूचनाएं एवं नागरिक परामर्श',
@@ -372,6 +405,17 @@ export const translations = {
     stepperVerified: 'पडताळणी पूर्ण',
     stepperDispatched: 'पाठवले',
 
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'नागरिक पोर्टल प्रवेश',
+    portalAccessBadge: 'अधिकृत पासपोर्ट सेवा',
+    portalAccessDesc: 'थेट अर्जाची प्रगती तपासण्यासाठी, अपॉइंटमेंट स्लॉट बुक करण्यासाठी किंवा नवीन पासपोर्ट अर्ज दाखल करण्यासाठी कृपया आपल्या नोंदणीकृत खात्यात लॉगिन करा.',
+    portalLoginBtn: 'ट्रॅक व अर्ज करण्यासाठी लॉगिन करा',
+    portalRegisterBtn: 'नवीन नागरिक खाते नोंदणी करा',
+    portalAuthWhyTitle: 'प्रमाणीकरण का आवश्यक आहे:',
+    portalAuthWhy1: 'अर्ज ट्रॅकिंग केवळ सत्यापित नागरिक ओळखीशी जोडलेले आहे',
+    portalAuthWhy2: 'लॉगिन करताच त्वरित स्पीड पोस्ट पाठवणी स्थिती',
+    portalAuthWhy3: 'कागदपत्रे, चलन आणि पावत्यांचा सुरक्षित साठा',
+
     announcementTag: 'अधिकृत परिपत्रके',
     announcementTitle: 'सार्वजनिक सूचना व मार्गदर्शक तत्त्वे',
     announcementDesc: 'सत्यापित शासकीय सूचना व अद्ययावत घोषणा.',
@@ -464,6 +508,17 @@ export const translations = {
     stepperBiometrics: 'பயோமெட்ரிக்ஸ்',
     stepperVerified: 'சரிபார்க்கப்பட்டது',
     stepperDispatched: 'அனுப்பப்பட்டது',
+
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'குடிமக்கள் போர்டல் நுழைவு',
+    portalAccessBadge: 'அதிகாரப்பூர்வ பாஸ்போர்ட் சேவைகள்',
+    portalAccessDesc: 'நேரலை விண்ணப்ப நிலையை கண்காணிக்க, முன்பதிவு செய்ய அல்லது புதிய விண்ணப்பத்தை சமர்ப்பிக்க உங்கள் கணக்கில் உள்நுழையவும்.',
+    portalLoginBtn: 'கண்காணிக்க மற்றும் விண்ணப்பிக்க உள்நுழைக',
+    portalRegisterBtn: 'புதிய குடிமக்கள் கணக்கை பதிவு செய்க',
+    portalAuthWhyTitle: 'உறுதிப்படுத்தல் ஏன் தேவைப்படுகிறது:',
+    portalAuthWhy1: 'விண்ணப்ப கண்காணிப்பு சரிபார்க்கப்பட்ட அடையாளத்துடன் இணைக்கப்பட்டுள்ளது',
+    portalAuthWhy2: 'உள்நுழைந்தவுடன் உடனடி ஸ்பீட் போஸ்ட் நிலை விவரங்கள்',
+    portalAuthWhy3: 'ஆவணங்கள், கட்டண ரசீதுகள் மற்றும் அப்பாயிண்ட்மெண்ட் ரசீதுகளின் பாதுகாப்பு',
     announcementTag: 'அறிவிப்புகள்',
     announcementTitle: 'அதிகாரப்பூர்வ சுற்றறிக்கைகள்',
     announcementDesc: 'சமீபத்திய அரசு சுற்றறிக்கைகள்.',
@@ -548,6 +603,17 @@ export const translations = {
     stepperBiometrics: 'బయోమెట్రిక్స్',
     stepperVerified: 'ధృవీకరించబడింది',
     stepperDispatched: 'పంపబడింది',
+
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'పౌర పోర్టల్ యాక్సెస్',
+    portalAccessBadge: 'అధికారిక పాస్‌పోర్ట్ సేవలు',
+    portalAccessDesc: 'లైవ్ దరఖాస్తు పురోగతిని ట్రాక్ చేయడానికి, అపాయింట్‌మెంట్ స్లాట్‌లను బుక్ చేయడానికి లేదా కొత్త పాస్‌పోర్ట్ దరఖాస్తును సమర్పించడానికి లాగిన్ అవ్వండి.',
+    portalLoginBtn: 'ట్రాక్ & దరఖాస్తు చేయడానికి లాగిన్ చేయండి',
+    portalRegisterBtn: 'కొత్త పౌర ఖాతాను నమోదు చేయండి',
+    portalAuthWhyTitle: 'ప్రామాణీకరణ ఎందుకు అవసరం:',
+    portalAuthWhy1: 'దరఖాస్తు ట్రాకింగ్ ధృవీకరించబడిన పౌర గుర్తింపుతో మాత్రమే ముడిపడి ఉంది',
+    portalAuthWhy2: 'లాగిన్ అయిన వెంటనే స్పీడ్ పోస్ట్ డిస్పాచ్ స్థితి',
+    portalAuthWhy3: 'పత్రాలు, చెల్లింపు చలానాలు మరియు రసీదుల సురక్షిత నిల్వ',
     announcementTag: 'ప్రకటనలు',
     announcementTitle: 'అధికారిక సర్క్యులర్లు',
     announcementDesc: 'తాజా ప్రభుత్వ ప్రకటనలు.',
@@ -632,6 +698,17 @@ export const translations = {
     stepperBiometrics: 'বায়োমেট্রিক্স',
     stepperVerified: 'যাচাইকৃত',
     stepperDispatched: 'প্রেরিত',
+
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'নাগরিক পোর্টাল অ্যাক্সেস',
+    portalAccessBadge: 'অফিসিয়াল পাসপোর্ট সেবা',
+    portalAccessDesc: 'লাইভ আবেদন অগ্রগতি ট্র্যাক করতে, অ্যাপয়েন্টমেন্ট বুক করতে বা নতুন আবেদন জমা দিতে আপনার নাগরিক অ্যাকাউন্টে লগইন করুন।',
+    portalLoginBtn: 'ট্র্যাক ও আবেদন করতে লগইন করুন',
+    portalRegisterBtn: 'নতুন নাগরিক অ্যাকাউন্ট তৈরি করুন',
+    portalAuthWhyTitle: 'কেন প্রমাণীকরণ প্রয়োজন:',
+    portalAuthWhy1: 'আবেদন ট্র্যাকিং যাচাইকৃত নাগরিক পরিচয়ের সাথে যুক্ত',
+    portalAuthWhy2: 'লগইন করলেই তৎক্ষণাৎ স্পিড পোস্ট প্রেরণ স্থিতি',
+    portalAuthWhy3: 'নথিপত্র, চালান এবং রসিদের নিরাপদ সংরক্ষণ',
     announcementTag: 'বিজ্ঞপ্তি',
     announcementTitle: 'অফিসিয়াল বিজ্ঞপ্তি',
     announcementDesc: 'সরকারি বিজ্ঞপ্তি।',
@@ -716,6 +793,17 @@ export const translations = {
     stepperBiometrics: 'ಬಯೋಮೆಟ್ರಿಕ್ಸ್',
     stepperVerified: 'ಪರಿಶೀಲಿಸಲಾಗಿದೆ',
     stepperDispatched: 'ರವಾನಿಸಲಾಗಿದೆ',
+
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'ನಾಗರಿಕ ಪೋರ್ಟಲ್ ಪ್ರವೇಶ',
+    portalAccessBadge: 'ಅಧಿಕೃತ ಪಾಸ್‌ಪೋರ್ಟ್ ಸೇವೆಗಳು',
+    portalAccessDesc: 'ಅರ್ಜಿ ಪ್ರಗತಿಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಲು, ಅಪಾಯಿಂಟ್‌ಮೆಂಟ್ ಸ್ಲಾಟ್‌ಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲು ಅಥವಾ ಹೊಸ ಅರ್ಜಿ ಸಲ್ಲಿಸಲು ದಯವಿಟ್ಟು ಲಾಗಿನ್ ಮಾಡಿ.',
+    portalLoginBtn: 'ಟ್ರ್ಯಾಕ್ ಮತ್ತು ಅರ್ಜಿಗಾಗಿ ಲಾಗಿನ್ ಮಾಡಿ',
+    portalRegisterBtn: 'ಹೊಸ ನಾಗರಿಕ ಖಾತೆಯನ್ನು ನೋಂದಾಯಿಸಿ',
+    portalAuthWhyTitle: 'ದೃಢೀಕರಣ ಏಕೆ ಅಗತ್ಯವಿದೆ:',
+    portalAuthWhy1: 'ಅರ್ಜಿ ಟ್ರ್ಯಾಕಿಂಗ್ ಪರಿಶೀಲಿಸಿದ ನಾಗರಿಕ ಗುರುತಿನೊಂದಿಗೆ ಲಿಂಕ್ ಆಗಿದೆ',
+    portalAuthWhy2: 'ಲಾಗಿನ್ ಆದ ತಕ್ಷಣ ಸ್ಪೀಡ್ ಪೋಸ್ಟ್ ರವಾನೆ ಸ್ಥಿತಿ',
+    portalAuthWhy3: 'ದಾಖಲೆಗಳು, ಪಾವತಿ ಚಲನ್ ಮತ್ತು ರಸೀದಿಗಳ ಸುರಕ್ಷಿತ ಸಂಗ್ರಹ',
     announcementTag: 'ಪ್ರಕಟಣೆಗಳು',
     announcementTitle: 'ಅಧಿಕೃತ ಸುತ್ತೋಲೆಗಳು',
     announcementDesc: 'ಸರ್ಕಾರಿ ಪ್ರಕಟಣೆಗಳು.',
@@ -800,6 +888,17 @@ export const translations = {
     stepperBiometrics: 'ബയോമെട്രിക്സ്',
     stepperVerified: 'സ്ഥിരീകരിച്ചു',
     stepperDispatched: 'അയച്ചു',
+
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'പൗര പോർട്ടൽ പ്രവേശനം',
+    portalAccessBadge: 'ഔദ്യോഗിക പാസ്‌പോർട്ട് സേവനങ്ങൾ',
+    portalAccessDesc: 'അപേക്ഷ പുരോഗതി തത്സമയം പരിശോധിക്കുന്നതിനും അപ്പോയിന്റ്മെന്റ് ബുക്ക് ചെയ്യുന്നതിനും ദയവായി ലോഗിൻ ചെയ്യുക.',
+    portalLoginBtn: 'ട്രാക്ക് ചെയ്യാനും അപേക്ഷിക്കാനും ലോഗിൻ ചെയ്യുക',
+    portalRegisterBtn: 'പുതിയ അക്കൗണ്ട് രജിസ്റ്റർ ചെയ്യുക',
+    portalAuthWhyTitle: 'സ്ഥിരീകരണം എന്തിന് ആവശ്യമാണ്:',
+    portalAuthWhy1: 'അപേക്ഷ പരിശോധന പൗരന്റെ തിരിച്ചറിയൽ വിവരങ്ങളുമായി ബന്ധിപ്പിച്ചിരിക്കുന്നു',
+    portalAuthWhy2: 'ലോഗിൻ ചെയ്യുമ്പോൾ തന്നെ സ്പീഡ് പോസ്റ്റ് നില അറിയാം',
+    portalAuthWhy3: 'രേഖകളുടെയും പേയ്മെന്റ് രസീതുകളുടെയും സുരക്ഷിത സംഭരണം',
     announcementTag: 'അറിയിപ്പുകൾ',
     announcementTitle: 'ഔദ്യോഗിക അറിയിപ്പുകൾ',
     announcementDesc: 'സർക്കാർ അറിയിപ്പുകൾ.',
@@ -884,6 +983,17 @@ export const translations = {
     stepperBiometrics: 'ਬਾਇਓਮੈਟ੍ਰਿਕਸ',
     stepperVerified: 'ਪ੍ਰਮਾਣਿਤ',
     stepperDispatched: 'ਭੇਜਿਆ ਗਿਆ',
+
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'ਨਾਗਰਿਕ ਪੋਰਟਲ ਪਹੁੰਚ',
+    portalAccessBadge: 'ਸਰਕਾਰੀ ਪਾਸਪੋਰਟ ਸੇਵਾਵਾਂ',
+    portalAccessDesc: 'ਲਾਈਵ ਅਰਜ਼ੀ ਸਥਿਤੀ ਟਰੈਕ ਕਰਨ, ਅਪਾਇੰਟਮੈਂਟ ਬੁੱਕ ਕਰਨ ਜਾਂ ਨਵਾਂ ਪਾਸਪੋਰਟ ਅਪਲਾਈ ਕਰਨ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਲੌਗਇਨ ਕਰੋ।',
+    portalLoginBtn: 'ਟਰੈਕ ਅਤੇ ਅਪਲਾਈ ਕਰਨ ਲਈ ਲੌਗਇਨ ਕਰੋ',
+    portalRegisterBtn: 'ਨਵਾਂ ਨਾਗਰਿਕ ਖਾਤਾ ਬਣਾਓ',
+    portalAuthWhyTitle: 'ਪ੍ਰਮਾਣੀਕਰਨ ਕਿਉਂ ਜ਼ਰੂਰੀ ਹੈ:',
+    portalAuthWhy1: 'ਅਰਜ਼ੀ ਟਰੈਕਿੰਗ ਸਿਰਫ ਤਸਦੀਕਸ਼ੁਦਾ ਨਾਗਰਿਕ ਪਛਾਣ ਨਾਲ ਜੁੜੀ ਹੈ',
+    portalAuthWhy2: 'ਲੌਗਇਨ ਕਰਦੇ ਹੀ ਤੁਰੰਤ ਸਪੀਡ ਪੋਸਟ ਡਿਸਪੈਚ ਸਥਿਤੀ',
+    portalAuthWhy3: 'ਦਸਤਾਵੇਜ਼ਾਂ, ਭੁਗਤਾਨ ਚਲਾਨਾਂ ਅਤੇ ਰਸੀਦਾਂ ਦੀ ਸੁਰੱਖਿਅਤ ਸਾਂਭ-ਸੰਭਾਲ',
     announcementTag: 'ਸੂਚਨਾਵਾਂ',
     announcementTitle: 'ਅਧਿਕਾਰਤ ਸਰਕੂਲਰ',
     announcementDesc: 'ਸਰਕਾਰੀ ਸੂਚਨਾਵਾਂ।',
@@ -968,6 +1078,17 @@ export const translations = {
     stepperBiometrics: 'ବାୟୋମେଟ୍ରିକ୍ସ',
     stepperVerified: 'ଯାଞ୍ଚ ହୋଇଛି',
     stepperDispatched: 'ପଠାଯାଇଛି',
+
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'ନାଗରିକ ପୋର୍ଟାଲ୍ ପ୍ରବେଶ',
+    portalAccessBadge: 'ସରକାରୀ ପାସପୋର୍ଟ ସେବା',
+    portalAccessDesc: 'ଆବେଦନ ସ୍ଥିତି ଟ୍ରାକ୍ କରିବା, ସ୍ଲଟ୍ ବୁକ୍ କରିବା କିମ୍ବା ନୂଆ ଆବେଦନ କରିବା ପାଇଁ ଦୟାକରି ଲଗଇନ୍ କରନ୍ତୁ।',
+    portalLoginBtn: 'ଟ୍ରାକ୍ ଏବଂ ଆବେଦନ ପାଇଁ ଲଗଇନ୍ କରନ୍ତୁ',
+    portalRegisterBtn: 'ନୂତନ ନାଗରିକ ଖାତା ପଞ୍ଜୀକରଣ କରନ୍ତୁ',
+    portalAuthWhyTitle: 'ପ୍ରମାଣୀକରଣ କାହିଁକି ଆବଶ୍ୟକ:',
+    portalAuthWhy1: 'ଆବେଦନ ଟ୍ରାକିଂ ପ୍ରମାଣିତ ନାଗରିକ ପରିଚୟ ସହିତ ଯୋଡି ହୋଇଛି',
+    portalAuthWhy2: 'ଲଗଇନ୍ କଲା ମାତ୍ରେ ସ୍ପିଡ୍ ପୋଷ୍ଟ ପ୍ରେରଣ ସ୍ଥିତି',
+    portalAuthWhy3: 'ଦଲିଲପତ୍ର ଏବଂ ଦେୟ ରସିଦଗୁଡ଼ିକର ସୁରକ୍ଷିତ ସଂରକ୍ଷଣ',
     announcementTag: 'ବିଜ୍ଞପ୍ତି',
     announcementTitle: 'ଅଫିସିଆଲ୍ ସର୍କୁଲାର୍',
     announcementDesc: 'ସରକାରୀ ବିଜ୍ଞପ୍ତି।',
@@ -1052,6 +1173,17 @@ export const translations = {
     stepperBiometrics: 'বায়’মেট্ৰিক্স',
     stepperVerified: 'পৰীক্ষিত',
     stepperDispatched: 'প্ৰেৰণ কৰা হ’ল',
+
+    // Citizen Portal Access (Pre-Login)
+    portalAccessTitle: 'নাগৰিক প’ৰ্টেল প্ৰৱেশ',
+    portalAccessBadge: 'চৰকাৰী পাছপ’ৰ্ট সেৱা',
+    portalAccessDesc: 'আবেদনৰ অগ্ৰগতি পৰীক্ষা কৰিবলৈ, এপইণ্টমেণ্ট বুক কৰিবলৈ বা নতুন আবেদন দাখিল কৰিবলৈ অনুগ্ৰহ কৰি লগইন কৰক।',
+    portalLoginBtn: 'ট্ৰেক আৰু আবেদনৰ বাবে লগইন কৰক',
+    portalRegisterBtn: 'নতুন নাগৰিক একাউণ্ট পঞ্জীয়ন কৰক',
+    portalAuthWhyTitle: 'প্ৰমাণীকৰণ কিয় প্ৰয়োজনীয়:',
+    portalAuthWhy1: 'আবেদন ট্ৰেকিং পৰীক্ষিত নাগৰিক পৰিচয়ৰ সৈতে সংযুক্ত',
+    portalAuthWhy2: 'লগইন কৰাৰ লগে লগে স্পীড প’ষ্ট প্ৰেৰণ স্থিতি',
+    portalAuthWhy3: 'নথিপত্ৰ আৰু মাচুল ৰচিদৰ সুৰক্ষিত সংৰক্ষণ',
     announcementTag: 'বিজ্ঞপ্তি',
     announcementTitle: 'আনুষ্ঠানিক জাননী',
     announcementDesc: 'চৰকাৰী জাননী।',

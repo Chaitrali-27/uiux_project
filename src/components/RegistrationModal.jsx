@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { XIcon, AlertCircleIcon, CheckIcon, InfoIcon, ShieldIcon } from './Icons';
 
 const FormErrorMsg = ({ msg }) => {
@@ -25,6 +25,12 @@ const FormErrorMsg = ({ msg }) => {
 
 export const RegistrationModal = ({ isOpen, onClose, initialMode = 'register', onSuccess }) => {
   const [mode, setMode] = useState(initialMode);
+
+  useEffect(() => {
+    if (isOpen) {
+      setMode(initialMode);
+    }
+  }, [isOpen, initialMode]);
 
   // Form Fields as per Official Passport Seva Portal (passportindia.gov.in)
   const [registerAt, setRegisterAt] = useState('rpo');

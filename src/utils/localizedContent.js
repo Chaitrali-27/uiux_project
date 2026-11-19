@@ -753,7 +753,7 @@ export const getLocalizedServices = (lang = 'en') => {
   return data[lang] || data.en || data.hi;
 };
 
-export const getLocalizedDocuments = (lang = 'en', applicantType = 'adult', reason = 'fresh') => {
+export const getLocalizedDocuments = (lang = 'en', applicantType = 'adult', reason = 'fresh', educationLevel = 'graduate') => {
   const dictionary = {
     en: {
       badge: 'Tailored Document Checklist',
@@ -1156,23 +1156,170 @@ export const getLocalizedDocuments = (lang = 'en', applicantType = 'adult', reas
     lost: current.lost
   };
 
-  const docs = [
-    {
+  const docs = [];
+
+  // 1. Loss or Re-issue specific documents
+  if (reason === 'lost') {
+    docs.push({
+      category: lang === 'hi' ? 'खोए / क्षतिग्रस्त पासपोर्ट का पुलिस सत्यापन एवं शपथ पत्र' : 'Police FIR & Loss Declaration (Mandatory)',
+      mandatory: true,
+      options: lang === 'hi' ? [
+        'स्थानीय पुलिस स्टेशन द्वारा दर्ज मूल प्रथम सूचना रिपोर्ट (FIR) / लॉस्ट रिपोर्ट',
+        'गैर-न्यायिक स्टांप पेपर पर शपथ पत्र (परिशिष्ट/Annexure F)',
+        'खोए हुए पासपोर्ट के प्रथम एवं अंतिम पृष्ठ की स्व-सत्यापित प्रति (यदि उपलब्ध हो)'
+      ] : [
+        'Certified Police FIR / Official Lost Report from jurisdictional police station',
+        'Sworn Affidavit on non-judicial stamp paper in Annexure "F" explaining loss circumstances',
+        'Self-attested photocopy of first 2 and last 2 pages of lost passport (if available)'
+      ]
+    });
+  } else if (reason === 'reissue') {
+    docs.push({
+      category: lang === 'hi' ? 'मूल पासपोर्ट पुस्तिका का समर्पण' : 'Existing Passport Booklet Submission (Mandatory)',
+      mandatory: true,
+      options: lang === 'hi' ? [
+        'मूल पुराना / समाप्त / समाप्त होने वाला पासपोर्ट',
+        'प्रथम दो पृष्ठ, अंतिम दो पृष्ठ और ईसीआर/गैर-ईसीआर पृष्ठ की स्व-सत्यापित छायाप्रतियां',
+        'व्यक्तिगत विवरण में परिवर्तन का दस्तावेजी प्रमाण (यदि लागू हो, जैसे विवाह प्रमाण पत्र/गज़ट)'
+      ] : [
+        'Original Old / Expired / Expiring Passport booklet',
+        'Self-attested photocopies of first two, last two, and ECR/Non-ECR pages',
+        'Documentary proof for change in personal particulars (e.g., Marriage Certificate, Gazette Notification, if applicable)'
+      ]
+    });
+  }
+
+  // 2. Address Proof (customized for minor, senior, adult)
+  if (applicantType === 'minor') {
+    docs.push({
+      category: lang === 'hi' ? 'माता-पिता के पते का प्रमाण (कोई एक)' : 'Parents\' Present Residential Address Proof (Any One)',
+      mandatory: true,
+      options: lang === 'hi' ? [
+        'माता या पिता के नाम का वर्तमान पते वाला आधार कार्ड',
+        'माता या पिता के पासपोर्ट की वर्तमान पते वाली स्व-सत्यापित प्रति',
+        'माता-पिता के नाम पर सक्रिय बैंक पासबुक / उपयोगिता बिल (बिजली/गैस)'
+      ] : [
+        'Aadhaar Card of either parent with current residential address',
+        'Valid Passport copy of mother/father showing present residential address',
+        'Active Bank Passbook / Electricity Bill / Gas Bill in either parent\'s name'
+      ]
+    });
+  } else if (applicantType === 'senior') {
+    docs.push({
+      category: lang === 'hi' ? 'वरिष्ठ नागरिक वर्तमान पते का प्रमाण (कोई एक)' : 'Senior Citizen Residential Address Proof (Any One)',
+      mandatory: true,
+      options: lang === 'hi' ? [
+        'वर्तमान आवासीय पते वाला आधार कार्ड',
+        'पेंशन भुगतान आदेश (PPO) जिसमें वर्तमान पता दर्ज हो',
+        'फोटो सहित बैंक पासबुक / बिजली / पानी / गैस कनेक्शन बिल (अंतिम 2 महीने)',
+        'वरिष्ठ नागरिक पहचान पत्र / मतदाता पहचान पत्र'
+      ] : [
+        'Aadhaar Card with current residential address',
+        'Pension Payment Order (PPO) showing current residential address',
+        'Bank Passbook with photo / Electricity / Water / Gas Bill (Last 2 months)',
+        'Senior Citizen Identity Card / Voter ID Card'
+      ]
+    });
+  } else {
+    docs.push({
       category: current.catAddress,
       mandatory: true,
       options: current.docsAddress
-    },
-    {
+    });
+  }
+
+  // 3. Date of Birth Proof (customized for minor, senior, adult)
+  if (applicantType === 'minor') {
+    docs.push({
+      category: lang === 'hi' ? 'जन्म तिथि का प्रमाण (अनिवार्य नगर निगम प्रमाण पत्र)' : 'Proof of Date of Birth (Municipal Certificate Mandatory)',
+      mandatory: true,
+      options: lang === 'hi' ? [
+        'नगर निगम / जन्म एवं मृत्यु रजिस्ट्रार द्वारा जारी आधिकारिक जन्म प्रमाण पत्र (नाबालिगों के लिए अनिवार्य)',
+        'स्कूल के आधिकारिक लेटरहेड पर बोनाफाइड / स्कूल छोड़ने का प्रमाण पत्र'
+      ] : [
+        'Official Birth Certificate issued by Municipal Corporation / Registrar of Births & Deaths (Mandatory for minors)',
+        'School Bonafide Certificate / School Leaving Certificate on official school letterhead'
+      ]
+    });
+  } else if (applicantType === 'senior') {
+    docs.push({
+      category: lang === 'hi' ? 'वरिष्ठ नागरिक जन्म तिथि / आयु प्रमाण' : 'Senior Citizen Date of Birth / Age Proof',
+      mandatory: true,
+      options: lang === 'hi' ? [
+        'केंद्र/राज्य सरकार द्वारा जारी पेंशन भुगतान आदेश (PPO)',
+        'नगर निगम जन्म प्रमाण पत्र या 10वीं/स्कूल छोड़ने का प्रमाण पत्र',
+        'पूर्ण जन्मतिथि (DD/MM/YYYY) युक्त आधार कार्ड / पैन कार्ड'
+      ] : [
+        'Pension Payment Order (PPO) issued by Central / State Government',
+        'Municipal Birth Certificate or Matriculation / School Leaving Certificate',
+        'Aadhaar Card with full DD/MM/YYYY / PAN Card'
+      ]
+    });
+  } else {
+    docs.push({
       category: current.catDob,
       mandatory: true,
       options: current.docsDob
-    },
-    {
-      category: current.catNonEcr,
+    });
+  }
+
+  // 4. Category-Specific Requirements (Minors Parental Consent, Senior Exemption, or Adult ECR/Non-ECR)
+  if (applicantType === 'minor') {
+    docs.push({
+      category: lang === 'hi' ? 'माता-पिता की सहमति एवं अभिभावक प्रमाण' : 'Parental Consent & Guardianship Proof (Mandatory)',
       mandatory: true,
-      options: current.docsNonEcr
+      options: lang === 'hi' ? [
+        'दोनों माता-पिता द्वारा हस्ताक्षरित परिशिष्ट \'डी\' (Annexure D) सहमति पत्र',
+        'माता एवं पिता दोनों के वैध पासपोर्ट की मूल व स्व-सत्यापित प्रतियां',
+        'एकल माता-पिता / कानूनी अभिभावक के मामले में परिशिष्ट \'सी\' (Annexure C) शपथ पत्र'
+      ] : [
+        'Annexure "D" signed by both parents granting formal consent for minor passport',
+        'Original and self-attested photocopies of valid passports of both parents',
+        'Annexure "C" sworn affidavit (in case of single parent / sole legal guardian)'
+      ]
+    });
+  } else if (applicantType === 'senior') {
+    docs.push({
+      category: lang === 'hi' ? 'वरिष्ठ नागरिक स्वतः नॉन-ईसीआर स्थिति' : 'Senior Citizen Automatic Non-ECR Benefit',
+      mandatory: false,
+      options: lang === 'hi' ? [
+        '60 वर्ष से अधिक आयु के नागरिकों को विदेश मंत्रालय द्वारा स्वतः नॉन-ईसीआर स्थिति प्राप्त (शैक्षणिक प्रमाण की आवश्यकता नहीं)',
+        'उम्र सत्यापन: आधार कार्ड / पेंशन आदेश / वरिष्ठ नागरिक कार्ड',
+        'पासपोर्ट सेवा केंद्र (PSK) पर वरिष्ठ नागरिकों के लिए प्राथमिकता कतार टोकन'
+      ] : [
+        'Automatic Non-ECR status granted under MEA guidelines for citizens aged 60+ (No educational degree needed)',
+        'Age verification (60+ years): Aadhaar / Pension Order / Senior Citizen ID',
+        'Priority Senior Citizen service counter access at Passport Seva Kendra (PSK)'
+      ]
+    });
+  } else {
+    // Adult: Depends on educationLevel
+    if (educationLevel === 'below_10th') {
+      docs.push({
+        category: lang === 'hi' ? 'ईसीआर श्रेणी (उत्प्रवास जांच आवश्यक)' : 'Emigration Check Required (ECR Category)',
+        mandatory: true,
+        options: lang === 'hi' ? [
+          'पासपोर्ट पुस्तिका पर आधिकारिक ईसीआर स्टाम्प लगाया जाएगा (18 निर्धारित देशों में कार्य हेतु)',
+          'यदि नॉन-ईसीआर छूट चाहते हैं: पिछले 1 वर्ष का आयकर निर्धारण आदेश (ITR) प्रस्तुत करें',
+          '3 वर्ष से अधिक समय तक विदेश में रहने का प्रमाण (यदि छूट का दावा कर रहे हैं)'
+        ] : [
+          'Passport issued with statutory ECR Stamp (Emigration clearance needed for 18 designated countries)',
+          'If seeking ECR Exemption: Income Tax Assessment Order / ITR acknowledgement for last 1 year',
+          'Proof of having stayed abroad for more than 3 continuous years (if applicable for exemption)'
+        ]
+      });
+    } else {
+      docs.push({
+        category: current.catNonEcr,
+        mandatory: true,
+        options: educationLevel === 'graduate' ? [
+          'Graduate Degree / Post-Graduate Passing Certificate from recognized university',
+          'Higher Secondary / 10+2 / Diploma Certificate',
+          '10th Standard / Matriculation Passing Certificate'
+        ] : current.docsNonEcr
+      });
     }
-  ];
+  }
 
   return { labels, docs };
 };

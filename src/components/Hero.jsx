@@ -4,10 +4,14 @@ import { getTranslation } from '../utils/translations';
 
 export const Hero = ({ 
   language = 'en', 
+  userSession = null,
+  onLoginClick,
+  onRegisterClick,
   onApplyClick, 
   onTrackClick, 
   onCheckSlotsClick, 
-  onDocAdvisorClick 
+  onDocAdvisorClick,
+  onFeeClick 
 }) => {
   const t = getTranslation(language);
   const [activeTab, setActiveTab] = useState('file'); // 'file' or 'consignment'
@@ -157,17 +161,120 @@ export const Hero = ({
           </div>
         </div>
 
-        {/* Right Column: Sleek, Compact Live Application Tracker (Fully Translated) */}
-        <div style={{
-          background: '#FFFFFF',
-          borderRadius: '16px',
-          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
-          border: '2px solid var(--gov-gold)',
-          padding: '24px',
-          color: 'var(--text-heading)',
-          maxWidth: '430px',
-          margin: '0 auto'
-        }}>
+        {/* Right Column: Portal Access (Before Login) OR Live Application Tracker (After Login) */}
+        {!userSession ? (
+          <div style={{
+            background: '#FFFFFF',
+            borderRadius: '16px',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+            border: '2px solid var(--gov-gold)',
+            padding: '28px 24px',
+            color: 'var(--text-heading)',
+            maxWidth: '430px',
+            margin: '0 auto',
+            position: 'relative'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+              <div style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '10px',
+                background: 'linear-gradient(135deg, #081E3A 0%, #0F325A 100%)',
+                color: '#FDE047',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 800,
+                fontSize: '18px'
+              }}>
+                🏛️
+              </div>
+              <div>
+                <h3 style={{ fontSize: '17px', fontWeight: 800, margin: 0, color: 'var(--gov-navy)' }}>
+                  {t.portalAccessTitle || 'Citizen Portal Access'}
+                </h3>
+                <span style={{ fontSize: '11.5px', color: '#0F766E', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span>●</span> {t.portalAccessBadge || 'Official Passport Seva Services'}
+                </span>
+              </div>
+            </div>
+
+            <p style={{ fontSize: '13.5px', color: '#475569', lineHeight: 1.5, marginBottom: '20px' }}>
+              {t.portalAccessDesc || 'Please log in to your registered citizen account to track live application progress, book appointment slots, or submit a new passport application.'}
+            </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '20px' }}>
+              <button
+                type="button"
+                className="btn btn-navy"
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  fontSize: '14.5px',
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  borderRadius: '8px'
+                }}
+                onClick={onLoginClick}
+              >
+                <span>🔐 {t.portalLoginBtn || 'Log In to Track & Apply'}</span>
+                <ArrowRightIcon className="w-4 h-4" />
+              </button>
+
+              <button
+                type="button"
+                className="btn btn-saffron"
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  fontSize: '14.5px',
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  borderRadius: '8px'
+                }}
+                onClick={onRegisterClick}
+              >
+                <span>✨ {t.portalRegisterBtn || 'Register New Citizen Account'}</span>
+              </button>
+            </div>
+
+            <div style={{
+              background: '#F8FAFC',
+              borderRadius: '10px',
+              padding: '12px 14px',
+              border: '1px solid #E2E8F0',
+              fontSize: '12px',
+              color: '#64748B',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '6px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#1E293B', fontWeight: 700 }}>
+                <ShieldIcon className="w-4 h-4" style={{ color: '#0F766E' }} />
+                <span>{t.portalAuthWhyTitle || 'Why Authentication is Required:'}</span>
+              </div>
+              <span>• {t.portalAuthWhy1 || 'Application tracking is strictly mapped to verified citizen identity'}</span>
+              <span>• {t.portalAuthWhy2 || 'Instant SpeedPost India Post dispatch status upon login'}</span>
+              <span>• {t.portalAuthWhy3 || 'Safe storage of documents, payment challans, and appointment receipts'}</span>
+            </div>
+          </div>
+        ) : (
+          <div style={{
+            background: '#FFFFFF',
+            borderRadius: '16px',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+            border: '2px solid var(--gov-gold)',
+            padding: '24px',
+            color: 'var(--text-heading)',
+            maxWidth: '430px',
+            margin: '0 auto'
+          }}>
           {/* Card Header & Tracker Mode Tabs */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -351,6 +458,7 @@ export const Hero = ({
             </div>
           </form>
         </div>
+        )}
       </div>
     </section>
   );
