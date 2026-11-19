@@ -1,169 +1,464 @@
 import React, { useState } from 'react';
 import { ArrowRightIcon, ShieldIcon, CheckIcon, SearchIcon, AlertCircleIcon } from './Icons';
+import { getTranslation } from '../utils/translations';
 
-export const Hero = ({ onApplyClick, onTrackClick, onCheckSlotsClick, onFeeClick }) => {
+export const Hero = ({ 
+  language = 'en', 
+  userSession = null,
+  onLoginClick,
+  onRegisterClick,
+  onApplyClick, 
+  onTrackClick, 
+  onCheckSlotsClick, 
+  onDocAdvisorClick,
+  onFeeClick 
+}) => {
+  const t = getTranslation(language);
+  const [activeTab, setActiveTab] = useState('file'); // 'file' or 'consignment'
   const [fileNumber, setFileNumber] = useState('');
   const [dob, setDob] = useState('');
+  const [consignmentNo, setConsignmentNo] = useState('');
   const [trackError, setTrackError] = useState(false);
-  const [trackResult, setTrackResult] = useState(null);
 
   const handleTrackSubmit = (e) => {
     e.preventDefault();
-    if (!fileNumber.trim() || !dob.trim()) {
-      setTrackError(true);
-      return;
+    if (activeTab === 'file') {
+      if (!fileNumber.trim() || !dob.trim()) {
+        setTrackError(true);
+        return;
+      }
+      setTrackError(false);
+      onTrackClick(fileNumber.trim().toUpperCase());
+    } else {
+      if (!consignmentNo.trim()) {
+        setTrackError(true);
+        return;
+      }
+      setTrackError(false);
+      onTrackClick(consignmentNo.trim().toUpperCase());
+    }
+  };
+
+  const handleAutofillSample = () => {
+    if (activeTab === 'file') {
+      setFileNumber('BOM069123456726');
+      setDob('1998-05-15');
+    } else {
+      setConsignmentNo('SP-MH-94821038IN');
     }
     setTrackError(false);
-    setTrackResult({
-      fileNo: fileNumber.toUpperCase(),
-      applicant: 'Chaitrali Kamble',
-      service: 'Fresh Passport (Normal Scheme)',
-      status: 'Passport Printed and Dispatched via Speed Post',
-      trackingNo: 'SP-MH-94821038IN',
-      updatedOn: '24 October 2026'
-    });
   };
 
   return (
-    <section className="hero-section">
-      <div className="container hero-grid">
-        {/* Left Column: Authoritative Value Proposition & Primary Focal Point */}
+    <section className="hero-section" style={{
+      position: 'relative',
+      background: 'linear-gradient(135deg, #051428 0%, #0A2244 50%, #0D2D58 100%)',
+      color: '#FFFFFF',
+      padding: '48px 0 52px 0',
+      borderBottom: '3px solid var(--gov-gold)',
+      overflow: 'hidden',
+      fontFamily: 'var(--font-serif)'
+    }}>
+      {/* Sovereign Tricolor Accent Ribbon */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '4px',
+        background: 'linear-gradient(90deg, #E25822 0%, #FFFFFF 50%, #0F766E 100%)'
+      }} />
+
+      <div className="container" style={{
+        display: 'grid',
+        gridTemplateColumns: '1.25fr 0.95fr',
+        gap: '40px',
+        alignItems: 'center'
+      }}>
+        {/* Left Column: Authoritative, Uncluttered National Value Proposition */}
         <div>
-          <div className="hero-badge">
-            <span className="gold-dot">●</span> Official Digital Gateway • Government of India
+          {/* Official National Portal Tag */}
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'rgba(255, 255, 255, 0.08)',
+            border: '1px solid rgba(194, 147, 41, 0.4)',
+            padding: '6px 14px',
+            borderRadius: '9999px',
+            marginBottom: '18px',
+            fontSize: '12px',
+            color: '#FDE047',
+            fontWeight: 700,
+            letterSpacing: '0.04em'
+          }}>
+            <span>🇮🇳</span>
+            <span>{t.heroTag}</span>
           </div>
 
-          <h1 className="hero-title">
-            Delivering Passport Services with Speed, Transparency & Trust
+          {/* Grand Heading with Dynamic Visual Emphasis */}
+          <h1 style={{
+            fontSize: '36px',
+            fontWeight: 800,
+            lineHeight: 1.25,
+            letterSpacing: '0.02em',
+            marginBottom: '16px',
+            color: '#FFFFFF'
+          }}>
+            {t.heroTitle}
           </h1>
 
-          <p className="hero-subtitle">
-            Apply online for Fresh Passports, Re-issue, Police Clearance Certificates (PCC), or monitor your application progress with real-time dispatch tracking.
+          <p style={{
+            fontSize: '15.5px',
+            lineHeight: 1.6,
+            color: '#E2E8F0',
+            marginBottom: '28px',
+            maxWidth: '560px'
+          }}>
+            {t.heroSubtitle}
           </p>
 
-          {/* Primary Action Focal Point */}
-          <div className="hero-cta-group">
+          {/* Primary Action Buttons — Clean & Uncluttered */}
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '24px' }}>
             <button 
               className="btn btn-saffron btn-lg"
               onClick={onApplyClick}
+              style={{ padding: '12px 24px', fontSize: '15px', fontWeight: 700 }}
               title="Start a new passport application"
             >
-              <span>Apply for Passport</span>
+              <span>{t.applyPassportBtn}</span>
               <ArrowRightIcon className="w-5 h-5" />
             </button>
 
             <button 
               className="btn btn-secondary btn-lg"
-              onClick={onCheckSlotsClick}
+              onClick={onDocAdvisorClick}
+              style={{ background: '#FFFFFF', color: '#081E3A', padding: '12px 20px', fontSize: '15px', fontWeight: 700 }}
             >
-              <span>Check Appointment Slots</span>
+              <span>{t.docAdvisorBtn} 📄</span>
             </button>
 
             <button 
               className="btn btn-outline btn-lg"
-              style={{ color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.3)' }}
-              onClick={onFeeClick}
+              style={{ color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.4)', background: 'rgba(255,255,255,0.08)', padding: '12px 18px', fontSize: '14.5px' }}
+              onClick={onCheckSlotsClick}
             >
-              <span>Fee Calculator</span>
+              <span>{t.checkSlotsBtn} 📅</span>
             </button>
           </div>
 
-          {/* Trust Certifications */}
-          <div className="hero-trust-badges">
-            <div className="trust-badge-item">
-              <ShieldIcon className="w-4 h-4" />
-              <span>Official 256-bit Encrypted Portal</span>
-            </div>
-            <div className="trust-badge-item">
-              <CheckIcon className="w-4 h-4" />
-              <span>550+ Passport Seva & Post Office Centers</span>
-            </div>
+          {/* Clean Single-Line Trust Marks */}
+          <div style={{ display: 'flex', gap: '18px', flexWrap: 'wrap', fontSize: '12.5px', color: '#CBD5E1' }}>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <ShieldIcon className="w-4 h-4" style={{ color: '#FDE047' }} /> {t.trustPill1}
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <CheckIcon className="w-4 h-4" style={{ color: '#86EFAC' }} /> {t.trustPill2}
+            </span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <ShieldIcon className="w-4 h-4" style={{ color: '#93C5FD' }} /> {t.trustPill3}
+            </span>
           </div>
         </div>
 
-        {/* Right Column: Quick Status Tracking Card */}
-        <div className="hero-card">
-          <div className="hero-card-header">
-            <div className="hero-card-title">
-              <SearchIcon className="w-4 h-4" />
-              <span>Quick Application Tracker</span>
-            </div>
-            <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 600 }}>Real-Time Dispatch</span>
-          </div>
-
-          {!trackResult ? (
-            <form onSubmit={handleTrackSubmit}>
-              <div className="form-group">
-                <label className="form-label" htmlFor="hero-file-no">
-                  File Number / Application Reference
-                  <span className="required-star">*</span>
-                </label>
-                <input 
-                  id="hero-file-no"
-                  type="text" 
-                  className={`form-input ${trackError && !fileNumber ? 'is-error' : ''}`}
-                  placeholder="e.g. BOM069123456726" 
-                  value={fileNumber}
-                  onChange={(e) => setFileNumber(e.target.value)}
-                />
-                {trackError && !fileNumber && (
-                  <div className="form-error-msg">
-                    <AlertCircleIcon className="w-3.5 h-3.5" />
-                    <span>Please enter your 15-character File Number</span>
-                  </div>
-                )}
+        {/* Right Column: Portal Access (Before Login) OR Live Application Tracker (After Login) */}
+        {!userSession ? (
+          <div style={{
+            background: '#FFFFFF',
+            borderRadius: '16px',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+            border: '2px solid var(--gov-gold)',
+            padding: '28px 24px',
+            color: 'var(--text-heading)',
+            maxWidth: '430px',
+            margin: '0 auto',
+            position: 'relative'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+              <div style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '10px',
+                background: 'linear-gradient(135deg, #081E3A 0%, #0F325A 100%)',
+                color: '#FDE047',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 800,
+                fontSize: '18px'
+              }}>
+                🏛️
               </div>
-
-              <div className="form-group">
-                <label className="form-label" htmlFor="hero-dob">
-                  Date of Birth
-                  <span className="required-star">*</span>
-                </label>
-                <input 
-                  id="hero-dob"
-                  type="date" 
-                  className={`form-input ${trackError && !dob ? 'is-error' : ''}`}
-                  value={dob}
-                  onChange={(e) => setDob(e.target.value)}
-                />
-                {trackError && !dob && (
-                  <div className="form-error-msg">
-                    <AlertCircleIcon className="w-3.5 h-3.5" />
-                    <span>Please provide your registered Date of Birth</span>
-                  </div>
-                )}
-              </div>
-
-              <button type="submit" className="btn btn-navy" style={{ width: '100%', marginTop: '8px' }}>
-                <SearchIcon className="w-4 h-4" />
-                <span>Track Status Now</span>
-              </button>
-            </form>
-          ) : (
-            <div style={{ background: '#F8FAFC', borderRadius: '10px', padding: '16px', border: '1px solid #E2E8F0' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                <span style={{ fontSize: '13.5px', fontWeight: 700, color: 'var(--gov-navy)' }}>{trackResult.fileNo}</span>
-                <span className="badge-slot">
-                  {trackResult.service}
+              <div>
+                <h3 style={{ fontSize: '17px', fontWeight: 800, margin: 0, color: 'var(--gov-navy)' }}>
+                  {t.portalAccessTitle || 'Citizen Portal Access'}
+                </h3>
+                <span style={{ fontSize: '11.5px', color: '#0F766E', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span>●</span> {t.portalAccessBadge || 'Official Passport Seva Services'}
                 </span>
               </div>
-              <div style={{ fontSize: '14px', fontWeight: 600, color: '#0F766E', marginBottom: '8px' }}>
-                ✓ {trackResult.status}
-              </div>
-              <div style={{ fontSize: '12.5px', color: '#64748B', lineHeight: 1.6 }}>
-                Speed Post Ref: <strong>{trackResult.trackingNo}</strong><br />
-                Last Updated: {trackResult.updatedOn}
-              </div>
-              <button 
-                className="btn btn-secondary btn-sm" 
-                style={{ width: '100%', marginTop: '14px' }}
-                onClick={() => setTrackResult(null)}
+            </div>
+
+            <p style={{ fontSize: '13.5px', color: '#475569', lineHeight: 1.5, marginBottom: '20px' }}>
+              {t.portalAccessDesc || 'Please log in to your registered citizen account to track live application progress, book appointment slots, or submit a new passport application.'}
+            </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '20px' }}>
+              <button
+                type="button"
+                className="btn btn-navy"
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  fontSize: '14.5px',
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  borderRadius: '8px'
+                }}
+                onClick={onLoginClick}
               >
-                Track Another File
+                <span>🔐 {t.portalLoginBtn || 'Log In to Track & Apply'}</span>
+                <ArrowRightIcon className="w-4 h-4" />
+              </button>
+
+              <button
+                type="button"
+                className="btn btn-saffron"
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  fontSize: '14.5px',
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  borderRadius: '8px'
+                }}
+                onClick={onRegisterClick}
+              >
+                <span>✨ {t.portalRegisterBtn || 'Register New Citizen Account'}</span>
               </button>
             </div>
-          )}
+
+            <div style={{
+              background: '#F8FAFC',
+              borderRadius: '10px',
+              padding: '12px 14px',
+              border: '1px solid #E2E8F0',
+              fontSize: '12px',
+              color: '#64748B',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '6px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#1E293B', fontWeight: 700 }}>
+                <ShieldIcon className="w-4 h-4" style={{ color: '#0F766E' }} />
+                <span>{t.portalAuthWhyTitle || 'Why Authentication is Required:'}</span>
+              </div>
+              <span>• {t.portalAuthWhy1 || 'Application tracking is strictly mapped to verified citizen identity'}</span>
+              <span>• {t.portalAuthWhy2 || 'Instant SpeedPost India Post dispatch status upon login'}</span>
+              <span>• {t.portalAuthWhy3 || 'Safe storage of documents, payment challans, and appointment receipts'}</span>
+            </div>
+          </div>
+        ) : (
+          <div style={{
+            background: '#FFFFFF',
+            borderRadius: '16px',
+            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.35)',
+            border: '2px solid var(--gov-gold)',
+            padding: '24px',
+            color: 'var(--text-heading)',
+            maxWidth: '430px',
+            margin: '0 auto'
+          }}>
+          {/* Card Header & Tracker Mode Tabs */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '8px',
+                background: '#081E3A',
+                color: '#FDE047',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontWeight: 700
+              }}>
+                🔍
+              </div>
+              <div>
+                <h3 style={{ fontSize: '16px', fontWeight: 700, margin: 0, color: 'var(--gov-navy)' }}>
+                  {t.trackBoxTitle}
+                </h3>
+                <span style={{ fontSize: '11px', color: '#0F766E', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <span>●</span> {t.trackBoxBadge}
+                </span>
+              </div>
+            </div>
+
+            {/* Autofill Sample Button */}
+            <button
+              type="button"
+              onClick={handleAutofillSample}
+              style={{
+                background: '#FEF3C7',
+                border: '1px solid #FCD34D',
+                color: '#92400E',
+                borderRadius: '6px',
+                padding: '4px 8px',
+                fontSize: '11px',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+              title="Click to fill sample file BOM069123456726"
+            >
+              {t.sampleFillBtn}
+            </button>
+          </div>
+
+          {/* Mode Switch Tabs */}
+          <div style={{ display: 'flex', background: '#F1F5F9', borderRadius: '8px', padding: '3px', marginBottom: '16px' }}>
+            <button
+              type="button"
+              onClick={() => { setActiveTab('file'); setTrackError(false); }}
+              style={{
+                flex: 1,
+                padding: '7px',
+                border: 'none',
+                background: activeTab === 'file' ? '#FFFFFF' : 'none',
+                color: activeTab === 'file' ? 'var(--gov-navy)' : '#64748B',
+                fontWeight: 700,
+                fontSize: '12px',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                boxShadow: activeTab === 'file' ? 'var(--shadow-subtle)' : 'none'
+              }}
+            >
+              {t.tabFileNo}
+            </button>
+            <button
+              type="button"
+              onClick={() => { setActiveTab('consignment'); setTrackError(false); }}
+              style={{
+                flex: 1,
+                padding: '7px',
+                border: 'none',
+                background: activeTab === 'consignment' ? '#FFFFFF' : 'none',
+                color: activeTab === 'consignment' ? 'var(--gov-navy)' : '#64748B',
+                fontWeight: 700,
+                fontSize: '12px',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                boxShadow: activeTab === 'consignment' ? 'var(--shadow-subtle)' : 'none'
+              }}
+            >
+              {t.tabSpeedPost}
+            </button>
+          </div>
+
+          <form onSubmit={handleTrackSubmit}>
+            {activeTab === 'file' ? (
+              <>
+                <div style={{ marginBottom: '12px' }}>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '4px' }}>
+                    {t.fileNoLabel} <span style={{ color: 'var(--gov-red)' }}>*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder="e.g. BOM069123456726" 
+                    value={fileNumber}
+                    onChange={(e) => setFileNumber(e.target.value)}
+                    style={{
+                      width: '100%',
+                      padding: '9px 12px',
+                      borderRadius: '8px',
+                      border: trackError && !fileNumber ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)',
+                      fontSize: '13.5px',
+                      color: 'var(--text-heading)'
+                    }}
+                  />
+                  {trackError && !fileNumber && (
+                    <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>
+                      Please enter your File Number
+                    </div>
+                  )}
+                </div>
+
+                <div style={{ marginBottom: '16px' }}>
+                  <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '4px' }}>
+                    {t.dobLabel} <span style={{ color: 'var(--gov-red)' }}>*</span>
+                  </label>
+                  <input 
+                    type="date" 
+                    value={dob}
+                    onChange={(e) => setDob(e.target.value)}
+                    style={{
+                      width: '100%',
+                      padding: '9px 12px',
+                      borderRadius: '8px',
+                      border: trackError && !dob ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)',
+                      fontSize: '13.5px',
+                      color: 'var(--text-heading)'
+                    }}
+                  />
+                  {trackError && !dob && (
+                    <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>
+                      Please provide your registered Date of Birth
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : (
+              <div style={{ marginBottom: '16px' }}>
+                <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: 'var(--gov-navy)', marginBottom: '4px' }}>
+                  {t.barcodeLabel} <span style={{ color: 'var(--gov-red)' }}>*</span>
+                </label>
+                <input 
+                  type="text" 
+                  placeholder="e.g. SP-MH-94821038IN" 
+                  value={consignmentNo}
+                  onChange={(e) => setConsignmentNo(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '9px 12px',
+                    borderRadius: '8px',
+                    border: trackError && !consignmentNo ? '1.5px solid var(--gov-red)' : '1px solid var(--border-medium)',
+                    fontSize: '13.5px',
+                    color: 'var(--text-heading)'
+                  }}
+                />
+                {trackError && !consignmentNo && (
+                  <div style={{ fontSize: '11px', color: 'var(--gov-red)', marginTop: '3px' }}>
+                    Please enter your Speed Post Barcode
+                  </div>
+                )}
+              </div>
+            )}
+
+            <button 
+              type="submit" 
+              className="btn btn-navy" 
+              style={{ width: '100%', padding: '10px', fontSize: '13.5px', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+            >
+              <SearchIcon className="w-4 h-4" />
+              <span>{t.trackStatusBtn}</span>
+            </button>
+
+            {/* Micro Stepper Preview */}
+            <div style={{ marginTop: '14px', paddingTop: '10px', borderTop: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: '#64748B' }}>
+              <span>✓ {t.stepperAccepted}</span>
+              <span>✓ {t.stepperBiometrics}</span>
+              <span style={{ color: '#0F766E', fontWeight: 700 }}>✓ {t.stepperVerified}</span>
+              <span>📦 {t.stepperDispatched}</span>
+            </div>
+          </form>
         </div>
+        )}
       </div>
     </section>
   );
