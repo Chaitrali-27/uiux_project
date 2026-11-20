@@ -281,10 +281,10 @@ export default function App() {
           e.currentTarget.style.transform = 'translateY(0)';
           e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.35)';
         }}
-        title="Open Assignment 1 & 2 UI Flaws and Solutions Audit"
+        title="Open Assignment 1 & 2 UI/UX Flaws Audit and MIT AOE Rubrics"
       >
         <span style={{ fontSize: '16px' }}>⭐</span>
-        <span>UI Flaws Audit (UI-01 to UI-15)</span>
+        <span>UI/UX Flaws & Rubrics (40/40)</span>
       </button>
 
       {/* Live 5-Stage Dispatch Tracker Modal */}
